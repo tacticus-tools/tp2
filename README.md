@@ -1,5 +1,7 @@
 Welcome to your new TanStack app! 
 
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/tacticus-tools/tp2?utm_source=oss&utm_medium=github&utm_campaign=tacticus-tools%2Ftp2&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+
 # Getting Started
 
 ## Runtime & Package Manager
