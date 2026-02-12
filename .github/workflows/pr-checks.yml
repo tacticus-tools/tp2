@@ -5,7 +5,7 @@ on:
 
 jobs:
   lint-check:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       contents: read
     steps:
@@ -20,7 +20,7 @@ jobs:
       - name: Lint Code
         run: bun run lint
   format-check:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       contents: read
     steps:
@@ -35,7 +35,7 @@ jobs:
       - name: Check Code Formatting
         run: bun run format
   type-check:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       contents: read
     steps:
@@ -50,7 +50,7 @@ jobs:
       - name: Check Types
         run: bun run tsc --noEmit
   test-check:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       contents: read
     steps:
