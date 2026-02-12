@@ -16,7 +16,8 @@
     "deploy": "bun run build && wrangler deploy",
     "format": "biome format",
     "lint": "biome lint",
-    "check": "biome check"
+    "check": "biome check",
+    "fix": "biome check --fix"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.0",
