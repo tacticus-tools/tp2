@@ -8,20 +8,31 @@ This project uses [Bun](https://bun.sh/) as the runtime and package manager. If 
 
 ## Setup Env Variables
 
-To get the convex env variables configured, run the following command:
+To install the dependencies and get the convex env variables configured, run the following command:
 
 ```bash
-bun convex dev
+bun init
 ```
 
-## Install Dependencies & Run
+There will be some prompts for your convex setup.
+If you don't have a convex account you can create one for free at [Convex](https://convex.dev/).
+If you don't want to use a shared dev server then it gives you the option to run a local convex server.
+
+## Run Development Servers
 
 To run this application:
 
 ```bash
-bun install
 bun dev
 ```
+
+There are subcommands available to run just the frontend or backend development servers:
+
+```bash
+bun dev:frontend
+bun dev:backend
+```
+
 
 # Building For Production
 
