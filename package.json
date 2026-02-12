@@ -13,6 +13,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest",
     "deploy": "bun run build && wrangler deploy",
     "format": "biome format",
     "lint": "biome lint",
@@ -47,18 +49,20 @@
     "@biomejs/biome": "2.2.4",
     "@tanstack/devtools-vite": "^0.3.12",
     "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
+    "@types/bun": "latest",
     "@types/node": "^22.19.11",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/ui": "^4.0.18",
     "babel-plugin-react-compiler": "^1.0.0",
-    "jsdom": "^27.4.0",
+    "happy-dom": "^20.6.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vitest": "^3.2.4",
     "web-vitals": "^5.1.0",
-    "wrangler": "^4.65.0",
-    "@types/bun": "latest"
+    "wrangler": "^4.65.0"
   }
 }
