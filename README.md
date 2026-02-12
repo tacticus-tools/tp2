@@ -2,6 +2,20 @@ Welcome to your new TanStack app!
 
 # Getting Started
 
+## Runtime & Package Manager
+
+This project uses [Bun](https://bun.sh/) as the runtime and package manager. If you don't have Bun installed you can follow the instructions on the [Bun website](https://bun.sh/).
+
+## Setup Env Variables
+
+To get the convex env variables configured, run the following command:
+
+```bash
+bun convex dev
+```
+
+## Install Dependencies & Run
+
 To run this application:
 
 ```bash
@@ -50,9 +64,14 @@ This project uses [TanStack Router](https://tanstack.com/router). The initial se
 
 To add a new route to your application just add another a new file in the `./src/routes` directory.
 
-TanStack will automatically generate the content of the route file for you.
+TanStack will automatically generate the content of the route file for you while the development server is running.
+The file name will determine the path of the route. For example if you create a file called `about.tsx` in the `./src/routes` directory it will create a route at the `/about` path.
 
-Now that you have two routes you can use a `Link` component to navigate between them.
+It provides a typesafe `Link` component to navigate between them.
+
+Tanstack Router is a powerful routing library that provides a lot of features out of the box.
+You can find out more about it in the [TanStack Router documentation](https://tanstack.com/router/latest/docs/framework/react/overview).
+It takes a different approach to routing than traditional React Router and we highly recommend checking out the documentation to understand how it works.
 
 ### Adding Links
 
