@@ -6,6 +6,10 @@ Welcome to your new TanStack app!
 
 This project uses [Bun](https://bun.sh/) as the runtime and package manager. If you don't have Bun installed you can follow the instructions on the [Bun website](https://bun.sh/).
 
+## Development
+
+Instructions for individual code editors are listed in their respective `<editor-name>/README.md` files. If your code editor is not listed, you can follow the general instructions in this README to get started.
+
 ## Setup Env Variables
 
 To install the dependencies and get the convex env variables configured, run the following command:

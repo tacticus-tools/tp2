@@ -11,3 +11,7 @@ count.txt
 .output
 .vinxi
 todos.json
+
+# Editor settings
+.vscode/settings.json
+.zed/settings.json

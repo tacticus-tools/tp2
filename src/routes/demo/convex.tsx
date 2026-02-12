@@ -88,6 +88,7 @@ function ConvexTodos() {
 							className="flex-1 px-4 py-3 rounded-xl border-2 border-green-200 focus:border-green-400 focus:outline-none text-gray-800 placeholder-gray-500 bg-white/80 transition-colors"
 						/>
 						<button
+							type="button"
 							onClick={handleAddTodo}
 							disabled={!newTodo.trim()}
 							className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl"
@@ -128,6 +129,7 @@ function ConvexTodos() {
 									}}
 								>
 									<button
+										type="button"
 										onClick={() => handleToggleTodo(todo._id)}
 										className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
 											todo.completed
@@ -149,6 +151,7 @@ function ConvexTodos() {
 									</span>
 
 									<button
+										type="button"
 										onClick={() => handleRemoveTodo(todo._id)}
 										className="flex-shrink-0 p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
 									>
