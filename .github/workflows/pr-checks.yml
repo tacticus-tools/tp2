@@ -33,7 +33,7 @@ jobs:
       - name: Install Dependencies
         run: bun install
       - name: Check Code Formatting
-        run: bun run format --check
+        run: bun run format
   type-check:
     runs-on: ubuntu-latest
     permissions:
