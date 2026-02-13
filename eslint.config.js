@@ -1,3 +1,4 @@
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import convexPlugin from "@convex-dev/eslint-plugin";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
 import tanstackRouter from "@tanstack/eslint-plugin-router";
@@ -5,6 +6,7 @@ import tseslint from "@typescript-eslint/eslint-plugin";
 import parser from "@typescript-eslint/parser";
 import jestDom from "eslint-plugin-jest-dom";
 import testingLibrary from "eslint-plugin-testing-library";
+import zustandRules from "eslint-plugin-zustand-rules";
 
 export default [
 	{
@@ -26,6 +28,8 @@ export default [
 			"@tanstack/query": tanstackQuery,
 			"@tanstack/router": tanstackRouter,
 			"@typescript-eslint": tseslint,
+			"better-tailwindcss": betterTailwindcss,
+			"zustand-rules": zustandRules,
 		},
 		rules: {
 			"@tanstack/query/exhaustive-deps": "error",
@@ -33,6 +37,13 @@ export default [
 			"@tanstack/query/stable-query-client": "error",
 			"@tanstack/router/create-route-property-order": "error",
 			"@tanstack/router/route-param-names": "error",
+			"better-tailwindcss/multiline": "warn",
+			"better-tailwindcss/sort-classes": "warn",
+			"zustand-rules/enforce-slices-when-large-state": "warn",
+			"zustand-rules/use-store-selectors": "error",
+			"zustand-rules/no-state-mutation": "error",
+			"zustand-rules/enforce-use-setstate": "error",
+			"zustand-rules/enforce-state-before-actions": "error",
 		},
 	},
 	...convexPlugin.configs.recommended,
