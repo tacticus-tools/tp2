@@ -1,3 +1,4 @@
+import convexPlugin from "@convex-dev/eslint-plugin";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
 import tanstackRouter from "@tanstack/eslint-plugin-router";
 import tseslint from "@typescript-eslint/eslint-plugin";
@@ -34,6 +35,7 @@ export default [
 			"@tanstack/router/route-param-names": "error",
 		},
 	},
+	...convexPlugin.configs.recommended,
 	{
 		files: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}", "**/test-setup.tsx"],
 		languageOptions: {
