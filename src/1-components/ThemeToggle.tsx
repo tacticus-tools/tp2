@@ -9,25 +9,28 @@ import {
 } from "@/1-components/ui/dropdown-menu";
 import { useUserPreferencesStore } from "@/3-hooks/useUserPreferencesStore";
 
+function getSystemTheme(): "dark" | "light" {
+	return window.matchMedia("(prefers-color-scheme: dark)").matches
+		? "dark"
+		: "light";
+}
+
+function applyTheme(theme: "dark" | "light" | "system") {
+	const root = document.documentElement;
+	root.classList.remove("light", "dark");
+
+	if (theme === "system") {
+		root.classList.add(getSystemTheme());
+	} else {
+		root.classList.add(theme);
+	}
+}
+
 export function ThemeToggle() {
 	const { theme, setTheme } = useUserPreferencesStore();
 
 	useEffect(() => {
-		const root = document.documentElement;
-
-		// Remove existing theme classes
-		root.classList.remove("light", "dark");
-
-		// Apply theme based on preference
-		if (theme === "system") {
-			const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-				.matches
-				? "dark"
-				: "light";
-			root.classList.add(systemTheme);
-		} else {
-			root.classList.add(theme);
-		}
+		applyTheme(theme);
 	}, [theme]);
 
 	// Listen to system theme changes when theme is set to "system"
@@ -35,10 +38,8 @@ export function ThemeToggle() {
 		if (theme !== "system") return;
 
 		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-		const handleChange = (e: MediaQueryListEvent) => {
-			const root = document.documentElement;
-			root.classList.remove("light", "dark");
-			root.classList.add(e.matches ? "dark" : "light");
+		const handleChange = () => {
+			applyTheme(theme);
 		};
 
 		mediaQuery.addEventListener("change", handleChange);
