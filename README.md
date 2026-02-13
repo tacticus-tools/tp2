@@ -335,3 +335,22 @@ Files prefixed with `demo` can be safely deleted. They are there to provide a st
 # Learn More
 
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+
+
+## Folder Structure
+
+```
+tp2/
+├── convex/                    # Convex backend code
+├── public/                    # Static assets
+├── src/                       # Frontend code
+│   ├── 0-routes/              # File based routing (Tanstack Router)
+│   ├── 1-components/          # Reusable UI components
+│   │   └── ui/                # ShadCN UI components
+│   ├── 2-integrations/        # Code for integrating with other tools and services (e.g. React Query, Convex, etc.)
+│   ├── 3-hooks/               # Custom React hooks
+│   ├── 4-lib/                 # Utility functions and libraries
+│   ├── 5-assets/              # Static assets
+│   │   ├── images/            # Image files
+│   │   └── data/              # Data files
+```
