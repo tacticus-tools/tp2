@@ -32,13 +32,20 @@ export default [
 			"zustand-rules": zustandRules,
 		},
 		rules: {
+			// TanStack Query recommended rules
 			"@tanstack/query/exhaustive-deps": "error",
 			"@tanstack/query/no-rest-destructuring": "warn",
 			"@tanstack/query/stable-query-client": "error",
-			"@tanstack/router/create-route-property-order": "error",
+			"@tanstack/query/no-unstable-deps": "error",
+			"@tanstack/query/infinite-query-property-order": "error",
+			"@tanstack/query/no-void-query-fn": "error",
+			"@tanstack/query/mutation-property-order": "error",
+			// TanStack Router recommended rules
+			"@tanstack/router/create-route-property-order": "warn",
 			"@tanstack/router/route-param-names": "error",
-			"better-tailwindcss/multiline": "warn",
-			"better-tailwindcss/sort-classes": "warn",
+			// better-tailwindcss recommended rules
+			...betterTailwindcss.configs.recommended.rules,
+			// Zustand recommended rules
 			"zustand-rules/enforce-slices-when-large-state": "warn",
 			"zustand-rules/use-store-selectors": "error",
 			"zustand-rules/no-state-mutation": "error",
