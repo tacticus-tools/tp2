@@ -10,7 +10,7 @@ import tsPlugin from 'typescript-eslint';
 
 // General Notes:
 // - We use Biome as our primary linter. EsLint is only used for plugins that Biome doesn't support.
-// - The Convex Plugin version we have installed (1.1.0) is broken on EsLint 10.0.0. Don't upgrade EsLint until Convex releases a fix
+// - The Convex Plugin version we have installed (1.1.1) is broken on EsLint 10.0.0. Don't upgrade EsLint until Convex releases a fix
 
 export default defineConfig([
   {
