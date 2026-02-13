@@ -13,6 +13,7 @@ import {
 	X,
 } from "lucide-react";
 import { useState } from "react";
+import ClerkHeader from "@/2-integrations/clerk/header-user.tsx";
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ export default function Header() {
 		<>
 			<header
 				data-testid="header"
-				className="p-4 flex items-center bg-gray-800 text-white shadow-lg"
+				className="p-4 flex items-center justify-between bg-gray-800 text-white shadow-lg w-full"
 			>
 				<button
 					type="button"
@@ -43,6 +44,7 @@ export default function Header() {
 						/>
 					</Link>
 				</h1>
+				<ClerkHeader />
 			</header>
 
 			<aside
@@ -201,6 +203,19 @@ export default function Header() {
 					>
 						<Globe size={20} />
 						<span className="font-medium">Convex</span>
+					</Link>
+
+					<Link
+						to="/demo/clerk"
+						onClick={() => setIsOpen(false)}
+						className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+						activeProps={{
+							className:
+								"flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2",
+						}}
+					>
+						<Globe size={20} />
+						<span className="font-medium">Clerk</span>
 					</Link>
 
 					<Link
