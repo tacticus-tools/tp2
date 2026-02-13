@@ -1,4 +1,8 @@
 node_modules
+
+# npm lock file - bun.lock is the canonical lock file
+package-lock.json
+
 .DS_Store
 dist
 dist-ssr
