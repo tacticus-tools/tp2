@@ -58,6 +58,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.2.4",
 		"@tanstack/devtools-vite": "^0.3.12",
+		"@tanstack/eslint-plugin-query": "^5.91.4",
 		"@tanstack/eslint-plugin-router": "^1.155.0",
 		"@testing-library/dom": "^10.4.1",
 		"@testing-library/jest-dom": "^6.9.1",
@@ -72,6 +73,8 @@
 		"@vitest/ui": "^4.0.18",
 		"babel-plugin-react-compiler": "^1.0.0",
 		"eslint": "^10.0.0",
+		"eslint-plugin-jest-dom": "^5.5.0",
+		"eslint-plugin-testing-library": "^7.15.4",
 		"happy-dom": "^20.6.1",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1",
