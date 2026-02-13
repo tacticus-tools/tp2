@@ -13,6 +13,7 @@ import {
 	X,
 } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/1-components/ThemeToggle";
 import ConvexHeader from "@/2-integrations/convex/header-user";
 
 export default function Header() {
@@ -44,7 +45,10 @@ export default function Header() {
 						/>
 					</Link>
 				</h1>
-				<ConvexHeader />
+				<div className="flex items-center gap-2">
+					<ThemeToggle />
+					<ConvexHeader />
+				</div>
 			</header>
 
 			<aside
