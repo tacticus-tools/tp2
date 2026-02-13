@@ -342,7 +342,7 @@ You can learn more about all of the offerings from TanStack in the [TanStack doc
 ```
 tp2/
 ├── convex/                    # Convex backend code
-├── public/                    # Static assets
+├── public/                    # Static assets that are exempt from the build process (e.g. favicon, manifest, etc.)
 ├── src/                       # Frontend code
 │   ├── 0-routes/              # File based routing (Tanstack Router)
 │   ├── 1-components/          # Reusable UI components
@@ -350,7 +350,7 @@ tp2/
 │   ├── 2-integrations/        # Code for integrating with other tools and services (e.g. React Query, Convex, etc.)
 │   ├── 3-hooks/               # Custom React hooks
 │   ├── 4-lib/                 # Utility functions and libraries
-│   ├── 5-assets/              # Static assets
+│   ├── 5-assets/              # Static assets that we want processed with Vite's asset handling
 │   │   ├── images/            # Image files
-│   │   └── data/              # Data files
+│   │   └── data/              # Static data files
 ```
