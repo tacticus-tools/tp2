@@ -1,5 +1,5 @@
-import { expect, vi } from "vitest";
 import * as matchers from "@testing-library/jest-dom/matchers";
+import { expect, vi } from "vitest";
 
 expect.extend(matchers);
 
@@ -11,7 +11,7 @@ vi.mock("@tanstack/react-router", () => ({
 	useRouter: () => ({
 		navigate: vi.fn(),
 	}),
-	createFileRoute: (_path: string) => (routeOptions: any) => ({
+	createFileRoute: (_path: string) => (routeOptions: unknown) => ({
 		options: routeOptions,
 		useLoaderData: vi.fn(),
 		useSearch: vi.fn(),

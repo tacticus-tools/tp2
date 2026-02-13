@@ -13,7 +13,7 @@ import {
 	X,
 } from "lucide-react";
 import { useState } from "react";
-import ClerkHeader from "@/2-integrations/clerk/header-user.tsx";
+import ConvexHeader from "@/2-integrations/convex/header-user.tsx";
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function Header() {
 						/>
 					</Link>
 				</h1>
-				<ClerkHeader />
+				<ConvexHeader />
 			</header>
 
 			<aside
