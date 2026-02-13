@@ -13,7 +13,7 @@ import {
 	X,
 } from "lucide-react";
 import { useState } from "react";
-import ConvexHeader from "@/2-integrations/convex/header-user.tsx";
+import ConvexHeader from "@/2-integrations/convex/header-user";
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);

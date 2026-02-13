@@ -1,5 +1,5 @@
+import { fileURLToPath, URL } from "node:url";
 import viteReact from "@vitejs/plugin-react";
-
 import { defineConfig } from "vitest/config";
 
 // ToDo: Keep an eye out for a better resolution to the "module is not defined" errors
@@ -9,6 +9,11 @@ import { defineConfig } from "vitest/config";
 // `vitest --config vite.config.ts` doesn't work, so we need to have a separate config file for testing.
 
 export default defineConfig({
+	resolve: {
+		alias: {
+			"@": fileURLToPath(new URL("./src", import.meta.url)),
+		},
+	},
 	plugins: [
 		viteReact({
 			babel: {
