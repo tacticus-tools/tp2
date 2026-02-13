@@ -18,8 +18,8 @@ import {
 	useReactTable,
 } from "@tanstack/react-table";
 import React from "react";
-import type { Person } from "@/data/demo-table-data";
-import { makeData } from "@/data/demo-table-data";
+import type { Person } from "@/5-data/demo-table-data";
+import { makeData } from "@/5-data/demo-table-data";
 
 export const Route = createFileRoute("/demo/table")({
 	component: TableDemo,
@@ -35,6 +35,7 @@ declare module "@tanstack/react-table" {
 }
 
 // Define a custom fuzzy filter function that will apply ranking info to rows (using match-sorter utils)
+// biome-ignore lint/suspicious/noExplicitAny: demo code
 const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
 	// Rank the item
 	const itemRank = rankItem(row.getValue(columnId), value);
@@ -49,13 +50,16 @@ const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
 };
 
 // Define a custom fuzzy sort function that will sort by rank if the row has ranking information
+// biome-ignore lint/suspicious/noExplicitAny: demo code
 const fuzzySort: SortingFn<any> = (rowA, rowB, columnId) => {
 	let dir = 0;
 
 	// Only sort by rank if the column has ranking information
 	if (rowA.columnFiltersMeta[columnId]) {
 		dir = compareItems(
+			// biome-ignore lint/style/noNonNullAssertion: demo code
 			rowA.columnFiltersMeta[columnId]?.itemRank!,
+			// biome-ignore lint/style/noNonNullAssertion: demo code
 			rowB.columnFiltersMeta[columnId]?.itemRank!,
 		);
 	}
@@ -72,6 +76,7 @@ function TableDemo() {
 	);
 	const [globalFilter, setGlobalFilter] = React.useState("");
 
+	// biome-ignore lint/suspicious/noExplicitAny: demo code
 	const columns = React.useMemo<ColumnDef<Person, any>[]>(
 		() => [
 			{
@@ -315,6 +320,7 @@ function TableDemo() {
 	);
 }
 
+// biome-ignore lint/suspicious/noExplicitAny: demo code
 function Filter({ column }: { column: Column<any, unknown> }) {
 	const columnFilterValue = column.getFilterValue();
 

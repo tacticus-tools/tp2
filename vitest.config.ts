@@ -17,7 +17,7 @@ export default defineConfig({
     }),
   ],
   test: {
-		setupFiles: ["src/test-utils/test-setup.tsx"],
+		setupFiles: ["./test-setup.tsx"],
     environment: 'happy-dom',
     server: {
       // let Vite pre-bundle CJS deps so that it doesn't blow up with "module is not defined" errors
