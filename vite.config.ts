@@ -22,7 +22,10 @@ const config = defineConfig({
 			projects: ["./tsconfig.json"],
 		}),
 		tailwindcss(),
-		tanstackStart({ router: { routesDirectory: "0-routes" } }),
+		tanstackStart({
+			spa: { enabled: true },
+			router: { routesDirectory: "0-routes" },
+		}),
 		viteReact({
 			babel: {
 				plugins: ["babel-plugin-react-compiler"],
