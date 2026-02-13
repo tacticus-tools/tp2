@@ -6,7 +6,7 @@ beforeEach(() => {
 	// Clear localStorage before each test
 	localStorage.clear();
 	// Reset the store to initial state
-	useUserPreferencesStore.setState({ theme: "system" });
+	useUserPreferencesStore.setState({ theme: "system", settingsVersion: 0 });
 });
 
 afterEach(() => {
@@ -17,6 +17,7 @@ afterEach(() => {
 test("should initialize with system theme", () => {
 	const { result } = renderHook(() => useUserPreferencesStore());
 	expect(result.current.theme).toBe("system");
+	expect(result.current.settingsVersion).toBe(0);
 });
 
 test("should update theme", () => {
@@ -42,6 +43,7 @@ test("should persist theme to localStorage", () => {
 
 	const parsed = JSON.parse(stored || "{}");
 	expect(parsed.state?.theme).toBe("light");
+	expect(parsed.state?.settingsVersion).toBe(0);
 });
 
 test("should restore theme from localStorage", () => {
@@ -52,7 +54,7 @@ test("should restore theme from localStorage", () => {
 	localStorage.setItem(
 		"user-preferences-storage",
 		JSON.stringify({
-			state: { theme: "dark" },
+			state: { theme: "dark", settingsVersion: 0 },
 			version: 0,
 		}),
 	);
@@ -63,4 +65,5 @@ test("should restore theme from localStorage", () => {
 	// Get current state
 	const state = useUserPreferencesStore.getState();
 	expect(state.theme).toBe("dark");
+	expect(state.settingsVersion).toBe(0);
 });
