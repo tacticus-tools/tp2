@@ -8,21 +8,21 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
-import { Route as DemoTableRouteImport } from './routes/demo/table'
-import { Route as DemoConvexRouteImport } from './routes/demo/convex'
-import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
-import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
-import { Route as DemoFormSimpleRouteImport } from './routes/demo/form.simple'
-import { Route as DemoFormAddressRouteImport } from './routes/demo/form.address'
-import { Route as DemoApiTqTodosRouteImport } from './routes/demo/api.tq-todos'
-import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
-import { Route as DemoStartSsrIndexRouteImport } from './routes/demo/start.ssr.index'
-import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr.spa-mode'
-import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
-import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ssr.data-only'
+import { Route as rootRouteImport } from './0-routes/__root'
+import { Route as IndexRouteImport } from './0-routes/index'
+import { Route as DemoTanstackQueryRouteImport } from './0-routes/demo/tanstack-query'
+import { Route as DemoTableRouteImport } from './0-routes/demo/table'
+import { Route as DemoConvexRouteImport } from './0-routes/demo/convex'
+import { Route as DemoStartServerFuncsRouteImport } from './0-routes/demo/start.server-funcs'
+import { Route as DemoStartApiRequestRouteImport } from './0-routes/demo/start.api-request'
+import { Route as DemoFormSimpleRouteImport } from './0-routes/demo/form.simple'
+import { Route as DemoFormAddressRouteImport } from './0-routes/demo/form.address'
+import { Route as DemoApiTqTodosRouteImport } from './0-routes/demo/api.tq-todos'
+import { Route as DemoApiNamesRouteImport } from './0-routes/demo/api.names'
+import { Route as DemoStartSsrIndexRouteImport } from './0-routes/demo/start.ssr.index'
+import { Route as DemoStartSsrSpaModeRouteImport } from './0-routes/demo/start.ssr.spa-mode'
+import { Route as DemoStartSsrFullSsrRouteImport } from './0-routes/demo/start.ssr.full-ssr'
+import { Route as DemoStartSsrDataOnlyRouteImport } from './0-routes/demo/start.ssr.data-only'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
