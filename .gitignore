@@ -11,6 +11,7 @@ count.txt
 .output
 .vinxi
 todos.json
+package-lock.json
 
 # Editor settings
 .vscode/settings.json
