@@ -11,6 +11,7 @@ const config = defineConfig({
 	resolve: {
 		alias: {
 			"@": fileURLToPath(new URL("./src", import.meta.url)),
+			"~": fileURLToPath(new URL("./convex", import.meta.url)),
 		},
 	},
 	plugins: [

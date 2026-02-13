@@ -103,7 +103,7 @@ export const create = mutation({
 **Calling from Frontend**:
 ```typescript
 import { useQuery, useMutation } from "@convex-dev/react-query";
-import { api } from "../../convex/_generated/api";
+import { api } from "~/_generated/api";
 
 // In component
 const data = useQuery(api.myFunction.get, { id });
@@ -176,7 +176,7 @@ The project uses `@convex-dev/react-query` for seamless Convex + TanStack Query 
 **Usage**:
 ```typescript
 import { useQuery, useMutation } from "@convex-dev/react-query";
-import { api } from "../../../convex/_generated/api";
+import { api } from "~/_generated/api";
 
 // Query
 const { data, isLoading } = useQuery(api.file.functionName, { args });
@@ -260,7 +260,12 @@ The project is configured for Cloudflare deployment via Wrangler.
 Use `@/*` for imports from `src/`:
 ```typescript
 import Header from "@/1-components/Header";
-import { api } from "../../convex/_generated/api"; // Convex uses relative paths
+```
+
+Use `~/*` for imports from `convex/`:
+```typescript
+import { api } from "~/_generated/api";
+import type { Id } from "~/_generated/dataModel";
 ```
 
 ### Component Structure
