@@ -9,21 +9,16 @@ import {
 } from "@/1-components/ui/dropdown-menu";
 import { useUserPreferencesStore } from "@/3-hooks/useUserPreferencesStore";
 
-function getSystemTheme(): "dark" | "light" {
+function getSystemTheme() {
 	return window.matchMedia("(prefers-color-scheme: dark)").matches
 		? "dark"
 		: "light";
 }
 
 function applyTheme(theme: "dark" | "light" | "system") {
-	const root = document.documentElement;
-	root.classList.remove("light", "dark");
-
-	if (theme === "system") {
-		root.classList.add(getSystemTheme());
-	} else {
-		root.classList.add(theme);
-	}
+	const rootClassList = document.documentElement.classList;
+	rootClassList.remove("light", "dark");
+	rootClassList.add(theme === "system" ? getSystemTheme() : theme);
 }
 
 export function ThemeToggle() {
@@ -36,12 +31,10 @@ export function ThemeToggle() {
 	// Listen to system theme changes when theme is set to "system"
 	useEffect(() => {
 		if (theme !== "system") return;
-
 		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 		const handleChange = () => {
 			applyTheme(theme);
 		};
-
 		mediaQuery.addEventListener("change", handleChange);
 		return () => mediaQuery.removeEventListener("change", handleChange);
 	}, [theme]);
