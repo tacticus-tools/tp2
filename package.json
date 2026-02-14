@@ -19,12 +19,13 @@
 		"format": "biome format",
 		"lint": "biome lint && eslint",
 		"check": "biome check",
-		"fix": "biome check --fix"
+		"fix": "biome check --fix",
+		"build-ci": "biome check --fix && eslint --fix . && biome check && eslint . && bun run build"
 	},
 	"dependencies": {
 		"@auth/core": "0.37.0",
 		"@base-ui/react": "^1.2.0",
-"@cloudflare/vite-plugin": "^1.25.0",
+		"@cloudflare/vite-plugin": "^1.25.0",
 		"@convex-dev/auth": "^0.0.90",
 		"@convex-dev/react-query": "0.1.0",
 		"@faker-js/faker": "^10.3.0",

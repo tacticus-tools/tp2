@@ -1,6 +1,6 @@
 import { useAuthActions } from "@convex-dev/auth/react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 export const Route = createFileRoute("/signin")({
 	component: SignInPage,
@@ -19,6 +19,7 @@ function translateError(msg: string): string {
 function SignInPage() {
 	const { signIn } = useAuthActions();
 	const navigate = useNavigate();
+	const uid = useId();
 	const [flow, setFlow] = useState<"signIn" | "signUp">("signIn");
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -82,13 +83,13 @@ function SignInPage() {
 					{flow === "signUp" && (
 						<div>
 							<label
-								htmlFor="name"
+								htmlFor={`${uid}-name`}
 								className="block text-sm font-medium text-gray-300 mb-1"
 							>
 								Name <span className="text-gray-500">(optional)</span>
 							</label>
 							<input
-								id="name"
+								id={`${uid}-name`}
 								type="text"
 								value={name}
 								onChange={(e) => setName(e.target.value)}
@@ -100,13 +101,13 @@ function SignInPage() {
 
 					<div>
 						<label
-							htmlFor="email"
+							htmlFor={`${uid}-email`}
 							className="block text-sm font-medium text-gray-300 mb-1"
 						>
 							Email
 						</label>
 						<input
-							id="email"
+							id={`${uid}-email`}
 							type="email"
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
@@ -118,13 +119,13 @@ function SignInPage() {
 
 					<div>
 						<label
-							htmlFor="password"
+							htmlFor={`${uid}-password`}
 							className="block text-sm font-medium text-gray-300 mb-1"
 						>
 							Password
 						</label>
 						<input
-							id="password"
+							id={`${uid}-password`}
 							type="password"
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
@@ -137,13 +138,13 @@ function SignInPage() {
 					{flow === "signUp" && (
 						<div>
 							<label
-								htmlFor="confirmPassword"
+								htmlFor={`${uid}-confirmPassword`}
 								className="block text-sm font-medium text-gray-300 mb-1"
 							>
 								Confirm password
 							</label>
 							<input
-								id="confirmPassword"
+								id={`${uid}-confirmPassword`}
 								type="password"
 								value={confirmPassword}
 								onChange={(e) => setConfirmPassword(e.target.value)}
@@ -154,9 +155,7 @@ function SignInPage() {
 						</div>
 					)}
 
-					{error && (
-						<p className="text-red-400 text-sm text-center">{error}</p>
-					)}
+					{error && <p className="text-red-400 text-sm text-center">{error}</p>}
 
 					<button
 						type="submit"
@@ -173,9 +172,7 @@ function SignInPage() {
 
 				<button
 					type="button"
-					onClick={() =>
-						switchFlow(flow === "signIn" ? "signUp" : "signIn")
-					}
+					onClick={() => switchFlow(flow === "signIn" ? "signUp" : "signIn")}
 					className="w-full mt-3 text-sm text-gray-400 hover:text-gray-200 transition-colors"
 				>
 					{flow === "signIn"

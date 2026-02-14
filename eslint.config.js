@@ -14,7 +14,12 @@ import tsPlugin from 'typescript-eslint';
 
 export default defineConfig([
   {
-		ignores: ["**/convex/_generated/**", "**/src/routeTree.gen.ts"],
+		ignores: [
+			"**/convex/_generated/**",
+			"**/src/routeTree.gen.ts",
+			"dist/**",
+			"node_modules/**",
+		],
 	},
   tsPlugin.configs.base, // dependency of convex plugin; we use Biome for our base linting so use minimal install
   ...convexPlugin.configs.recommended,

@@ -42,6 +42,25 @@ Convex functions live in `convex/` (outside `src/`). They are not part of the FS
 
 ---
 
+## Pre-commit checklist
+
+**Always run `bun run build-ci` before staging any changes.** Fix all errors it reports before committing.
+
+```sh
+bun run build-ci
+```
+
+The command runs in order:
+1. `biome check --fix` — auto-fixes Biome format + lint issues
+2. `eslint --fix .` — auto-fixes ESLint issues
+3. `biome check` — verifies no remaining Biome issues
+4. `eslint .` — verifies no remaining ESLint issues
+5. `vite build` — TypeScript type-check + production bundle
+
+A commit must only be created after this command exits with code 0.
+
+---
+
 Default to using Bun instead of Node.js.
 
 - Use `bun <file>` instead of `node <file>` or `ts-node <file>`
