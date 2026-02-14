@@ -19,15 +19,23 @@ function NavItem({
 	label: string;
 	onClick?: () => void;
 }) {
+	const base =
+		"group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all";
+
 	return (
 		<Link
 			to={to}
 			onClick={onClick}
-			className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
+			className={cn(
+				base,
+				"text-muted-foreground hover:bg-muted hover:text-foreground",
+			)}
 			activeOptions={{ exact: true }}
 			activeProps={{
-				className:
-					"group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium bg-cyan-950/40 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.1)]",
+				className: cn(
+					base,
+					"bg-cyan-950/40 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.1)]",
+				),
 			}}
 		>
 			<Icon className="size-5 shrink-0 transition-transform group-hover:scale-110" />

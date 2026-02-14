@@ -1,11 +1,13 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
-import { action } from "../_generated/server";
+import { action } from "~/_generated/server";
 import type {
 	TacticusGuildRaidResponse,
 	TacticusGuildResponse,
 	TacticusPlayerResponse,
 } from "./types";
+
+const FETCH_TIMEOUT_MS = 10_000;
 
 async function tacticusFetch<T>(path: string, apiKey: string): Promise<T> {
 	const baseUrl = process.env.TACTICUS_API_BASE;
@@ -13,12 +15,26 @@ async function tacticusFetch<T>(path: string, apiKey: string): Promise<T> {
 		throw new Error("Missing TACTICUS_API_BASE environment variable");
 	}
 
-	const response = await fetch(`${baseUrl}/${path}`, {
-		method: "GET",
-		headers: {
-			"X-API-KEY": apiKey,
-		},
-	});
+	const controller = new AbortController();
+	const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+	let response: Response;
+	try {
+		response = await fetch(`${baseUrl}/${path}`, {
+			method: "GET",
+			headers: { "X-API-KEY": apiKey },
+			signal: controller.signal,
+		});
+	} catch (err) {
+		clearTimeout(timer);
+		if (err instanceof DOMException && err.name === "AbortError") {
+			throw new Error(
+				`Tacticus API request timed out after ${FETCH_TIMEOUT_MS}ms`,
+			);
+		}
+		throw err;
+	}
+	clearTimeout(timer);
 
 	if (!response.ok) {
 		const text = await response.text();
