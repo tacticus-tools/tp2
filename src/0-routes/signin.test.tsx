@@ -86,16 +86,51 @@ test("password mismatch error is shown in signup mode", async () => {
 	fireEvent.change(emailInput, { target: { value: "test@example.com" } });
 	fireEvent.change(passwordInput, { target: { value: "password123" } });
 	fireEvent.change(confirmPasswordInput, { target: { value: "different456" } });
+	// Trigger blur to activate validation
+	fireEvent.blur(confirmPasswordInput);
 
-	// Submit form - find submit button by type
-	const submitButton = container.querySelector('button[type="submit"]');
-	expect(submitButton).toBeTruthy();
-	if (submitButton) {
-		fireEvent.click(submitButton);
-	}
+	// Verify error message appears in field validation (without period at the end)
+	await waitFor(() => {
+		expect(screen.getByText("Passwords do not match")).toBeInTheDocument();
+	});
+});
+
+test("email validation shows error for invalid email", async () => {
+	const Component = Route.options.component as () => JSX.Element;
+	const { container } = render(<Component />);
+
+	const emailInput = container.querySelector(
+		'input[type="email"]',
+	) as HTMLInputElement;
+
+	// Enter invalid email
+	fireEvent.change(emailInput, { target: { value: "notanemail" } });
+	fireEvent.blur(emailInput);
 
 	// Verify error message
 	await waitFor(() => {
-		expect(screen.getByText("Passwords do not match.")).toBeInTheDocument();
+		expect(
+			screen.getByText("Please enter a valid email address"),
+		).toBeInTheDocument();
+	});
+});
+
+test("password validation shows error for short password", async () => {
+	const Component = Route.options.component as () => JSX.Element;
+	const { container } = render(<Component />);
+
+	const passwordInput = container.querySelector(
+		'input[type="password"]',
+	) as HTMLInputElement;
+
+	// Enter short password
+	fireEvent.change(passwordInput, { target: { value: "123" } });
+	fireEvent.blur(passwordInput);
+
+	// Verify error message
+	await waitFor(() => {
+		expect(
+			screen.getByText("Password must be at least 8 characters"),
+		).toBeInTheDocument();
 	});
 });

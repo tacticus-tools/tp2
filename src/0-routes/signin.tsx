@@ -3,6 +3,36 @@ import { useForm } from "@tanstack/react-form";
 import { createFileRoute } from "@tanstack/react-router";
 import { useConvexAuth } from "convex/react";
 import { useEffect, useId, useState } from "react";
+import { z } from "zod";
+
+// Zod validator for TanStack Form
+function zodValidator() {
+	return {
+		validate: ({ value }: { value: unknown }, fn: z.ZodType) => {
+			const result = fn.safeParse(value);
+			if (!result.success) {
+				return result.error.issues[0]?.message ?? "Invalid value";
+			}
+			return undefined;
+		},
+		validateAsync: async ({ value }: { value: unknown }, fn: z.ZodType) => {
+			const result = await fn.safeParseAsync(value);
+			if (!result.success) {
+				return result.error.issues[0]?.message ?? "Invalid value";
+			}
+			return undefined;
+		},
+	};
+}
+
+// Helper to safely render error messages
+function renderError(error: unknown): string {
+	if (typeof error === "string") return error;
+	if (error && typeof error === "object" && "message" in error) {
+		return String(error.message);
+	}
+	return "Invalid value";
+}
 
 export const Route = createFileRoute("/signin")({
 	component: SignInPage,
@@ -35,12 +65,6 @@ function SignInPage() {
 		},
 		onSubmit: async ({ value }) => {
 			setError(null);
-
-			if (flow === "signUp" && value.password !== value.confirmPassword) {
-				setError("Passwords do not match.");
-				return;
-			}
-
 			setLoading(true);
 			try {
 				await signIn("password", {
@@ -95,7 +119,16 @@ function SignInPage() {
 					className="flex flex-col gap-4"
 				>
 					{flow === "signUp" && (
-						<form.Field name="name">
+						<form.Field
+							name="name"
+							validators={{
+								onChange: ({ value }) =>
+									zodValidator().validate(
+										{ value },
+										z.string().max(100, "Name is too long"),
+									),
+							}}
+						>
 							{(field) => (
 								<div>
 									<label
@@ -108,16 +141,32 @@ function SignInPage() {
 										id={`${uid}-name`}
 										type="text"
 										value={field.state.value}
+										onBlur={field.handleBlur}
 										onChange={(e) => field.handleChange(e.target.value)}
 										className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
 										placeholder="Your name"
 									/>
+									{field.state.meta.errors.length > 0 && (
+										<p className="text-red-400 text-xs mt-1">
+											{renderError(field.state.meta.errors[0])}
+										</p>
+									)}
 								</div>
 							)}
 						</form.Field>
 					)}
 
-					<form.Field name="email">
+					<form.Field
+						name="email"
+						validators={{
+							onChange: ({ value }) =>
+								zodValidator().validate(
+									{ value },
+									z.string().email("Please enter a valid email address"),
+								),
+							onChangeAsyncDebounceMs: 500,
+						}}
+					>
 						{(field) => (
 							<div>
 								<label
@@ -130,16 +179,32 @@ function SignInPage() {
 									id={`${uid}-email`}
 									type="email"
 									value={field.state.value}
+									onBlur={field.handleBlur}
 									onChange={(e) => field.handleChange(e.target.value)}
 									required
 									className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
 									placeholder="you@example.com"
 								/>
+								{field.state.meta.errors.length > 0 && (
+									<p className="text-red-400 text-xs mt-1">
+										{renderError(field.state.meta.errors[0])}
+									</p>
+								)}
 							</div>
 						)}
 					</form.Field>
 
-					<form.Field name="password">
+					<form.Field
+						name="password"
+						validators={{
+							onChange: ({ value }) =>
+								zodValidator().validate(
+									{ value },
+									z.string().min(8, "Password must be at least 8 characters"),
+								),
+							onChangeAsyncDebounceMs: 500,
+						}}
+					>
 						{(field) => (
 							<div>
 								<label
@@ -152,17 +217,35 @@ function SignInPage() {
 									id={`${uid}-password`}
 									type="password"
 									value={field.state.value}
+									onBlur={field.handleBlur}
 									onChange={(e) => field.handleChange(e.target.value)}
 									required
 									className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
 									placeholder="••••••••"
 								/>
+								{field.state.meta.errors.length > 0 && (
+									<p className="text-red-400 text-xs mt-1">
+										{renderError(field.state.meta.errors[0])}
+									</p>
+								)}
 							</div>
 						)}
 					</form.Field>
 
 					{flow === "signUp" && (
-						<form.Field name="confirmPassword">
+						<form.Field
+							name="confirmPassword"
+							validators={{
+								onChangeListenTo: ["password"],
+								onChange: ({ value, fieldApi }) => {
+									const password = fieldApi.form.getFieldValue("password");
+									if (value && password && value !== password) {
+										return "Passwords do not match";
+									}
+									return undefined;
+								},
+							}}
+						>
 							{(field) => (
 								<div>
 									<label
@@ -175,11 +258,17 @@ function SignInPage() {
 										id={`${uid}-confirmPassword`}
 										type="password"
 										value={field.state.value}
+										onBlur={field.handleBlur}
 										onChange={(e) => field.handleChange(e.target.value)}
 										required
 										className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
 										placeholder="••••••••"
 									/>
+									{field.state.meta.errors.length > 0 && (
+										<p className="text-red-400 text-xs mt-1">
+											{renderError(field.state.meta.errors[0])}
+										</p>
+									)}
 								</div>
 							)}
 						</form.Field>
