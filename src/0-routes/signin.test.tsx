@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import type { JSX } from "react";
 import { expect, test, vi } from "vitest";
 
 // Mock Convex hooks
@@ -15,7 +16,6 @@ vi.mock("convex/react", () => ({
 }));
 
 // Import after mocks are set up
-// biome-ignore lint/style/useImportType: dynamic import required after mocks
 import { Route } from "./signin";
 
 test("signin form uses TanStack Form for state management", () => {
@@ -23,10 +23,10 @@ test("signin form uses TanStack Form for state management", () => {
 	const { container } = render(<Component />);
 
 	// Verify form is rendered
-	expect(container.querySelector('form')).toBeInTheDocument();
+	expect(container.querySelector("form")).toBeInTheDocument();
 	const emailInputs = screen.getAllByLabelText("Email");
 	const passwordInputs = screen.getAllByLabelText("Password");
-	
+
 	// Verify at least one of each input exists
 	expect(emailInputs.length).toBeGreaterThan(0);
 	expect(passwordInputs.length).toBeGreaterThan(0);
@@ -36,8 +36,12 @@ test("form fields can be filled using TanStack Form", async () => {
 	const Component = Route.options.component as () => JSX.Element;
 	const { container } = render(<Component />);
 
-	const emailInput = container.querySelector('input[type="email"]') as HTMLInputElement;
-	const passwordInput = container.querySelector('input[type="password"]') as HTMLInputElement;
+	const emailInput = container.querySelector(
+		'input[type="email"]',
+	) as HTMLInputElement;
+	const passwordInput = container.querySelector(
+		'input[type="password"]',
+	) as HTMLInputElement;
 
 	expect(emailInput).toBeInTheDocument();
 	expect(passwordInput).toBeInTheDocument();
@@ -54,13 +58,15 @@ test("password mismatch error is shown in signup mode", async () => {
 	const { container } = render(<Component />);
 
 	// Switch to signup mode - find the button by looking for text containing "Sign up"
-	const buttons = container.querySelectorAll('button');
-	const signUpButton = Array.from(buttons).find(btn => 
-		btn.textContent?.includes("Sign up")
+	const buttons = container.querySelectorAll("button");
+	const signUpButton = Array.from(buttons).find((btn) =>
+		btn.textContent?.includes("Sign up"),
 	);
-	
+
 	expect(signUpButton).toBeTruthy();
-	fireEvent.click(signUpButton!);
+	if (signUpButton) {
+		fireEvent.click(signUpButton);
+	}
 
 	// Wait for the confirm password field to appear
 	await waitFor(() => {
@@ -70,7 +76,9 @@ test("password mismatch error is shown in signup mode", async () => {
 	});
 
 	// Fill in form with mismatched passwords
-	const emailInput = container.querySelector('input[type="email"]') as HTMLInputElement;
+	const emailInput = container.querySelector(
+		'input[type="email"]',
+	) as HTMLInputElement;
 	const passwordInputs = container.querySelectorAll('input[type="password"]');
 	const passwordInput = passwordInputs[0] as HTMLInputElement;
 	const confirmPasswordInput = passwordInputs[1] as HTMLInputElement;
@@ -82,7 +90,9 @@ test("password mismatch error is shown in signup mode", async () => {
 	// Submit form - find submit button by type
 	const submitButton = container.querySelector('button[type="submit"]');
 	expect(submitButton).toBeTruthy();
-	fireEvent.click(submitButton!);
+	if (submitButton) {
+		fireEvent.click(submitButton);
+	}
 
 	// Verify error message
 	await waitFor(() => {
