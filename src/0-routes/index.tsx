@@ -162,7 +162,7 @@ function Dashboard() {
 		return <SetupPrompt />;
 	}
 
-	return <DashboardContent credentials={credentials} />;
+	return <DashboardContent hasGuildKey={credentials.hasGuildApiKey} />;
 }
 
 function SetupPrompt() {
@@ -188,11 +188,7 @@ function SetupPrompt() {
 	);
 }
 
-function DashboardContent({
-	credentials,
-}: {
-	credentials: { playerApiKey: string; guildApiKey?: string };
-}) {
+function DashboardContent({ hasGuildKey }: { hasGuildKey: boolean }) {
 	const getPlayerData = useAction(api.tacticus.actions.getPlayerData);
 	const getGuildData = useAction(api.tacticus.actions.getGuildData);
 
@@ -215,9 +211,7 @@ function DashboardContent({
 			setGuildError(null);
 
 			try {
-				const data = await getPlayerData({
-					playerApiKey: credentials.playerApiKey,
-				});
+				const data = await getPlayerData();
 				if (!cancelled) setPlayerData(data);
 			} catch (err) {
 				if (!cancelled)
@@ -226,11 +220,9 @@ function DashboardContent({
 					);
 			}
 
-			if (credentials.guildApiKey) {
+			if (hasGuildKey) {
 				try {
-					const data = await getGuildData({
-						guildApiKey: credentials.guildApiKey,
-					});
+					const data = await getGuildData();
 					if (!cancelled) setGuildData(data);
 				} catch (err) {
 					if (!cancelled)
@@ -247,12 +239,7 @@ function DashboardContent({
 		return () => {
 			cancelled = true;
 		};
-	}, [
-		credentials.playerApiKey,
-		credentials.guildApiKey,
-		getPlayerData,
-		getGuildData,
-	]);
+	}, [hasGuildKey, getPlayerData, getGuildData]);
 
 	if (loading) {
 		return (
@@ -345,7 +332,7 @@ function DashboardContent({
 				</div>
 			)}
 
-			{!credentials.guildApiKey && (
+			{!hasGuildKey && (
 				<Card>
 					<CardContent className="flex items-center gap-4 py-4">
 						<Users className="size-5 shrink-0 text-muted-foreground" />

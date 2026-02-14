@@ -5,8 +5,16 @@ import {
 	useMutation,
 	useQuery,
 } from "convex/react";
-import { AlertTriangle, Check, ExternalLink, Key, Loader2 } from "lucide-react";
-import { useEffect, useId, useState } from "react";
+import {
+	AlertTriangle,
+	Check,
+	ExternalLink,
+	Key,
+	Loader2,
+	ShieldCheck,
+} from "lucide-react";
+import { useId, useState } from "react";
+import { Badge } from "@/1-components/ui/badge";
 import { Button } from "@/1-components/ui/button";
 import {
 	Card,
@@ -62,20 +70,16 @@ function AuthenticatedSettings() {
 	const [saved, setSaved] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
-	useEffect(() => {
-		if (credentials) {
-			setTacticusUserId(credentials.tacticusUserId ?? "");
-			setPlayerApiKey(credentials.playerApiKey);
-			setGuildApiKey(credentials.guildApiKey ?? "");
-		}
-	}, [credentials]);
+	const isLoading = credentials === undefined;
+	const isFirstSetup = credentials === null;
 
 	async function handleSave(e: React.FormEvent) {
 		e.preventDefault();
 		setError(null);
 		setSaved(false);
 
-		if (!playerApiKey.trim()) {
+		// For first setup, player API key is required
+		if (isFirstSetup && !playerApiKey.trim()) {
 			setError("Player API key is required.");
 			return;
 		}
@@ -84,10 +88,12 @@ function AuthenticatedSettings() {
 		try {
 			await saveMutation({
 				tacticusUserId: tacticusUserId.trim() || undefined,
-				playerApiKey: playerApiKey.trim(),
+				playerApiKey: playerApiKey.trim() || undefined,
 				guildApiKey: guildApiKey.trim() || undefined,
 			});
 			setSaved(true);
+			setPlayerApiKey("");
+			setGuildApiKey("");
 			setTimeout(() => setSaved(false), 3000);
 		} catch (err) {
 			setError(
@@ -97,8 +103,6 @@ function AuthenticatedSettings() {
 			setSaving(false);
 		}
 	}
-
-	const isLoading = credentials === undefined;
 
 	return (
 		<div className="space-y-6">
@@ -145,6 +149,16 @@ function AuthenticatedSettings() {
 								</p>
 							</div>
 
+							{!isFirstSetup && (
+								<div className="flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-3">
+									<ShieldCheck className="mt-0.5 size-5 shrink-0 text-emerald-500" />
+									<p className="text-sm text-emerald-200">
+										Your API keys are encrypted at rest. To update a key, enter
+										a new value below. Leave fields empty to keep existing keys.
+									</p>
+								</div>
+							)}
+
 							<div className="space-y-2">
 								<Label htmlFor={`${uid}-tacticusUserId`}>
 									Tacticus User ID{" "}
@@ -153,9 +167,12 @@ function AuthenticatedSettings() {
 								<Input
 									id={`${uid}-tacticusUserId`}
 									type="text"
+									autoComplete="one-time-code"
 									value={tacticusUserId}
 									onChange={(e) => setTacticusUserId(e.target.value)}
-									placeholder="Enter your Tacticus User ID"
+									placeholder={
+										credentials?.tacticusUserId ?? "Enter your Tacticus User ID"
+									}
 								/>
 								<p className="text-xs text-muted-foreground">
 									Used to identify your account in the Guild Raid data.
@@ -163,15 +180,33 @@ function AuthenticatedSettings() {
 							</div>
 
 							<div className="space-y-2">
-								<Label htmlFor={`${uid}-playerApiKey`}>
-									Personal API Key <span className="text-destructive">*</span>
-								</Label>
+								<div className="flex items-center gap-2">
+									<Label htmlFor={`${uid}-playerApiKey`}>
+										Personal API Key{" "}
+										{isFirstSetup && (
+											<span className="text-destructive">*</span>
+										)}
+									</Label>
+									{credentials?.playerApiKeyMask && (
+										<Badge
+											variant="outline"
+											className="font-mono text-xs text-emerald-400"
+										>
+											{credentials.playerApiKeyMask}
+										</Badge>
+									)}
+								</div>
 								<Input
 									id={`${uid}-playerApiKey`}
 									type="password"
+									autoComplete="one-time-code"
 									value={playerApiKey}
 									onChange={(e) => setPlayerApiKey(e.target.value)}
-									placeholder="Enter your Player API key"
+									placeholder={
+										isFirstSetup
+											? "Enter your Player API key"
+											: "Enter new key to replace existing"
+									}
 								/>
 								<p className="text-xs text-muted-foreground">
 									Used to fetch Player data. Player scope is required for this
@@ -180,16 +215,31 @@ function AuthenticatedSettings() {
 							</div>
 
 							<div className="space-y-2">
-								<Label htmlFor={`${uid}-guildApiKey`}>
-									Guild API Key{" "}
-									<span className="text-muted-foreground">(optional)</span>
-								</Label>
+								<div className="flex items-center gap-2">
+									<Label htmlFor={`${uid}-guildApiKey`}>
+										Guild API Key{" "}
+										<span className="text-muted-foreground">(optional)</span>
+									</Label>
+									{credentials?.guildApiKeyMask && (
+										<Badge
+											variant="outline"
+											className="font-mono text-xs text-emerald-400"
+										>
+											{credentials.guildApiKeyMask}
+										</Badge>
+									)}
+								</div>
 								<Input
 									id={`${uid}-guildApiKey`}
 									type="password"
+									autoComplete="one-time-code"
 									value={guildApiKey}
 									onChange={(e) => setGuildApiKey(e.target.value)}
-									placeholder="Enter your Guild API key"
+									placeholder={
+										credentials?.hasGuildApiKey
+											? "Enter new key to replace existing"
+											: "Enter your Guild API key"
+									}
 								/>
 								<p className="text-xs text-muted-foreground">
 									Used to fetch Guild Raid data. Ask your guild leader or
@@ -211,8 +261,10 @@ function AuthenticatedSettings() {
 										<Check className="size-4" />
 										Saved
 									</>
-								) : (
+								) : isFirstSetup ? (
 									"Save credentials"
+								) : (
+									"Update credentials"
 								)}
 							</Button>
 						</form>

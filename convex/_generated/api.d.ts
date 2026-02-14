@@ -12,6 +12,7 @@ import type * as auth from "../auth.js";
 import type * as http from "../http.js";
 import type * as tacticus_actions from "../tacticus/actions.js";
 import type * as tacticus_credentials from "../tacticus/credentials.js";
+import type * as tacticus_crypto from "../tacticus/crypto.js";
 import type * as tacticus_types from "../tacticus/types.js";
 
 import type {
@@ -25,6 +26,7 @@ declare const fullApi: ApiFromModules<{
   http: typeof http;
   "tacticus/actions": typeof tacticus_actions;
   "tacticus/credentials": typeof tacticus_credentials;
+  "tacticus/crypto": typeof tacticus_crypto;
   "tacticus/types": typeof tacticus_types;
 }>;
 

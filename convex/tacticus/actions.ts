@@ -1,6 +1,7 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
-import { action } from "~/_generated/server";
+import { internal } from "../_generated/api";
+import { action } from "../_generated/server";
 import type {
 	TacticusGuildRaidResponse,
 	TacticusGuildResponse,
@@ -46,48 +47,74 @@ async function tacticusFetch<T>(path: string, apiKey: string): Promise<T> {
 	return response.json() as Promise<T>;
 }
 
+async function getCredentials(
+	ctx: { runQuery: typeof Function.prototype },
+	userId: string,
+) {
+	const creds = await ctx.runQuery(internal.tacticus.credentials.getDecrypted, {
+		userId,
+	});
+	if (!creds) {
+		throw new Error("No credentials found. Add your API keys in Settings.");
+	}
+	return creds;
+}
+
 export const getPlayerData = action({
-	args: { playerApiKey: v.string() },
-	handler: async (ctx, args): Promise<TacticusPlayerResponse> => {
+	args: {},
+	handler: async (ctx): Promise<TacticusPlayerResponse> => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		return tacticusFetch<TacticusPlayerResponse>("player", args.playerApiKey);
+		const creds = await getCredentials(ctx, userId);
+		return tacticusFetch<TacticusPlayerResponse>("player", creds.playerApiKey);
 	},
 });
 
 export const getGuildData = action({
-	args: { guildApiKey: v.string() },
-	handler: async (ctx, args): Promise<TacticusGuildResponse> => {
+	args: {},
+	handler: async (ctx): Promise<TacticusGuildResponse> => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		return tacticusFetch<TacticusGuildResponse>("guild", args.guildApiKey);
+		const creds = await getCredentials(ctx, userId);
+		if (!creds.guildApiKey) {
+			throw new Error("No Guild API key configured. Add one in Settings.");
+		}
+		return tacticusFetch<TacticusGuildResponse>("guild", creds.guildApiKey);
 	},
 });
 
 export const getGuildRaidData = action({
-	args: { guildApiKey: v.string() },
-	handler: async (ctx, args): Promise<TacticusGuildRaidResponse> => {
+	args: {},
+	handler: async (ctx): Promise<TacticusGuildRaidResponse> => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
+		const creds = await getCredentials(ctx, userId);
+		if (!creds.guildApiKey) {
+			throw new Error("No Guild API key configured. Add one in Settings.");
+		}
 		return tacticusFetch<TacticusGuildRaidResponse>(
 			"guildRaid",
-			args.guildApiKey,
+			creds.guildApiKey,
 		);
 	},
 });
 
 export const getGuildRaidBySeason = action({
-	args: { guildApiKey: v.string(), season: v.number() },
+	args: { season: v.number() },
 	handler: async (ctx, args): Promise<TacticusGuildRaidResponse> => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
+		const creds = await getCredentials(ctx, userId);
+		if (!creds.guildApiKey) {
+			throw new Error("No Guild API key configured. Add one in Settings.");
+		}
 		return tacticusFetch<TacticusGuildRaidResponse>(
 			`guildRaid/${args.season}`,
-			args.guildApiKey,
+			creds.guildApiKey,
 		);
 	},
 });
