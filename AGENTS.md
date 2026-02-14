@@ -107,11 +107,11 @@ export const create = mutation({
 
 **Calling from Frontend**:
 ```typescript
-import { useQuery, useMutation } from "convex/react";
+import { useQuery } from "@tanstack/react-query";
+import { convexQuery } from "@convex-dev/react-query";
 import { api } from "~/_generated/api";
 
-const data = useQuery(api.myFunction.get, { id });
-const create = useMutation(api.myFunction.create);
+const { data } = useQuery(convexQuery(api.myFunction.get, { id }));
 ```
 
 **Resources**:
@@ -199,12 +199,12 @@ The project uses `@convex-dev/react-query` for Convex + TanStack Query integrati
 
 **Usage**:
 ```typescript
-import { useQuery, useMutation } from "@convex-dev/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { convexQuery } from "@convex-dev/react-query";
 import { api } from "~/_generated/api";
 
-const { data, isLoading } = useQuery(api.file.functionName, { args });
-const mutation = useMutation(api.file.functionName);
-mutation.mutate({ args });
+const { data, isLoading } = useQuery(convexQuery(api.file.functionName, { args }));
+const mutation = useMutation({ mutationFn: ... });
 ```
 
 ## Development Workflow
@@ -232,7 +232,7 @@ Required vars:
 
 ```bash
 bun run build-ci
-# runs: biome check --fix && eslint --fix . && biome check && eslint . && vite build
+# runs: biome check --fix && eslint --fix . && biome check && eslint . && tsc --noEmit && vite build
 ```
 
 ### Testing

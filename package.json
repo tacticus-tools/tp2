@@ -20,7 +20,7 @@
 		"lint": "biome lint && eslint",
 		"check": "biome check",
 		"fix": "biome check --fix",
-		"build-ci": "biome check --fix && eslint --fix . && biome check && eslint . && bun run build"
+		"build-ci": "biome check --fix && eslint --fix . && biome check && eslint . && tsc --noEmit && bun run build"
 	},
 	"dependencies": {
 		"@auth/core": "0.37.0",
