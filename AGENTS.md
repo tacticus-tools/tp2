@@ -23,6 +23,7 @@ tp2/
 │   ├── schema.ts             # Database schema (includes authTables)
 │   ├── auth.ts               # @convex-dev/auth setup (Password + Anonymous)
 │   ├── http.ts               # HTTP routes (auth routes registered here)
+│   ├── env.ts                # Server environment variable validation (T3 Env)
 │   └── *.ts                  # Convex functions (queries, mutations, actions)
 ├── src/                       # Frontend code — FSD layer architecture
 │   ├── 0-routes/             # TanStack Router file-based routes (pages)
@@ -34,7 +35,7 @@ tp2/
 │   ├── 3-hooks/              # Custom React hooks
 │   ├── 4-lib/                # Utility functions and helpers
 │   ├── 5-assets/             # Static assets (images, data)
-│   ├── env.ts                # Environment variable validation (VITE_CONVEX_URL only)
+│   ├── env.ts                # Client environment variable validation (T3 Env)
 │   ├── router.tsx            # Router configuration
 │   └── styles.css            # Global styles
 ├── public/                    # Static assets (served as-is)
@@ -220,11 +221,81 @@ bun run dev:backend
 
 ### Environment Variables
 
-Environment variables are validated using `@t3-oss/env-core` in `src/env.ts`.
-Client-side vars must have `VITE_` prefix.
+This project uses **T3 Env** (`@t3-oss/env-core`) for compile-time type-safety and runtime validation of environment variables.
 
-Required vars:
+#### Overview
+
+- **Frontend variables**: Defined in `src/env.ts`
+  - Uses `import.meta.env` at runtime
+  - Client-side vars must have `VITE_` prefix
+  - Validated on app startup
+
+- **Backend variables**: Defined in `convex/env.ts`
+  - Uses `process.env` at runtime
+  - Available only in Convex functions
+  - Validated when Convex functions are executed
+
+#### Usage
+
+**Never access environment variables directly**. Always import from the env module:
+
+```typescript
+// ❌ Don't do this
+const url = import.meta.env.VITE_CONVEX_URL;
+const apiKey = process.env.ENCRYPTION_KEY;
+
+// ✅ Do this instead
+import { env } from "@/env"; // Frontend
+const url = env.VITE_CONVEX_URL;
+
+import { env } from "../env"; // Convex backend
+const apiKey = env.ENCRYPTION_KEY;
+```
+
+#### Adding New Environment Variables
+
+**Frontend (`src/env.ts`)**:
+1. Add to the `client` object with `VITE_` prefix
+2. Add Zod validator (e.g., `z.string()`, `z.url()`)
+3. Variable will be available as `env.VITE_VARIABLE_NAME`
+
+```typescript
+client: {
+  VITE_CONVEX_URL: z.url(),
+  VITE_NEW_VARIABLE: z.string().min(1),
+}
+```
+
+**Backend (`convex/env.ts`)**:
+1. Add to the `server` object (no prefix required)
+2. Add Zod validator with clear error messages
+3. Variable will be available as `env.VARIABLE_NAME`
+
+```typescript
+server: {
+  ENCRYPTION_KEY: z.string().min(1),
+  NEW_SERVER_VAR: z.url(),
+}
+```
+
+#### Environment Variable Types
+
+For common types, use Zod validators:
+- URLs: `z.url()`
+- Required strings: `z.string().min(1)`
+- Optional strings: `z.string().optional()`
+- Numbers: `z.string().transform(s => parseInt(s, 10)).pipe(z.number())`
+- Booleans: `z.string().transform(s => s === "true")`
+
+#### Required Variables
+
+**Frontend**:
 - `VITE_CONVEX_URL` — Convex deployment URL
+
+**Backend (Convex)**:
+- `CONVEX_SITE_URL` — Site URL for auth configuration
+- `ENCRYPTION_KEY` — Base64-encoded 32-byte encryption key
+- `TACTICUS_API_BASE` — Base URL for Tacticus API
 
 ### Pre-commit
 

@@ -2,6 +2,7 @@ import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
 import { internal } from "../_generated/api";
 import { action } from "../_generated/server";
+import { env } from "../env";
 import type {
 	TacticusGuildRaidResponse,
 	TacticusGuildResponse,
@@ -11,10 +12,7 @@ import type {
 const FETCH_TIMEOUT_MS = 10_000;
 
 async function tacticusFetch<T>(path: string, apiKey: string): Promise<T> {
-	const baseUrl = process.env.TACTICUS_API_BASE;
-	if (!baseUrl) {
-		throw new Error("Missing TACTICUS_API_BASE environment variable");
-	}
+	const baseUrl = env.TACTICUS_API_BASE;
 
 	const controller = new AbortController();
 	const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);

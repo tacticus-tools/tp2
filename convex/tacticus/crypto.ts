@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 const ALGORITHM = "AES-GCM";
 const IV_LENGTH = 12;
 const ENC_PREFIX = "enc:";
@@ -20,16 +22,8 @@ function bytesToBase64(bytes: Uint8Array): string {
 }
 
 async function getKey(): Promise<CryptoKey> {
-	const keyBase64 = process.env.ENCRYPTION_KEY;
-	if (!keyBase64) {
-		throw new Error(
-			"Missing ENCRYPTION_KEY environment variable. Generate one with: openssl rand -base64 32",
-		);
-	}
+	const keyBase64 = env.ENCRYPTION_KEY;
 	const keyBytes = base64ToBytes(keyBase64);
-	if (keyBytes.length !== 32) {
-		throw new Error("ENCRYPTION_KEY must be a base64-encoded 32-byte key");
-	}
 	return crypto.subtle.importKey(
 		"raw",
 		keyBytes.buffer as ArrayBuffer,
