@@ -1,9 +1,15 @@
 
+## Agent Instructions
+
+Always read and follow **`AGENTS.md`** before making any changes. It is the primary reference for project structure, technology choices, code conventions, and the pre-commit workflow.
+
+---
+
 ## Architecture — Feature-Sliced Design (FSD)
 
 This project uses a simplified FSD layer structure. Each `src/` folder is a layer, numbered by abstraction level. **Lower numbers are higher-level (closer to the user); higher numbers are lower-level (more reusable).**
 
-```
+```text
 src/
   0-routes/        # Pages — TanStack Router file routes (one file per URL)
   1-components/    # Shared UI widgets and composite components
