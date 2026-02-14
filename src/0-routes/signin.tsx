@@ -5,8 +5,8 @@ import { useConvexAuth } from "convex/react";
 import { useEffect, useId, useState } from "react";
 import { z } from "zod";
 
-// Zod validator for TanStack Form
-function zodValidator() {
+// Zod validator for TanStack Form - instantiate once
+const zodValidator = () => {
 	return {
 		validate: ({ value }: { value: unknown }, fn: z.ZodType) => {
 			const result = fn.safeParse(value);
@@ -23,7 +23,9 @@ function zodValidator() {
 			return undefined;
 		},
 	};
-}
+};
+
+const validator = zodValidator();
 
 // Helper to safely render error messages
 function renderError(error: unknown): string {
@@ -123,7 +125,7 @@ function SignInPage() {
 							name="name"
 							validators={{
 								onChange: ({ value }) =>
-									zodValidator().validate(
+									validator.validate(
 										{ value },
 										z.string().max(100, "Name is too long"),
 									),
@@ -160,11 +162,10 @@ function SignInPage() {
 						name="email"
 						validators={{
 							onChange: ({ value }) =>
-								zodValidator().validate(
+								validator.validate(
 									{ value },
 									z.string().email("Please enter a valid email address"),
 								),
-							onChangeAsyncDebounceMs: 500,
 						}}
 					>
 						{(field) => (
@@ -198,11 +199,10 @@ function SignInPage() {
 						name="password"
 						validators={{
 							onChange: ({ value }) =>
-								zodValidator().validate(
+								validator.validate(
 									{ value },
 									z.string().min(8, "Password must be at least 8 characters"),
 								),
-							onChangeAsyncDebounceMs: 500,
 						}}
 					>
 						{(field) => (
