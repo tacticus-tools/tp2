@@ -1,118 +1,417 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useAction, useConvexAuth, useQuery } from "convex/react";
 import {
-	Route as RouteIcon,
-	Server,
+	AlertCircle,
+	Key,
+	Loader2,
+	Settings,
 	Shield,
-	Sparkles,
-	Waves,
+	Sword,
+	Swords,
+	Users,
 	Zap,
 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Badge } from "@/1-components/ui/badge";
+import { Button } from "@/1-components/ui/button";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/1-components/ui/card";
+import { api } from "~/_generated/api";
+import type {
+	TacticusGuildResponse,
+	TacticusPlayerResponse,
+	TacticusUnit,
+} from "~/tacticus/types";
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({ component: HomePage });
 
-function App() {
+function HomePage() {
+	const { isLoading, isAuthenticated } = useConvexAuth();
+
+	if (isLoading) {
+		return (
+			<div className="flex items-center justify-center py-20">
+				<Loader2 className="size-8 animate-spin text-muted-foreground" />
+			</div>
+		);
+	}
+
+	if (!isAuthenticated) {
+		return <LandingPage />;
+	}
+
+	return <Dashboard />;
+}
+
+/* ─────────── Anonymous Landing ─────────── */
+
+function LandingPage() {
 	const features = [
 		{
-			icon: <Zap className="w-12 h-12 text-cyan-400" />,
-			title: "Powerful Server Functions",
+			icon: <Sword className="size-8 text-cyan-400" />,
+			title: "Roster Management",
 			description:
-				"Write server-side code that seamlessly integrates with your client components. Type-safe, secure, and simple.",
+				"Track all your characters, their gear, abilities, and progression in one place.",
 		},
 		{
-			icon: <Server className="w-12 h-12 text-cyan-400" />,
-			title: "Flexible Server Side Rendering",
+			icon: <Users className="size-8 text-cyan-400" />,
+			title: "Guild Overview",
 			description:
-				"Full-document SSR, streaming, and progressive enhancement out of the box. Control exactly what renders where.",
+				"Monitor your guild's activity, members, and raid performance at a glance.",
 		},
 		{
-			icon: <RouteIcon className="w-12 h-12 text-cyan-400" />,
-			title: "API Routes",
+			icon: <Zap className="size-8 text-cyan-400" />,
+			title: "Power Analytics",
 			description:
-				"Build type-safe API endpoints alongside your application. No separate backend needed.",
-		},
-		{
-			icon: <Shield className="w-12 h-12 text-cyan-400" />,
-			title: "Strongly Typed Everything",
-			description:
-				"End-to-end type safety from server to client. Catch errors before they reach production.",
-		},
-		{
-			icon: <Waves className="w-12 h-12 text-cyan-400" />,
-			title: "Full Streaming Support",
-			description:
-				"Stream data from server to client progressively. Perfect for AI applications and real-time updates.",
-		},
-		{
-			icon: <Sparkles className="w-12 h-12 text-cyan-400" />,
-			title: "Next Generation Ready",
-			description:
-				"Built from the ground up for modern web applications. Deploy anywhere JavaScript runs.",
+				"Analyze your roster's total power, faction distribution, and growth over time.",
 		},
 	];
 
 	return (
-		<div className="min-h-screen bg-linear-to-b from-slate-900 via-slate-800 to-slate-900">
-			<section className="relative py-20 px-6 text-center overflow-hidden">
-				<div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10"></div>
-				<div className="relative max-w-5xl mx-auto">
-					<div className="flex items-center justify-center gap-6 mb-6">
-						<img
-							src="/tanstack-circle-logo.png"
-							alt="TanStack Logo"
-							className="w-24 h-24 md:w-32 md:h-32"
-						/>
-						<h1 className="text-6xl md:text-7xl font-black text-white tracking-[-0.08em]">
-							<span className="text-gray-300">TANSTACK</span>{" "}
-							<span className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-								START
-							</span>
-						</h1>
-					</div>
-					<p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
-						The framework for next generation AI applications
-					</p>
-					<p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-						Full-stack framework powered by TanStack Router for React and Solid.
-						Build modern applications with server functions, streaming, and type
-						safety.
-					</p>
-					<div className="flex flex-col items-center gap-4">
-						<a
-							href="https://tanstack.com/start"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-cyan-500/50"
-						>
-							Documentation
-						</a>
-						<p className="text-gray-400 text-sm mt-2">
-							Begin your TanStack Start journey by editing{" "}
-							<code className="px-2 py-1 bg-slate-700 rounded text-cyan-400">
-								/src/routes/index.tsx
-							</code>
-						</p>
+		<div className="space-y-12 py-8">
+			<div className="text-center">
+				<div className="mb-4 flex items-center justify-center gap-3">
+					<div className="flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-700 text-2xl font-bold text-white shadow-lg shadow-cyan-500/20">
+						T
 					</div>
 				</div>
-			</section>
+				<h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+					<span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+						Tacticus Planner
+					</span>
+				</h1>
+				<p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+					Your command center for Warhammer 40,000: Tacticus. Connect your
+					account, analyze your roster, and plan your path to victory.
+				</p>
+				<Link to="/signin" className="mt-6 inline-block">
+					<Button size="lg" className="mt-6">
+						Sign in to get started
+					</Button>
+				</Link>
+			</div>
 
-			<section className="py-16 px-6 max-w-7xl mx-auto">
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{features.map((feature) => (
-						<div
-							key={feature.title}
-							className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
-						>
-							<div className="mb-4">{feature.icon}</div>
-							<h3 className="text-xl font-semibold text-white mb-3">
-								{feature.title}
-							</h3>
-							<p className="text-gray-400 leading-relaxed">
-								{feature.description}
-							</p>
-						</div>
-					))}
-				</div>
-			</section>
+			<div className="grid gap-6 md:grid-cols-3">
+				{features.map((f) => (
+					<Card key={f.title}>
+						<CardHeader>
+							<div className="mb-2">{f.icon}</div>
+							<CardTitle>{f.title}</CardTitle>
+						</CardHeader>
+						<CardContent>
+							<p className="text-sm text-muted-foreground">{f.description}</p>
+						</CardContent>
+					</Card>
+				))}
+			</div>
 		</div>
+	);
+}
+
+/* ─────────── Authenticated Dashboard ─────────── */
+
+const RARITY_LABELS: Record<number, string> = {
+	0: "Common",
+	3: "Uncommon",
+	6: "Rare",
+	9: "Epic",
+	12: "Legendary",
+};
+
+const RARITY_COLORS: Record<number, string> = {
+	0: "text-gray-400",
+	3: "text-green-400",
+	6: "text-blue-400",
+	9: "text-purple-400",
+	12: "text-amber-400",
+};
+
+function getRarity(progressionIndex: number) {
+	const thresholds = [12, 9, 6, 3, 0];
+	const t = thresholds.find((v) => progressionIndex >= v) ?? 0;
+	return {
+		label: RARITY_LABELS[t] ?? "Unknown",
+		color: RARITY_COLORS[t] ?? "text-gray-400",
+	};
+}
+
+function computeTotalPower(units: TacticusUnit[]): number {
+	return units.reduce((sum, u) => {
+		const itemPower = u.items.reduce((s, i) => s + i.level, 0);
+		return sum + u.xpLevel + u.rank + itemPower;
+	}, 0);
+}
+
+function Dashboard() {
+	const credentials = useQuery(api.tacticus.credentials.get);
+
+	if (credentials === undefined) {
+		return (
+			<div className="flex items-center justify-center py-20">
+				<Loader2 className="size-8 animate-spin text-muted-foreground" />
+			</div>
+		);
+	}
+
+	if (!credentials) {
+		return <SetupPrompt />;
+	}
+
+	return <DashboardContent credentials={credentials} />;
+}
+
+function SetupPrompt() {
+	return (
+		<div className="flex flex-col items-center gap-6 py-16 text-center">
+			<div className="flex size-16 items-center justify-center rounded-2xl bg-muted">
+				<Key className="size-8 text-muted-foreground" />
+			</div>
+			<div>
+				<h2 className="text-2xl font-bold">Welcome, Commander</h2>
+				<p className="mt-2 max-w-md text-muted-foreground">
+					Connect your Tacticus account to unlock your dashboard. Add your API
+					keys in settings to get started.
+				</p>
+			</div>
+			<Link to="/settings">
+				<Button size="lg">
+					<Settings className="size-4" />
+					Go to Settings
+				</Button>
+			</Link>
+		</div>
+	);
+}
+
+function DashboardContent({
+	credentials,
+}: {
+	credentials: { playerApiKey: string; guildApiKey?: string };
+}) {
+	const getPlayerData = useAction(api.tacticus.actions.getPlayerData);
+	const getGuildData = useAction(api.tacticus.actions.getGuildData);
+
+	const [playerData, setPlayerData] = useState<TacticusPlayerResponse | null>(
+		null,
+	);
+	const [guildData, setGuildData] = useState<TacticusGuildResponse | null>(
+		null,
+	);
+	const [playerError, setPlayerError] = useState<string | null>(null);
+	const [guildError, setGuildError] = useState<string | null>(null);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		let cancelled = false;
+
+		async function fetchData() {
+			setLoading(true);
+			setPlayerError(null);
+			setGuildError(null);
+
+			try {
+				const data = await getPlayerData({
+					playerApiKey: credentials.playerApiKey,
+				});
+				if (!cancelled) setPlayerData(data);
+			} catch (err) {
+				if (!cancelled)
+					setPlayerError(
+						err instanceof Error ? err.message : "Failed to fetch player data",
+					);
+			}
+
+			if (credentials.guildApiKey) {
+				try {
+					const data = await getGuildData({
+						guildApiKey: credentials.guildApiKey,
+					});
+					if (!cancelled) setGuildData(data);
+				} catch (err) {
+					if (!cancelled)
+						setGuildError(
+							err instanceof Error ? err.message : "Failed to fetch guild data",
+						);
+				}
+			}
+
+			if (!cancelled) setLoading(false);
+		}
+
+		fetchData();
+		return () => {
+			cancelled = true;
+		};
+	}, [
+		credentials.playerApiKey,
+		credentials.guildApiKey,
+		getPlayerData,
+		getGuildData,
+	]);
+
+	if (loading) {
+		return (
+			<div className="flex flex-col items-center gap-4 py-20">
+				<Loader2 className="size-8 animate-spin text-cyan-400" />
+				<p className="text-muted-foreground">Loading your command center...</p>
+			</div>
+		);
+	}
+
+	const units = playerData?.player.units ?? [];
+	const totalPower = computeTotalPower(units);
+	const topUnits = [...units].sort((a, b) => b.xpLevel - a.xpLevel).slice(0, 8);
+
+	return (
+		<div className="space-y-6">
+			{/* Hero */}
+			<div>
+				<h1 className="text-2xl font-bold tracking-tight md:text-3xl">
+					Command Center
+				</h1>
+				<p className="text-muted-foreground">
+					Your Tacticus operational overview.
+				</p>
+			</div>
+
+			{/* Stats row */}
+			<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				<StatCard
+					icon={<Zap className="size-5 text-cyan-400" />}
+					label="Total Power"
+					value={totalPower.toLocaleString()}
+				/>
+				<StatCard
+					icon={<Swords className="size-5 text-cyan-400" />}
+					label="Characters"
+					value={units.length.toString()}
+				/>
+				{guildData && (
+					<>
+						<StatCard
+							icon={<Shield className="size-5 text-cyan-400" />}
+							label="Guild"
+							value={guildData.guild.name}
+						/>
+						<StatCard
+							icon={<Users className="size-5 text-cyan-400" />}
+							label="Members"
+							value={guildData.guild.members.length.toString()}
+						/>
+					</>
+				)}
+			</div>
+
+			{/* Errors */}
+			{playerError && <ErrorBanner message={playerError} />}
+			{guildError && <ErrorBanner message={guildError} />}
+
+			{/* Top roster */}
+			{topUnits.length > 0 && (
+				<div>
+					<h2 className="mb-4 text-lg font-semibold">Top Characters</h2>
+					<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+						{topUnits.map((unit) => (
+							<UnitCard key={unit.id} unit={unit} />
+						))}
+					</div>
+				</div>
+			)}
+
+			{/* Guild info */}
+			{guildData && (
+				<div>
+					<h2 className="mb-4 text-lg font-semibold">Guild</h2>
+					<Card>
+						<CardHeader>
+							<CardTitle className="flex items-center gap-2">
+								<Shield className="size-5" />
+								{guildData.guild.name}
+								<Badge variant="outline">[{guildData.guild.guildTag}]</Badge>
+							</CardTitle>
+							<CardDescription>Level {guildData.guild.level}</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<p className="text-sm text-muted-foreground">
+								{guildData.guild.members.length} members
+							</p>
+						</CardContent>
+					</Card>
+				</div>
+			)}
+
+			{!credentials.guildApiKey && (
+				<Card>
+					<CardContent className="flex items-center gap-4 py-4">
+						<Users className="size-5 shrink-0 text-muted-foreground" />
+						<p className="text-sm text-muted-foreground">
+							Add a Guild API key in{" "}
+							<Link to="/settings" className="text-cyan-400 hover:underline">
+								Settings
+							</Link>{" "}
+							to see guild data here.
+						</p>
+					</CardContent>
+				</Card>
+			)}
+		</div>
+	);
+}
+
+function StatCard({
+	icon,
+	label,
+	value,
+}: {
+	icon: React.ReactNode;
+	label: string;
+	value: string;
+}) {
+	return (
+		<Card>
+			<CardContent className="flex items-center gap-3 py-4">
+				{icon}
+				<div>
+					<p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+						{label}
+					</p>
+					<p className="text-lg font-bold">{value}</p>
+				</div>
+			</CardContent>
+		</Card>
+	);
+}
+
+function UnitCard({ unit }: { unit: TacticusUnit }) {
+	const { label, color } = getRarity(unit.progressionIndex);
+
+	return (
+		<Card>
+			<CardContent className="space-y-1 py-3">
+				<p className="truncate text-sm font-semibold">{unit.name}</p>
+				<div className="flex items-center gap-2">
+					<Badge variant="secondary" className="text-xs">
+						Lv {unit.xpLevel}
+					</Badge>
+					<span className={`text-xs font-medium ${color}`}>{label}</span>
+				</div>
+			</CardContent>
+		</Card>
+	);
+}
+
+function ErrorBanner({ message }: { message: string }) {
+	return (
+		<Card className="border-destructive/50 bg-destructive/5">
+			<CardContent className="flex items-center gap-3 py-3">
+				<AlertCircle className="size-5 shrink-0 text-destructive" />
+				<p className="text-sm text-destructive">{message}</p>
+			</CardContent>
+		</Card>
 	);
 }

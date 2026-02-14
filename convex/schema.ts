@@ -4,13 +4,10 @@ import { v } from "convex/values";
 
 export default defineSchema({
 	...authTables,
-	products: defineTable({
-		title: v.string(),
-		imageId: v.string(),
-		price: v.number(),
-	}),
-	todos: defineTable({
-		text: v.string(),
-		completed: v.boolean(),
-	}),
+	tacticusCredentials: defineTable({
+		userId: v.id("users"),
+		tacticusUserId: v.optional(v.string()),
+		playerApiKey: v.string(),
+		guildApiKey: v.optional(v.string()),
+	}).index("by_userId", ["userId"]),
 });

@@ -1,6 +1,7 @@
 import { useAuthActions } from "@convex-dev/auth/react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useId, useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useConvexAuth } from "convex/react";
+import { useEffect, useId, useState } from "react";
 
 export const Route = createFileRoute("/signin")({
 	component: SignInPage,
@@ -18,7 +19,7 @@ function translateError(msg: string): string {
 
 function SignInPage() {
 	const { signIn } = useAuthActions();
-	const navigate = useNavigate();
+	const { isAuthenticated } = useConvexAuth();
 	const uid = useId();
 	const [flow, setFlow] = useState<"signIn" | "signUp">("signIn");
 	const [name, setName] = useState("");
@@ -28,13 +29,20 @@ function SignInPage() {
 	const [error, setError] = useState<string | null>(null);
 	const [loading, setLoading] = useState(false);
 
+	// Redirect when auth state becomes authenticated
+	useEffect(() => {
+		if (isAuthenticated) {
+			window.location.href = "/";
+		}
+	}, [isAuthenticated]);
+
 	function switchFlow(next: "signIn" | "signUp") {
 		setFlow(next);
 		setError(null);
 		setConfirmPassword("");
 	}
 
-	async function handleSubmit(e: React.FormEvent) {
+	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
 		setError(null);
 
@@ -44,32 +52,24 @@ function SignInPage() {
 		}
 
 		setLoading(true);
-		try {
-			await signIn("password", {
-				email,
-				password,
-				flow,
-				...(flow === "signUp" && name.trim() ? { name: name.trim() } : {}),
-			});
-			navigate({ to: "/" });
-		} catch (err) {
+		void signIn("password", {
+			email,
+			password,
+			flow,
+			...(flow === "signUp" && name.trim() ? { name: name.trim() } : {}),
+		}).catch((err: unknown) => {
 			setError(translateError(err instanceof Error ? err.message : ""));
-		} finally {
 			setLoading(false);
-		}
+		});
 	}
 
-	async function handleAnonymous() {
+	function handleAnonymous() {
 		setError(null);
 		setLoading(true);
-		try {
-			await signIn("anonymous");
-			navigate({ to: "/" });
-		} catch (err) {
+		void signIn("anonymous").catch((err: unknown) => {
 			setError(err instanceof Error ? err.message : "Authentication failed.");
-		} finally {
 			setLoading(false);
-		}
+		});
 	}
 
 	return (

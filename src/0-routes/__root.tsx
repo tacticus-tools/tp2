@@ -6,7 +6,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import Header from "@/1-components/Header";
+import AppLayout from "@/1-components/AppLayout";
 
 import ConvexProvider from "@/2-integrations/convex/provider";
 import TanStackQueryDevtools from "@/2-integrations/tanstack-query/devtools";
@@ -27,7 +27,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "TanStack Start Starter",
+				title: "Tacticus Planner",
 			},
 		],
 		links: [
@@ -38,6 +38,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 		],
 	}),
 
+	component: AppLayout,
 	shellComponent: RootDocument,
 });
 
@@ -49,7 +50,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			</head>
 			<body>
 				<ConvexProvider>
-					<Header />
 					{children}
 					<TanStackDevtools
 						config={{
