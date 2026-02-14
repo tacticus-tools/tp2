@@ -22,9 +22,10 @@
 		"fix": "biome check --fix"
 	},
 	"dependencies": {
+		"@auth/core": "0.37.0",
 		"@base-ui/react": "^1.2.0",
-		"@clerk/clerk-react": "^5.60.0",
-		"@cloudflare/vite-plugin": "^1.25.0",
+"@cloudflare/vite-plugin": "^1.25.0",
+		"@convex-dev/auth": "^0.0.90",
 		"@convex-dev/react-query": "0.1.0",
 		"@faker-js/faker": "^10.3.0",
 		"@fontsource-variable/inter": "^5.2.8",

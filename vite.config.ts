@@ -14,6 +14,13 @@ const config = defineConfig({
 			"~": fileURLToPath(new URL("./convex", import.meta.url)),
 		},
 	},
+	ssr: {
+		// @convex-dev/auth/react has a "use client" directive that the
+		// Cloudflare Workers SSR environment misinterprets as an RSC boundary,
+		// producing a client-reference stub that never resolves and hangs the Worker.
+		// Bundling it inline skips that boundary processing.
+		noExternal: ["@convex-dev/auth"],
+	},
 	plugins: [
 		devtools(),
 		cloudflare({ viteEnvironment: { name: "ssr" } }),

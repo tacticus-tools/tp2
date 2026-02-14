@@ -1,22 +1,33 @@
-// https://docs.convex.dev/auth/clerk
-//
-
-import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { useAuthActions } from "@convex-dev/auth/react";
+import { Link } from "@tanstack/react-router";
 import { Authenticated, AuthLoading, Unauthenticated } from "convex/react";
 
 function HeaderUser() {
+	const { signOut } = useAuthActions();
+
 	return (
-		<main>
+		<div>
 			<Unauthenticated>
-				<SignInButton />
+				<Link
+					to="/signin"
+					className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-sm font-medium transition-colors"
+				>
+					Sign in
+				</Link>
 			</Unauthenticated>
 			<Authenticated>
-				<UserButton />
+				<button
+					type="button"
+					onClick={() => signOut()}
+					className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium transition-colors"
+				>
+					Sign out
+				</button>
 			</Authenticated>
 			<AuthLoading>
-				<p>Still loading</p>
+				<p className="text-sm text-gray-400">Loading...</p>
 			</AuthLoading>
-		</main>
+		</div>
 	);
 }
 

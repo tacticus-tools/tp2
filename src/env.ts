@@ -8,7 +8,6 @@ export const env = createEnv({
 	 */
 	clientPrefix: "VITE_",
 	client: {
-		VITE_CLERK_PUBLISHABLE_KEY: z.string().min(1),
 		VITE_CONVEX_URL: z.url(),
 	},
 	/**
@@ -24,7 +23,7 @@ export const env = createEnv({
 	 * to be a number (e.g. `PORT=` in a ".env" file), Zod will incorrectly flag
 	 * it as a type mismatch violation. Additionally, if you have an empty string
 	 * for a value that is supposed to be a string with a default value (e.g.
-	 * `DOMAIN=` in an ".env" file), the default value will never be applied.
+	 * `DOMAIN=` in an ".env" file"), the default value will never be applied.
 	 *
 	 * In order to solve these issues, we recommend that all new projects
 	 * explicitly specify this option as true.
