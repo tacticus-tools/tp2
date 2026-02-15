@@ -1,10 +1,5 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import {
-	Authenticated,
-	Unauthenticated,
-	useMutation,
-	useQuery,
-} from "convex/react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useMutation, useQuery } from "convex/react";
 import {
 	AlertTriangle,
 	Check,
@@ -27,38 +22,11 @@ import { Input } from "@/1-components/ui/input";
 import { Label } from "@/1-components/ui/label";
 import { api } from "~/_generated/api";
 
-export const Route = createFileRoute("/settings")({
+export const Route = createFileRoute("/_authenticated/settings")({
 	component: SettingsPage,
 });
 
 function SettingsPage() {
-	return (
-		<>
-			<Unauthenticated>
-				<UnauthenticatedSettings />
-			</Unauthenticated>
-			<Authenticated>
-				<AuthenticatedSettings />
-			</Authenticated>
-		</>
-	);
-}
-
-function UnauthenticatedSettings() {
-	const navigate = useNavigate();
-	return (
-		<div className="flex flex-col items-center justify-center gap-4 py-20">
-			<Key className="size-12 text-muted-foreground" />
-			<h2 className="text-xl font-semibold">Sign in required</h2>
-			<p className="text-muted-foreground">
-				You need to sign in to manage your settings.
-			</p>
-			<Button onClick={() => navigate({ to: "/signin" })}>Sign in</Button>
-		</div>
-	);
-}
-
-function AuthenticatedSettings() {
 	const uid = useId();
 	const credentials = useQuery(api.tacticus.credentials.get);
 	const saveMutation = useMutation(api.tacticus.credentials.save);
