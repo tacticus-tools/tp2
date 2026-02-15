@@ -1,7 +1,9 @@
 import { useAuthActions } from "@convex-dev/auth/react";
+import { useForm } from "@tanstack/react-form";
 import { createFileRoute } from "@tanstack/react-router";
 import { useConvexAuth } from "convex/react";
 import { useEffect, useId, useState } from "react";
+import { z } from "zod";
 
 export const Route = createFileRoute("/signin")({
 	component: SignInPage,
@@ -17,17 +19,45 @@ function translateError(msg: string): string {
 	return msg || "Authentication failed.";
 }
 
+/** Extract the display message from a field error (string from callback, or {message} from Zod). */
+function errorMessage(err: unknown): string {
+	if (typeof err === "string") return err;
+	if (err && typeof err === "object" && "message" in err)
+		return String((err as { message: string }).message);
+	return "Invalid value";
+}
+
 function SignInPage() {
 	const { signIn } = useAuthActions();
 	const { isAuthenticated } = useConvexAuth();
 	const uid = useId();
 	const [flow, setFlow] = useState<"signIn" | "signUp">("signIn");
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
 	const [error, setError] = useState<string | null>(null);
 	const [loading, setLoading] = useState(false);
+
+	const form = useForm({
+		defaultValues: {
+			name: "",
+			email: "",
+			password: "",
+			confirmPassword: "",
+		},
+		onSubmit: ({ value }) => {
+			setError(null);
+			setLoading(true);
+			void signIn("password", {
+				email: value.email,
+				password: value.password,
+				flow,
+				...(flow === "signUp" && value.name.trim()
+					? { name: value.name.trim() }
+					: {}),
+			}).catch((err: unknown) => {
+				setError(translateError(err instanceof Error ? err.message : ""));
+				setLoading(false);
+			});
+		},
+	});
 
 	// Redirect when auth state becomes authenticated
 	useEffect(() => {
@@ -39,28 +69,7 @@ function SignInPage() {
 	function switchFlow(next: "signIn" | "signUp") {
 		setFlow(next);
 		setError(null);
-		setConfirmPassword("");
-	}
-
-	function handleSubmit(e: React.FormEvent) {
-		e.preventDefault();
-		setError(null);
-
-		if (flow === "signUp" && password !== confirmPassword) {
-			setError("Passwords do not match.");
-			return;
-		}
-
-		setLoading(true);
-		void signIn("password", {
-			email,
-			password,
-			flow,
-			...(flow === "signUp" && name.trim() ? { name: name.trim() } : {}),
-		}).catch((err: unknown) => {
-			setError(translateError(err instanceof Error ? err.message : ""));
-			setLoading(false);
-		});
+		form.setFieldValue("confirmPassword", "");
 	}
 
 	function handleAnonymous() {
@@ -79,80 +88,162 @@ function SignInPage() {
 					{flow === "signIn" ? "Sign in" : "Create account"}
 				</h1>
 
-				<form onSubmit={handleSubmit} className="flex flex-col gap-4">
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+						e.stopPropagation();
+						form.handleSubmit();
+					}}
+					className="flex flex-col gap-4"
+				>
 					{flow === "signUp" && (
-						<div>
-							<label
-								htmlFor={`${uid}-name`}
-								className="block text-sm font-medium text-gray-300 mb-1"
-							>
-								Name <span className="text-gray-500">(optional)</span>
-							</label>
-							<input
-								id={`${uid}-name`}
-								type="text"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-								className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
-								placeholder="Your name"
-							/>
-						</div>
+						<form.Field
+							name="name"
+							validators={{
+								onChange: z.string().max(100, "Name is too long"),
+							}}
+						>
+							{(field) => (
+								<div>
+									<label
+										htmlFor={`${uid}-name`}
+										className="block text-sm font-medium text-gray-300 mb-1"
+									>
+										Name <span className="text-gray-500">(optional)</span>
+									</label>
+									<input
+										id={`${uid}-name`}
+										type="text"
+										value={field.state.value}
+										onBlur={field.handleBlur}
+										onChange={(e) => field.handleChange(e.target.value)}
+										className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+										placeholder="Your name"
+									/>
+									{field.state.meta.isTouched &&
+										field.state.meta.errors.length > 0 && (
+											<p className="text-red-400 text-xs mt-1">
+												{errorMessage(field.state.meta.errors[0])}
+											</p>
+										)}
+								</div>
+							)}
+						</form.Field>
 					)}
 
-					<div>
-						<label
-							htmlFor={`${uid}-email`}
-							className="block text-sm font-medium text-gray-300 mb-1"
-						>
-							Email
-						</label>
-						<input
-							id={`${uid}-email`}
-							type="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							required
-							className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
-							placeholder="you@example.com"
-						/>
-					</div>
+					<form.Field
+						name="email"
+						validators={{
+							onChange: z
+								.string()
+								.min(1, "Email is required")
+								.email("Please enter a valid email address"),
+						}}
+					>
+						{(field) => (
+							<div>
+								<label
+									htmlFor={`${uid}-email`}
+									className="block text-sm font-medium text-gray-300 mb-1"
+								>
+									Email
+								</label>
+								<input
+									id={`${uid}-email`}
+									type="email"
+									value={field.state.value}
+									onBlur={field.handleBlur}
+									onChange={(e) => field.handleChange(e.target.value)}
+									required
+									className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+									placeholder="you@example.com"
+								/>
+								{field.state.meta.isTouched &&
+									field.state.meta.errors.length > 0 && (
+										<p className="text-red-400 text-xs mt-1">
+											{errorMessage(field.state.meta.errors[0])}
+										</p>
+									)}
+							</div>
+						)}
+					</form.Field>
 
-					<div>
-						<label
-							htmlFor={`${uid}-password`}
-							className="block text-sm font-medium text-gray-300 mb-1"
-						>
-							Password
-						</label>
-						<input
-							id={`${uid}-password`}
-							type="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							required
-							className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
-							placeholder="••••••••"
-						/>
-					</div>
+					<form.Field
+						name="password"
+						validators={{
+							onChange: z
+								.string()
+								.min(8, "Password must be at least 8 characters"),
+						}}
+					>
+						{(field) => (
+							<div>
+								<label
+									htmlFor={`${uid}-password`}
+									className="block text-sm font-medium text-gray-300 mb-1"
+								>
+									Password
+								</label>
+								<input
+									id={`${uid}-password`}
+									type="password"
+									value={field.state.value}
+									onBlur={field.handleBlur}
+									onChange={(e) => field.handleChange(e.target.value)}
+									required
+									className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+									placeholder="••••••••"
+								/>
+								{field.state.meta.isTouched &&
+									field.state.meta.errors.length > 0 && (
+										<p className="text-red-400 text-xs mt-1">
+											{errorMessage(field.state.meta.errors[0])}
+										</p>
+									)}
+							</div>
+						)}
+					</form.Field>
 
 					{flow === "signUp" && (
-						<div>
-							<label
-								htmlFor={`${uid}-confirmPassword`}
-								className="block text-sm font-medium text-gray-300 mb-1"
-							>
-								Confirm password
-							</label>
-							<input
-								id={`${uid}-confirmPassword`}
-								type="password"
-								value={confirmPassword}
-								onChange={(e) => setConfirmPassword(e.target.value)}
-								required
-								className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
-								placeholder="••••••••"
-							/>
-						</div>
+						<form.Field
+							name="confirmPassword"
+							validators={{
+								onChangeListenTo: ["password"],
+								onChange: ({ value, fieldApi }) => {
+									const password = fieldApi.form.getFieldValue("password");
+									if (value && password && value !== password)
+										return "Passwords do not match";
+									return undefined;
+								},
+							}}
+						>
+							{(field) => (
+								<div>
+									<label
+										htmlFor={`${uid}-confirmPassword`}
+										className="block text-sm font-medium text-gray-300 mb-1"
+									>
+										Confirm password
+									</label>
+									<input
+										id={`${uid}-confirmPassword`}
+										type="password"
+										value={field.state.value}
+										onBlur={field.handleBlur}
+										onChange={(e) => field.handleChange(e.target.value)}
+										required
+										className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+										placeholder="••••••••"
+									/>
+									{field.state.meta.isTouched &&
+										field.state.meta.errors.length > 0 && (
+											<p className="text-red-400 text-xs mt-1">
+												{errorMessage(field.state.meta.errors[0])}
+											</p>
+										)}
+								</div>
+							)}
+						</form.Field>
 					)}
 
 					{error && <p className="text-red-400 text-sm text-center">{error}</p>}

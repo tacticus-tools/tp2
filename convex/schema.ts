@@ -10,4 +10,15 @@ export default defineSchema({
 		playerApiKey: v.string(),
 		guildApiKey: v.optional(v.string()),
 	}).index("by_userId", ["userId"]),
+	goals: defineTable({
+		userId: v.id("users"),
+		goalId: v.string(),
+		type: v.number(),
+		unitId: v.string(),
+		unitName: v.string(),
+		priority: v.number(),
+		include: v.boolean(),
+		notes: v.optional(v.string()),
+		data: v.string(),
+	}).index("by_userId", ["userId"]),
 });

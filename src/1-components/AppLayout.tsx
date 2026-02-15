@@ -1,7 +1,7 @@
 import { useAuthActions } from "@convex-dev/auth/react";
 import { Link, Outlet } from "@tanstack/react-router";
 import { useConvexAuth } from "convex/react";
-import { Home, LogOut, Menu, Settings, User, X } from "lucide-react";
+import { Home, LogOut, Menu, Settings, Target, User, X } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/1-components/ThemeToggle";
 import { Button } from "@/1-components/ui/button";
@@ -89,6 +89,12 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 			<nav className="flex-1 space-y-6 overflow-y-auto px-4">
 				<NavSection title="Command">
 					<NavItem to="/" icon={Home} label="Dashboard" onClick={onNavigate} />
+					<NavItem
+						to="/goals"
+						icon={Target}
+						label="Goals"
+						onClick={onNavigate}
+					/>
 					<NavItem
 						to="/settings"
 						icon={Settings}
