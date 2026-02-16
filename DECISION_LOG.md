@@ -239,7 +239,7 @@ See below for the template. Don't bother with date & author since git will handl
   - 2) Jotai - A library that is very atomic in how it manages state. Built by the same people as Zustand. Great for very simple state but doesn't scale well as the state gets more complex.
   - 3) Zustand - A library that uses "stores" for state management. Takes some inspiration from Redux but with a much simpler API. Stores are defined outside of the React component tree, so they're much easier to work with in tests.
   - 4) Tanstack Store - A very new library from the Tanstack team that is designed to work seamlessly with their other libraries. First-class support for TypeScript and has a lot of built-in features for things like persistence and devtools. Still in alpha though.
-- **Chosen solution**: Zustand. It was an option in the template and it's battle tested and popular. Maybe someday we'll go full Tanstack but right now I don't want to mess with an alpha tool.
+- **Chosen solution**: Zustand. It was an option in the template and it's battle-tested and popular. Maybe someday we'll go full Tanstack but right now I don't want to mess with an alpha tool.
 
 <!-- TOC --><a name="decision-use-fsd-ish-file-structure"></a>
 ### Decision: Use FSD-ish file structure
