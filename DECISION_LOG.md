@@ -264,7 +264,7 @@ See below for the template. Don't bother with date & author since git will handl
 ### Decision: Use Vitest as the unit testing tool
 
 - **Motivation**: We need something to run unit tests.
-- **Alternatives Considered**:
+- **Alternatives considered**:
   - 1) Jest: The old standby. Built on webpack instead of Vite so we'd be managing a whole different build pipeline for tests.
   - 2) `bun test`: The built in test runner with `bun`. Super fast, but not popular yet and so it has compatibility issues.
   - 3) Vitest: Like Jest, but built on top of Vite so it's a unified pipeline.
@@ -274,7 +274,7 @@ See below for the template. Don't bother with date & author since git will handl
 ### Decision: Use Tanstack Table for tables
 
 - **Motivation**: We need tables. Vanilla HTML tables suck.
-- **Alternatives Considered**:
+- **Alternatives considered**:
   - 1) AgGrid - Used by the old planner. Really powerful but less flexible.
   - 2) Tanstack Table - Headless table library. Lets us style it however we want but requires more config.
 - **Chosen solution**: Tanstack Table was available in the template. Stick with it until we need more.
@@ -283,7 +283,7 @@ See below for the template. Don't bother with date & author since git will handl
 ### Decision: Use Zod + `json2const` for JSON type safety
 
 - **Motivation**: The data coming out of the app is usable but not ideal. We have to manually add types and manipulate it on the client to achieve type safety. This adds a lot of maintenance burden and room for mistakes.
-- **Alternatives Considered**: Experiments I did on the previous project to handle it were:
+- **Alternatives considered**: Experiments I did on the previous project to handle it were:
   - 1) Use bash to copy the json files into `as const` TS objects. Simple but any form of data transformation is painful.
   - 2) Patch TypeScript to treat it as const. This gives it full type safety but is a heavy hit to tsc performance and makes the code really strict. It's also brittle against TypeScript version upgrades.
   - 3) Use Zod to parse + validate + transform the JSON in a Vite build plugin. This gives very good type safety and makes client code much simpler. Unfortunately it cannot give us things like type FactionId = 'Ultramarines' | 'Aeldari' | ...
