@@ -1,3 +1,4 @@
+// biome-ignore lint/performance/noNamespaceImport: Test env and this is the recommended way in the docs
 import * as matchers from "@testing-library/jest-dom/matchers";
 import { expect, vi } from "vitest";
 

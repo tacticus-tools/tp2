@@ -31,6 +31,20 @@
 				"noDangerouslySetInnerHtmlWithChildren": "error",
 				"noGlobalEval": "error",
 				"noSecrets": "off"
+			},
+			"performance": {
+				"noAccumulatingSpread": "error",
+				"noAwaitInLoops": "error",
+				"noBarrelFile": "error",
+				"noDelete": "error",
+				"noDynamicNamespaceImportAccess": "error",
+				"noImgElement": "error",
+				"noNamespaceImport": "error",
+				"noReExportAll": "error",
+				"noUnwantedPolyfillio": "error",
+				"useGoogleFontPreconnect": "error",
+				"useTopLevelRegex": "error",
+				"useSolidForComponent": "off"
 			}
 		}
 	},
