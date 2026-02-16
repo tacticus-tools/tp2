@@ -30,6 +30,7 @@ const config = defineConfig({
 		}),
 		tailwindcss(),
 		tanstackStart({
+			prerender: { enabled: true },
 			spa: { enabled: true },
 			router: { routesDirectory: "0-routes" },
 		}),
