@@ -21,7 +21,8 @@
 		"lint": "bun run biomePrecheck && biome lint && eslint",
 		"check": "bun run biomePrecheck && biome check && eslint .",
 		"fix": "bun run biomePrecheck && biome check --fix && eslint --fix .",
-		"build-ci": "bun run fix && tsc --noEmit && bun run build"
+		"build-ci": "bun run fix && tsc --noEmit && bun run build",
+		"knip": "knip"
 	},
 	"dependencies": {
 		"@auth/core": "0.41.1",
@@ -66,7 +67,7 @@
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/react": "^16.3.2",
 		"@types/bun": "latest",
-		"@types/node": "^25.0.0",
+		"@types/node": "^25.2.3",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.4",
@@ -77,6 +78,7 @@
 		"eslint-plugin-jest-dom": "^5.5.0",
 		"eslint-plugin-testing-library": "^7.15.4",
 		"happy-dom": "^20.6.1",
+		"knip": "^5.83.1",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.55.0",
 		"vite": "^7.3.1",
