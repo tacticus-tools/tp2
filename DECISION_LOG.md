@@ -10,6 +10,7 @@
    * [Decision: Start a new repository for the planner](#decision-start-a-new-repository-for-the-planner)
    * [Decision: Start the new repository from scratch](#decision-start-the-new-repository-from-scratch)
    * [Decision: Backend in Convex](#decision-backend-in-convex)
+   * [Decision: Frontend in React](#decision-frontend-in-react)
    * [Decision: Tanstack Start for the frontend framework](#decision-tanstack-start-for-the-frontend-framework)
    * [Decision: Use SPA (single-page application) instead of SSR (server-side rendering)](#decision-use-spa-single-page-application-instead-of-ssr-server-side-rendering)
    * [Decision: Use TypeScript](#decision-use-typescript)
@@ -100,8 +101,9 @@ See below for the template. Don't bother with date & author since git will handl
   - Provides end-to-end type safety, which is great for catching bugs early and keeping LLMs from hallucinating calls to non-existent functions or fields.
   - Great free tier!
   
-  ### Decision: Frontend in React
-  
+<!-- TOC --><a name="decision-frontend-in-react"></a>
+### Decision: Frontend in React
+
 - **Motivation**: We wanted a frontend that was easy to build and maintain.
 - **Alternatives considered**: None, to be honest.
 - **Chosen solution**: React. The previous frontend was in React and we wanted to be able to reuse the code and experience we had from it.
