@@ -1,5 +1,11 @@
-import type { GenericMutationCtx, GenericQueryCtx } from "convex/server";
-import type { DataModel } from "./_generated/dataModel";
+import type {
+	GenericActionCtx,
+	GenericMutationCtx,
+	GenericQueryCtx,
+} from "convex/server";
+import { v } from "convex/values";
+import { internal } from "./_generated/api";
+import type { DataModel, Id } from "./_generated/dataModel";
 import { internalMutation } from "./_generated/server";
 
 export type RateLimitConfig = {
@@ -25,7 +31,7 @@ export const RATE_LIMITS: Record<string, RateLimitConfig> = {
 	"goals.remove": { maxCalls: 60, windowMs: 60_000 },
 };
 
-type RateLimitContext =
+type MutationContext =
 	| GenericQueryCtx<DataModel>
 	| GenericMutationCtx<DataModel>;
 
@@ -33,10 +39,11 @@ type RateLimitContext =
  * Check if a user has exceeded the rate limit for a specific function.
  * Throws an error if the limit is exceeded.
  * Records the function call if within limits.
+ * Use this for mutations and queries.
  */
 export async function checkRateLimit(
-	ctx: RateLimitContext,
-	userId: string,
+	ctx: MutationContext,
+	userId: Id<"users">,
 	functionName: string,
 ): Promise<void> {
 	const config = RATE_LIMITS[functionName];
@@ -69,14 +76,44 @@ export async function checkRateLimit(
 	}
 
 	// Record this call (only in mutation context)
-	if ("db" in ctx && typeof ctx.db.insert === "function") {
-		await ctx.db.insert("rateLimits", {
+	if ("scheduler" in ctx) {
+		const mutationCtx = ctx as GenericMutationCtx<DataModel>;
+		await mutationCtx.db.insert("rateLimits", {
 			userId,
 			functionName,
 			timestamp: now,
 		});
 	}
 }
+
+/**
+ * Check rate limit for actions. Use this for actions since they don't have direct db access.
+ */
+export async function checkRateLimitAction(
+	ctx: GenericActionCtx<DataModel>,
+	userId: Id<"users">,
+	functionName: string,
+): Promise<void> {
+	// Type assertion needed until Convex regenerates API types
+	// biome-ignore lint/suspicious/noExplicitAny: Type not yet in generated API
+	await ctx.runMutation((internal as any).rateLimit.checkAndRecord, {
+		userId,
+		functionName,
+	});
+}
+
+/**
+ * Internal mutation for rate limiting actions.
+ */
+export const checkAndRecord = internalMutation({
+	args: {
+		userId: v.id("users"),
+		functionName: v.string(),
+	},
+	handler: async (ctx, args) => {
+		await checkRateLimit(ctx, args.userId, args.functionName);
+	},
+});
 
 /**
  * Clean up old rate limit records to prevent table bloat.
