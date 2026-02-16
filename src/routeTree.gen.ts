@@ -17,6 +17,7 @@ import { Route as DataNpcsRouteImport } from './0-routes/data/npcs'
 import { Route as DataEquipmentRouteImport } from './0-routes/data/equipment'
 import { Route as DataCharactersRouteImport } from './0-routes/data/characters'
 import { Route as AuthenticatedSettingsRouteImport } from './0-routes/_authenticated/settings'
+import { Route as AuthenticatedGoalsRouteImport } from './0-routes/_authenticated/goals'
 
 const SigninRoute = SigninRouteImport.update({
   id: '/signin',
@@ -57,10 +58,16 @@ const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedGoalsRoute = AuthenticatedGoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/signin': typeof SigninRoute
+  '/goals': typeof AuthenticatedGoalsRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/data/characters': typeof DataCharactersRoute
   '/data/equipment': typeof DataEquipmentRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/signin': typeof SigninRoute
+  '/goals': typeof AuthenticatedGoalsRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/data/characters': typeof DataCharactersRoute
   '/data/equipment': typeof DataEquipmentRoute
@@ -81,6 +89,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/signin': typeof SigninRoute
+  '/_authenticated/goals': typeof AuthenticatedGoalsRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/data/characters': typeof DataCharactersRoute
   '/data/equipment': typeof DataEquipmentRoute
@@ -92,6 +101,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/signin'
+    | '/goals'
     | '/settings'
     | '/data/characters'
     | '/data/equipment'
@@ -101,6 +111,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/signin'
+    | '/goals'
     | '/settings'
     | '/data/characters'
     | '/data/equipment'
@@ -111,6 +122,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/signin'
+    | '/_authenticated/goals'
     | '/_authenticated/settings'
     | '/data/characters'
     | '/data/equipment'
@@ -186,14 +198,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/goals': {
+      id: '/_authenticated/goals'
+      path: '/goals'
+      fullPath: '/goals'
+      preLoaderRoute: typeof AuthenticatedGoalsRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
   }
 }
 
 interface AuthenticatedRouteChildren {
+  AuthenticatedGoalsRoute: typeof AuthenticatedGoalsRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedGoalsRoute: AuthenticatedGoalsRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
 }
 
