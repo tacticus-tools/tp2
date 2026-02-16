@@ -27,7 +27,7 @@ export default defineConfig([
       "better-tailwindcss": {
         entryPoint: "src/styles.css"
       }
-    }
+    },
   },
   tsPlugin.configs.base, // dependency of convex plugin; we use Biome for our base linting so use minimal install
   ...convexPlugin.configs.recommended,
@@ -35,5 +35,11 @@ export default defineConfig([
   ...routerPlugin.configs['flat/recommended'],
   jestDomPlugin.configs["flat/recommended"],
   rtlPlugin.configs["flat/react"],
-  tailwindPlugin.configs.recommended,
+  {
+    ...tailwindPlugin.configs.recommended,
+    rules: {
+      ...tailwindPlugin.configs.recommended.rules,
+      "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+    }
+  }
 ]);

@@ -82,9 +82,9 @@ function SignInPage() {
 	}
 
 	return (
-		<div className="min-h-screen flex items-center justify-center bg-gray-900 p-4">
-			<div className="w-full max-w-sm bg-gray-800 rounded-2xl shadow-2xl p-8">
-				<h1 className="text-2xl font-bold text-white text-center mb-6">
+		<div className="flex min-h-screen items-center justify-center bg-gray-900 p-4">
+			<div className="w-full max-w-sm rounded-2xl bg-gray-800 p-8 shadow-2xl">
+				<h1 className="mb-6 text-center text-2xl font-bold text-white">
 					{flow === "signIn" ? "Sign in" : "Create account"}
 				</h1>
 
@@ -107,7 +107,7 @@ function SignInPage() {
 								<div>
 									<label
 										htmlFor={`${uid}-name`}
-										className="block text-sm font-medium text-gray-300 mb-1"
+										className="mb-1 block text-sm font-medium text-gray-300"
 									>
 										Name <span className="text-gray-500">(optional)</span>
 									</label>
@@ -117,12 +117,12 @@ function SignInPage() {
 										value={field.state.value}
 										onBlur={field.handleBlur}
 										onChange={(e) => field.handleChange(e.target.value)}
-										className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+										className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none"
 										placeholder="Your name"
 									/>
 									{field.state.meta.isTouched &&
 										field.state.meta.errors.length > 0 && (
-											<p className="text-red-400 text-xs mt-1">
+											<p className="mt-1 text-xs text-red-400">
 												{errorMessage(field.state.meta.errors[0])}
 											</p>
 										)}
@@ -144,7 +144,7 @@ function SignInPage() {
 							<div>
 								<label
 									htmlFor={`${uid}-email`}
-									className="block text-sm font-medium text-gray-300 mb-1"
+									className="mb-1 block text-sm font-medium text-gray-300"
 								>
 									Email
 								</label>
@@ -155,12 +155,12 @@ function SignInPage() {
 									onBlur={field.handleBlur}
 									onChange={(e) => field.handleChange(e.target.value)}
 									required
-									className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+									className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none"
 									placeholder="you@example.com"
 								/>
 								{field.state.meta.isTouched &&
 									field.state.meta.errors.length > 0 && (
-										<p className="text-red-400 text-xs mt-1">
+										<p className="mt-1 text-xs text-red-400">
 											{errorMessage(field.state.meta.errors[0])}
 										</p>
 									)}
@@ -180,7 +180,7 @@ function SignInPage() {
 							<div>
 								<label
 									htmlFor={`${uid}-password`}
-									className="block text-sm font-medium text-gray-300 mb-1"
+									className="mb-1 block text-sm font-medium text-gray-300"
 								>
 									Password
 								</label>
@@ -191,12 +191,12 @@ function SignInPage() {
 									onBlur={field.handleBlur}
 									onChange={(e) => field.handleChange(e.target.value)}
 									required
-									className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+									className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none"
 									placeholder="••••••••"
 								/>
 								{field.state.meta.isTouched &&
 									field.state.meta.errors.length > 0 && (
-										<p className="text-red-400 text-xs mt-1">
+										<p className="mt-1 text-xs text-red-400">
 											{errorMessage(field.state.meta.errors[0])}
 										</p>
 									)}
@@ -221,7 +221,7 @@ function SignInPage() {
 								<div>
 									<label
 										htmlFor={`${uid}-confirmPassword`}
-										className="block text-sm font-medium text-gray-300 mb-1"
+										className="mb-1 block text-sm font-medium text-gray-300"
 									>
 										Confirm password
 									</label>
@@ -232,12 +232,12 @@ function SignInPage() {
 										onBlur={field.handleBlur}
 										onChange={(e) => field.handleChange(e.target.value)}
 										required
-										className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500"
+										className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-2 text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none"
 										placeholder="••••••••"
 									/>
 									{field.state.meta.isTouched &&
 										field.state.meta.errors.length > 0 && (
-											<p className="text-red-400 text-xs mt-1">
+											<p className="mt-1 text-xs text-red-400">
 												{errorMessage(field.state.meta.errors[0])}
 											</p>
 										)}
@@ -246,12 +246,12 @@ function SignInPage() {
 						</form.Field>
 					)}
 
-					{error && <p className="text-red-400 text-sm text-center">{error}</p>}
+					{error && <p className="text-center text-sm text-red-400">{error}</p>}
 
 					<button
 						type="submit"
 						disabled={loading}
-						className="w-full py-2 px-4 rounded-lg bg-cyan-600 hover:bg-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold transition-colors"
+						className="w-full rounded-lg bg-cyan-600 px-4 py-2 font-semibold text-white transition-colors hover:bg-cyan-700 disabled:cursor-not-allowed disabled:opacity-50"
 					>
 						{loading
 							? "Loading..."
@@ -264,24 +264,24 @@ function SignInPage() {
 				<button
 					type="button"
 					onClick={() => switchFlow(flow === "signIn" ? "signUp" : "signIn")}
-					className="w-full mt-3 text-sm text-gray-400 hover:text-gray-200 transition-colors"
+					className="mt-3 w-full text-sm text-gray-400 transition-colors hover:text-gray-200"
 				>
 					{flow === "signIn"
 						? "Don't have an account? Sign up"
 						: "Already have an account? Sign in"}
 				</button>
 
-				<div className="flex items-center gap-3 my-4">
-					<div className="flex-1 h-px bg-gray-600" />
+				<div className="my-4 flex items-center gap-3">
+					<div className="h-px flex-1 bg-gray-600" />
 					<span className="text-sm text-gray-500">or</span>
-					<div className="flex-1 h-px bg-gray-600" />
+					<div className="h-px flex-1 bg-gray-600" />
 				</div>
 
 				<button
 					type="button"
 					onClick={handleAnonymous}
 					disabled={loading}
-					className="w-full py-2 px-4 rounded-lg bg-gray-700 hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium transition-colors"
+					className="w-full rounded-lg bg-gray-700 px-4 py-2 font-medium text-white transition-colors hover:bg-gray-600 disabled:cursor-not-allowed disabled:opacity-50"
 				>
 					Continue as guest
 				</button>
