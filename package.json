@@ -16,11 +16,12 @@
 		"test:ui": "vitest --ui",
 		"test:watch": "vitest",
 		"deploy": "bun run build && wrangler deploy",
-		"format": "biome format",
-		"lint": "biome lint && eslint",
-		"check": "biome check",
-		"fix": "biome check --fix",
-		"build-ci": "biome check --fix && eslint --fix . && biome check && eslint . && tsc --noEmit && bun run build"
+		"biomePrecheck": "bun run biome migrate | grep \"no migration needed\"",
+		"format": "bun run biomePrecheck && biome format",
+		"lint": "bun run biomePrecheck && biome lint && eslint",
+		"check": "bun run biomePrecheck && biome check && eslint ."",
+		"fix": "bun run biomePrecheck && biome check --fix && eslint --fix .",
+		"build-ci": "bun run fix && tsc --noEmit && bun run build"
 	},
 	"dependencies": {
 		"@auth/core": "0.41.1",
