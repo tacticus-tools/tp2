@@ -510,6 +510,60 @@ export async function selectBestShardLocations(
 }
 
 /**
+ * Max nodes per campaign, matching the game's difficulty-based structure:
+ * - Standard/Mirror: 75 nodes
+ * - Elite: 40 nodes
+ * - Event Standard/Extremis: 30 nodes
+ * - Event Challenge: 3 nodes
+ */
+const campaignNodeCounts: Map<Campaign, number> = new Map([
+	// Indomitus
+	[Campaign.I, 75],
+	[Campaign.IE, 40],
+	[Campaign.IM, 75],
+	[Campaign.IME, 40],
+	// Fall of Cadia
+	[Campaign.FoC, 75],
+	[Campaign.FoCE, 40],
+	[Campaign.FoCM, 75],
+	[Campaign.FoCME, 40],
+	// Octarius
+	[Campaign.O, 75],
+	[Campaign.OE, 40],
+	[Campaign.OM, 75],
+	[Campaign.OME, 40],
+	// Saim-Hann
+	[Campaign.SH, 75],
+	[Campaign.SHE, 40],
+	[Campaign.SHM, 75],
+	[Campaign.SHME, 40],
+	// Adeptus Mechanicus
+	[Campaign.AMS, 30],
+	[Campaign.AMSC, 3],
+	[Campaign.AME, 30],
+	[Campaign.AMEC, 3],
+	// Tyranids
+	[Campaign.TS, 30],
+	[Campaign.TSC, 3],
+	[Campaign.TE, 30],
+	[Campaign.TEC, 3],
+	// T'au Empire
+	[Campaign.TAS, 30],
+	[Campaign.TASC, 3],
+	[Campaign.TAE, 30],
+	[Campaign.TAEC, 3],
+	// Death Guard
+	[Campaign.DGS, 30],
+	[Campaign.DGSC, 3],
+	[Campaign.DGE, 30],
+	[Campaign.DGEC, 3],
+]);
+
+export function getCampaignNodeCounts(): Map<Campaign, number> {
+	return campaignNodeCounts;
+}
+
+/**
  * Get drop rate for a material rarity from a specific campaign type config.
  */
 export async function getDropRateForRarity(

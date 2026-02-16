@@ -1,3 +1,4 @@
+import type { Campaign } from "../enums";
 import { PersonalGoalType } from "../enums";
 import { getCombinedAbilitiesMaterials } from "./abilities-service";
 import { getCombinedMowMaterials } from "./mow-service";
@@ -13,6 +14,11 @@ import type {
 } from "./types";
 import { estimateUpgradeDays } from "./upgrades-service";
 import { getXpEstimateForAbilities, getXpEstimateForRank } from "./xp-service";
+
+export interface PlayerContext {
+	campaignProgress?: Map<Campaign, number>;
+	inventory?: Record<string, number>;
+}
 
 /** Approximate days per legendary XP book (daily acquisition rate) */
 const XP_BOOKS_PER_DAY = 0.5;
@@ -31,6 +37,7 @@ export async function calculateGoalEstimate(
 	goal: CharacterRaidGoalSelect,
 	dailyEnergy: number,
 	shardsEnergy: number,
+	playerContext?: PlayerContext,
 ): Promise<IGoalEstimate> {
 	const base: IGoalEstimate = {
 		goalId: goal.goalId,
@@ -41,13 +48,15 @@ export async function calculateGoalEstimate(
 		xpBooksTotal: 0,
 	};
 
+	const ctx = playerContext ?? {};
+
 	switch (goal.type) {
 		case PersonalGoalType.UpgradeRank:
-			return estimateRankGoal(goal, dailyEnergy, base);
+			return estimateRankGoal(goal, dailyEnergy, base, ctx);
 		case PersonalGoalType.Ascend:
-			return estimateAscendGoal(goal, shardsEnergy, base);
+			return estimateAscendGoal(goal, shardsEnergy, base, ctx);
 		case PersonalGoalType.Unlock:
-			return estimateUnlockGoal(goal, shardsEnergy, base);
+			return estimateUnlockGoal(goal, shardsEnergy, base, ctx);
 		case PersonalGoalType.MowAbilities:
 			return estimateMowGoal(goal, base);
 		case PersonalGoalType.CharacterAbilities:
@@ -61,6 +70,7 @@ async function estimateRankGoal(
 	goal: ICharacterUpgradeRankGoal,
 	dailyEnergy: number,
 	base: IGoalEstimate,
+	ctx: PlayerContext,
 ): Promise<IGoalEstimate> {
 	// Upgrade material farming estimate using real recipe data
 	const upgradeEst = await estimateUpgradeDays(
@@ -70,6 +80,8 @@ async function estimateRankGoal(
 		dailyEnergy,
 		goal.appliedUpgrades,
 		goal.upgradesRarity,
+		ctx.inventory ?? {},
+		ctx.campaignProgress ?? new Map(),
 	);
 
 	// XP estimate for the rank level requirement
@@ -94,6 +106,7 @@ async function estimateAscendGoal(
 	goal: ICharacterAscendGoal,
 	shardsEnergy: number,
 	base: IGoalEstimate,
+	ctx: PlayerContext,
 ): Promise<IGoalEstimate> {
 	const { shards, mythicShards } = getShardsNeeded(
 		goal.rarityStart,
@@ -108,6 +121,7 @@ async function estimateAscendGoal(
 		shardsEnergy,
 		goal.campaignsUsage,
 		goal.unitId,
+		ctx.campaignProgress ?? new Map(),
 	);
 
 	// Mythic shards come from onslaught, not campaign farming
@@ -131,6 +145,7 @@ async function estimateUnlockGoal(
 	goal: ICharacterUnlockGoal,
 	shardsEnergy: number,
 	base: IGoalEstimate,
+	ctx: PlayerContext,
 ): Promise<IGoalEstimate> {
 	const shardsNeeded = Math.max(0, goal.shards);
 
@@ -139,6 +154,7 @@ async function estimateUnlockGoal(
 		shardsEnergy,
 		goal.campaignsUsage,
 		goal.unitId,
+		ctx.campaignProgress ?? new Map(),
 	);
 
 	return {
@@ -240,11 +256,12 @@ export async function calculateAllGoalEstimates(
 	goals: CharacterRaidGoalSelect[],
 	dailyEnergy: number,
 	shardsEnergy: number,
+	playerContext?: PlayerContext,
 ): Promise<IGoalEstimate[]> {
 	const sorted = [...goals].sort((a, b) => a.priority - b.priority);
 	return Promise.all(
 		sorted.map((goal) =>
-			calculateGoalEstimate(goal, dailyEnergy, shardsEnergy),
+			calculateGoalEstimate(goal, dailyEnergy, shardsEnergy, playerContext),
 		),
 	);
 }

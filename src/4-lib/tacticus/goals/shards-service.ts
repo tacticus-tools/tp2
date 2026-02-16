@@ -1,5 +1,11 @@
 import { getShardLocations } from "../campaign-data";
-import type { CampaignsLocationsUsage, Rarity, RarityStars } from "../enums";
+import { filterLocationsByCampaignProgress } from "../campaign-progress";
+import type {
+	Campaign,
+	CampaignsLocationsUsage,
+	Rarity,
+	RarityStars,
+} from "../enums";
 import { charsProgression, charsUnlockShards } from "../rarity-data";
 
 export interface IShardsEstimate {
@@ -61,6 +67,7 @@ export async function estimateShardFarmingDays(
 	dailyEnergy: number,
 	_campaignsUsage: CampaignsLocationsUsage,
 	unitId?: string,
+	campaignProgress: Map<Campaign, number> = new Map(),
 ): Promise<IShardsEstimate> {
 	if (shardsNeeded <= 0) {
 		return {
@@ -74,8 +81,12 @@ export async function estimateShardFarmingDays(
 
 	// Try to use real shard location data if unitId is provided
 	if (unitId) {
-		const locations = await getShardLocations(unitId);
-		const regularLocations = locations.filter((loc) => !loc.isMythic);
+		const allLocations = await getShardLocations(unitId);
+		const filtered = filterLocationsByCampaignProgress(
+			allLocations,
+			campaignProgress,
+		);
+		const regularLocations = filtered.filter((loc) => !loc.isMythic);
 
 		if (regularLocations.length > 0) {
 			// Use the best (cheapest energy-per-shard) location

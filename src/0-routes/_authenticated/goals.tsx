@@ -10,7 +10,7 @@ import {
 	Trash2,
 	Upload,
 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AddGoalDialog } from "@/1-components/goals/AddGoalDialog";
 import { EditGoalDialog } from "@/1-components/goals/EditGoalDialog";
 import { GoalCard, type GoalData } from "@/1-components/goals/GoalCard";
@@ -28,15 +28,21 @@ import {
 } from "@/1-components/ui/alert-dialog";
 import { Badge } from "@/1-components/ui/badge";
 import { Button } from "@/1-components/ui/button";
+import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore";
 import { useGoalPreferencesStore } from "@/3-hooks/useGoalPreferencesStore";
+import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore";
+import {
+	buildInventoryMap,
+	parseCampaignProgress,
+} from "@/4-lib/tacticus/campaign-progress";
 import type { PersonalGoalType } from "@/4-lib/tacticus/enums";
 import {
 	type CharacterRaidGoalSelect,
 	calculateGoalEstimate,
 	type IGoalEstimate,
+	type PlayerContext,
 } from "@/4-lib/tacticus/goals";
 import { parsePlannerExport } from "@/4-lib/tacticus/import-planner";
-import { buildRosterMap, type RosterUnit } from "@/4-lib/tacticus/roster-utils";
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/goals")({
@@ -76,6 +82,14 @@ function GoalsPage() {
 
 	const importGoals = useMutation(api.goals.importBatch);
 
+	// Shared player data store (roster, campaign progress, inventory)
+	const roster = usePlayerDataStore((s) => s.roster);
+	const campaignProgress = usePlayerDataStore((s) => s.campaignProgress);
+	const inventory = usePlayerDataStore((s) => s.inventory);
+	const syncing = usePlayerDataStore((s) => s.syncing);
+	const setPlayerData = usePlayerDataStore((s) => s.setPlayerData);
+	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
+
 	const [editingGoal, setEditingGoal] = useState<{
 		goalId: string;
 		type: PersonalGoalType;
@@ -85,14 +99,15 @@ function GoalsPage() {
 		notes?: string;
 		data: string;
 	} | null>(null);
-	const [syncing, setSyncing] = useState(false);
-	const [roster, setRoster] = useState<Map<string, RosterUnit>>(new Map());
 	const [importing, setImporting] = useState(false);
 	const [importResult, setImportResult] = useState<{
 		imported: number;
 		skipped: string[];
 	} | null>(null);
 	const fileInputRef = useRef<HTMLInputElement>(null);
+
+	// Persisted campaign progress (includes manually-entered event campaign data)
+	const persistedProgress = useCampaignProgressStore((s) => s.progress);
 
 	const dailyEnergy = useGoalPreferencesStore((s) => s.dailyEnergy);
 	const shardsEnergy = useGoalPreferencesStore((s) => s.shardsEnergy);
@@ -103,6 +118,32 @@ function GoalsPage() {
 
 	const isLoading = goals === undefined;
 	const goalCount = goals?.length ?? 0;
+
+	// Derive player context from store for estimation pipeline
+	// Merges API-derived progress with persisted progress (includes manual event entries)
+	const playerContext = useMemo<PlayerContext>(() => {
+		const ctx: PlayerContext = {};
+		const apiProgress = parseCampaignProgress(campaignProgress);
+		// Start with persisted progress (includes manually-entered event campaigns)
+		const merged = new Map<string, number>();
+		for (const [campaign, nodes] of Object.entries(persistedProgress)) {
+			if (nodes > 0) merged.set(campaign, nodes);
+		}
+		// API progress overwrites persisted for trackable campaigns
+		for (const [campaign, nodes] of apiProgress) {
+			merged.set(campaign, nodes);
+		}
+		if (merged.size > 0) {
+			ctx.campaignProgress = merged as Map<
+				import("@/4-lib/tacticus/enums").Campaign,
+				number
+			>;
+		}
+		if (inventory) {
+			ctx.inventory = buildInventoryMap(inventory.upgrades);
+		}
+		return ctx;
+	}, [campaignProgress, inventory, persistedProgress]);
 
 	// Calculate estimates for all goals (async — uses real campaign/recipe data)
 	const [estimates, setEstimates] = useState(new Map<string, IGoalEstimate>());
@@ -130,7 +171,7 @@ function GoalsPage() {
 
 		void Promise.all(
 			typedGoals.map((typed) =>
-				calculateGoalEstimate(typed, dailyEnergy, shardsEnergy),
+				calculateGoalEstimate(typed, dailyEnergy, shardsEnergy, playerContext),
 			),
 		).then((results) => {
 			if (cancelled) return;
@@ -144,7 +185,7 @@ function GoalsPage() {
 		return () => {
 			cancelled = true;
 		};
-	}, [goals, dailyEnergy, shardsEnergy]);
+	}, [goals, dailyEnergy, shardsEnergy, playerContext]);
 
 	const handleEdit = useCallback(
 		(goalId: string) => {
@@ -207,14 +248,14 @@ function GoalsPage() {
 		try {
 			const response = await getPlayerData();
 			if (response?.player?.units) {
-				setRoster(buildRosterMap(response.player.units));
+				setPlayerData(response);
 			}
 		} catch {
 			// Sync failed — user likely hasn't configured API keys in settings
 		} finally {
 			setSyncing(false);
 		}
-	}, [getPlayerData]);
+	}, [getPlayerData, setPlayerData, setSyncing]);
 
 	// Auto-fetch roster on mount so start ranks are pre-populated
 	const didAutoSync = useRef(false);

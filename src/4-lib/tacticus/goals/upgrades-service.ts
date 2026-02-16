@@ -1,5 +1,7 @@
+import type { IUpgradeLocation } from "../campaign-data";
 import { getAllUpgradeLocations } from "../campaign-data";
-import type { Rank, Rarity } from "../enums";
+import { filterLocationsByCampaignProgress } from "../campaign-progress";
+import type { Campaign, Rank, Rarity } from "../enums";
 import { rankToLevel } from "../rank-data";
 import { getBaseUpgradesForRankUp } from "../upgrade-data";
 
@@ -23,6 +25,8 @@ export async function estimateUpgradeDays(
 	dailyEnergy: number,
 	appliedUpgrades: string[] = [],
 	upgradesRarity: Rarity[] = [],
+	inventory: Record<string, number> = {},
+	campaignProgress: Map<Campaign, number> = new Map(),
 ): Promise<IUpgradeEstimate> {
 	if (rankEnd <= rankStart || dailyEnergy <= 0) {
 		return { daysTotal: 0, energyTotal: 0, raidsTotal: 0 };
@@ -34,13 +38,14 @@ export async function estimateUpgradeDays(
 		return { daysTotal: 0, energyTotal: 0, raidsTotal: 0 };
 	}
 
-	// Get actual base materials needed for this rank-up
+	// Get actual base materials needed for this rank-up (subtracting inventory)
 	const baseUpgrades = await getBaseUpgradesForRankUp(
 		unitId,
 		rankStart,
 		rankEnd,
 		appliedUpgrades,
 		upgradesRarity,
+		inventory,
 	);
 
 	const materialIds = Object.keys(baseUpgrades);
@@ -64,7 +69,13 @@ export async function estimateUpgradeDays(
 	}> = [];
 
 	for (const [materialId, count] of Object.entries(baseUpgrades)) {
-		const locations = allLocations.get(materialId);
+		const rawLocations = allLocations.get(materialId);
+		const locations = rawLocations
+			? filterLocationsByCampaignProgress<IUpgradeLocation>(
+					rawLocations,
+					campaignProgress,
+				)
+			: undefined;
 		if (!locations || locations.length === 0) {
 			// No known farming location — use fallback estimate
 			totalEnergy += count * 18; // ~18 energy per item fallback
