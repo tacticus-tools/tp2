@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from "node:url";
-import { cloudflare } from "@cloudflare/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -23,13 +22,13 @@ const config = defineConfig({
 	},
 	plugins: [
 		devtools(),
-		cloudflare({ viteEnvironment: { name: "ssr" } }),
 		// this is the plugin that enables path aliases
 		viteTsConfigPaths({
 			projects: ["./tsconfig.json"],
 		}),
 		tailwindcss(),
 		tanstackStart({
+			prerender: { enabled: true },
 			spa: { enabled: true },
 			router: { routesDirectory: "0-routes" },
 		}),
