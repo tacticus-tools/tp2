@@ -63,7 +63,12 @@ export interface ImportResult {
  * Parse a tacticusplanner export JSON and convert goals to our format.
  */
 export function parsePlannerExport(raw: string): ImportResult {
-	const parsed: PlannerExport = JSON.parse(raw);
+	let parsed: PlannerExport;
+	try {
+		parsed = JSON.parse(raw) as PlannerExport;
+	} catch {
+		return { goals: [], skipped: ["Invalid export JSON"] };
+	}
 	const goals: ImportedGoal[] = [];
 	const skipped: string[] = [];
 

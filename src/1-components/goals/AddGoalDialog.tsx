@@ -1,6 +1,13 @@
 import { useMutation } from "convex/react";
 import { Loader2, Lock, Plus, Search, X } from "lucide-react";
-import { useCallback, useId, useMemo, useRef, useState } from "react";
+import {
+	useCallback,
+	useEffect,
+	useId,
+	useMemo,
+	useRef,
+	useState,
+} from "react";
 import { RarityIcon } from "@/1-components/tacticus/RarityIcon";
 import {
 	AlertDialog,
@@ -125,6 +132,16 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 			([key]) => Number(key) > rankStart && Number(key) <= cap,
 		);
 	}, [rankStart, maxRank, overrideMode]);
+
+	// Clamp rankEnd when the cap shrinks (e.g. unit/rarity change, override off)
+	useEffect(() => {
+		if (overrideMode) return;
+		if (rankEnd > maxRank) {
+			setRankEnd(maxRank);
+		} else if (rankEnd <= rankStart && maxRank > rankStart) {
+			setRankEnd((rankStart + 1) as Rank);
+		}
+	}, [rankStart, rankEnd, maxRank, overrideMode]);
 
 	// Filter units based on goal type, search query, and roster
 	const filteredUnits = useMemo(() => {

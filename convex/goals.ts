@@ -38,8 +38,10 @@ export const add = mutation({
 			.withIndex("by_userId", (q) => q.eq("userId", userId))
 			.collect();
 
+		const priority = Math.min(Math.max(args.priority, 1), existing.length + 1);
+
 		for (const goal of existing) {
-			if (goal.priority >= args.priority) {
+			if (goal.priority >= priority) {
 				await ctx.db.patch(goal._id, { priority: goal.priority + 1 });
 			}
 		}
@@ -47,6 +49,7 @@ export const add = mutation({
 		return await ctx.db.insert("goals", {
 			userId,
 			...args,
+			priority,
 		});
 	},
 });
@@ -162,11 +165,14 @@ export const importBatch = mutation({
 			await ctx.db.delete(goal._id);
 		}
 
-		// Insert all imported goals
-		for (const goal of args.goals) {
+		// Insert all imported goals with normalized 1-based priorities
+		const ordered = [...args.goals].sort((a, b) => a.priority - b.priority);
+		for (let i = 0; i < ordered.length; i++) {
+			const goal = ordered[i];
 			await ctx.db.insert("goals", {
 				userId,
 				...goal,
+				priority: i + 1,
 			});
 		}
 	},
@@ -185,8 +191,21 @@ export const reorder = mutation({
 			.withIndex("by_userId", (q) => q.eq("userId", userId))
 			.collect();
 
+		// Validate completeness and uniqueness
+		const goalById = new Map(existing.map((g) => [g.goalId, g]));
+		if (args.goalIds.length !== existing.length) {
+			throw new Error("Goal list mismatch");
+		}
+		const seen = new Set<string>();
+		for (const goalId of args.goalIds) {
+			if (seen.has(goalId) || !goalById.has(goalId)) {
+				throw new Error("Goal list mismatch");
+			}
+			seen.add(goalId);
+		}
+
 		for (let i = 0; i < args.goalIds.length; i++) {
-			const goal = existing.find((g) => g.goalId === args.goalIds[i]);
+			const goal = goalById.get(args.goalIds[i]);
 			if (goal && goal.priority !== i + 1) {
 				await ctx.db.patch(goal._id, { priority: i + 1 });
 			}

@@ -130,6 +130,16 @@ export function EditGoalDialog({
 		);
 	}, [rankStart, maxRank, overrideMode, hasRoster]);
 
+	// Clamp rankEnd when the cap shrinks (e.g. override off, roster change)
+	useEffect(() => {
+		if (overrideMode || !hasRoster) return;
+		if (rankEnd > maxRank) {
+			setRankEnd(maxRank);
+		} else if (rankEnd <= rankStart && maxRank > rankStart) {
+			setRankEnd((rankStart + 1) as Rank);
+		}
+	}, [rankStart, rankEnd, maxRank, overrideMode, hasRoster]);
+
 	// Save button validation
 	const isSaveDisabled = useMemo(() => {
 		if (saving) return true;
