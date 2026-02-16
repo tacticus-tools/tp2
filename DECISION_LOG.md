@@ -212,11 +212,12 @@ See below for the template. Don't bother with date & author since git will handl
 
 <!-- TOC --><a name="decision-use-playwright-for-end-to-end-testing"></a>
 ### Decision: Use Playwright for end-to-end testing
-  - **Motivation**: We need a way to test the app end-to-end (again, to keep the LLM-generated code in check).
-  - **Alternatives considered**:
-    - 1) Cypress - Popular and easy to use, but can be slow and flaky.
-    - 2) Playwright - A newer tool that is designed to be faster and more reliable than Cypress. It also has great support for testing across multiple browsers and devices.
-  - **Chosen solution**: Playwright. It has rapidly overtaken Cypress in popularity and user sentiment. I have plenty of experience with Cypress and I don't want any more.
+
+- **Motivation**: We need a way to test the app end-to-end (again, to keep the LLM-generated code in check).
+- **Alternatives considered**:
+  - 1) Cypress - Popular and easy to use, but can be slow and flaky.
+  - 2) Playwright - A newer tool that is designed to be faster and more reliable than Cypress. It also has great support for testing across multiple browsers and devices.
+- **Chosen solution**: Playwright. It has rapidly overtaken Cypress in popularity and user sentiment. I have plenty of experience with Cypress and I don't want any more.
 
 <!-- TOC --><a name="decision-use-shadcnui-for-ui-components"></a>
 ### Decision: Use shadcn/ui for UI components
