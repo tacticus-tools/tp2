@@ -14,6 +14,7 @@ import tsPlugin from 'typescript-eslint';
 
 export default defineConfig([
   {
+		files: ["**/*.ts", "**/*.tsx"],
 		ignores: [
 			"**/convex/_generated/**",
 			"**/src/routeTree.gen.ts",
