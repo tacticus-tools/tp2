@@ -1,7 +1,7 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
-import { checkRateLimit } from "./rateLimit";
+import { rateLimiter } from "./rateLimiter";
 
 export const list = query({
 	args: {},
@@ -33,7 +33,15 @@ export const add = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimit(ctx, userId, "goals.add");
+		// Check rate limit
+		const { ok, retryAfter } = await rateLimiter.limit(ctx, "goals.add", {
+			key: userId,
+		});
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
 
 		// Shift existing goals' priorities to make room
 		const existing = await ctx.db
@@ -72,7 +80,15 @@ export const update = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimit(ctx, userId, "goals.update");
+		// Check rate limit
+		const { ok, retryAfter } = await rateLimiter.limit(ctx, "goals.update", {
+			key: userId,
+		});
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
 
 		const existing = await ctx.db
 			.query("goals")
@@ -101,7 +117,15 @@ export const remove = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimit(ctx, userId, "goals.remove");
+		// Check rate limit
+		const { ok, retryAfter } = await rateLimiter.limit(ctx, "goals.remove", {
+			key: userId,
+		});
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
 
 		const existing = await ctx.db
 			.query("goals")
@@ -132,7 +156,15 @@ export const removeAll = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimit(ctx, userId, "goals.removeAll");
+		// Check rate limit
+		const { ok, retryAfter } = await rateLimiter.limit(ctx, "goals.removeAll", {
+			key: userId,
+		});
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
 
 		const goals = await ctx.db
 			.query("goals")
@@ -164,7 +196,17 @@ export const importBatch = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimit(ctx, userId, "goals.importBatch");
+		// Check rate limit
+		const { ok, retryAfter } = await rateLimiter.limit(
+			ctx,
+			"goals.importBatch",
+			{ key: userId.toString() },
+		);
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
 
 		// Delete all existing goals first
 		const existing = await ctx.db
@@ -197,7 +239,15 @@ export const reorder = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimit(ctx, userId, "goals.reorder");
+		// Check rate limit
+		const { ok, retryAfter } = await rateLimiter.limit(ctx, "goals.reorder", {
+			key: userId,
+		});
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
 
 		const existing = await ctx.db
 			.query("goals")

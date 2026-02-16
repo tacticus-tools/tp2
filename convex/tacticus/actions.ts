@@ -1,9 +1,9 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
 import { internal } from "../_generated/api";
-import { action } from "../_generated/server";
+import { action, internalMutation } from "../_generated/server";
 import { env } from "../env";
-import { checkRateLimitAction } from "../rateLimit";
+import { rateLimiter } from "../rateLimiter";
 import type {
 	TacticusGuildRaidResponse,
 	TacticusGuildResponse,
@@ -65,7 +65,11 @@ export const getPlayerData = action({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimitAction(ctx, userId, "tacticus.actions.getPlayerData");
+		// Check rate limit
+		await ctx.runMutation(
+			internal.tacticus.actions.checkRateLimitGetPlayerData,
+			{ userId },
+		);
 
 		const creds = await getCredentials(ctx, userId);
 		return tacticusFetch<TacticusPlayerResponse>("player", creds.playerApiKey);
@@ -78,7 +82,13 @@ export const getGuildData = action({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimitAction(ctx, userId, "tacticus.actions.getGuildData");
+		// Check rate limit
+		await ctx.runMutation(
+			internal.tacticus.actions.checkRateLimitGetGuildData,
+			{
+				userId,
+			},
+		);
 
 		const creds = await getCredentials(ctx, userId);
 		if (!creds.guildApiKey) {
@@ -94,10 +104,10 @@ export const getGuildRaidData = action({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimitAction(
-			ctx,
-			userId,
-			"tacticus.actions.getGuildRaidData",
+		// Check rate limit
+		await ctx.runMutation(
+			internal.tacticus.actions.checkRateLimitGetGuildRaidData,
+			{ userId },
 		);
 
 		const creds = await getCredentials(ctx, userId);
@@ -117,10 +127,10 @@ export const getGuildRaidBySeason = action({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
-		await checkRateLimitAction(
-			ctx,
-			userId,
-			"tacticus.actions.getGuildRaidBySeason",
+		// Check rate limit
+		await ctx.runMutation(
+			internal.tacticus.actions.checkRateLimitGetGuildRaidBySeason,
+			{ userId },
 		);
 
 		const creds = await getCredentials(ctx, userId);
@@ -131,5 +141,88 @@ export const getGuildRaidBySeason = action({
 			`guildRaid/${args.season}`,
 			creds.guildApiKey,
 		);
+	},
+});
+
+/**
+ * Internal mutations to check rate limits from actions
+ */
+export const checkRateLimitGetPlayerData = internalMutation({
+	args: {
+		userId: v.id("users"),
+	},
+	handler: async (ctx, args) => {
+		const { ok, retryAfter } = await rateLimiter.limit(
+			ctx,
+			"tacticus.actions.getPlayerData",
+			{
+				key: args.userId.toString(),
+			},
+		);
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
+	},
+});
+
+export const checkRateLimitGetGuildData = internalMutation({
+	args: {
+		userId: v.id("users"),
+	},
+	handler: async (ctx, args) => {
+		const { ok, retryAfter } = await rateLimiter.limit(
+			ctx,
+			"tacticus.actions.getGuildData",
+			{
+				key: args.userId.toString(),
+			},
+		);
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
+	},
+});
+
+export const checkRateLimitGetGuildRaidData = internalMutation({
+	args: {
+		userId: v.id("users"),
+	},
+	handler: async (ctx, args) => {
+		const { ok, retryAfter } = await rateLimiter.limit(
+			ctx,
+			"tacticus.actions.getGuildRaidData",
+			{
+				key: args.userId.toString(),
+			},
+		);
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
+	},
+});
+
+export const checkRateLimitGetGuildRaidBySeason = internalMutation({
+	args: {
+		userId: v.id("users"),
+	},
+	handler: async (ctx, args) => {
+		const { ok, retryAfter } = await rateLimiter.limit(
+			ctx,
+			"tacticus.actions.getGuildRaidBySeason",
+			{
+				key: args.userId.toString(),
+			},
+		);
+		if (!ok) {
+			throw new Error(
+				`Rate limit exceeded. Please try again in ${Math.ceil(retryAfter / 1000)} seconds.`,
+			);
+		}
 	},
 });

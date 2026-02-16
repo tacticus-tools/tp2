@@ -21,11 +21,4 @@ export default defineSchema({
 		notes: v.optional(v.string()),
 		data: v.string(),
 	}).index("by_userId", ["userId"]),
-	rateLimits: defineTable({
-		userId: v.id("users"),
-		functionName: v.string(),
-		timestamp: v.number(),
-	})
-		.index("by_user_and_function", ["userId", "functionName"])
-		.index("by_timestamp", ["timestamp"]),
 });
