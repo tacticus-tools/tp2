@@ -2,6 +2,7 @@ import { MINUTE, RateLimiter } from "@convex-dev/rate-limiter";
 import { components } from "./_generated/api";
 
 // Type assertion needed until Convex regenerates API types
+// biome-ignore lint/suspicious/noExplicitAny: Component types not yet generated
 export const rateLimiter = new RateLimiter((components as any).rateLimiter, {
 	// External API actions - stricter limits to prevent abuse of external APIs
 	"tacticus.actions.getPlayerData": {

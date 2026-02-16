@@ -200,7 +200,7 @@ export const importBatch = mutation({
 		const { ok, retryAfter } = await rateLimiter.limit(
 			ctx,
 			"goals.importBatch",
-			{ key: userId.toString() },
+			{ key: userId },
 		);
 		if (!ok) {
 			throw new Error(
