@@ -1,6 +1,7 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { checkRateLimit } from "./rateLimit";
 
 export const list = query({
 	args: {},
@@ -31,6 +32,8 @@ export const add = mutation({
 	handler: async (ctx, args) => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
+
+		await checkRateLimit(ctx, userId, "goals.add");
 
 		// Shift existing goals' priorities to make room
 		const existing = await ctx.db
@@ -69,6 +72,8 @@ export const update = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
+		await checkRateLimit(ctx, userId, "goals.update");
+
 		const existing = await ctx.db
 			.query("goals")
 			.withIndex("by_userId", (q) => q.eq("userId", userId))
@@ -95,6 +100,8 @@ export const remove = mutation({
 	handler: async (ctx, args) => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
+
+		await checkRateLimit(ctx, userId, "goals.remove");
 
 		const existing = await ctx.db
 			.query("goals")
@@ -124,6 +131,8 @@ export const removeAll = mutation({
 	handler: async (ctx) => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
+
+		await checkRateLimit(ctx, userId, "goals.removeAll");
 
 		const goals = await ctx.db
 			.query("goals")
@@ -155,6 +164,8 @@ export const importBatch = mutation({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
+		await checkRateLimit(ctx, userId, "goals.importBatch");
+
 		// Delete all existing goals first
 		const existing = await ctx.db
 			.query("goals")
@@ -185,6 +196,8 @@ export const reorder = mutation({
 	handler: async (ctx, args) => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
+
+		await checkRateLimit(ctx, userId, "goals.reorder");
 
 		const existing = await ctx.db
 			.query("goals")

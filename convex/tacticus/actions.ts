@@ -3,6 +3,7 @@ import { v } from "convex/values";
 import { internal } from "../_generated/api";
 import { action } from "../_generated/server";
 import { env } from "../env";
+import { checkRateLimit } from "../rateLimit";
 import type {
 	TacticusGuildRaidResponse,
 	TacticusGuildResponse,
@@ -64,6 +65,8 @@ export const getPlayerData = action({
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
 
+		await checkRateLimit(ctx, userId, "tacticus.actions.getPlayerData");
+
 		const creds = await getCredentials(ctx, userId);
 		return tacticusFetch<TacticusPlayerResponse>("player", creds.playerApiKey);
 	},
@@ -74,6 +77,8 @@ export const getGuildData = action({
 	handler: async (ctx): Promise<TacticusGuildResponse> => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
+
+		await checkRateLimit(ctx, userId, "tacticus.actions.getGuildData");
 
 		const creds = await getCredentials(ctx, userId);
 		if (!creds.guildApiKey) {
@@ -88,6 +93,8 @@ export const getGuildRaidData = action({
 	handler: async (ctx): Promise<TacticusGuildRaidResponse> => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
+
+		await checkRateLimit(ctx, userId, "tacticus.actions.getGuildRaidData");
 
 		const creds = await getCredentials(ctx, userId);
 		if (!creds.guildApiKey) {
@@ -105,6 +112,8 @@ export const getGuildRaidBySeason = action({
 	handler: async (ctx, args): Promise<TacticusGuildRaidResponse> => {
 		const userId = await getAuthUserId(ctx);
 		if (!userId) throw new Error("Not authenticated");
+
+		await checkRateLimit(ctx, userId, "tacticus.actions.getGuildRaidBySeason");
 
 		const creds = await getCredentials(ctx, userId);
 		if (!creds.guildApiKey) {
