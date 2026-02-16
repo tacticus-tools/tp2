@@ -53,7 +53,7 @@ function NavSection({
 }) {
 	return (
 		<div className="space-y-1">
-			<p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">
+			<p className="mb-2 px-3 text-xs font-semibold tracking-wider text-muted-foreground/60 uppercase">
 				{title}
 			</p>
 			{children}
@@ -67,23 +67,23 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 	return (
 		<div className="flex h-full flex-col">
 			{/* Logo */}
-			<div className="px-6 pb-6 pt-8">
+			<div className="px-6 pt-8 pb-6">
 				<div className="flex items-center gap-3">
-					<div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-600 to-blue-700 text-lg font-bold text-white shadow-lg">
+					<div className="flex size-10 items-center justify-center rounded-xl bg-linear-to-br from-cyan-600 to-blue-700 text-lg font-bold text-white shadow-lg">
 						T
 					</div>
 					<div>
-						<h1 className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-lg font-bold text-transparent">
+						<h1 className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-lg font-bold text-transparent">
 							TACTICUS
 						</h1>
-						<p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+						<p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
 							Planner
 						</p>
 					</div>
 				</div>
 			</div>
 
-			<div className="mx-6 mb-4 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+			<div className="mx-6 mb-4 h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
 			{/* Navigation */}
 			<nav className="flex-1 space-y-6 overflow-y-auto px-4">
@@ -151,7 +151,7 @@ function AuthenticatedLayout() {
 						<button
 							type="button"
 							onClick={() => setMobileOpen(false)}
-							className="absolute right-3 top-3 rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground"
+							className="absolute top-3 right-3 rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground"
 							aria-label="Close menu"
 						>
 							<X className="size-5" />
@@ -180,7 +180,7 @@ function AuthenticatedLayout() {
 						>
 							<Menu className="size-5" />
 						</Button>
-						<div className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-600 to-blue-700 text-xs font-bold text-white">
+						<div className="flex size-7 items-center justify-center rounded-lg bg-linear-to-br from-cyan-600 to-blue-700 text-xs font-bold text-white">
 							T
 						</div>
 					</div>
@@ -214,10 +214,10 @@ function AnonymousLayout() {
 				)}
 			>
 				<div className="flex items-center gap-3">
-					<div className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-600 to-blue-700 text-xs font-bold text-white">
+					<div className="flex size-7 items-center justify-center rounded-lg bg-linear-to-br from-cyan-600 to-blue-700 text-xs font-bold text-white">
 						T
 					</div>
-					<span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-sm font-bold text-transparent">
+					<span className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-sm font-bold text-transparent">
 						TACTICUS PLANNER
 					</span>
 				</div>
