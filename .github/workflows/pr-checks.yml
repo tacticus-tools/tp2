@@ -64,3 +64,18 @@ jobs:
         run: bun install
       - name: Run Tests
         run: bun run test
+  knip-check:
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install Dependencies
+        run: bun install
+      - name: Check for Unused Code
+        run: bun run knip
