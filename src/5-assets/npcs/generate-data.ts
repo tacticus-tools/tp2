@@ -157,7 +157,7 @@ const DataSchema = z.array(RawNpcSchema).superRefine((npcs, ctx) => {
 			});
 	}
 });
-export type NpcData = z.infer<typeof RawNpcSchema>;
+export type NpcData = z.infer<typeof DataSchema>;
 
 export const main = () => {
 	// Note: reading here instead of importing so that importing from this file doesn't cause Vite to try to load the entire raw JSON into memory during startup

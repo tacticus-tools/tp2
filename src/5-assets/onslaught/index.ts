@@ -6,4 +6,4 @@ export type OnslaughtBadgeAlliance = OnslaughtTrack["badgeAlliance"];
 export type OnslaughtSector = OnslaughtTrack["sectors"][number];
 export type OnslaughtKillzone = OnslaughtSector["killzones"][number];
 
-export const onslaughtData = data as OnslaughtData; // Safe to cast since it's generated from the same zod schema
+export const ONSLAUGHT_TRACKS = data as OnslaughtData; // Safe to cast since it's generated from the same zod schema

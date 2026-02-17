@@ -1,8 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useConvexAuth } from "convex/react";
 import { Loader2 } from "lucide-react";
-
-import { CHARACTERS } from "@/5-assets/characters";
 
 export const Route = createFileRoute("/")({ component: HomePage });
 
@@ -19,24 +17,23 @@ function HomePage() {
 
 	return (
 		<div>
-			<h1 className="w-full text-center text-5xl font-bold">CHARACTERS</h1>
-			<div className="grid w-full grid-cols-6 gap-4">
-				{CHARACTERS.map((character) => (
-					<div
-						key={character.id}
-						className="flex flex-col items-center gap-2 border"
-					>
-						<span>Id: {character.id}</span>
-						<span>Name: {character.name}</span>
-						<span>FactionId: {character.factionId}</span>
-						<img
-							src={character.roundIcon}
-							alt={character.name}
-							width={100}
-							height={100}
-						/>
-					</div>
-				))}
+			<h1 className="text-3xl font-bold">DATA PAGES</h1>
+			<div className="flex flex-col gap-2">
+				<Link
+					to="/data/characters"
+					className="text-2xl text-blue-500 underline"
+				>
+					Characters
+				</Link>
+				<Link to="/data/equipment" className="text-2xl text-blue-500 underline">
+					Equipment
+				</Link>
+				<Link to="/data/npcs" className="text-2xl text-blue-500 underline">
+					NPCs
+				</Link>
+				<Link to="/data/onslaught" className="text-2xl text-blue-500 underline">
+					Onslaught
+				</Link>
 			</div>
 		</div>
 	);
