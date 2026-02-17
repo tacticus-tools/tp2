@@ -1,5 +1,5 @@
 import data from "./data.generated.json";
-import type { OnslaughtData } from "./regenerate-onslaught-data";
+import type { OnslaughtData } from "./generate-data"; // Use the zod schema type since we don't need exact types for the generated data
 
 type OnslaughtTrack = OnslaughtData[number];
 export type OnslaughtBadgeAlliance = OnslaughtTrack["badgeAlliance"];

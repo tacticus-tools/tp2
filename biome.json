@@ -13,7 +13,10 @@
 			"**/*.json",
 			"!**/src/routeTree.gen.ts",
 			"!**/src/styles.css",
-			"!**/convex/_generated/**/*"
+			"!**/convex/_generated/**/*",
+			"!**/data.raw.json",
+			"!**/data.generated.json",
+			"!**/data.generated.ts"
 		]
 	},
 	"formatter": {
