@@ -8,6 +8,7 @@ import {
 	Menu,
 	Settings,
 	Target,
+	TrendingUp,
 	User,
 	X,
 } from "lucide-react";
@@ -108,6 +109,12 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 						to="/campaigns"
 						icon={MapIcon}
 						label="Campaigns"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/campaign-progression"
+						icon={TrendingUp}
+						label="Planner"
 						onClick={onNavigate}
 					/>
 					<NavItem
