@@ -28,11 +28,11 @@ const characterImageNames = fs.readdirSync(characterImagesFolder);
 const RawCharacterSchema = z
 	.strictObject({
 		id: z.string().nonempty(),
-		Name: z.string().nonempty().trim(),
-		Title: z.string().nonempty().trim(),
-		"Full Name": z.string().nonempty().trim(),
-		"Short Name": z.string().nonempty().trim(),
-		"Extra Short Name": z.string().nonempty().trim(),
+		Name: z.string().trim().nonempty(),
+		Title: z.string().trim().nonempty(),
+		"Full Name": z.string().trim().nonempty(),
+		"Short Name": z.string().trim().nonempty(),
+		"Extra Short Name": z.string().trim().nonempty(),
 		Faction: z.string().nonempty(),
 		Alliance: z.string().nonempty(),
 		Health: z.int().positive(),
