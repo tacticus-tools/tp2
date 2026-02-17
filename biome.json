@@ -38,7 +38,7 @@
 				"noBarrelFile": "error",
 				"noDelete": "error",
 				"noDynamicNamespaceImportAccess": "error",
-				"noImgElement": "error",
+				"noImgElement": "off",
 				"noNamespaceImport": "error",
 				"noReExportAll": "error",
 				"noUnwantedPolyfillio": "error",
