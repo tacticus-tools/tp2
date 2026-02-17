@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useAction, useMutation, useQuery } from "convex/react";
 import {
+	Calendar,
 	LayoutGrid,
 	Loader2,
 	Palette,
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AddGoalDialog } from "@/1-components/goals/AddGoalDialog";
+import { DailyRaidsPlan } from "@/1-components/goals/DailyRaidsPlan";
 import { EditGoalDialog } from "@/1-components/goals/EditGoalDialog";
 import { GoalCard, type GoalData } from "@/1-components/goals/GoalCard";
 import { GoalsTable } from "@/1-components/goals/GoalsTable";
@@ -35,7 +37,10 @@ import {
 	buildInventoryMap,
 	parseCampaignProgress,
 } from "@/4-lib/tacticus/campaign-progress";
-import type { PersonalGoalType } from "@/4-lib/tacticus/enums";
+import type { IDailyRaidsPlan } from "@/4-lib/tacticus/daily-raids";
+import { generateDailyRaidsPlan } from "@/4-lib/tacticus/daily-raids";
+import type { Campaign, PersonalGoalType } from "@/4-lib/tacticus/enums";
+import { PersonalGoalType as GoalType } from "@/4-lib/tacticus/enums";
 import {
 	type CharacterRaidGoalSelect,
 	calculateGoalEstimate,
@@ -43,6 +48,7 @@ import {
 	type PlayerContext,
 } from "@/4-lib/tacticus/goals";
 import { parsePlannerExport } from "@/4-lib/tacticus/import-planner";
+import type { RosterUnit } from "@/4-lib/tacticus/roster-utils";
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/goals")({
@@ -70,6 +76,52 @@ function getColorTint(
 		return "ring-1 ring-emerald-500/20 bg-emerald-500/5";
 	if (days <= threshold) return "ring-1 ring-amber-500/20 bg-amber-500/5";
 	return "ring-1 ring-red-500/20 bg-red-500/5";
+}
+
+/**
+ * Build typed goals from stored Convex data, applying roster overrides.
+ * If the player's current rank (from sync) is higher than the stored rankStart,
+ * use the roster rank so estimates reflect in-game progress.
+ */
+function buildTypedGoals(
+	goals: {
+		goalId: string;
+		unitId: string;
+		unitName: string;
+		priority: number;
+		include: boolean;
+		notes?: string;
+		type: number;
+		data: string;
+	}[],
+	roster: Map<string, RosterUnit> | null,
+): CharacterRaidGoalSelect[] {
+	return goals.map((goal) => {
+		const parsed = JSON.parse(goal.data) as Record<string, unknown>;
+
+		// Override rankStart with roster's current rank if higher
+		if (goal.type === GoalType.UpgradeRank && roster) {
+			const rosterUnit = roster.get(goal.unitId);
+			if (rosterUnit) {
+				const storedRankStart = parsed.rankStart as number;
+				if (rosterUnit.rank > storedRankStart) {
+					parsed.rankStart = rosterUnit.rank;
+				}
+			}
+		}
+
+		return {
+			priority: goal.priority,
+			include: goal.include,
+			goalId: goal.goalId,
+			unitId: goal.unitId,
+			unitName: goal.unitName,
+			unitAlliance: "Imperial" as const,
+			notes: goal.notes ?? "",
+			type: goal.type,
+			...parsed,
+		} as CharacterRaidGoalSelect;
+	});
 }
 
 function GoalsPage() {
@@ -115,6 +167,10 @@ function GoalsPage() {
 	const setTableView = useGoalPreferencesStore((s) => s.setGoalsTableView);
 	const colorMode = useGoalPreferencesStore((s) => s.goalColorMode);
 	const setColorMode = useGoalPreferencesStore((s) => s.setGoalColorMode);
+	const farmStrategy = useGoalPreferencesStore((s) => s.farmStrategy);
+	const farmOrder = useGoalPreferencesStore((s) => s.farmOrder);
+	const viewMode = useGoalPreferencesStore((s) => s.goalsViewMode);
+	const setViewMode = useGoalPreferencesStore((s) => s.setGoalsViewMode);
 
 	const isLoading = goals === undefined;
 	const goalCount = goals?.length ?? 0;
@@ -154,20 +210,7 @@ function GoalsPage() {
 		}
 
 		let cancelled = false;
-		const typedGoals = goals.map((goal) => {
-			const parsed = JSON.parse(goal.data) as Record<string, unknown>;
-			return {
-				priority: goal.priority,
-				include: goal.include,
-				goalId: goal.goalId,
-				unitId: goal.unitId,
-				unitName: goal.unitName,
-				unitAlliance: "Imperial" as const,
-				notes: goal.notes ?? "",
-				type: goal.type,
-				...parsed,
-			} as CharacterRaidGoalSelect;
-		});
+		const typedGoals = buildTypedGoals(goals, roster);
 
 		void Promise.all(
 			typedGoals.map((typed) =>
@@ -185,7 +228,51 @@ function GoalsPage() {
 		return () => {
 			cancelled = true;
 		};
-	}, [goals, dailyEnergy, shardsEnergy, playerContext]);
+	}, [goals, dailyEnergy, shardsEnergy, playerContext, roster]);
+
+	// Daily raids plan computation
+	const [raidsPlan, setRaidsPlan] = useState<IDailyRaidsPlan | null>(null);
+	const [computingRaids, setComputingRaids] = useState(false);
+	useEffect(() => {
+		if (viewMode !== "dailyRaids" || !goals) {
+			setRaidsPlan(null);
+			return;
+		}
+
+		let cancelled = false;
+		setComputingRaids(true);
+
+		const typedGoals = buildTypedGoals(goals, roster);
+
+		const progress =
+			(playerContext.campaignProgress as Map<Campaign, number>) ?? new Map();
+		const inv = playerContext.inventory ?? {};
+
+		void generateDailyRaidsPlan(
+			typedGoals,
+			dailyEnergy,
+			progress,
+			inv,
+			farmStrategy,
+			farmOrder,
+		).then((plan) => {
+			if (cancelled) return;
+			setRaidsPlan(plan);
+			setComputingRaids(false);
+		});
+
+		return () => {
+			cancelled = true;
+		};
+	}, [
+		viewMode,
+		goals,
+		dailyEnergy,
+		playerContext,
+		farmStrategy,
+		farmOrder,
+		roster,
+	]);
 
 	const handleEdit = useCallback(
 		(goalId: string) => {
@@ -257,14 +344,15 @@ function GoalsPage() {
 		}
 	}, [getPlayerData, setPlayerData, setSyncing]);
 
-	// Auto-fetch roster on mount so start ranks are pre-populated
+	// Auto-fetch roster on mount only if store has no data
+	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
 	const didAutoSync = useRef(false);
 	useEffect(() => {
-		if (!didAutoSync.current) {
+		if (!didAutoSync.current && !lastSyncedAt) {
 			didAutoSync.current = true;
 			void handleSync();
 		}
-	}, [handleSync]);
+	}, [handleSync, lastSyncedAt]);
 
 	const handleImport = useCallback(
 		async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -361,20 +449,45 @@ function GoalsPage() {
 								</span>
 							</Button>
 
-							{/* View toggle — hidden on mobile */}
+							{/* Daily Raids / Goals toggle */}
 							<Button
-								variant="outline"
+								variant={viewMode === "dailyRaids" ? "default" : "outline"}
 								size="sm"
-								onClick={() => setTableView(!tableView)}
-								title={tableView ? "Card view" : "Table view"}
-								className="hidden md:inline-flex"
+								onClick={() =>
+									setViewMode(viewMode === "goals" ? "dailyRaids" : "goals")
+								}
+								title={
+									viewMode === "dailyRaids"
+										? "Switch to Goals view"
+										: "Switch to Daily Raids view"
+								}
 							>
-								{tableView ? (
-									<LayoutGrid className="size-4" />
+								{viewMode === "dailyRaids" ? (
+									<Target className="size-4" />
 								) : (
-									<Table className="size-4" />
+									<Calendar className="size-4" />
 								)}
+								<span className="hidden sm:inline">
+									{viewMode === "dailyRaids" ? "Goals" : "Daily Raids"}
+								</span>
 							</Button>
+
+							{/* View toggle — hidden on mobile */}
+							{viewMode === "goals" && (
+								<Button
+									variant="outline"
+									size="sm"
+									onClick={() => setTableView(!tableView)}
+									title={tableView ? "Card view" : "Table view"}
+									className="hidden md:inline-flex"
+								>
+									{tableView ? (
+										<LayoutGrid className="size-4" />
+									) : (
+										<Table className="size-4" />
+									)}
+								</Button>
+							)}
 						</>
 					)}
 
@@ -498,6 +611,8 @@ function GoalsPage() {
 					</p>
 					<AddGoalDialog goalCount={0} roster={roster} />
 				</div>
+			) : viewMode === "dailyRaids" ? (
+				<DailyRaidsPlan plan={raidsPlan} computing={computingRaids} />
 			) : tableView ? (
 				<GoalsTable
 					rows={goals.map((goal) => ({
