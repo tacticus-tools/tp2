@@ -7,6 +7,7 @@ import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteTsConfigPaths from "vite-tsconfig-paths";
 import { main as prepareCharacterData } from "./src/5-assets/characters/generate-data";
+import { main as prepareEquipmentData } from "./src/5-assets/equipment/generate-data";
 import { main as prepareNpcData } from "./src/5-assets/npcs/generate-data";
 import { main as prepareOnslaughtData } from "./src/5-assets/onslaught/generate-data";
 
@@ -42,9 +43,10 @@ const config = defineConfig({
 				plugins: ["babel-plugin-react-compiler"],
 			},
 		}),
-		{ name: "generate-character-data", buildStart: prepareCharacterData },
-		{ name: "generate-onslaught-data", buildStart: prepareOnslaughtData },
-		{ name: "generate-npc-data", buildStart: prepareNpcData },
+		{ name: "prepareCharacterData", buildStart: prepareCharacterData },
+		{ name: "prepareOnslaughtData", buildStart: prepareOnslaughtData },
+		{ name: "prepareNpcData", buildStart: prepareNpcData },
+		{ name: "prepareEquipmentData", buildStart: prepareEquipmentData },
 	],
 });
 
