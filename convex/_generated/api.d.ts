@@ -12,6 +12,7 @@ import type * as auth from "../auth.js";
 import type * as env from "../env.js";
 import type * as goals from "../goals.js";
 import type * as http from "../http.js";
+import type * as tacticus_types from "../tacticus/types.js";
 
 import type {
   ApiFromModules,
@@ -24,6 +25,7 @@ declare const fullApi: ApiFromModules<{
   env: typeof env;
   goals: typeof goals;
   http: typeof http;
+  "tacticus/types": typeof tacticus_types;
 }>;
 
 /**
