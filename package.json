@@ -26,6 +26,7 @@
 	},
 	"dependencies": {
 		"@auth/core": "0.41.1",
+		"@base-ui/react": "^1.2.0",
 		"@cloudflare/vite-plugin": "^1.25.0",
 		"@convex-dev/auth": "^0.0.90",
 		"@convex-dev/react-query": "0.1.0",

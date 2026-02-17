@@ -1,0 +1,6 @@
+{
+	"$schema": "https://unpkg.com/knip@5/schema.json",
+	"tags": ["-lintignore"],
+	"ignore": ["src/1-components/ui/**/*"], // Installed from shadcn/ui; keep them even if we don't use them all so that people have easy access instead of trying to build their own components.
+	"ignoreDependencies": ["@base-ui/react"] // false positive
+}
