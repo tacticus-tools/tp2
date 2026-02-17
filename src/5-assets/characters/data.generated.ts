@@ -27,7 +27,7 @@ export const DATA = [
     "activeAbility": [
       "Flame"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 9,
     "icon": "snowprint_assets/characters/ui_image_portrait_adept_canoness_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_canoness_01.png"
@@ -47,9 +47,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -58,8 +58,8 @@ export const DATA = [
       "ActOfFaith",
       "Flying"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 10,
     "icon": "snowprint_assets/characters/ui_image_portrait_adept_celestine_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_celestine_01.png"
@@ -79,9 +79,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Bolter",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -90,8 +90,8 @@ export const DATA = [
       "ActOfFaith",
       "Healer"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 7,
     "icon": "snowprint_assets/characters/ui_image_portrait_adept_hospitaller_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_hospitaller_01.png"
@@ -201,7 +201,7 @@ export const DATA = [
     "activeAbility": [
       "Physical"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 79,
     "icon": "snowprint_assets/characters/ui_image_portrait_admec_destroyer_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_destroyer_01.png"
@@ -235,7 +235,7 @@ export const DATA = [
     "activeAbility": [
       "Toxic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 75,
     "icon": "snowprint_assets/characters/ui_image_portrait_admec_dominus_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_dominus_01.png"
@@ -267,8 +267,8 @@ export const DATA = [
       "Mechanic",
       "Flying"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 76,
     "icon": "snowprint_assets/characters/ui_image_portrait_admec_manipulus_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_manipulus_01.png"
@@ -298,8 +298,8 @@ export const DATA = [
     "traits": [
       "Mechanical"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 77,
     "icon": "snowprint_assets/characters/ui_image_portrait_admec_marshall_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_marshall_01.png"
@@ -319,9 +319,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Energy",
     "meleeHits": 2,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -357,9 +357,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Physical",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -370,7 +370,7 @@ export const DATA = [
     "activeAbility": [
       "Blast"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 22,
     "icon": "snowprint_assets/characters/ui_image_portrait_astra_bullgryn_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_bullgryn_01.png"
@@ -390,16 +390,16 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Las",
     "meleeHits": 2,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
     "equipment3": "I_Booster_Block",
     "traits": [],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 26,
     "icon": "snowprint_assets/characters/ui_image_portrait_astra_creed_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_creed_01.png"
@@ -419,9 +419,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -433,7 +433,7 @@ export const DATA = [
     "activeAbility": [
       "Power"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 113,
     "icon": "snowprint_assets/characters/ui_image_portrait_astra_dreir_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_dreir_01.png"
@@ -467,7 +467,7 @@ export const DATA = [
     "activeAbility": [
       "Blast"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 24,
     "icon": "snowprint_assets/characters/ui_image_portrait_astra_ordnance_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_ordnance_01.png"
@@ -500,7 +500,7 @@ export const DATA = [
     "activeAbility": [
       "Psychic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 23,
     "icon": "snowprint_assets/characters/ui_image_portrait_astra_psyker_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_psyker_01.png"
@@ -530,8 +530,8 @@ export const DATA = [
     "traits": [
       "Resilient"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 25,
     "icon": "snowprint_assets/characters/ui_image_portrait_astra_yarrick_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_yarrick_01.png"
@@ -566,7 +566,7 @@ export const DATA = [
     "activeAbility": [
       "Piercing"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 20,
     "icon": "snowprint_assets/characters/ui_image_portrait_black_abaddon_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_abaddon_01.png"
@@ -586,9 +586,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Piercing",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -601,7 +601,7 @@ export const DATA = [
     "activeAbility": [
       "Piercing"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 19,
     "icon": "snowprint_assets/characters/ui_image_portrait_black_haarken_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_haarken_01.png"
@@ -673,8 +673,8 @@ export const DATA = [
       "LetTheGalaxyBurn",
       "Psyker"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 18,
     "icon": "snowprint_assets/characters/ui_image_portrait_black_possession_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_possession_01.png"
@@ -694,9 +694,9 @@ export const DATA = [
     "initialRarity": "Common",
     "meleeDamage": "Power",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -709,7 +709,7 @@ export const DATA = [
     "activeAbility": [
       "Power"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 16,
     "icon": "snowprint_assets/characters/ui_image_portrait_black_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_terminator_01.png"
@@ -729,9 +729,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Piercing",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -746,7 +746,7 @@ export const DATA = [
     "activeAbility": [
       "Melta"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 101,
     "icon": "snowprint_assets/characters/ui_image_portrait_blood_dante_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_dante_01.png"
@@ -778,7 +778,7 @@ export const DATA = [
       "Resilient",
       "Unstoppable"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Bolter"
     ],
@@ -801,9 +801,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Plasma",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -817,7 +817,7 @@ export const DATA = [
       "Physical",
       "Power"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 72,
     "icon": "snowprint_assets/characters/ui_image_portrait_blood_intercessor_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_intercessor_01.png"
@@ -849,7 +849,7 @@ export const DATA = [
       "RapidAssault",
       "Terrifying"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Psychic"
     ],
@@ -872,9 +872,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Chain",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -883,8 +883,8 @@ export const DATA = [
       "Healer",
       "RapidAssault"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 99,
     "icon": "snowprint_assets/characters/ui_image_portrait_blood_sanguinary_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_sanguinary_01.png"
@@ -904,9 +904,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -919,7 +919,7 @@ export const DATA = [
       "DirectDamage",
       "Power"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 110,
     "icon": "snowprint_assets/characters/ui_image_portrait_custo_atlacoya_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_atlacoya_01.png"
@@ -939,9 +939,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1015,9 +1015,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Piercing",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1030,7 +1030,7 @@ export const DATA = [
     "activeAbility": [
       "Bolter"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 105,
     "icon": "snowprint_assets/characters/ui_image_portrait_custo_trajann_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_trajann_01.png"
@@ -1050,9 +1050,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Physical",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1065,7 +1065,7 @@ export const DATA = [
     "activeAbility": [
       "Physical"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 106,
     "icon": "snowprint_assets/characters/ui_image_portrait_custo_vexilus_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_vexilus_01.png"
@@ -1085,9 +1085,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Power",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1095,8 +1095,8 @@ export const DATA = [
     "traits": [
       "Terrifying"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 60,
     "icon": "snowprint_assets/characters/ui_image_portrait_darka_asmodai_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_asmodai_01.png"
@@ -1131,7 +1131,7 @@ export const DATA = [
       "Bolter",
       "DirectDamage"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 58,
     "icon": "snowprint_assets/characters/ui_image_portrait_darka_azrael_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_azrael_01.png"
@@ -1151,9 +1151,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Power",
     "meleeHits": 6,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -1165,7 +1165,7 @@ export const DATA = [
     "activeAbility": [
       "Power"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 104,
     "icon": "snowprint_assets/characters/ui_image_portrait_darka_companion_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_companion_01.png"
@@ -1222,9 +1222,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1238,7 +1238,7 @@ export const DATA = [
     "activeAbility": [
       "Plasma"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 59,
     "icon": "snowprint_assets/characters/ui_image_portrait_darka_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_terminator_01.png"
@@ -1258,9 +1258,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Plasma",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -1269,8 +1269,8 @@ export const DATA = [
       "ContagionsOfNurgle",
       "Resilient"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 30,
     "icon": "snowprint_assets/characters/ui_image_portrait_death_blightbringer_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_blightbringer_01.png"
@@ -1290,9 +1290,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1327,9 +1327,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Toxic",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -1342,7 +1342,7 @@ export const DATA = [
     "activeAbility": [
       "Toxic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 31,
     "icon": "snowprint_assets/characters/ui_image_portrait_death_putrifier_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_putrifier_01.png"
@@ -1362,9 +1362,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Power",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -1374,8 +1374,8 @@ export const DATA = [
       "Resilient",
       "Healer"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 32,
     "icon": "snowprint_assets/characters/ui_image_portrait_death_rotbone_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_rotbone_01.png"
@@ -1433,9 +1433,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Piercing",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 5,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1447,7 +1447,7 @@ export const DATA = [
     "activeAbility": [
       "Piercing"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 44,
     "icon": "snowprint_assets/characters/ui_image_portrait_aelda_autarch_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_autarch_01.png"
@@ -1477,8 +1477,8 @@ export const DATA = [
     "traits": [
       "Psyker"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 46,
     "icon": "snowprint_assets/characters/ui_image_portrait_aelda_farseer_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_farseer_01.png"
@@ -1498,9 +1498,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Piercing",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1511,7 +1511,7 @@ export const DATA = [
     "activeAbility": [
       "Piercing"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 47,
     "icon": "snowprint_assets/characters/ui_image_portrait_aelda_jainzar_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_jainzar_01.png"
@@ -1543,8 +1543,8 @@ export const DATA = [
       "HeavyWeapon",
       "Overwatch"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 45,
     "icon": "snowprint_assets/characters/ui_image_portrait_aelda_maugan_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_maugan_01.png"
@@ -1575,7 +1575,7 @@ export const DATA = [
       "HeavyWeapon",
       "Overwatch"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Piercing"
     ],
@@ -1598,9 +1598,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Power",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1612,7 +1612,7 @@ export const DATA = [
     "activeAbility": [
       "Power"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 123,
     "icon": "snowprint_assets/characters/ui_image_portrait_emper_exultant_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_exultant_01.png"
@@ -1632,9 +1632,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Piercing",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -1643,7 +1643,7 @@ export const DATA = [
       "ThrillSeekers",
       "Parry"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Eviscerate"
     ],
@@ -1666,9 +1666,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Eviscerate",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -1679,7 +1679,7 @@ export const DATA = [
     "activeAbility": [
       "DirectDamage"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 115,
     "icon": "snowprint_assets/characters/ui_image_portrait_emper_kakophonist_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_kakophonist_01.png"
@@ -1699,9 +1699,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Power",
     "meleeHits": 6,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1713,7 +1713,7 @@ export const DATA = [
     "activeAbility": [
       "Eviscerate"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 111,
     "icon": "snowprint_assets/characters/ui_image_portrait_emper_lucius_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_lucius_01.png"
@@ -1748,7 +1748,7 @@ export const DATA = [
     "activeAbility": [
       "Blast"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 112,
     "icon": "snowprint_assets/characters/ui_image_portrait_emper_noisemarine_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_noisemarine_01.png"
@@ -1768,9 +1768,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Toxic",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -1779,8 +1779,8 @@ export const DATA = [
       "Ambush",
       "Healer"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 96,
     "icon": "snowprint_assets/characters/ui_image_portrait_genes_biophagus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_biophagus_01.png"
@@ -1847,8 +1847,8 @@ export const DATA = [
       "Ambush",
       "Psyker"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 92,
     "icon": "snowprint_assets/characters/ui_image_portrait_genes_magus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_magus_01.png"
@@ -1868,9 +1868,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Eviscerate",
     "meleeHits": 5,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -1884,7 +1884,7 @@ export const DATA = [
     "activeAbility": [
       "Psychic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 94,
     "icon": "snowprint_assets/characters/ui_image_portrait_genes_patriarch_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_patriarch_01.png"
@@ -1914,7 +1914,7 @@ export const DATA = [
     "traits": [
       "Ambush"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Blast"
     ],
@@ -1952,7 +1952,7 @@ export const DATA = [
     "activeAbility": [
       "Gauss"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 12,
     "icon": "snowprint_assets/characters/ui_image_portrait_necro_hexmark_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_hexmark_01.png"
@@ -1983,7 +1983,7 @@ export const DATA = [
       "LivingMetal",
       "Mechanical"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Energy"
     ],
@@ -2043,9 +2043,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Particle",
     "meleeHits": 5,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2057,8 +2057,8 @@ export const DATA = [
       "Flying",
       "Mechanic"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 13,
     "icon": "snowprint_assets/characters/ui_image_portrait_necro_spyder_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_spyder_01.png"
@@ -2089,8 +2089,8 @@ export const DATA = [
       "LivingMetal",
       "Mechanical"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 11,
     "icon": "snowprint_assets/characters/ui_image_portrait_necro_warden_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_warden_01.png"
@@ -2110,9 +2110,9 @@ export const DATA = [
     "initialRarity": "Common",
     "meleeDamage": "Physical",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2121,8 +2121,8 @@ export const DATA = [
       "GetStuckIn",
       "Mechanic"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 39,
     "icon": "snowprint_assets/characters/ui_image_portrait_orkss_mek_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_mek_01.png"
@@ -2158,7 +2158,7 @@ export const DATA = [
     "activeAbility": [
       "Projectile"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 40,
     "icon": "snowprint_assets/characters/ui_image_portrait_orkss_killakan_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_killakan_01.png"
@@ -2178,9 +2178,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Eviscerate",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2193,7 +2193,7 @@ export const DATA = [
     "activeAbility": [
       "DirectDamage"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 41,
     "icon": "snowprint_assets/characters/ui_image_portrait_orkss_nob_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_nob_01.png"
@@ -2213,9 +2213,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Physical",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2224,7 +2224,7 @@ export const DATA = [
       "GetStuckIn",
       "BeastSnagga"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Physical"
     ],
@@ -2261,7 +2261,7 @@ export const DATA = [
       "FinalJustice",
       "Mechanical"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Projectile"
     ],
@@ -2284,9 +2284,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Chain",
     "meleeHits": 7,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -2296,8 +2296,8 @@ export const DATA = [
       "FinalJustice",
       "RapidAssault"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 57,
     "icon": "snowprint_assets/characters/ui_image_portrait_space_ragnar_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_ragnar_01.png"
@@ -2317,9 +2317,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Physical",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2331,7 +2331,7 @@ export const DATA = [
     "activeAbility": [
       "Physical"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 54,
     "icon": "snowprint_assets/characters/ui_image_portrait_space_hound_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_hound_01.png"
@@ -2351,9 +2351,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -2367,7 +2367,7 @@ export const DATA = [
     "activeAbility": [
       "Power"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 55,
     "icon": "snowprint_assets/characters/ui_image_portrait_space_arjac_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_arjac_01.png"
@@ -2402,7 +2402,7 @@ export const DATA = [
     "activeAbility": [
       "Psychic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 56,
     "icon": "snowprint_assets/characters/ui_image_portrait_space_njal_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_stormcaller_01.png"
@@ -2422,9 +2422,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -2434,8 +2434,8 @@ export const DATA = [
       "FinalJustice",
       "Terrifying"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 124,
     "icon": "snowprint_assets/characters/ui_image_portrait_space_wolfpriest_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_wolfpriest_01.png"
@@ -2455,9 +2455,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2491,16 +2491,16 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Power",
     "meleeHits": 5,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
     "equipment3": "I_Booster_Crit",
     "traits": [],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 50,
     "icon": "snowprint_assets/characters/ui_image_portrait_tauta_aunshi_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_aunshi_01.png"
@@ -2533,7 +2533,7 @@ export const DATA = [
       "Mechanical",
       "RangedSpecialist"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Particle"
     ],
@@ -2568,8 +2568,8 @@ export const DATA = [
       "RangedSpecialist",
       "SuppressiveFire"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 51,
     "icon": "snowprint_assets/characters/ui_image_portrait_tauta_darkstrider_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_darkstrider_01.png"
@@ -2602,8 +2602,8 @@ export const DATA = [
       "Flying",
       "Mechanical"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 122,
     "icon": "snowprint_assets/characters/ui_image_portrait_tauta_farsight_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_farsight_01.png"
@@ -2637,7 +2637,7 @@ export const DATA = [
     "activeAbility": [
       "HeavyRound"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 48,
     "icon": "snowprint_assets/characters/ui_image_portrait_tauta_marksman_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_marksman_01.png"
@@ -2673,7 +2673,7 @@ export const DATA = [
     "activeAbility": [
       "Blast"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 52,
     "icon": "snowprint_assets/characters/ui_image_portrait_tauta_shadowsun_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_shadowsun_01.png"
@@ -2730,9 +2730,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Power",
     "meleeHits": 2,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2741,8 +2741,8 @@ export const DATA = [
       "FinalJustice",
       "Parry"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 36,
     "icon": "snowprint_assets/characters/ui_image_portrait_templ_ancient_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_ancient_01.png"
@@ -2762,9 +2762,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -2774,7 +2774,7 @@ export const DATA = [
       "Parry",
       "RapidAssault"
     ],
-    "activeAbility": [],
+    "activeAbility": null,
     "passiveAbility": [
       "Power"
     ],
@@ -2808,8 +2808,8 @@ export const DATA = [
       "FinalJustice",
       "Parry"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 37,
     "icon": "snowprint_assets/characters/ui_image_portrait_templ_helbrecht_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_helbrecht_01.png"
@@ -2829,9 +2829,9 @@ export const DATA = [
     "initialRarity": "Common",
     "meleeDamage": "Power",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -2880,7 +2880,7 @@ export const DATA = [
     "activeAbility": [
       "Psychic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 66,
     "icon": "snowprint_assets/characters/ui_image_portrait_thous_ahriman_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_ahriman_01.png"
@@ -2911,8 +2911,8 @@ export const DATA = [
       "WeaverOfFate",
       "Psyker"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 64,
     "icon": "snowprint_assets/characters/ui_image_portrait_thous_infernal_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_infernal_01.png"
@@ -2944,8 +2944,8 @@ export const DATA = [
       "Flying",
       "Psyker"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 65,
     "icon": "snowprint_assets/characters/ui_image_portrait_thous_sorcerer_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_sorcerer_01.png"
@@ -2980,7 +2980,7 @@ export const DATA = [
     "activeAbility": [
       "HeavyRound"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 63,
     "icon": "snowprint_assets/characters/ui_image_portrait_thous_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_terminator_01.png"
@@ -3014,7 +3014,7 @@ export const DATA = [
     "activeAbility": [
       "Psychic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 62,
     "icon": "snowprint_assets/characters/ui_image_portrait_thous_tzaangor_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_tzaangor_01.png"
@@ -3034,9 +3034,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Bio",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3050,7 +3050,7 @@ export const DATA = [
     "activeAbility": [
       "DirectDamage"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 70,
     "icon": "snowprint_assets/characters/ui_image_portrait_tyran_deathleaper_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_deathleaper_01.png"
@@ -3087,7 +3087,7 @@ export const DATA = [
     "activeAbility": [
       "Psychic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 67,
     "icon": "snowprint_assets/characters/ui_image_portrait_tyran_neurothrope_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_neurothrope_01.png"
@@ -3107,9 +3107,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Toxic",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3118,8 +3118,8 @@ export const DATA = [
       "Flying",
       "Synapse"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 74,
     "icon": "snowprint_assets/characters/ui_image_portrait_tyran_parasite_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_parasite_01.png"
@@ -3139,9 +3139,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Piercing",
     "meleeHits": 2,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3154,7 +3154,7 @@ export const DATA = [
       "Physical",
       "Piercing"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 68,
     "icon": "snowprint_assets/characters/ui_image_portrait_tyran_tyrantguard_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_tyrantguard_01.png"
@@ -3174,9 +3174,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Bio",
     "meleeHits": 6,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3186,8 +3186,8 @@ export const DATA = [
       "Flying",
       "FinalJustice"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 69,
     "icon": "snowprint_assets/characters/ui_image_portrait_tyran_wingedprime_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_wingedprime_01.png"
@@ -3207,9 +3207,9 @@ export const DATA = [
     "initialRarity": "Common",
     "meleeDamage": "Piercing",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3217,8 +3217,8 @@ export const DATA = [
     "traits": [
       "Healer"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 3,
     "icon": "snowprint_assets/characters/ui_image_portrait_ultra_apothecary_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_apothecary_01.png"
@@ -3238,9 +3238,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Power",
     "meleeHits": 2,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -3253,7 +3253,7 @@ export const DATA = [
     "activeAbility": [
       "Bolter"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 4,
     "icon": "snowprint_assets/characters/ui_image_portrait_ultra_calgar_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_calgar_01.png"
@@ -3310,9 +3310,9 @@ export const DATA = [
     "initialRarity": "Common",
     "meleeDamage": "Bolter",
     "meleeHits": 6,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 4,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3321,8 +3321,8 @@ export const DATA = [
       "Flying",
       "MkXGravis"
     ],
-    "activeAbility": [],
-    "passiveAbility": [],
+    "activeAbility": null,
+    "passiveAbility": null,
     "number": 2,
     "icon": "snowprint_assets/characters/ui_image_portrait_ultra_inceptor_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_inceptor_01.png"
@@ -3355,7 +3355,7 @@ export const DATA = [
     "activeAbility": [
       "Psychic"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 0,
     "icon": "snowprint_assets/characters/ui_image_portrait_ultra_tigurius_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_tigurius_01.png"
@@ -3375,9 +3375,9 @@ export const DATA = [
     "initialRarity": "Epic",
     "meleeDamage": "Chain",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3390,7 +3390,7 @@ export const DATA = [
       "Bolter",
       "Chain"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 90,
     "icon": "snowprint_assets/characters/ui_image_portrait_ultra_titus_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_titus_01.png"
@@ -3410,9 +3410,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Power",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3424,7 +3424,7 @@ export const DATA = [
     "activeAbility": [
       "Physical"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 125,
     "icon": "snowprint_assets/characters/ui_image_portrait_votan_ironmaster_01.png",
     "roundIcon": "ui_image_RoundPortrait_votan_ironmaster_01.png"
@@ -3458,7 +3458,7 @@ export const DATA = [
     "activeAbility": [
       "Plasma"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 126,
     "icon": "snowprint_assets/characters/ui_image_portrait_votan_uthar_01.png",
     "roundIcon": "ui_image_RoundPortrait_votan_uthar_01.png"
@@ -3478,9 +3478,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Eviscerate",
     "meleeHits": 2,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3495,7 +3495,7 @@ export const DATA = [
     "activeAbility": [
       "Eviscerate"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 82,
     "icon": "snowprint_assets/characters/ui_image_portrait_world_eightbound_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_eightbound_01.png"
@@ -3515,9 +3515,9 @@ export const DATA = [
     "initialRarity": "Rare",
     "meleeDamage": "Piercing",
     "meleeHits": 1,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Crit",
@@ -3529,7 +3529,7 @@ export const DATA = [
     "activeAbility": [
       "Piercing"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 103,
     "icon": "snowprint_assets/characters/ui_image_portrait_world_executions_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_executions_01.png"
@@ -3549,9 +3549,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Chain",
     "meleeHits": 3,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Defensive",
@@ -3563,7 +3563,7 @@ export const DATA = [
     "activeAbility": [
       "Physical"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 81,
     "icon": "snowprint_assets/characters/ui_image_portrait_world_jakhal_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_jakhal_01.png"
@@ -3583,9 +3583,9 @@ export const DATA = [
     "initialRarity": "Legendary",
     "meleeDamage": "Eviscerate",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 3,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -3622,9 +3622,9 @@ export const DATA = [
     "initialRarity": "Uncommon",
     "meleeDamage": "Flame",
     "meleeHits": 4,
-    "rangedDamage": [],
-    "rangedHits": 0,
-    "distance": 0,
+    "rangedDamage": null,
+    "rangedHits": null,
+    "distance": null,
     "movement": 2,
     "equipment1": "I_Crit",
     "equipment2": "I_Block",
@@ -3639,7 +3639,7 @@ export const DATA = [
     "activeAbility": [
       "Chain"
     ],
-    "passiveAbility": [],
+    "passiveAbility": null,
     "number": 80,
     "icon": "snowprint_assets/characters/ui_image_portrait_world_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_terminator_01.png"
