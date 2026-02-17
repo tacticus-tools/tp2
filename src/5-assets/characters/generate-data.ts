@@ -93,16 +93,16 @@ const RawCharacterSchema = z
 		initialRarity: raw["Initial rarity"],
 		meleeDamage: raw["Melee Damage"],
 		meleeHits: raw["Melee Hits"],
-		rangedDamage: raw["Ranged Damage"] ?? [],
-		rangedHits: raw["Ranged Hits"] ?? 0,
-		distance: raw.Distance ?? 0,
+		rangedDamage: raw["Ranged Damage"] ?? null, // setting null makes it value-optional instead of key-optional (easier to work with)
+		rangedHits: raw["Ranged Hits"] ?? null,
+		distance: raw.Distance ?? null,
 		movement: raw.Movement,
 		equipment1: raw.Equipment1,
 		equipment2: raw.Equipment2,
 		equipment3: raw.Equipment3,
 		traits: raw.Traits,
-		activeAbility: raw["Active Ability"] ?? [],
-		passiveAbility: raw["Passive Ability"] ?? [],
+		activeAbility: raw["Active Ability"] ?? null,
+		passiveAbility: raw["Passive Ability"] ?? null,
 		number: raw.Number,
 		icon: raw.Icon,
 		roundIcon: raw.RoundIcon,
@@ -135,6 +135,16 @@ const DataSchema = z
 					});
 				else seenValues[field].add(value);
 			}
+			if ((character.rangedDamage === null) !== (character.rangedHits === null))
+				ctx.addIssue({
+					code: "custom",
+					message: `Character with id "${character.id}" has inconsistent ranged damage/hits. Both should be either null or non-null.`,
+				});
+			if ((character.rangedDamage === null) !== (character.distance === null))
+				ctx.addIssue({
+					code: "custom",
+					message: `Character with id "${character.id}" has inconsistent ranged damage/distance. Both should be either null or non-null.`,
+				});
 		}
 	});
 
