@@ -30,6 +30,7 @@
    * [Decision: Use Vitest as the unit testing tool](#decision-use-vitest-as-the-unit-testing-tool)
    * [Decision: Use Tanstack Table for tables](#decision-use-tanstack-table-for-tables)
    * [Decision: Use Zod + `json2const` for JSON type safety](#decision-use-zod-json2const-for-json-type-safety)
+   * [Decision: Ban Enums](#decision-ban-enums)
 
 <!-- TOC end -->
 
@@ -290,3 +291,16 @@ See below for the template. Don't bother with date & author since git will handl
   - 3) Use Zod to parse + validate + transform the JSON in a Vite build plugin. This gives very good type safety and makes client code much simpler. Unfortunately it cannot give us things like type FactionId = 'Ultramarines' | 'Aeldari' | ...
 - **Chosen solution**: I think the most sustainable solution here is a combination of experiments 3 and 1.
 Use Zod for parsing and transforming the raw JSON into forms that are better for the client to work with. For critical types that change often (e.g. CharacterId, FactionId, NpcId, ...), we can have Zod dump them into JSON arrays and then use [`json2const`](https://www.npmjs.com/package/json2const) in the same build plugin to give us string union types.
+
+<!-- TOC --><a name="decision-ban-enums"></a>
+### Decision: Ban Enums
+
+- **Motivation**: Enums are a common way to represent a fixed set of values in other languages, but in TypeScript they're just objects with some extra properties that can lead to bugs and confusion.
+- **Alternatives considered**:
+  - 1) Refactor old code. This would take longer than rewriting the whole codebase, so it was a non-starter.
+  - 2) Just don't use enums in new code. This would lead to an inconsistent codebase and would still allow for enums to be used in new code by accident.
+  - 3) Use TS `erasableSyntaxOnly` to ban enums. This would give us a compile-time error if we try to use enums in new code, and it would be easy to enforce in code reviews.
+- **Chosen solution**: Use `erasableSyntaxOnly` to ban enums.
+- **Rationale**:
+  - Enums Considered Harmful: https://www.youtube.com/watch?v=jjMbPt_H3RQ
+  - TypeScript 5.8 Ships `--erasableSyntaxOnly` To Disable Enums: https://www.totaltypescript.com/erasable-syntax-only
