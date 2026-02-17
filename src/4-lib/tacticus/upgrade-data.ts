@@ -45,6 +45,7 @@ export interface IBaseMaterial {
 	label: string;
 	rarity: Rarity;
 	stat: string;
+	icon?: string;
 	crafted: false;
 }
 
@@ -53,6 +54,7 @@ export interface ICraftedMaterial {
 	label: string;
 	rarity: Rarity;
 	stat: string;
+	icon?: string;
 	crafted: true;
 	recipe: Array<{ id: string; count: number }>;
 }
@@ -91,9 +93,16 @@ async function loadRankUpData(): Promise<IRankUpData> {
 // Material processing
 // ---------------------------------------------------------------------------
 
+function extractIconFilename(iconPath?: string): string | undefined {
+	if (!iconPath) return undefined;
+	const lastSlash = iconPath.lastIndexOf("/");
+	return lastSlash >= 0 ? iconPath.slice(lastSlash + 1) : iconPath;
+}
+
 function processRawMaterial(raw: IRawMaterial): IProcessedMaterial {
 	const rarity =
 		rarityStringToNumber[raw.rarity as keyof typeof rarityStringToNumber] ?? 0;
+	const icon = extractIconFilename(raw.icon);
 
 	if (!raw.craftable) {
 		return {
@@ -101,6 +110,7 @@ function processRawMaterial(raw: IRawMaterial): IProcessedMaterial {
 			label: raw.label ?? raw.material,
 			rarity,
 			stat: raw.stat,
+			icon,
 			crafted: false,
 		};
 	}
@@ -110,6 +120,7 @@ function processRawMaterial(raw: IRawMaterial): IProcessedMaterial {
 		label: raw.label ?? raw.material,
 		rarity,
 		stat: raw.stat,
+		icon,
 		crafted: true,
 		recipe: raw.recipe?.map((r) => ({ id: r.material, count: r.count })) ?? [],
 	};

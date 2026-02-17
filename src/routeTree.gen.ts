@@ -19,6 +19,7 @@ import { Route as DataCharactersRouteImport } from './0-routes/data/characters'
 import { Route as AuthenticatedSettingsRouteImport } from './0-routes/_authenticated/settings'
 import { Route as AuthenticatedGoalsRouteImport } from './0-routes/_authenticated/goals'
 import { Route as AuthenticatedCampaignsRouteImport } from './0-routes/_authenticated/campaigns'
+import { Route as AuthenticatedCampaignProgressionRouteImport } from './0-routes/_authenticated/campaign-progression'
 
 const SigninRoute = SigninRouteImport.update({
   id: '/signin',
@@ -69,10 +70,17 @@ const AuthenticatedCampaignsRoute = AuthenticatedCampaignsRouteImport.update({
   path: '/campaigns',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedCampaignProgressionRoute =
+  AuthenticatedCampaignProgressionRouteImport.update({
+    id: '/campaign-progression',
+    path: '/campaign-progression',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/signin': typeof SigninRoute
+  '/campaign-progression': typeof AuthenticatedCampaignProgressionRoute
   '/campaigns': typeof AuthenticatedCampaignsRoute
   '/goals': typeof AuthenticatedGoalsRoute
   '/settings': typeof AuthenticatedSettingsRoute
@@ -84,6 +92,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/signin': typeof SigninRoute
+  '/campaign-progression': typeof AuthenticatedCampaignProgressionRoute
   '/campaigns': typeof AuthenticatedCampaignsRoute
   '/goals': typeof AuthenticatedGoalsRoute
   '/settings': typeof AuthenticatedSettingsRoute
@@ -97,6 +106,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/signin': typeof SigninRoute
+  '/_authenticated/campaign-progression': typeof AuthenticatedCampaignProgressionRoute
   '/_authenticated/campaigns': typeof AuthenticatedCampaignsRoute
   '/_authenticated/goals': typeof AuthenticatedGoalsRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/signin'
+    | '/campaign-progression'
     | '/campaigns'
     | '/goals'
     | '/settings'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/signin'
+    | '/campaign-progression'
     | '/campaigns'
     | '/goals'
     | '/settings'
@@ -133,6 +145,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/signin'
+    | '/_authenticated/campaign-progression'
     | '/_authenticated/campaigns'
     | '/_authenticated/goals'
     | '/_authenticated/settings'
@@ -224,16 +237,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCampaignsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/campaign-progression': {
+      id: '/_authenticated/campaign-progression'
+      path: '/campaign-progression'
+      fullPath: '/campaign-progression'
+      preLoaderRoute: typeof AuthenticatedCampaignProgressionRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
   }
 }
 
 interface AuthenticatedRouteChildren {
+  AuthenticatedCampaignProgressionRoute: typeof AuthenticatedCampaignProgressionRoute
   AuthenticatedCampaignsRoute: typeof AuthenticatedCampaignsRoute
   AuthenticatedGoalsRoute: typeof AuthenticatedGoalsRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedCampaignProgressionRoute: AuthenticatedCampaignProgressionRoute,
   AuthenticatedCampaignsRoute: AuthenticatedCampaignsRoute,
   AuthenticatedGoalsRoute: AuthenticatedGoalsRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
