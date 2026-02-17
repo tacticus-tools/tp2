@@ -29,7 +29,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 9,
-    "icon": "snowprint_assets/characters/ui_image_portrait_adept_canoness_01.png",
+    "icon": "ui_image_portrait_adept_canoness_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_canoness_01.png"
   },
   {
@@ -61,7 +61,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 10,
-    "icon": "snowprint_assets/characters/ui_image_portrait_adept_celestine_01.png",
+    "icon": "ui_image_portrait_adept_celestine_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_celestine_01.png"
   },
   {
@@ -93,7 +93,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 7,
-    "icon": "snowprint_assets/characters/ui_image_portrait_adept_hospitaller_01.png",
+    "icon": "ui_image_portrait_adept_hospitaller_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_hospitaller_01.png"
   },
   {
@@ -131,7 +131,7 @@ export const DATA = [
       "Power"
     ],
     "number": 8,
-    "icon": "snowprint_assets/characters/ui_image_portrait_adept_morvenn_01.png",
+    "icon": "ui_image_portrait_adept_morvenn_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_morvenn_01.png"
   },
   {
@@ -167,7 +167,7 @@ export const DATA = [
       "Flame"
     ],
     "number": 6,
-    "icon": "snowprint_assets/characters/ui_image_portrait_adept_retributor_01.png",
+    "icon": "ui_image_portrait_adept_retributor_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_retributor_01.png"
   },
   {
@@ -203,7 +203,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 79,
-    "icon": "snowprint_assets/characters/ui_image_portrait_admec_destroyer_01.png",
+    "icon": "ui_image_portrait_admec_destroyer_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_destroyer_01.png"
   },
   {
@@ -237,7 +237,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 75,
-    "icon": "snowprint_assets/characters/ui_image_portrait_admec_dominus_01.png",
+    "icon": "ui_image_portrait_admec_dominus_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_dominus_01.png"
   },
   {
@@ -270,7 +270,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 76,
-    "icon": "snowprint_assets/characters/ui_image_portrait_admec_manipulus_01.png",
+    "icon": "ui_image_portrait_admec_manipulus_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_manipulus_01.png"
   },
   {
@@ -301,7 +301,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 77,
-    "icon": "snowprint_assets/characters/ui_image_portrait_admec_marshall_01.png",
+    "icon": "ui_image_portrait_admec_marshall_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_marshall_01.png"
   },
   {
@@ -339,7 +339,7 @@ export const DATA = [
       "Energy"
     ],
     "number": 78,
-    "icon": "snowprint_assets/characters/ui_image_portrait_admec_ruststalker_01.png",
+    "icon": "ui_image_portrait_admec_ruststalker_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_ruststalker_01.png"
   },
   {
@@ -372,7 +372,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 22,
-    "icon": "snowprint_assets/characters/ui_image_portrait_astra_bullgryn_01.png",
+    "icon": "ui_image_portrait_astra_bullgryn_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_bullgryn_01.png"
   },
   {
@@ -401,7 +401,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 26,
-    "icon": "snowprint_assets/characters/ui_image_portrait_astra_creed_01.png",
+    "icon": "ui_image_portrait_astra_creed_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_creed_01.png"
   },
   {
@@ -435,7 +435,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 113,
-    "icon": "snowprint_assets/characters/ui_image_portrait_astra_dreir_01.png",
+    "icon": "ui_image_portrait_astra_dreir_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_dreir_01.png"
   },
   {
@@ -469,7 +469,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 24,
-    "icon": "snowprint_assets/characters/ui_image_portrait_astra_ordnance_01.png",
+    "icon": "ui_image_portrait_astra_ordnance_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_ordnance_01.png"
   },
   {
@@ -502,7 +502,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 23,
-    "icon": "snowprint_assets/characters/ui_image_portrait_astra_psyker_01.png",
+    "icon": "ui_image_portrait_astra_psyker_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_psyker_01.png"
   },
   {
@@ -533,7 +533,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 25,
-    "icon": "snowprint_assets/characters/ui_image_portrait_astra_yarrick_01.png",
+    "icon": "ui_image_portrait_astra_yarrick_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_yarrick_01.png"
   },
   {
@@ -568,7 +568,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 20,
-    "icon": "snowprint_assets/characters/ui_image_portrait_black_abaddon_01.png",
+    "icon": "ui_image_portrait_black_abaddon_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_abaddon_01.png"
   },
   {
@@ -603,7 +603,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 19,
-    "icon": "snowprint_assets/characters/ui_image_portrait_black_haarken_01.png",
+    "icon": "ui_image_portrait_black_haarken_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_haarken_01.png"
   },
   {
@@ -644,7 +644,7 @@ export const DATA = [
       "Melta"
     ],
     "number": 17,
-    "icon": "snowprint_assets/characters/ui_image_portrait_black_obliterator_01.png",
+    "icon": "ui_image_portrait_black_obliterator_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_obliterator_01.png"
   },
   {
@@ -676,7 +676,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 18,
-    "icon": "snowprint_assets/characters/ui_image_portrait_black_possession_01.png",
+    "icon": "ui_image_portrait_black_possession_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_possession_01.png"
   },
   {
@@ -711,7 +711,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 16,
-    "icon": "snowprint_assets/characters/ui_image_portrait_black_terminator_01.png",
+    "icon": "ui_image_portrait_black_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_terminator_01.png"
   },
   {
@@ -748,7 +748,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 101,
-    "icon": "snowprint_assets/characters/ui_image_portrait_blood_dante_01.png",
+    "icon": "ui_image_portrait_blood_dante_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_dante_01.png"
   },
   {
@@ -783,7 +783,7 @@ export const DATA = [
       "Bolter"
     ],
     "number": 89,
-    "icon": "snowprint_assets/characters/ui_image_portrait_blood_deathcompany_01.png",
+    "icon": "ui_image_portrait_blood_deathcompany_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_deathcompany_01.png"
   },
   {
@@ -819,7 +819,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 72,
-    "icon": "snowprint_assets/characters/ui_image_portrait_blood_intercessor_01.png",
+    "icon": "ui_image_portrait_blood_intercessor_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_intercessor_01.png"
   },
   {
@@ -854,7 +854,7 @@ export const DATA = [
       "Psychic"
     ],
     "number": 73,
-    "icon": "snowprint_assets/characters/ui_image_portrait_blood_mephiston_01.png",
+    "icon": "ui_image_portrait_blood_mephiston_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_mephiston_01.png"
   },
   {
@@ -886,7 +886,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 99,
-    "icon": "snowprint_assets/characters/ui_image_portrait_blood_sanguinary_01.png",
+    "icon": "ui_image_portrait_blood_sanguinary_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_sanguinary_01.png"
   },
   {
@@ -921,7 +921,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 110,
-    "icon": "snowprint_assets/characters/ui_image_portrait_custo_atlacoya_01.png",
+    "icon": "ui_image_portrait_custo_atlacoya_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_atlacoya_01.png"
   },
   {
@@ -961,7 +961,7 @@ export const DATA = [
       "Power"
     ],
     "number": 107,
-    "icon": "snowprint_assets/characters/ui_image_portrait_custo_bladechampion_01.png",
+    "icon": "ui_image_portrait_custo_bladechampion_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_bladechampion_01.png"
   },
   {
@@ -997,7 +997,7 @@ export const DATA = [
       "Bolter"
     ],
     "number": 118,
-    "icon": "snowprint_assets/characters/ui_image_portrait_custo_kyrus_01.png",
+    "icon": "ui_image_portrait_custo_kyrus_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_kyrus_01.png"
   },
   {
@@ -1032,7 +1032,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 105,
-    "icon": "snowprint_assets/characters/ui_image_portrait_custo_trajann_01.png",
+    "icon": "ui_image_portrait_custo_trajann_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_trajann_01.png"
   },
   {
@@ -1067,7 +1067,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 106,
-    "icon": "snowprint_assets/characters/ui_image_portrait_custo_vexilus_01.png",
+    "icon": "ui_image_portrait_custo_vexilus_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_vexilus_01.png"
   },
   {
@@ -1098,7 +1098,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 60,
-    "icon": "snowprint_assets/characters/ui_image_portrait_darka_asmodai_01.png",
+    "icon": "ui_image_portrait_darka_asmodai_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_asmodai_01.png"
   },
   {
@@ -1133,7 +1133,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 58,
-    "icon": "snowprint_assets/characters/ui_image_portrait_darka_azrael_01.png",
+    "icon": "ui_image_portrait_darka_azrael_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_azrael_01.png"
   },
   {
@@ -1167,7 +1167,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 104,
-    "icon": "snowprint_assets/characters/ui_image_portrait_darka_companion_01.png",
+    "icon": "ui_image_portrait_darka_companion_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_companion_01.png"
   },
   {
@@ -1204,7 +1204,7 @@ export const DATA = [
       "Plasma"
     ],
     "number": 61,
-    "icon": "snowprint_assets/characters/ui_image_portrait_darka_hellblaster_01.png",
+    "icon": "ui_image_portrait_darka_hellblaster_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_hellblaster_01.png"
   },
   {
@@ -1240,7 +1240,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 59,
-    "icon": "snowprint_assets/characters/ui_image_portrait_darka_terminator_01.png",
+    "icon": "ui_image_portrait_darka_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_terminator_01.png"
   },
   {
@@ -1272,7 +1272,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 30,
-    "icon": "snowprint_assets/characters/ui_image_portrait_death_blightbringer_01.png",
+    "icon": "ui_image_portrait_death_blightbringer_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_blightbringer_01.png"
   },
   {
@@ -1309,7 +1309,7 @@ export const DATA = [
       "Toxic"
     ],
     "number": 29,
-    "icon": "snowprint_assets/characters/ui_image_portrait_death_blightlord_01.png",
+    "icon": "ui_image_portrait_death_blightlord_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_blightlord_01.png"
   },
   {
@@ -1344,7 +1344,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 31,
-    "icon": "snowprint_assets/characters/ui_image_portrait_death_putrifier_01.png",
+    "icon": "ui_image_portrait_death_putrifier_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_putrifier_01.png"
   },
   {
@@ -1377,7 +1377,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 32,
-    "icon": "snowprint_assets/characters/ui_image_portrait_death_rotbone_01.png",
+    "icon": "ui_image_portrait_death_rotbone_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_rotbone_01.png"
   },
   {
@@ -1415,7 +1415,7 @@ export const DATA = [
       "DirectDamage"
     ],
     "number": 28,
-    "icon": "snowprint_assets/characters/ui_image_portrait_death_typhus_01.png",
+    "icon": "ui_image_portrait_death_typhus_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_typhus_01.png"
   },
   {
@@ -1449,7 +1449,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 44,
-    "icon": "snowprint_assets/characters/ui_image_portrait_aelda_autarch_01.png",
+    "icon": "ui_image_portrait_aelda_autarch_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_autarch_01.png"
   },
   {
@@ -1480,7 +1480,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 46,
-    "icon": "snowprint_assets/characters/ui_image_portrait_aelda_farseer_01.png",
+    "icon": "ui_image_portrait_aelda_farseer_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_farseer_01.png"
   },
   {
@@ -1513,7 +1513,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 47,
-    "icon": "snowprint_assets/characters/ui_image_portrait_aelda_jainzar_01.png",
+    "icon": "ui_image_portrait_aelda_jainzar_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_jainzar_01.png"
   },
   {
@@ -1546,7 +1546,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 45,
-    "icon": "snowprint_assets/characters/ui_image_portrait_aelda_maugan_01.png",
+    "icon": "ui_image_portrait_aelda_maugan_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_maugan_01.png"
   },
   {
@@ -1580,7 +1580,7 @@ export const DATA = [
       "Piercing"
     ],
     "number": 43,
-    "icon": "snowprint_assets/characters/ui_image_portrait_aelda_ranger_01.png",
+    "icon": "ui_image_portrait_aelda_ranger_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_ranger_01.png"
   },
   {
@@ -1614,7 +1614,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 123,
-    "icon": "snowprint_assets/characters/ui_image_portrait_emper_exultant_01.png",
+    "icon": "ui_image_portrait_emper_exultant_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_exultant_01.png"
   },
   {
@@ -1648,7 +1648,7 @@ export const DATA = [
       "Eviscerate"
     ],
     "number": 120,
-    "icon": "snowprint_assets/characters/ui_image_portrait_emper_blade_01.png",
+    "icon": "ui_image_portrait_emper_blade_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_blade_01.png"
   },
   {
@@ -1681,7 +1681,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 115,
-    "icon": "snowprint_assets/characters/ui_image_portrait_emper_kakophonist_01.png",
+    "icon": "ui_image_portrait_emper_kakophonist_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_kakophonist_01.png"
   },
   {
@@ -1715,7 +1715,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 111,
-    "icon": "snowprint_assets/characters/ui_image_portrait_emper_lucius_01.png",
+    "icon": "ui_image_portrait_emper_lucius_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_lucius_01.png"
   },
   {
@@ -1750,7 +1750,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 112,
-    "icon": "snowprint_assets/characters/ui_image_portrait_emper_noisemarine_01.png",
+    "icon": "ui_image_portrait_emper_noisemarine_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_noisemarine_01.png"
   },
   {
@@ -1782,7 +1782,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 96,
-    "icon": "snowprint_assets/characters/ui_image_portrait_genes_biophagus_01.png",
+    "icon": "ui_image_portrait_genes_biophagus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_biophagus_01.png"
   },
   {
@@ -1818,7 +1818,7 @@ export const DATA = [
       "Projectile"
     ],
     "number": 100,
-    "icon": "snowprint_assets/characters/ui_image_portrait_genes_kelermorph_01.png",
+    "icon": "ui_image_portrait_genes_kelermorph_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_kelermorph_01.png"
   },
   {
@@ -1850,7 +1850,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 92,
-    "icon": "snowprint_assets/characters/ui_image_portrait_genes_magus_01.png",
+    "icon": "ui_image_portrait_genes_magus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_magus_01.png"
   },
   {
@@ -1886,7 +1886,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 94,
-    "icon": "snowprint_assets/characters/ui_image_portrait_genes_patriarch_01.png",
+    "icon": "ui_image_portrait_genes_patriarch_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_patriarch_01.png"
   },
   {
@@ -1919,7 +1919,7 @@ export const DATA = [
       "Blast"
     ],
     "number": 95,
-    "icon": "snowprint_assets/characters/ui_image_portrait_genes_primus_01.png",
+    "icon": "ui_image_portrait_genes_primus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_primus_01.png"
   },
   {
@@ -1954,7 +1954,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 12,
-    "icon": "snowprint_assets/characters/ui_image_portrait_necro_hexmark_01.png",
+    "icon": "ui_image_portrait_necro_hexmark_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_hexmark_01.png"
   },
   {
@@ -1988,7 +1988,7 @@ export const DATA = [
       "Energy"
     ],
     "number": 15,
-    "icon": "snowprint_assets/characters/ui_image_portrait_necro_overlord_01.png",
+    "icon": "ui_image_portrait_necro_overlord_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_overlord_01.png"
   },
   {
@@ -2025,7 +2025,7 @@ export const DATA = [
       "DirectDamage"
     ],
     "number": 14,
-    "icon": "snowprint_assets/characters/ui_image_portrait_necro_plasmancer_01.png",
+    "icon": "ui_image_portrait_necro_plasmancer_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_plasmancer_01.png"
   },
   {
@@ -2060,7 +2060,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 13,
-    "icon": "snowprint_assets/characters/ui_image_portrait_necro_spyder_01.png",
+    "icon": "ui_image_portrait_necro_spyder_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_spyder_01.png"
   },
   {
@@ -2092,7 +2092,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 11,
-    "icon": "snowprint_assets/characters/ui_image_portrait_necro_warden_01.png",
+    "icon": "ui_image_portrait_necro_warden_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_warden_01.png"
   },
   {
@@ -2124,7 +2124,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 39,
-    "icon": "snowprint_assets/characters/ui_image_portrait_orkss_mek_01.png",
+    "icon": "ui_image_portrait_orkss_mek_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_mek_01.png"
   },
   {
@@ -2160,7 +2160,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 40,
-    "icon": "snowprint_assets/characters/ui_image_portrait_orkss_killakan_01.png",
+    "icon": "ui_image_portrait_orkss_killakan_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_killakan_01.png"
   },
   {
@@ -2195,7 +2195,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 41,
-    "icon": "snowprint_assets/characters/ui_image_portrait_orkss_nob_01.png",
+    "icon": "ui_image_portrait_orkss_nob_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_nob_01.png"
   },
   {
@@ -2229,7 +2229,7 @@ export const DATA = [
       "Physical"
     ],
     "number": 38,
-    "icon": "snowprint_assets/characters/ui_image_portrait_orkss_runtherd_01.png",
+    "icon": "ui_image_portrait_orkss_runtherd_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_runtherd_01.png"
   },
   {
@@ -2266,7 +2266,7 @@ export const DATA = [
       "Projectile"
     ],
     "number": 42,
-    "icon": "snowprint_assets/characters/ui_image_portrait_orkss_warboss_01.png",
+    "icon": "ui_image_portrait_orkss_warboss_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_warboss_01.png"
   },
   {
@@ -2299,7 +2299,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 57,
-    "icon": "snowprint_assets/characters/ui_image_portrait_space_ragnar_01.png",
+    "icon": "ui_image_portrait_space_ragnar_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_ragnar_01.png"
   },
   {
@@ -2333,7 +2333,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 54,
-    "icon": "snowprint_assets/characters/ui_image_portrait_space_hound_01.png",
+    "icon": "ui_image_portrait_space_hound_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_hound_01.png"
   },
   {
@@ -2369,7 +2369,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 55,
-    "icon": "snowprint_assets/characters/ui_image_portrait_space_arjac_01.png",
+    "icon": "ui_image_portrait_space_arjac_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_arjac_01.png"
   },
   {
@@ -2404,7 +2404,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 56,
-    "icon": "snowprint_assets/characters/ui_image_portrait_space_njal_01.png",
+    "icon": "ui_image_portrait_space_njal_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_stormcaller_01.png"
   },
   {
@@ -2437,7 +2437,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 124,
-    "icon": "snowprint_assets/characters/ui_image_portrait_space_wolfpriest_01.png",
+    "icon": "ui_image_portrait_space_wolfpriest_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_wolfpriest_01.png"
   },
   {
@@ -2473,7 +2473,7 @@ export const DATA = [
       "Power"
     ],
     "number": 53,
-    "icon": "snowprint_assets/characters/ui_image_portrait_space_wulfen_01.png",
+    "icon": "ui_image_portrait_space_wulfen_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_wulfen_01.png"
   },
   {
@@ -2502,7 +2502,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 50,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tauta_aunshi_01.png",
+    "icon": "ui_image_portrait_tauta_aunshi_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_aunshi_01.png"
   },
   {
@@ -2538,7 +2538,7 @@ export const DATA = [
       "Particle"
     ],
     "number": 49,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tauta_crisis_01.png",
+    "icon": "ui_image_portrait_tauta_crisis_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_crisis_01.png"
   },
   {
@@ -2571,7 +2571,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 51,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tauta_darkstrider_01.png",
+    "icon": "ui_image_portrait_tauta_darkstrider_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_darkstrider_01.png"
   },
   {
@@ -2605,7 +2605,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 122,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tauta_farsight_01.png",
+    "icon": "ui_image_portrait_tauta_farsight_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_farsight_01.png"
   },
   {
@@ -2639,7 +2639,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 48,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tauta_marksman_01.png",
+    "icon": "ui_image_portrait_tauta_marksman_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_marksman_01.png"
   },
   {
@@ -2675,7 +2675,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 52,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tauta_shadowsun_01.png",
+    "icon": "ui_image_portrait_tauta_shadowsun_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_shadowsun_01.png"
   },
   {
@@ -2712,7 +2712,7 @@ export const DATA = [
       "Bolter"
     ],
     "number": 34,
-    "icon": "snowprint_assets/characters/ui_image_portrait_templ_aggressor_01.png",
+    "icon": "ui_image_portrait_templ_aggressor_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_aggressor_01.png"
   },
   {
@@ -2744,7 +2744,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 36,
-    "icon": "snowprint_assets/characters/ui_image_portrait_templ_ancient_01.png",
+    "icon": "ui_image_portrait_templ_ancient_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_ancient_01.png"
   },
   {
@@ -2779,7 +2779,7 @@ export const DATA = [
       "Power"
     ],
     "number": 35,
-    "icon": "snowprint_assets/characters/ui_image_portrait_templ_champion_01.png",
+    "icon": "ui_image_portrait_templ_champion_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_champion_01.png"
   },
   {
@@ -2811,7 +2811,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 37,
-    "icon": "snowprint_assets/characters/ui_image_portrait_templ_helbrecht_01.png",
+    "icon": "ui_image_portrait_templ_helbrecht_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_helbrecht_01.png"
   },
   {
@@ -2847,7 +2847,7 @@ export const DATA = [
       "Power"
     ],
     "number": 33,
-    "icon": "snowprint_assets/characters/ui_image_portrait_templ_brother_01.png",
+    "icon": "ui_image_portrait_templ_brother_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_brother_01.png"
   },
   {
@@ -2882,7 +2882,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 66,
-    "icon": "snowprint_assets/characters/ui_image_portrait_thous_ahriman_01.png",
+    "icon": "ui_image_portrait_thous_ahriman_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_ahriman_01.png"
   },
   {
@@ -2914,7 +2914,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 64,
-    "icon": "snowprint_assets/characters/ui_image_portrait_thous_infernal_01.png",
+    "icon": "ui_image_portrait_thous_infernal_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_infernal_01.png"
   },
   {
@@ -2947,7 +2947,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 65,
-    "icon": "snowprint_assets/characters/ui_image_portrait_thous_sorcerer_01.png",
+    "icon": "ui_image_portrait_thous_sorcerer_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_sorcerer_01.png"
   },
   {
@@ -2982,7 +2982,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 63,
-    "icon": "snowprint_assets/characters/ui_image_portrait_thous_terminator_01.png",
+    "icon": "ui_image_portrait_thous_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_terminator_01.png"
   },
   {
@@ -3016,7 +3016,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 62,
-    "icon": "snowprint_assets/characters/ui_image_portrait_thous_tzaangor_01.png",
+    "icon": "ui_image_portrait_thous_tzaangor_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_tzaangor_01.png"
   },
   {
@@ -3052,7 +3052,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 70,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tyran_deathleaper_01.png",
+    "icon": "ui_image_portrait_tyran_deathleaper_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_deathleaper_01.png"
   },
   {
@@ -3089,7 +3089,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 67,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tyran_neurothrope_01.png",
+    "icon": "ui_image_portrait_tyran_neurothrope_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_neurothrope_01.png"
   },
   {
@@ -3121,7 +3121,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 74,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tyran_parasite_01.png",
+    "icon": "ui_image_portrait_tyran_parasite_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_parasite_01.png"
   },
   {
@@ -3156,7 +3156,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 68,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tyran_tyrantguard_01.png",
+    "icon": "ui_image_portrait_tyran_tyrantguard_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_tyrantguard_01.png"
   },
   {
@@ -3189,7 +3189,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 69,
-    "icon": "snowprint_assets/characters/ui_image_portrait_tyran_wingedprime_01.png",
+    "icon": "ui_image_portrait_tyran_wingedprime_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_wingedprime_01.png"
   },
   {
@@ -3220,7 +3220,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 3,
-    "icon": "snowprint_assets/characters/ui_image_portrait_ultra_apothecary_01.png",
+    "icon": "ui_image_portrait_ultra_apothecary_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_apothecary_01.png"
   },
   {
@@ -3255,7 +3255,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 4,
-    "icon": "snowprint_assets/characters/ui_image_portrait_ultra_calgar_01.png",
+    "icon": "ui_image_portrait_ultra_calgar_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_calgar_01.png"
   },
   {
@@ -3292,7 +3292,7 @@ export const DATA = [
       "Bolter"
     ],
     "number": 1,
-    "icon": "snowprint_assets/characters/ui_image_portrait_ultra_eliminator_01.png",
+    "icon": "ui_image_portrait_ultra_eliminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_eliminator_01.png"
   },
   {
@@ -3324,7 +3324,7 @@ export const DATA = [
     "activeAbility": null,
     "passiveAbility": null,
     "number": 2,
-    "icon": "snowprint_assets/characters/ui_image_portrait_ultra_inceptor_01.png",
+    "icon": "ui_image_portrait_ultra_inceptor_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_inceptor_01.png"
   },
   {
@@ -3357,7 +3357,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 0,
-    "icon": "snowprint_assets/characters/ui_image_portrait_ultra_tigurius_01.png",
+    "icon": "ui_image_portrait_ultra_tigurius_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_tigurius_01.png"
   },
   {
@@ -3392,7 +3392,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 90,
-    "icon": "snowprint_assets/characters/ui_image_portrait_ultra_titus_01.png",
+    "icon": "ui_image_portrait_ultra_titus_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_titus_01.png"
   },
   {
@@ -3426,7 +3426,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 125,
-    "icon": "snowprint_assets/characters/ui_image_portrait_votan_ironmaster_01.png",
+    "icon": "ui_image_portrait_votan_ironmaster_01.png",
     "roundIcon": "ui_image_RoundPortrait_votan_ironmaster_01.png"
   },
   {
@@ -3460,7 +3460,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 126,
-    "icon": "snowprint_assets/characters/ui_image_portrait_votan_uthar_01.png",
+    "icon": "ui_image_portrait_votan_uthar_01.png",
     "roundIcon": "ui_image_RoundPortrait_votan_uthar_01.png"
   },
   {
@@ -3497,7 +3497,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 82,
-    "icon": "snowprint_assets/characters/ui_image_portrait_world_eightbound_01.png",
+    "icon": "ui_image_portrait_world_eightbound_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_eightbound_01.png"
   },
   {
@@ -3531,7 +3531,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 103,
-    "icon": "snowprint_assets/characters/ui_image_portrait_world_executions_01.png",
+    "icon": "ui_image_portrait_world_executions_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_executions_01.png"
   },
   {
@@ -3565,7 +3565,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 81,
-    "icon": "snowprint_assets/characters/ui_image_portrait_world_jakhal_01.png",
+    "icon": "ui_image_portrait_world_jakhal_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_jakhal_01.png"
   },
   {
@@ -3604,7 +3604,7 @@ export const DATA = [
       "Eviscerate"
     ],
     "number": 83,
-    "icon": "snowprint_assets/characters/ui_image_portrait_world_kharn_01.png",
+    "icon": "ui_image_portrait_world_kharn_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_kharn_01.png"
   },
   {
@@ -3641,7 +3641,7 @@ export const DATA = [
     ],
     "passiveAbility": null,
     "number": 80,
-    "icon": "snowprint_assets/characters/ui_image_portrait_world_terminator_01.png",
+    "icon": "ui_image_portrait_world_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_terminator_01.png"
   }
 ] as const;

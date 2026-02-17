@@ -52,22 +52,16 @@ const RawCharacterSchema = z
 		"Active Ability": z.array(z.string().nonempty()).min(1).optional(),
 		"Passive Ability": z.array(z.string().nonempty()).min(1).optional(),
 		Number: z.int().nonnegative(),
-		Icon: z.templateLiteral([
-			"snowprint_assets/characters/ui_image_portrait_",
-			z.string().lowercase().nonempty(),
-			"_",
-			z.string().lowercase().nonempty(),
-			"_01.png",
-		]),
+		Icon: z
+			.string()
+			.startsWith("snowprint_assets/characters/ui_image_portrait_")
+			.endsWith(".png")
+			.transform((iconPath) => iconPath.split("/").slice(-1)[0]),
 		// ToDo: validate that the icon path corresponds to an actual file in the snowprint_assets/characters folder
 		RoundIcon: z
-			.templateLiteral([
-				"snowprint_assets/characters/ui_image_RoundPortrait_",
-				z.string().lowercase().nonempty(),
-				"_",
-				z.string().lowercase().nonempty(),
-				"_01.png",
-			])
+			.string()
+			.startsWith("snowprint_assets/characters/ui_image_RoundPortrait_")
+			.endsWith(".png")
 			.refine(
 				(iconPath) =>
 					characterImageNames.includes(iconPath.split("/").slice(-1)[0]),
