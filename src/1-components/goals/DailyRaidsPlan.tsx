@@ -5,12 +5,12 @@ import {
 	Loader2,
 	Swords,
 } from "lucide-react";
-import { CampaignIcon } from "@/1-components/tacticus/CampaignIcon";
-import { CharacterIcon } from "@/1-components/tacticus/CharacterIcon";
-import { EnergyIcon } from "@/1-components/tacticus/EnergyIcon";
-import { MaterialIcon } from "@/1-components/tacticus/MaterialIcon";
+import { CampaignIcon } from "@/1-components/general/CampaignIcon";
+import { CharacterIcon } from "@/1-components/general/CharacterIcon";
+import { EnergyIcon } from "@/1-components/general/EnergyIcon";
+import { MaterialIcon } from "@/1-components/general/MaterialIcon";
 import { Badge } from "@/1-components/ui/badge";
-import type { IDailyRaidsPlan } from "@/4-lib/tacticus/daily-raids";
+import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types";
 
 interface DailyRaidsPlanProps {
 	plan: IDailyRaidsPlan | null;
@@ -75,7 +75,7 @@ export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
 						</div>
 						<ChevronDown className="size-4 text-muted-foreground transition-transform group-open:rotate-180" />
 					</summary>
-					<div className="border-t border-amber-500/20 px-4 pb-3 pt-2">
+					<div className="border-t border-amber-500/20 px-4 pt-2 pb-3">
 						<div className="space-y-2">
 							{plan.blockedMaterials.map((mat) => (
 								<div key={mat.materialId} className="text-sm">
@@ -158,7 +158,7 @@ export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
 								</div>
 								<ChevronDown className="size-4 text-muted-foreground transition-transform group-open:rotate-180" />
 							</summary>
-							<div className="border-t border-border/40 px-4 pb-3 pt-2">
+							<div className="border-t border-border/40 px-4 pt-2 pb-3">
 								<div className="space-y-3">
 									{day.raids.map((raid) => (
 										<div
@@ -174,7 +174,7 @@ export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
 												<span className="text-sm font-medium text-foreground">
 													{raid.materialLabel}
 												</span>
-												<span className="text-xs tabular-nums text-muted-foreground">
+												<span className="text-xs text-muted-foreground tabular-nums">
 													{Math.round(raid.acquiredCount)}/{raid.requiredCount}
 												</span>
 												<div className="flex -space-x-1">
@@ -229,7 +229,7 @@ function SummaryCard({
 }) {
 	return (
 		<div className="rounded-lg border border-border/60 bg-card p-4">
-			<p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+			<p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
 				{label}
 			</p>
 			<p className="mt-1 flex items-center gap-1.5 text-2xl font-bold text-foreground">
