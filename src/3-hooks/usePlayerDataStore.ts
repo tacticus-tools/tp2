@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { buildRosterMap, type RosterUnit } from "@/4-lib/tacticus/roster-utils";
+import { buildRosterMap, type RosterUnit } from "@/4-lib/general/roster-utils";
 import type {
 	TacticusCampaignProgress,
 	TacticusInventory,

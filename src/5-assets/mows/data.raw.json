@@ -1,0 +1,112 @@
+[
+	{
+		"id": "adeptExorcist",
+		"Name": "Exorcist",
+		"Faction": "Sisterhood",
+		"Alliance": "Imperial",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_adept_exorcist_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_adept_exorcist_01.png",
+		"PrimaryAbility": "ThriceBlessedConflagration",
+		"SecondaryAbility": "DevastatingRefrain"
+	},
+	{
+		"id": "astraOrdnanceBattery",
+		"Name": "Malleus Rocket Launcher",
+		"Faction": "AstraMilitarum",
+		"Alliance": "Imperial",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_astra_ordnancebattery_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_astra_ordnancebattery_01.png",
+		"PrimaryAbility": "MalleusRocketLauncher",
+		"SecondaryAbility": "ForwardSpotter"
+	},
+	{
+		"id": "blackForgefiend",
+		"Name": "Forgefiend",
+		"Faction": "BlackLegion",
+		"Alliance": "Chaos",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_black_forgefiend_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_black_forgefiend_01.png",
+		"PrimaryAbility": "HadesAutocannons",
+		"SecondaryAbility": "DaemonicOrdnance"
+	},
+	{
+		"id": "darkaStormSpeeder",
+		"Name": "Storm Speeder",
+		"Faction": "DarkAngels",
+		"Alliance": "Imperial",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_darka_stormspeeder_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_darka_stormspeeder_01.png",
+		"PrimaryAbility": "DeathOnTheWind",
+		"SecondaryAbility": "Hailstrike"
+	},
+	{
+		"id": "deathCrawler",
+		"Name": "Plagueburst Crawler",
+		"Faction": "DeathGuard",
+		"Alliance": "Chaos",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_death_crawler_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_death_crawler_01.png",
+		"PrimaryAbility": "EntropyCannons",
+		"SecondaryAbility": "PlagueburstMortar"
+	},
+	{
+		"id": "orksRukkatrukk",
+		"Name": "Rukkatrukk",
+		"Faction": "Orks",
+		"Alliance": "Xenos",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_orkss_rukkatruk_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_orkss_rukkatrukk_01.png",
+		"PrimaryAbility": "SquigLaunchas",
+		"SecondaryAbility": "SquigMine"
+	},
+	{
+		"id": "tauBroadside",
+		"Name": "Tson'ji",
+		"Faction": "Tau",
+		"Alliance": "Xenos",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_tauta_broadside_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_tauta_broadside_01.png",
+		"PrimaryAbility": "HeavyRailRifle",
+		"SecondaryAbility": "TwinSmartMissileSystem"
+	},
+	{
+		"id": "thousDaemonPrince",
+		"Name": "Z'Kar",
+		"Faction": "ThousandSons",
+		"Alliance": "Chaos",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_thous_daemonprince_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_thous_daemonprince_01.png",
+		"PrimaryAbility": "AetherStride",
+		"SecondaryAbility": "InfernalCannon"
+	},
+	{
+		"id": "tyranBiovore",
+		"Name": "Biovore",
+		"Faction": "Tyranids",
+		"Alliance": "Xenos",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_tyran_biovore_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_tyran_biovore_01.png",
+		"PrimaryAbility": "BioMinefield",
+		"SecondaryAbility": "SporeMineLauncher"
+	},
+	{
+		"id": "ultraDreadnought",
+		"Name": "Galatian",
+		"Faction": "Ultramarines",
+		"Alliance": "Imperial",
+		"Initial rarity": "Common",
+		"Icon": "snowprint_assets/characters/ui_image_portrait_ultra_dreadnought_01.png",
+		"RoundIcon": "snowprint_assets/characters/ui_image_RoundPortrait_ultra_dreadnought_01.png",
+		"PrimaryAbility": "DutyEternal",
+		"SecondaryAbility": "MacroPlasmaIncinerator"
+	}
+]

@@ -7,10 +7,10 @@ import {
 	Trash2,
 } from "lucide-react";
 import { useState } from "react";
-import { CharacterIcon } from "@/1-components/tacticus/CharacterIcon";
-import { EnergyIcon } from "@/1-components/tacticus/EnergyIcon";
-import { RankIcon } from "@/1-components/tacticus/RankIcon";
-import { RarityIcon } from "@/1-components/tacticus/RarityIcon";
+import { CharacterIcon } from "@/1-components/general/CharacterIcon";
+import { EnergyIcon } from "@/1-components/general/EnergyIcon";
+import { RankIcon } from "@/1-components/general/RankIcon";
+import { RarityIcon } from "@/1-components/general/RarityIcon";
 import { Badge } from "@/1-components/ui/badge";
 import { Button } from "@/1-components/ui/button";
 import { Card, CardContent } from "@/1-components/ui/card";
@@ -19,10 +19,10 @@ import {
 	type Rank,
 	type Rarity,
 	type RarityStars,
-} from "@/4-lib/tacticus/enums";
-import type { IGoalEstimate } from "@/4-lib/tacticus/goals/types";
-import { goalTypeLabels } from "@/4-lib/tacticus/goals/types";
-import { rankToString } from "@/4-lib/tacticus/rank-data";
+} from "@/4-lib/general/constants";
+import type { IGoalEstimate } from "@/4-lib/general/goals/types";
+import { goalTypeLabels } from "@/4-lib/general/goals/types";
+import { rankToString } from "@/4-lib/general/rank-data";
 import { cn } from "@/4-lib/utils";
 
 interface GoalCardProps {
@@ -187,7 +187,7 @@ function GoalEstimateDisplay({ estimate }: { estimate: IGoalEstimate }) {
 
 	return (
 		<div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-			<span className="text-foreground font-medium">
+			<span className="font-medium text-foreground">
 				{estimate.daysTotal > 0
 					? `~${Math.round(estimate.daysTotal)}d`
 					: "Ready"}
@@ -242,7 +242,7 @@ export function GoalCard({
 			<CardContent className="space-y-3">
 				{/* Top row: priority + unit name + actions */}
 				<div className="flex items-start justify-between gap-2">
-					<div className="flex items-center gap-2.5 min-w-0">
+					<div className="flex min-w-0 items-center gap-2.5">
 						<span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-muted text-xs font-bold text-muted-foreground">
 							{priority}
 						</span>
@@ -251,7 +251,7 @@ export function GoalCard({
 							<p className="truncate font-medium text-foreground">{unitName}</p>
 						</div>
 					</div>
-					<div className="flex items-center gap-0.5 shrink-0">
+					<div className="flex shrink-0 items-center gap-0.5">
 						<Button
 							variant="ghost"
 							size="icon-sm"
@@ -330,12 +330,12 @@ export function GoalCard({
 						<button
 							type="button"
 							onClick={() => setNotesExpanded(!notesExpanded)}
-							className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+							className="text-xs text-muted-foreground transition-colors hover:text-foreground"
 						>
 							{notesExpanded ? "Hide notes" : "Show notes"}
 						</button>
 						{notesExpanded && (
-							<p className="mt-1 text-xs text-muted-foreground whitespace-pre-wrap">
+							<p className="mt-1 text-xs whitespace-pre-wrap text-muted-foreground">
 								{notes}
 							</p>
 						)}

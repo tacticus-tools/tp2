@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { parseCampaignProgress } from "@/4-lib/tacticus/campaign-progress";
-import type { Campaign } from "@/4-lib/tacticus/enums";
+import { parseCampaignProgress } from "@/4-lib/general/campaign-progress";
+import type { Campaign } from "@/4-lib/general/constants";
 import type { TacticusCampaignProgress } from "~/tacticus/types";
 
 interface CampaignProgressState {

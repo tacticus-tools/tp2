@@ -2,12 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useAction } from "convex/react";
 import { RefreshCw } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import { CampaignProgressCard } from "@/1-components/tacticus/CampaignProgressCard";
+import { CampaignProgressCard } from "@/1-components/general/CampaignProgressCard";
 import { Button } from "@/1-components/ui/button";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore";
-import { getCampaignNodeCounts } from "@/4-lib/tacticus/campaign-data";
-import type { Campaign } from "@/4-lib/tacticus/enums";
+import { getCampaignNodeCounts } from "@/4-lib/general/campaign-data";
+import type { Campaign } from "@/4-lib/general/constants";
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/campaigns")({
@@ -188,7 +188,7 @@ function CampaignsPage() {
 			<div className="space-y-10">
 				{mainGroups.length > 0 && (
 					<section className="space-y-6">
-						<h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">
+						<h2 className="text-xs font-semibold tracking-wider text-muted-foreground/60 uppercase">
 							Main Campaigns
 						</h2>
 						{mainGroups.map((group) => (
@@ -214,7 +214,7 @@ function CampaignsPage() {
 
 				{eventGroups.length > 0 && (
 					<section className="space-y-6">
-						<h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">
+						<h2 className="text-xs font-semibold tracking-wider text-muted-foreground/60 uppercase">
 							Event Campaigns
 						</h2>
 						{eventGroups.map((group) => (

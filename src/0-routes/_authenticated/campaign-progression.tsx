@@ -10,10 +10,10 @@ import {
 	Unlock,
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CampaignIcon } from "@/1-components/tacticus/CampaignIcon";
-import { CharacterIcon } from "@/1-components/tacticus/CharacterIcon";
-import { EnergyIcon } from "@/1-components/tacticus/EnergyIcon";
-import { MaterialIcon } from "@/1-components/tacticus/MaterialIcon";
+import { CampaignIcon } from "@/1-components/general/CampaignIcon";
+import { CharacterIcon } from "@/1-components/general/CharacterIcon";
+import { EnergyIcon } from "@/1-components/general/EnergyIcon";
+import { MaterialIcon } from "@/1-components/general/MaterialIcon";
 import { Badge } from "@/1-components/ui/badge";
 import { Button } from "@/1-components/ui/button";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore";
@@ -21,12 +21,12 @@ import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore";
 import {
 	buildInventoryMap,
 	parseCampaignProgress,
-} from "@/4-lib/tacticus/campaign-progress";
-import type { ICampaignProgressionResult } from "@/4-lib/tacticus/campaign-progression";
-import { computeCampaignProgression } from "@/4-lib/tacticus/campaign-progression";
-import type { Campaign } from "@/4-lib/tacticus/enums";
-import { PersonalGoalType } from "@/4-lib/tacticus/enums";
-import type { CharacterRaidGoalSelect } from "@/4-lib/tacticus/goals";
+} from "@/4-lib/general/campaign-progress";
+import { computeCampaignProgression } from "@/4-lib/general/campaign-progression/service";
+import type { ICampaignProgressionResult } from "@/4-lib/general/campaign-progression/types";
+import type { Campaign } from "@/4-lib/general/constants";
+import { PersonalGoalType } from "@/4-lib/general/constants";
+import type { CharacterRaidGoalSelect } from "@/4-lib/general/goals/types";
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/campaign-progression")({
@@ -254,7 +254,7 @@ function SummaryCard({
 }) {
 	return (
 		<div className="rounded-lg border border-border/60 bg-card p-4">
-			<p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+			<p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
 				{label}
 			</p>
 			<p
@@ -287,7 +287,7 @@ function UnfarmableSection({
 				</div>
 				<ChevronDown className="size-4 text-muted-foreground transition-transform group-open:rotate-180" />
 			</summary>
-			<div className="border-t border-amber-500/20 px-4 pb-3 pt-2">
+			<div className="border-t border-amber-500/20 px-4 pt-2 pb-3">
 				<div className="space-y-2">
 					{materials.map((mat) => (
 						<div key={mat.materialId} className="text-sm">
@@ -308,9 +308,9 @@ function UnfarmableSection({
 								<span className="text-muted-foreground">x{mat.count}</span>
 							</div>
 							{/* Mobile */}
-							<div className="sm:hidden space-y-1">
+							<div className="space-y-1 sm:hidden">
 								<div className="flex items-center justify-between">
-									<div className="flex items-center gap-1.5 min-w-0">
+									<div className="flex min-w-0 items-center gap-1.5">
 										<MaterialIcon
 											icon={mat.materialIcon}
 											label={mat.materialLabel}
@@ -365,7 +365,7 @@ function CampaignSection({
 				</Badge>
 				<ChevronDown className="size-4 text-muted-foreground transition-transform group-open:rotate-180" />
 			</summary>
-			<div className="border-t border-border/40 px-4 pb-3 pt-2">
+			<div className="border-t border-border/40 px-4 pt-2 pb-3">
 				<div className="space-y-2">
 					{data.savings.map((entry) => (
 						<div
@@ -374,7 +374,7 @@ function CampaignSection({
 						>
 							{/* Desktop: single row grid */}
 							<div className="hidden sm:grid sm:grid-cols-[2rem_1.5rem_1fr_auto_3rem_5.5rem] sm:items-center sm:gap-2">
-								<span className="text-xs font-mono text-muted-foreground">
+								<span className="font-mono text-xs text-muted-foreground">
 									#{entry.nodeNumber}
 								</span>
 								<MaterialIcon
@@ -396,7 +396,7 @@ function CampaignSection({
 								{!entry.canFarmPrior ? (
 									<Badge
 										variant="secondary"
-										className="justify-center bg-red-500/10 text-red-400 text-[10px] px-1.5 py-0"
+										className="justify-center bg-red-500/10 px-1.5 py-0 text-[10px] text-red-400"
 									>
 										<Unlock className="mr-0.5 size-2.5" />
 										Unlocks
@@ -404,7 +404,7 @@ function CampaignSection({
 								) : (
 									<Badge
 										variant="secondary"
-										className="justify-center bg-emerald-500/10 text-emerald-400 text-[10px] px-1.5 py-0"
+										className="justify-center bg-emerald-500/10 px-1.5 py-0 text-[10px] text-emerald-400"
 									>
 										Saves {formatEnergy(entry.savings)}
 										<EnergyIcon size={10} />
@@ -413,9 +413,9 @@ function CampaignSection({
 							</div>
 
 							{/* Mobile: stacked layout */}
-							<div className="sm:hidden space-y-1">
-								<div className="flex items-center gap-2 min-w-0">
-									<span className="shrink-0 text-xs font-mono text-muted-foreground">
+							<div className="space-y-1 sm:hidden">
+								<div className="flex min-w-0 items-center gap-2">
+									<span className="shrink-0 font-mono text-xs text-muted-foreground">
 										#{entry.nodeNumber}
 									</span>
 									<MaterialIcon
@@ -440,7 +440,7 @@ function CampaignSection({
 										{!entry.canFarmPrior ? (
 											<Badge
 												variant="secondary"
-												className="bg-red-500/10 text-red-400 text-[10px] px-1.5 py-0"
+												className="bg-red-500/10 px-1.5 py-0 text-[10px] text-red-400"
 											>
 												<Unlock className="mr-0.5 size-2.5" />
 												Unlocks
@@ -448,7 +448,7 @@ function CampaignSection({
 										) : (
 											<Badge
 												variant="secondary"
-												className="bg-emerald-500/10 text-emerald-400 text-[10px] px-1.5 py-0"
+												className="bg-emerald-500/10 px-1.5 py-0 text-[10px] text-emerald-400"
 											>
 												Saves {formatEnergy(entry.savings)}
 												<EnergyIcon size={10} />

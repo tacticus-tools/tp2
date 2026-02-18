@@ -36,19 +36,21 @@ import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore";
 import {
 	buildInventoryMap,
 	parseCampaignProgress,
-} from "@/4-lib/tacticus/campaign-progress";
-import type { IDailyRaidsPlan } from "@/4-lib/tacticus/daily-raids";
-import { generateDailyRaidsPlan } from "@/4-lib/tacticus/daily-raids";
-import type { Campaign, PersonalGoalType } from "@/4-lib/tacticus/enums";
-import { PersonalGoalType as GoalType } from "@/4-lib/tacticus/enums";
+} from "@/4-lib/general/campaign-progress";
+import type { Campaign, PersonalGoalType } from "@/4-lib/general/constants";
+import { PersonalGoalType as GoalType } from "@/4-lib/general/constants";
+import { generateDailyRaidsPlan } from "@/4-lib/general/daily-raids/service";
+import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types";
 import {
-	type CharacterRaidGoalSelect,
 	calculateGoalEstimate,
-	type IGoalEstimate,
 	type PlayerContext,
-} from "@/4-lib/tacticus/goals";
-import { parsePlannerExport } from "@/4-lib/tacticus/import-planner";
-import type { RosterUnit } from "@/4-lib/tacticus/roster-utils";
+} from "@/4-lib/general/goals/goals-service";
+import type {
+	CharacterRaidGoalSelect,
+	IGoalEstimate,
+} from "@/4-lib/general/goals/types";
+import { parsePlannerExport } from "@/4-lib/general/import-planner";
+import type { RosterUnit } from "@/4-lib/general/roster-utils";
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/goals")({
@@ -191,7 +193,7 @@ function GoalsPage() {
 		}
 		if (merged.size > 0) {
 			ctx.campaignProgress = merged as Map<
-				import("@/4-lib/tacticus/enums").Campaign,
+				import("@/4-lib/general/constants").Campaign,
 				number
 			>;
 		}
@@ -551,7 +553,7 @@ function GoalsPage() {
 									<AlertDialogCancel>Cancel</AlertDialogCancel>
 									<AlertDialogAction
 										onClick={() => removeAllGoals({})}
-										className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+										className="bg-destructive text-white hover:bg-destructive/90"
 									>
 										Delete All
 									</AlertDialogAction>
@@ -600,13 +602,13 @@ function GoalsPage() {
 				</div>
 			) : goalCount === 0 ? (
 				<div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border/60 py-16">
-					<div className="flex size-16 items-center justify-center rounded-2xl bg-muted/50 mb-4">
+					<div className="mb-4 flex size-16 items-center justify-center rounded-2xl bg-muted/50">
 						<Target className="size-8 text-muted-foreground" />
 					</div>
-					<h3 className="text-lg font-medium text-foreground mb-1">
+					<h3 className="mb-1 text-lg font-medium text-foreground">
 						No goals yet
 					</h3>
-					<p className="text-sm text-muted-foreground mb-4">
+					<p className="mb-4 text-sm text-muted-foreground">
 						Set your first goal to start planning your progression.
 					</p>
 					<AddGoalDialog goalCount={0} roster={roster} />
