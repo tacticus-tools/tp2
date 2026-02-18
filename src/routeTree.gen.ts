@@ -12,6 +12,10 @@ import { Route as rootRouteImport } from './0-routes/__root'
 import { Route as SigninRouteImport } from './0-routes/signin'
 import { Route as AuthenticatedRouteImport } from './0-routes/_authenticated'
 import { Route as IndexRouteImport } from './0-routes/index'
+import { Route as DataOnslaughtRouteImport } from './0-routes/data/onslaught'
+import { Route as DataNpcsRouteImport } from './0-routes/data/npcs'
+import { Route as DataEquipmentRouteImport } from './0-routes/data/equipment'
+import { Route as DataCharactersRouteImport } from './0-routes/data/characters'
 import { Route as AuthenticatedSettingsRouteImport } from './0-routes/_authenticated/settings'
 import { Route as AuthenticatedGoalsRouteImport } from './0-routes/_authenticated/goals'
 import { Route as AuthenticatedCampaignsRouteImport } from './0-routes/_authenticated/campaigns'
@@ -29,6 +33,26 @@ const AuthenticatedRoute = AuthenticatedRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataOnslaughtRoute = DataOnslaughtRouteImport.update({
+  id: '/data/onslaught',
+  path: '/data/onslaught',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataNpcsRoute = DataNpcsRouteImport.update({
+  id: '/data/npcs',
+  path: '/data/npcs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataEquipmentRoute = DataEquipmentRouteImport.update({
+  id: '/data/equipment',
+  path: '/data/equipment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataCharactersRoute = DataCharactersRouteImport.update({
+  id: '/data/characters',
+  path: '/data/characters',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
@@ -60,6 +84,10 @@ export interface FileRoutesByFullPath {
   '/campaigns': typeof AuthenticatedCampaignsRoute
   '/goals': typeof AuthenticatedGoalsRoute
   '/settings': typeof AuthenticatedSettingsRoute
+  '/data/characters': typeof DataCharactersRoute
+  '/data/equipment': typeof DataEquipmentRoute
+  '/data/npcs': typeof DataNpcsRoute
+  '/data/onslaught': typeof DataOnslaughtRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -68,6 +96,10 @@ export interface FileRoutesByTo {
   '/campaigns': typeof AuthenticatedCampaignsRoute
   '/goals': typeof AuthenticatedGoalsRoute
   '/settings': typeof AuthenticatedSettingsRoute
+  '/data/characters': typeof DataCharactersRoute
+  '/data/equipment': typeof DataEquipmentRoute
+  '/data/npcs': typeof DataNpcsRoute
+  '/data/onslaught': typeof DataOnslaughtRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -78,6 +110,10 @@ export interface FileRoutesById {
   '/_authenticated/campaigns': typeof AuthenticatedCampaignsRoute
   '/_authenticated/goals': typeof AuthenticatedGoalsRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
+  '/data/characters': typeof DataCharactersRoute
+  '/data/equipment': typeof DataEquipmentRoute
+  '/data/npcs': typeof DataNpcsRoute
+  '/data/onslaught': typeof DataOnslaughtRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -88,6 +124,10 @@ export interface FileRouteTypes {
     | '/campaigns'
     | '/goals'
     | '/settings'
+    | '/data/characters'
+    | '/data/equipment'
+    | '/data/npcs'
+    | '/data/onslaught'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -96,6 +136,10 @@ export interface FileRouteTypes {
     | '/campaigns'
     | '/goals'
     | '/settings'
+    | '/data/characters'
+    | '/data/equipment'
+    | '/data/npcs'
+    | '/data/onslaught'
   id:
     | '__root__'
     | '/'
@@ -105,12 +149,20 @@ export interface FileRouteTypes {
     | '/_authenticated/campaigns'
     | '/_authenticated/goals'
     | '/_authenticated/settings'
+    | '/data/characters'
+    | '/data/equipment'
+    | '/data/npcs'
+    | '/data/onslaught'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   SigninRoute: typeof SigninRoute
+  DataCharactersRoute: typeof DataCharactersRoute
+  DataEquipmentRoute: typeof DataEquipmentRoute
+  DataNpcsRoute: typeof DataNpcsRoute
+  DataOnslaughtRoute: typeof DataOnslaughtRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -134,6 +186,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/onslaught': {
+      id: '/data/onslaught'
+      path: '/data/onslaught'
+      fullPath: '/data/onslaught'
+      preLoaderRoute: typeof DataOnslaughtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/npcs': {
+      id: '/data/npcs'
+      path: '/data/npcs'
+      fullPath: '/data/npcs'
+      preLoaderRoute: typeof DataNpcsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/equipment': {
+      id: '/data/equipment'
+      path: '/data/equipment'
+      fullPath: '/data/equipment'
+      preLoaderRoute: typeof DataEquipmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/characters': {
+      id: '/data/characters'
+      path: '/data/characters'
+      fullPath: '/data/characters'
+      preLoaderRoute: typeof DataCharactersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/settings': {
@@ -189,6 +269,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   SigninRoute: SigninRoute,
+  DataCharactersRoute: DataCharactersRoute,
+  DataEquipmentRoute: DataEquipmentRoute,
+  DataNpcsRoute: DataNpcsRoute,
+  DataOnslaughtRoute: DataOnslaughtRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
