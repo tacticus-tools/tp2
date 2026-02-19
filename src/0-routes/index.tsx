@@ -12,21 +12,22 @@ import {
 	Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Badge } from "@/1-components/ui/badge";
-import { Button } from "@/1-components/ui/button";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@/1-components/ui/card";
+} from "@/1-components/ui/card.tsx";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 import type {
 	TacticusGuildResponse,
 	TacticusPlayerResponse,
 	TacticusUnit,
-} from "~/tacticus/types";
+} from "~/tacticus/types.ts";
 
 export const Route = createFileRoute("/")({ component: HomePage });
 

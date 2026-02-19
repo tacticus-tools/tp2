@@ -1,4 +1,4 @@
-import { Rank, Rarity, RarityStars, RarityString } from "./constants";
+import { Rank, Rarity, RarityStars, RarityString } from "./constants.ts";
 
 export const rarityToStars: Record<Rarity, RarityStars> = {
 	[Rarity.Common]: RarityStars.None,

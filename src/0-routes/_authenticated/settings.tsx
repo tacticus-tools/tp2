@@ -11,25 +11,26 @@ import {
 	Zap,
 } from "lucide-react";
 import { useId, useState } from "react";
-import { Badge } from "@/1-components/ui/badge";
-import { Button } from "@/1-components/ui/button";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@/1-components/ui/card";
-import { Input } from "@/1-components/ui/input";
-import { Label } from "@/1-components/ui/label";
+} from "@/1-components/ui/card.tsx";
+import { Input } from "@/1-components/ui/input.tsx";
+import { Label } from "@/1-components/ui/label.tsx";
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "@/1-components/ui/select";
-import { useGoalPreferencesStore } from "@/3-hooks/useGoalPreferencesStore";
+} from "@/1-components/ui/select.tsx";
+import { useGoalPreferencesStore } from "@/3-hooks/useGoalPreferencesStore.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/settings")({

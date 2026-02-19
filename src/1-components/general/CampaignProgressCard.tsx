@@ -1,4 +1,4 @@
-import { cn } from "@/4-lib/utils";
+import { cn } from "@/4-lib/utils.ts";
 
 const TYPE_BADGE_STYLES: Record<string, string> = {
 	Normal: "bg-blue-500/15 text-blue-400",

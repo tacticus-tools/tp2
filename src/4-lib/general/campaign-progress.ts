@@ -3,9 +3,9 @@
  * usable formats for filtering farming locations.
  */
 
-import type { TacticusCampaignProgress } from "~/tacticus/types";
-import { idToCampaign } from "./campaign-data";
-import type { Campaign } from "./constants";
+import type { TacticusCampaignProgress } from "~/tacticus/types.ts";
+import { idToCampaign } from "./campaign-data.ts";
+import type { Campaign } from "./constants.ts";
 
 /**
  * Parse API campaign progress into a Map of campaign → max unlocked node number.

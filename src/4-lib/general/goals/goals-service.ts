@@ -1,8 +1,8 @@
-import type { Campaign } from "../constants";
-import { PersonalGoalType } from "../constants";
-import { getCombinedAbilitiesMaterials } from "./abilities-service";
-import { getCombinedMowMaterials } from "./mow-service";
-import { estimateShardFarmingDays, getShardsNeeded } from "./shards-service";
+import type { Campaign } from "../constants.ts";
+import { PersonalGoalType } from "../constants.ts";
+import { getCombinedAbilitiesMaterials } from "./abilities-service.ts";
+import { getCombinedMowMaterials } from "./mow-service.ts";
+import { estimateShardFarmingDays, getShardsNeeded } from "./shards-service.ts";
 import type {
 	CharacterRaidGoalSelect,
 	ICharacterAscendGoal,
@@ -11,9 +11,12 @@ import type {
 	ICharacterUpgradeMow,
 	ICharacterUpgradeRankGoal,
 	IGoalEstimate,
-} from "./types";
-import { estimateUpgradeDays } from "./upgrades-service";
-import { getXpEstimateForAbilities, getXpEstimateForRank } from "./xp-service";
+} from "./types.ts";
+import { estimateUpgradeDays } from "./upgrades-service.ts";
+import {
+	getXpEstimateForAbilities,
+	getXpEstimateForRank,
+} from "./xp-service.ts";
 
 export interface PlayerContext {
 	campaignProgress?: Map<Campaign, number>;

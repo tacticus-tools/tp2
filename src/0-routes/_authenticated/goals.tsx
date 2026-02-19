@@ -12,11 +12,11 @@ import {
 	Upload,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AddGoalDialog } from "@/1-components/goals/AddGoalDialog";
-import { DailyRaidsPlan } from "@/1-components/goals/DailyRaidsPlan";
-import { EditGoalDialog } from "@/1-components/goals/EditGoalDialog";
-import { GoalCard, type GoalData } from "@/1-components/goals/GoalCard";
-import { GoalsTable } from "@/1-components/goals/GoalsTable";
+import { AddGoalDialog } from "@/1-components/goals/AddGoalDialog.tsx";
+import { DailyRaidsPlan } from "@/1-components/goals/DailyRaidsPlan.tsx";
+import { EditGoalDialog } from "@/1-components/goals/EditGoalDialog.tsx";
+import { GoalCard, type GoalData } from "@/1-components/goals/GoalCard.tsx";
+import { GoalsTable } from "@/1-components/goals/GoalsTable.tsx";
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -27,30 +27,31 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from "@/1-components/ui/alert-dialog";
-import { Badge } from "@/1-components/ui/badge";
-import { Button } from "@/1-components/ui/button";
-import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore";
-import { useGoalPreferencesStore } from "@/3-hooks/useGoalPreferencesStore";
-import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore";
+} from "@/1-components/ui/alert-dialog.tsx";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
+import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
+import { useGoalPreferencesStore } from "@/3-hooks/useGoalPreferencesStore.ts";
+import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
 import {
 	buildInventoryMap,
 	parseCampaignProgress,
-} from "@/4-lib/general/campaign-progress";
-import type { Campaign, PersonalGoalType } from "@/4-lib/general/constants";
-import { PersonalGoalType as GoalType } from "@/4-lib/general/constants";
-import { generateDailyRaidsPlan } from "@/4-lib/general/daily-raids/service";
-import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types";
+} from "@/4-lib/general/campaign-progress.ts";
+import type { Campaign, PersonalGoalType } from "@/4-lib/general/constants.ts";
+import { PersonalGoalType as GoalType } from "@/4-lib/general/constants.ts";
+import { generateDailyRaidsPlan } from "@/4-lib/general/daily-raids/service.ts";
+import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types.ts";
 import {
 	calculateGoalEstimate,
 	type PlayerContext,
-} from "@/4-lib/general/goals/goals-service";
+} from "@/4-lib/general/goals/goals-service.ts";
 import type {
 	CharacterRaidGoalSelect,
 	IGoalEstimate,
-} from "@/4-lib/general/goals/types";
-import { parsePlannerExport } from "@/4-lib/general/import-planner";
-import type { RosterUnit } from "@/4-lib/general/roster-utils";
+} from "@/4-lib/general/goals/types.ts";
+import { parsePlannerExport } from "@/4-lib/general/import-planner.ts";
+import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/goals")({

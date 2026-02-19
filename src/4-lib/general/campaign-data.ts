@@ -8,9 +8,12 @@
  * - Composed battle data with computed drop rates and energy-per-item
  */
 
-import { CAMPAIGN_BATTLES, CAMPAIGN_CONFIGS } from "@/5-assets/campaigns";
-import { Campaign, type CampaignType } from "./constants";
-import { rarityStringToNumber } from "./rarity-data";
+import {
+	CAMPAIGN_BATTLES,
+	CAMPAIGN_CONFIGS,
+} from "@/5-assets/campaigns/index.ts";
+import { Campaign, type CampaignType } from "./constants.ts";
+import { rarityStringToNumber } from "./rarity-data.ts";
 
 const SHARD_PREFIX_RE = /^(mythicShards_|shards_)/;
 
@@ -206,7 +209,7 @@ async function buildUpgradeLocations(): Promise<
 	const nodes = getBattleNodes();
 
 	// We need material rarities for drop rate lookup
-	const { MATERIALS } = await import("@/5-assets/materials");
+	const { MATERIALS } = await import("@/5-assets/materials/index.ts");
 	const recipeData = MATERIALS as Record<string, { rarity?: string }>;
 
 	_upgradeLocations = new Map<string, IUpgradeLocation[]>();

@@ -8,7 +8,7 @@ import {
 	useRef,
 	useState,
 } from "react";
-import { RarityIcon } from "@/1-components/general/RarityIcon";
+import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -19,34 +19,35 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from "@/1-components/ui/alert-dialog";
-import { Button } from "@/1-components/ui/button";
-import { Input } from "@/1-components/ui/input";
-import { Label } from "@/1-components/ui/label";
+} from "@/1-components/ui/alert-dialog.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
+import { Input } from "@/1-components/ui/input.tsx";
+import { Label } from "@/1-components/ui/label.tsx";
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "@/1-components/ui/select";
-import { Textarea } from "@/1-components/ui/textarea";
+} from "@/1-components/ui/select.tsx";
+import { Textarea } from "@/1-components/ui/textarea.tsx";
 import {
 	CampaignsLocationsUsage,
 	PersonalGoalType,
 	Rank,
 	Rarity,
-} from "@/4-lib/general/constants";
-import { goalTypeLabels } from "@/4-lib/general/goals/types";
-import { rankToString } from "@/4-lib/general/rank-data";
-import { rarityToMaxRank } from "@/4-lib/general/rarity-data";
-import type { RosterUnit } from "@/4-lib/general/roster-utils";
+} from "@/4-lib/general/constants.ts";
+import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
+import { rankToString } from "@/4-lib/general/rank-data.ts";
+import { rarityToMaxRank } from "@/4-lib/general/rarity-data.ts";
+import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
 import {
 	allGameUnitsSorted,
 	type IGameUnit,
 	unitById,
-} from "@/4-lib/general/unit-data";
-import { cn } from "@/4-lib/utils";
+} from "@/4-lib/general/unit-data.ts";
+import { cn } from "@/4-lib/utils.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
 interface AddGoalDialogProps {

@@ -1,13 +1,13 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
-import { internal } from "../_generated/api";
-import { action } from "../_generated/server";
-import { env } from "../env";
+import { internal } from "../_generated/api.ts";
+import { action } from "../_generated/server.ts";
+import { env } from "../env.ts";
 import type {
 	TacticusGuildRaidResponse,
 	TacticusGuildResponse,
 	TacticusPlayerResponse,
-} from "./types";
+} from "./types.ts";
 
 const FETCH_TIMEOUT_MS = 10_000;
 

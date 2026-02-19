@@ -1,4 +1,4 @@
-import { Rank, Rarity } from "./constants";
+import { Rank, Rarity } from "./constants.ts";
 
 export const rankToString: Record<Rank, string> = {
 	[Rank.Locked]: "",

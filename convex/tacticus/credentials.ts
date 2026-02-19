@@ -1,7 +1,7 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
-import { internalQuery, mutation, query } from "../_generated/server";
-import { decrypt, encrypt, maskValue } from "./crypto";
+import { internalQuery, mutation, query } from "../_generated/server.ts";
+import { decrypt, encrypt, maskValue } from "./crypto.ts";
 
 export const get = query({
 	args: {},

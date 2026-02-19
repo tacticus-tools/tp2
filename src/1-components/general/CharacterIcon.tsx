@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { CHARACTERS } from "@/5-assets/characters";
-import { MOWS } from "@/5-assets/mows";
+import { CHARACTERS } from "@/5-assets/characters/index.ts";
+import { MOWS } from "@/5-assets/mows/index.ts";
 
 /** Lookup map: unitId → Vite-resolved round icon URL */
 const iconByUnitId = new Map<string, string | undefined>();
@@ -35,6 +35,7 @@ export function CharacterIcon({ unitId, size = 30 }: CharacterIconProps) {
 	}
 
 	return (
+		// biome-ignore lint/a11y/noNoninteractiveElementInteractions: fallback handler, not interactive
 		<img
 			src={iconUrl}
 			alt={name ?? unitId}

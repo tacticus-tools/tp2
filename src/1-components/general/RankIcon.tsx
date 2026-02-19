@@ -1,6 +1,6 @@
-import type { Rank } from "@/4-lib/general/constants";
-import { getRankImageUrl } from "@/4-lib/general/image-utils";
-import { rankToString } from "@/4-lib/general/rank-data";
+import type { Rank } from "@/4-lib/general/constants.ts";
+import { getRankImageUrl } from "@/4-lib/general/image-utils.ts";
+import { rankToString } from "@/4-lib/general/rank-data.ts";
 
 interface RankIconProps {
 	rank: Rank;

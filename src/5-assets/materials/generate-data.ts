@@ -9,7 +9,9 @@
  * 4) Output lean generated JSON consumed by the rest of the app
  */
 
+// biome-ignore lint/correctness/noNodejsModules: build-time script
 import fs from "node:fs";
+// biome-ignore lint/correctness/noNodejsModules: build-time script
 import { join } from "node:path";
 import { z } from "zod";
 

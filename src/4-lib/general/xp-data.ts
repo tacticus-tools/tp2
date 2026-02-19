@@ -1,4 +1,4 @@
-import { Rarity } from "./constants";
+import { Rarity } from "./constants.ts";
 
 export interface IXpLevelThreshold {
 	level: number;

@@ -1,10 +1,13 @@
 import { create } from "zustand";
-import { buildRosterMap, type RosterUnit } from "@/4-lib/general/roster-utils";
+import {
+	buildRosterMap,
+	type RosterUnit,
+} from "@/4-lib/general/roster-utils.ts";
 import type {
 	TacticusCampaignProgress,
 	TacticusInventory,
 	TacticusPlayerResponse,
-} from "~/tacticus/types";
+} from "~/tacticus/types.ts";
 
 interface PlayerDataState {
 	roster: Map<string, RosterUnit>;

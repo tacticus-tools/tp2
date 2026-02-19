@@ -10,23 +10,24 @@ import {
 	Unlock,
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CampaignIcon } from "@/1-components/general/CampaignIcon";
-import { CharacterIcon } from "@/1-components/general/CharacterIcon";
-import { EnergyIcon } from "@/1-components/general/EnergyIcon";
-import { MaterialIcon } from "@/1-components/general/MaterialIcon";
-import { Badge } from "@/1-components/ui/badge";
-import { Button } from "@/1-components/ui/button";
-import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore";
-import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore";
+import { CampaignIcon } from "@/1-components/general/CampaignIcon.tsx";
+import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
+import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
+import { MaterialIcon } from "@/1-components/general/MaterialIcon.tsx";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
+import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
+import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
 import {
 	buildInventoryMap,
 	parseCampaignProgress,
-} from "@/4-lib/general/campaign-progress";
-import { computeCampaignProgression } from "@/4-lib/general/campaign-progression/service";
-import type { ICampaignProgressionResult } from "@/4-lib/general/campaign-progression/types";
-import type { Campaign } from "@/4-lib/general/constants";
-import { PersonalGoalType } from "@/4-lib/general/constants";
-import type { CharacterRaidGoalSelect } from "@/4-lib/general/goals/types";
+} from "@/4-lib/general/campaign-progress.ts";
+import { computeCampaignProgression } from "@/4-lib/general/campaign-progression/service.ts";
+import type { ICampaignProgressionResult } from "@/4-lib/general/campaign-progression/types.ts";
+import type { Campaign } from "@/4-lib/general/constants.ts";
+import { PersonalGoalType } from "@/4-lib/general/constants.ts";
+import type { CharacterRaidGoalSelect } from "@/4-lib/general/goals/types.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/campaign-progression")({

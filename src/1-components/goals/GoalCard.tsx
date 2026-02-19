@@ -7,23 +7,23 @@ import {
 	Trash2,
 } from "lucide-react";
 import { useState } from "react";
-import { CharacterIcon } from "@/1-components/general/CharacterIcon";
-import { EnergyIcon } from "@/1-components/general/EnergyIcon";
-import { RankIcon } from "@/1-components/general/RankIcon";
-import { RarityIcon } from "@/1-components/general/RarityIcon";
-import { Badge } from "@/1-components/ui/badge";
-import { Button } from "@/1-components/ui/button";
-import { Card, CardContent } from "@/1-components/ui/card";
+import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
+import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
+import { RankIcon } from "@/1-components/general/RankIcon.tsx";
+import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
+import { Card, CardContent } from "@/1-components/ui/card.tsx";
 import {
 	PersonalGoalType,
 	type Rank,
 	type Rarity,
 	type RarityStars,
-} from "@/4-lib/general/constants";
-import type { IGoalEstimate } from "@/4-lib/general/goals/types";
-import { goalTypeLabels } from "@/4-lib/general/goals/types";
-import { rankToString } from "@/4-lib/general/rank-data";
-import { cn } from "@/4-lib/utils";
+} from "@/4-lib/general/constants.ts";
+import type { IGoalEstimate } from "@/4-lib/general/goals/types.ts";
+import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
+import { rankToString } from "@/4-lib/general/rank-data.ts";
+import { cn } from "@/4-lib/utils.ts";
 
 interface GoalCardProps {
 	goalId: string;
