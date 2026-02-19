@@ -19,7 +19,7 @@
 		"biomePrecheck": "bun run biome migrate | grep \"no migration needed\"",
 		"format": "bun run biomePrecheck && biome format",
 		"lint": "bun run biomePrecheck && biome lint && eslint",
-		"check": "bun run biomePrecheck && biome check && eslint .",
+		"check": "bun run biomePrecheck && biome check && eslint ."",
 		"fix": "bun run biomePrecheck && biome check --fix && eslint --fix .",
 		"build-ci": "bun run fix && tsc --noEmit && bun run build",
 		"knip": "knip"

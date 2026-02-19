@@ -1,9 +1,4 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:recommended"],
-	"configMigration": true,
-	"postUpgradeTasks": {
-		"commands": ["bun run biome migrate --write", "bun run fix"],
-		"executionMode": "update"
-	}
+	"extends": ["config:recommended"]
 }
