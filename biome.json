@@ -48,7 +48,8 @@
 				"useGoogleFontPreconnect": "error",
 				"useTopLevelRegex": "error",
 				"useSolidForComponent": "off"
-			}
+			},
+			"a11y": "error"
 		}
 	},
 	"javascript": {
