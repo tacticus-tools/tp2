@@ -1,5 +1,5 @@
-import type { Alliance, Rarity } from "../constants";
-import { getRarityFromLevel } from "../rarity-data";
+import type { Alliance, Rarity } from "../constants.ts";
+import { getRarityFromLevel } from "../rarity-data.ts";
 
 export interface IAbilitiesMaterialsTotal {
 	gold: number;

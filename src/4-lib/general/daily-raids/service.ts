@@ -10,22 +10,22 @@
  * - _planRaidsForMaterial: per-material raid planning within a day
  */
 
-import type { IUpgradeLocation } from "../campaign-data";
-import { getAllUpgradeLocations } from "../campaign-data";
-import { filterLocationsByCampaignProgress } from "../campaign-progress";
-import { type Campaign, PersonalGoalType } from "../constants";
+import type { IUpgradeLocation } from "../campaign-data.ts";
+import { getAllUpgradeLocations } from "../campaign-data.ts";
+import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
+import { type Campaign, PersonalGoalType } from "../constants.ts";
 import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,
-} from "../goals/types";
-import { getAllMaterials } from "../upgrade-data";
+} from "../goals/types.ts";
+import { getAllMaterials } from "../upgrade-data.ts";
 import type {
 	IBlockedMaterial,
 	IDailyRaid,
 	IDailyRaidsDay,
 	IDailyRaidsPlan,
 	IRaidLocation,
-} from "./types";
+} from "./types.ts";
 
 /**
  * Internal per-material estimate used during simulation.
@@ -209,7 +209,7 @@ async function buildEstimatesByPriority(
 	blockedMaterials: IBlockedMaterial[];
 	materialUnitIds: Map<string, string[]>;
 }> {
-	const { getBaseUpgradesForRankUp } = await import("../upgrade-data");
+	const { getBaseUpgradesForRankUp } = await import("../upgrade-data.ts");
 	const allLocations = await getAllUpgradeLocations();
 	const allMaterialsData = await getAllMaterials();
 	const inventoryCopy = { ...inventory };
@@ -321,7 +321,7 @@ async function buildEstimatesByTotalMaterials(
 	blockedMaterials: IBlockedMaterial[];
 	materialUnitIds: Map<string, string[]>;
 }> {
-	const { getBaseUpgradesForRankUp } = await import("../upgrade-data");
+	const { getBaseUpgradesForRankUp } = await import("../upgrade-data.ts");
 	const allLocations = await getAllUpgradeLocations();
 	const allMaterialsData = await getAllMaterials();
 	const inventoryCopy = { ...inventory };

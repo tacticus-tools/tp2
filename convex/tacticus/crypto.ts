@@ -1,4 +1,4 @@
-import { env } from "../env";
+import { env } from "../env.ts";
 
 const ALGORITHM = "AES-GCM";
 const IV_LENGTH = 12;

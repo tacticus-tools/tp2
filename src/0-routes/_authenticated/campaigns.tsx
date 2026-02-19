@@ -2,12 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useAction } from "convex/react";
 import { RefreshCw } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import { CampaignProgressCard } from "@/1-components/general/CampaignProgressCard";
-import { Button } from "@/1-components/ui/button";
-import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore";
-import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore";
-import { getCampaignNodeCounts } from "@/4-lib/general/campaign-data";
-import type { Campaign } from "@/4-lib/general/constants";
+import { CampaignProgressCard } from "@/1-components/general/CampaignProgressCard.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
+import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
+import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
+import { getCampaignNodeCounts } from "@/4-lib/general/campaign-data.ts";
+import type { Campaign } from "@/4-lib/general/constants.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/campaigns")({

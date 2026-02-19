@@ -1,5 +1,5 @@
-import { rankToLevel } from "../rank-data";
-import { xpLevelThresholds } from "../xp-data";
+import { rankToLevel } from "../rank-data.ts";
+import { xpLevelThresholds } from "../xp-data.ts";
 
 export interface IXpEstimate {
 	legendaryBooks: number;

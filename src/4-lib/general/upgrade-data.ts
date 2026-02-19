@@ -8,10 +8,10 @@
  * - Farming location indexing
  */
 
-import { MATERIALS, RANK_UP_DATA } from "@/5-assets/materials";
-import type { Rank, Rarity } from "./constants";
-import { rankToString } from "./rank-data";
-import { rarityStringToNumber } from "./rarity-data";
+import { MATERIALS, RANK_UP_DATA } from "@/5-assets/materials/index.ts";
+import type { Rank, Rarity } from "./constants.ts";
+import { rankToString } from "./rank-data.ts";
+import { rarityStringToNumber } from "./rarity-data.ts";
 
 // ---------------------------------------------------------------------------
 // Processed types

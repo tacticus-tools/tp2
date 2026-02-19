@@ -1,12 +1,12 @@
-import { getShardLocations } from "../campaign-data";
-import { filterLocationsByCampaignProgress } from "../campaign-progress";
+import { getShardLocations } from "../campaign-data.ts";
+import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
 import type {
 	Campaign,
 	CampaignsLocationsUsage,
 	Rarity,
 	RarityStars,
-} from "../constants";
-import { charsProgression, charsUnlockShards } from "../rarity-data";
+} from "../constants.ts";
+import { charsProgression, charsUnlockShards } from "../rarity-data.ts";
 
 export interface IShardsEstimate {
 	shardsNeeded: number;

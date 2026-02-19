@@ -1,5 +1,5 @@
-import type { Campaign } from "@/4-lib/general/constants";
-import { getCampaignImageUrl } from "@/4-lib/general/image-utils";
+import type { Campaign } from "@/4-lib/general/constants.ts";
+import { getCampaignImageUrl } from "@/4-lib/general/image-utils.ts";
 
 interface CampaignIconProps {
 	campaign: Campaign;

@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { parseCampaignProgress } from "@/4-lib/general/campaign-progress";
-import type { Campaign } from "@/4-lib/general/constants";
-import type { TacticusCampaignProgress } from "~/tacticus/types";
+import { parseCampaignProgress } from "@/4-lib/general/campaign-progress.ts";
+import type { Campaign } from "@/4-lib/general/constants.ts";
+import type { TacticusCampaignProgress } from "~/tacticus/types.ts";
 
 interface CampaignProgressState {
 	/** Campaign enum value → max unlocked node number */

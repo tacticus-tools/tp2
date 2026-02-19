@@ -3,20 +3,20 @@
  * for the biggest farming benefit based on current goals and campaign progress.
  */
 
-import { getAllUpgradeLocations } from "../campaign-data";
-import { filterLocationsByCampaignProgress } from "../campaign-progress";
-import { type Campaign, PersonalGoalType } from "../constants";
+import { getAllUpgradeLocations } from "../campaign-data.ts";
+import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
+import { type Campaign, PersonalGoalType } from "../constants.ts";
 import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,
-} from "../goals/types";
-import { getAllMaterials } from "../upgrade-data";
+} from "../goals/types.ts";
+import { getAllMaterials } from "../upgrade-data.ts";
 import type {
 	IBattleSavings,
 	ICampaignProgressionData,
 	ICampaignProgressionResult,
 	IUnfarmableMaterial,
-} from "./types";
+} from "./types.ts";
 
 /**
  * Compute campaign progression recommendations based on goals and campaign progress.
@@ -44,7 +44,7 @@ export async function computeCampaignProgression(
 	}
 
 	// Step 1: Accumulate base materials needed across all goals
-	const { getBaseUpgradesForRankUp } = await import("../upgrade-data");
+	const { getBaseUpgradesForRankUp } = await import("../upgrade-data.ts");
 	const materialNeeds = new Map<string, { count: number; unitIds: string[] }>();
 
 	// Use a shared inventory copy so materials are subtracted across goals by priority

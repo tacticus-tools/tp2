@@ -1,4 +1,4 @@
-import { type Campaign, Rank, Rarity } from "./constants";
+import { type Campaign, Rank, Rarity } from "./constants.ts";
 
 const rankFilenames: Record<Rank, string> = {
 	[Rank.Locked]: "stone1.png",

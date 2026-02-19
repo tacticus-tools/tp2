@@ -1,5 +1,5 @@
-import type { TacticusUnit } from "~/tacticus/types";
-import { Rank, Rarity, RarityStars } from "./constants";
+import type { TacticusUnit } from "~/tacticus/types.ts";
+import { Rank, Rarity, RarityStars } from "./constants.ts";
 
 /**
  * Convert Tacticus API progressionIndex → [Rarity, RarityStars].

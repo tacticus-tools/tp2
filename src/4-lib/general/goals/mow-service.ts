@@ -1,5 +1,5 @@
-import type { Rarity } from "../constants";
-import { getRarityFromLevel } from "../rarity-data";
+import type { Rarity } from "../constants.ts";
+import { getRarityFromLevel } from "../rarity-data.ts";
 
 export interface IMowMaterialsTotal {
 	components: number;

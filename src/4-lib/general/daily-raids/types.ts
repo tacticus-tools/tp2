@@ -1,4 +1,4 @@
-import type { Campaign } from "../constants";
+import type { Campaign } from "../constants.ts";
 
 export interface IRaidLocation {
 	battleId: string;

@@ -1,5 +1,5 @@
-import { PersonalGoalType } from "./constants";
-import { unitById } from "./unit-data";
+import { PersonalGoalType } from "./constants.ts";
+import { unitById } from "./unit-data.ts";
 
 /**
  * Shape of a goal in a tacticusplanner export JSON.

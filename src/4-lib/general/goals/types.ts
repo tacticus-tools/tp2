@@ -5,7 +5,7 @@ import {
 	type Rank,
 	type Rarity,
 	type RarityStars,
-} from "../constants";
+} from "../constants.ts";
 
 /**
  * Stored goal shape — what we persist in Convex.

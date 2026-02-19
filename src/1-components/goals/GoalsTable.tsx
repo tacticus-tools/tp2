@@ -6,15 +6,15 @@ import {
 	Trash2,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import { CharacterIcon } from "@/1-components/general/CharacterIcon";
-import { EnergyIcon } from "@/1-components/general/EnergyIcon";
-import { RarityIcon } from "@/1-components/general/RarityIcon";
-import { Badge } from "@/1-components/ui/badge";
-import { Button } from "@/1-components/ui/button";
-import type { PersonalGoalType, Rarity } from "@/4-lib/general/constants";
-import type { IGoalEstimate } from "@/4-lib/general/goals/types";
-import { goalTypeLabels } from "@/4-lib/general/goals/types";
-import { cn } from "@/4-lib/utils";
+import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
+import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
+import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
+import type { PersonalGoalType, Rarity } from "@/4-lib/general/constants.ts";
+import type { IGoalEstimate } from "@/4-lib/general/goals/types.ts";
+import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
+import { cn } from "@/4-lib/utils.ts";
 
 type SortKey = "priority" | "unitName" | "type" | "days" | "energy" | "date";
 type SortDir = "asc" | "desc";

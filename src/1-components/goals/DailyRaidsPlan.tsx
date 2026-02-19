@@ -5,12 +5,12 @@ import {
 	Loader2,
 	Swords,
 } from "lucide-react";
-import { CampaignIcon } from "@/1-components/general/CampaignIcon";
-import { CharacterIcon } from "@/1-components/general/CharacterIcon";
-import { EnergyIcon } from "@/1-components/general/EnergyIcon";
-import { MaterialIcon } from "@/1-components/general/MaterialIcon";
-import { Badge } from "@/1-components/ui/badge";
-import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types";
+import { CampaignIcon } from "@/1-components/general/CampaignIcon.tsx";
+import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
+import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
+import { MaterialIcon } from "@/1-components/general/MaterialIcon.tsx";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types.ts";
 
 interface DailyRaidsPlanProps {
 	plan: IDailyRaidsPlan | null;

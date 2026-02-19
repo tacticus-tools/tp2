@@ -1,5 +1,5 @@
-import { Rarity } from "@/4-lib/general/constants";
-import { getRarityImageUrl } from "@/4-lib/general/image-utils";
+import { Rarity } from "@/4-lib/general/constants.ts";
+import { getRarityImageUrl } from "@/4-lib/general/image-utils.ts";
 
 const rarityLabels: Record<Rarity, string> = {
 	[Rarity.Common]: "Common",

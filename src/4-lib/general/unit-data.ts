@@ -1,5 +1,5 @@
-import type { Alliance } from "./constants";
-import { Rarity } from "./constants";
+import type { Alliance } from "./constants.ts";
+import { Rarity } from "./constants.ts";
 
 export interface IGameUnit {
 	id: string;

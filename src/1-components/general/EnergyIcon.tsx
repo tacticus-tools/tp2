@@ -1,4 +1,4 @@
-import { getEnergyIconUrl } from "@/4-lib/general/image-utils";
+import { getEnergyIconUrl } from "@/4-lib/general/image-utils.ts";
 
 interface EnergyIconProps {
 	size?: number;

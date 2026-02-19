@@ -11,9 +11,11 @@
  * Note:
  * This script is intended to be run as a Vite build plugin. Importing any app code into this file
  * is sketchy since Vite has not fully started up yet.
- *  */
+ */
 
+// biome-ignore lint/correctness/noNodejsModules: build-time script
 import fs from "node:fs";
+// biome-ignore lint/correctness/noNodejsModules: build-time script
 import { join } from "node:path";
 import { z } from "zod";
 

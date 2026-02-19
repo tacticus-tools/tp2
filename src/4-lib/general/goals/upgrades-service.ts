@@ -1,9 +1,9 @@
-import type { IUpgradeLocation } from "../campaign-data";
-import { getAllUpgradeLocations } from "../campaign-data";
-import { filterLocationsByCampaignProgress } from "../campaign-progress";
-import type { Campaign, Rank, Rarity } from "../constants";
-import { rankToLevel } from "../rank-data";
-import { getBaseUpgradesForRankUp } from "../upgrade-data";
+import type { IUpgradeLocation } from "../campaign-data.ts";
+import { getAllUpgradeLocations } from "../campaign-data.ts";
+import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
+import type { Campaign, Rank, Rarity } from "../constants.ts";
+import { rankToLevel } from "../rank-data.ts";
+import { getBaseUpgradesForRankUp } from "../upgrade-data.ts";
 
 export interface IUpgradeEstimate {
 	daysTotal: number;

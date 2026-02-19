@@ -1,5 +1,5 @@
-import data from "./data.generated.json";
-import rankUpRawData from "./rank-up-data.generated.json";
+import data from "./data.generated.json" with { type: "json" };
+import rankUpRawData from "./rank-up-data.generated.json" with { type: "json" };
 
 // `import.meta.glob` is a Vite feature that allows us to import multiple files matching a pattern.
 // We use `eager: true` to import the files immediately, and `import: "default"` to get the default export (the URL of the image).
