@@ -51,6 +51,7 @@ function InputGroupAddon({
 	return (
 		// biome-ignore lint/a11y/useSemanticElements: came from shadcn like this
 		// biome-ignore lint/a11y/useKeyWithClickEvents: came from shadcn like this
+		// biome-ignore lint/a11y/noNoninteractiveElementInteractions: came from shadcn like this
 		<div
 			role="group"
 			data-slot="input-group-addon"
