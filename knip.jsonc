@@ -1,6 +1,18 @@
 {
 	"$schema": "https://unpkg.com/knip@5/schema.json",
 	"tags": ["-lintignore"],
-	"ignore": ["src/1-components/ui/**/*"], // Installed from shadcn/ui; keep them even if we don't use them all so that people have easy access instead of trying to build their own components.
-	"ignoreDependencies": ["@base-ui/react"] // false positive
+	"ignore": [
+		"src/1-components/ui/**/*", // shadcn/ui components — keep all available
+		"src/2-integrations/convex/header-user.tsx", // wired into AppLayout soon
+		"src/5-assets/*/generate-data.ts" // build-time data pipelines, not all registered in vite.config yet
+	],
+	"ignoreDependencies": ["@base-ui/react"], // false positive
+	"ignoreExportsUsedInFile": true,
+	// Convex auth framework wires these exports at runtime via convention
+	"entry": ["convex/auth.ts"],
+	// Public API surface — consumed as features are built out
+	"ignoreIssues": {
+		"src/4-lib/general/**/*": ["exports", "types"],
+		"src/5-assets/*/index.ts": ["exports", "types"]
+	}
 }
