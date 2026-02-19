@@ -21,7 +21,9 @@
  * Note:
  * This script is intended to be run as a Vite build plugin. Importing any app code into this file
  * is sketchy since Vite has not fully started up yet.
- *  */
+ */
+
+/** biome-ignore-all lint/correctness/noNodejsModules: server-side build script */
 
 import fs from "node:fs";
 import { join } from "node:path";

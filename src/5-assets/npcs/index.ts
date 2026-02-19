@@ -1,7 +1,7 @@
-import DATA from "./data.generated.json";
-import type { NpcData } from "./generate-data";
-import { DATA as NPC_IDS } from "./ids.generated";
-import { DATA as NPC_TRAITS } from "./traits.generated";
+import DATA from "./data.generated.json" with { type: "json" };
+import type { NpcData } from "./generate-data.ts";
+import { DATA as NPC_IDS } from "./ids.generated.ts";
+import { DATA as NPC_TRAITS } from "./traits.generated.ts";
 
 // TODO: Implement icon mapping to files like we do for characters once we have icons for NPCs
 

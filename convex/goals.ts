@@ -1,7 +1,7 @@
 /** biome-ignore-all lint/performance/noAwaitInLoops: Convex handles this https://docs.convex.dev/database/writing-data#bulk-inserts-or-updates */
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
-import { mutation, query } from "./_generated/server";
+import { mutation, query } from "./_generated/server.js";
 
 export const list = query({
 	args: {},

@@ -1,4 +1,4 @@
-import { DATA } from "./data.generated";
+import { DATA } from "./data.generated.ts";
 
 // `import.meta.glob` is a Vite feature that allows us to import multiple files matching a pattern.
 // It is not available in the `generate-data.ts` Vite plugin, so we have to do it here.

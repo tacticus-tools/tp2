@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { NPCS } from "@/5-assets/npcs";
+import { NPCS } from "@/5-assets/npcs/index.ts";
 
 export const Route = createFileRoute("/data/npcs")({
 	component: RouteComponent,
