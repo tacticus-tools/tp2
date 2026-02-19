@@ -3,10 +3,10 @@ import { Link, Outlet } from "@tanstack/react-router";
 import { useConvexAuth } from "convex/react";
 import { Home, LogOut, Menu, Settings, Target, User, X } from "lucide-react";
 import { useState } from "react";
-import { ThemeToggle } from "@/1-components/ThemeToggle";
-import { Button } from "@/1-components/ui/button";
-import { Separator } from "@/1-components/ui/separator";
-import { cn } from "@/4-lib/utils";
+import { ThemeToggle } from "@/1-components/ThemeToggle.tsx";
+import { Button } from "@/1-components/ui/button.tsx";
+import { Separator } from "@/1-components/ui/separator.tsx";
+import { cn } from "@/4-lib/utils.ts";
 
 function NavItem({
 	to,

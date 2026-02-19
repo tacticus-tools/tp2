@@ -6,10 +6,10 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import AppLayout from "@/1-components/AppLayout";
+import AppLayout from "@/1-components/AppLayout.tsx";
 
-import ConvexProvider from "@/2-integrations/convex/provider";
-import TanStackQueryDevtools from "@/2-integrations/tanstack-query/devtools";
+import ConvexProvider from "@/2-integrations/convex/provider.tsx";
+import TanStackQueryDevtools from "@/2-integrations/tanstack-query/devtools.tsx";
 import appCss from "@/styles.css?url";
 
 interface MyRouterContext {

@@ -1,3 +1,4 @@
+// biome-ignore lint/correctness/noNodejsModules: server-side config file, false positive
 import { fileURLToPath, URL } from "node:url";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config";

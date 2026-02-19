@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, expect, test } from "vitest";
-import { useUserPreferencesStore } from "./useUserPreferencesStore";
+import { useUserPreferencesStore } from "./useUserPreferencesStore.ts";
 
 beforeEach(() => {
 	// Clear localStorage before each test

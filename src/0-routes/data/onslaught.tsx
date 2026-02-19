@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ONSLAUGHT_TRACKS } from "@/5-assets/onslaught";
+import { ONSLAUGHT_TRACKS } from "@/5-assets/onslaught/index.ts";
 
 export const Route = createFileRoute("/data/onslaught")({
 	component: RouteComponent,

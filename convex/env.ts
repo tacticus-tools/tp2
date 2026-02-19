@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/correctness/noNodejsModules: This is a server-side script */
+/** biome-ignore-all lint/correctness/noProcessGlobal: This is a server-side script */
 import { createEnv } from "@t3-oss/env-core";
 import { z } from "zod";
 

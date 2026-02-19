@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { EQUIPMENT } from "@/5-assets/equipment";
+import { EQUIPMENT } from "@/5-assets/equipment/index.ts";
 
 export const Route = createFileRoute("/data/equipment")({
 	component: RouteComponent,

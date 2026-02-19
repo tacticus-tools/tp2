@@ -1,13 +1,13 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect } from "react";
-import { Button } from "@/1-components/ui/button";
+import { Button } from "@/1-components/ui/button.tsx";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from "@/1-components/ui/dropdown-menu";
-import { useUserPreferencesStore } from "@/3-hooks/useUserPreferencesStore";
+} from "@/1-components/ui/dropdown-menu.tsx";
+import { useUserPreferencesStore } from "@/3-hooks/useUserPreferencesStore.ts";
 
 function getSystemTheme() {
 	return window.matchMedia("(prefers-color-scheme: dark)").matches
