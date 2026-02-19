@@ -428,7 +428,7 @@ export async function generateDailyRaidsPlan(
 	farmStrategy: "leastEnergy" | "leastTime" = "leastEnergy",
 	farmOrder: "goalPriority" | "totalMaterials" = "goalPriority",
 ): Promise<IDailyRaidsPlan> {
-	if (dailyEnergy <= 10) {
+	if (dailyEnergy <= 0) {
 		return {
 			days: [],
 			totalDays: 0,

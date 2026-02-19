@@ -240,7 +240,7 @@ async function buildUpgradeLocations(): Promise<
 			// Determine drop rate: use node-specific effective_rate if available,
 			// otherwise fall back to campaign config rate by rarity
 			let dropRate = reward.effective_rate;
-			if (dropRate <= 0) {
+			if (dropRate == null || dropRate <= 0) {
 				const materialRarity = recipeData[reward.id]?.rarity;
 				if (materialRarity) {
 					const key = rarityToDropRateKey(materialRarity);

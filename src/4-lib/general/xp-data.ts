@@ -62,6 +62,17 @@ export const xpLevelThresholds: IXpLevelThreshold[] = [
 	{ level: 52, xpToNextLevel: 300000, totalXp: 3360200 },
 	{ level: 53, xpToNextLevel: 305000, totalXp: 3660200 },
 	{ level: 54, xpToNextLevel: 310000, totalXp: 3965200 },
+	{ level: 55, xpToNextLevel: 315000, totalXp: 4275200 },
+	{ level: 56, xpToNextLevel: 320000, totalXp: 4590200 },
+	{ level: 57, xpToNextLevel: 325000, totalXp: 4910200 },
+	{ level: 58, xpToNextLevel: 330000, totalXp: 5235200 },
+	{ level: 59, xpToNextLevel: 335000, totalXp: 5565200 },
+	{ level: 60, xpToNextLevel: 340000, totalXp: 5900200 },
+	{ level: 61, xpToNextLevel: 345000, totalXp: 6240200 },
+	{ level: 62, xpToNextLevel: 350000, totalXp: 6585200 },
+	{ level: 63, xpToNextLevel: 355000, totalXp: 6935200 },
+	{ level: 64, xpToNextLevel: 360000, totalXp: 7290200 },
+	{ level: 65, xpToNextLevel: 365000, totalXp: 7650200 },
 ];
 
 /** XP value per book rarity */
