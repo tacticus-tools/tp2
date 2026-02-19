@@ -62,6 +62,7 @@ export async function estimateUpgradeDays(
 	let totalDailyRaids = 0; // sum of dailyBattleCount across unique nodes
 
 	// Track unique nodes we need to farm (for daily raid limit calculation)
+	const seenBattleIds = new Set<string>();
 	const nodeRaids: Array<{
 		dailyBattleCount: number;
 		energyCost: number;
@@ -95,7 +96,11 @@ export async function estimateUpgradeDays(
 			energyCost: best.energyCost,
 			raidsNeeded,
 		});
-		totalDailyRaids += best.dailyBattleCount;
+		// Only count daily battle cap once per unique node
+		if (!seenBattleIds.has(best.battleId)) {
+			seenBattleIds.add(best.battleId);
+			totalDailyRaids += best.dailyBattleCount;
+		}
 	}
 
 	if (totalRaids <= 0) {

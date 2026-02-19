@@ -11,7 +11,6 @@ import {
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import {
 	AlertDialog,
-	AlertDialogAction,
 	AlertDialogCancel,
 	AlertDialogContent,
 	AlertDialogDescription,
@@ -616,7 +615,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 
 				<AlertDialogFooter>
 					<AlertDialogCancel onClick={resetForm}>Cancel</AlertDialogCancel>
-					<AlertDialogAction onClick={handleSave} disabled={isSaveDisabled}>
+					<Button onClick={handleSave} disabled={isSaveDisabled}>
 						{saving ? (
 							<>
 								<Loader2 className="size-4 animate-spin" />
@@ -625,7 +624,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 						) : (
 							"Add Goal"
 						)}
-					</AlertDialogAction>
+					</Button>
 				</AlertDialogFooter>
 			</AlertDialogContent>
 		</AlertDialog>

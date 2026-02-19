@@ -11,6 +11,7 @@ import { main as prepareCampaignData } from "./src/5-assets/campaigns/generate-d
 import { main as prepareCharacterData } from "./src/5-assets/characters/generate-data.ts";
 import { main as prepareEquipmentData } from "./src/5-assets/equipment/generate-data.ts";
 import { main as prepareMaterialData } from "./src/5-assets/materials/generate-data.ts";
+import { main as prepareMowData } from "./src/5-assets/mows/generate-data.ts";
 import { main as prepareNpcData } from "./src/5-assets/npcs/generate-data.ts";
 import { main as prepareOnslaughtData } from "./src/5-assets/onslaught/generate-data.ts";
 
@@ -51,6 +52,7 @@ const config = defineConfig({
 		{ name: "prepareNpcData", buildStart: prepareNpcData },
 		{ name: "prepareEquipmentData", buildStart: prepareEquipmentData },
 		{ name: "prepareMaterialData", buildStart: prepareMaterialData },
+		{ name: "prepareMowData", buildStart: prepareMowData },
 		{ name: "prepareCampaignData", buildStart: prepareCampaignData },
 	],
 });
