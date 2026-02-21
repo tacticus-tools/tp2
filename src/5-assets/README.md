@@ -77,3 +77,23 @@ When you run `bun build` (or `bun dev`), the following happens:
    - Import generated data
    - Export types and data for app code
    - Use `import.meta.glob` to resolve asset URLs if needed since that's only available in the app context, not in the build script
+
+## Checking Legacy JSON Files for Active Pipelines
+
+The `legacy-json/` folder contains archived JSON files from the previous system. To identify which legacy files correspond to current active pipelines, use the comparison script:
+
+```bash
+bun run ./src/5-assets/legacy-json/compare-with-active-pipelines.ts
+```
+
+### What it does:
+- Scans all JSON files in `legacy-json/data/` and `legacy-json/fsd/`
+- Scans all `*.raw.json` files in active asset pipelines
+- Computes SHA256 hashes to identify exact matches
+- Reports which legacy files match current raw data
+- Lists unmatched files on both sides
+
+### Interpreting results:
+- **Matches**: Legacy file is identical to an active raw file (safe to delete the legacy file if desired)
+- **Unmatched legacy**: File is either outdated or represents data that hasn't been migrated yet (e.g., LRE character data, old i18n files)
+- **Unmatched active**: Asset pipeline was created after legacy files were archived (no legacy equivalent exists)
