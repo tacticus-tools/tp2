@@ -9,7 +9,9 @@
       "rare": 0,
       "epic": 0,
       "legendary": 0,
-      "shard": 0
+      "shard": 0,
+      "mythic": 0,
+      "mythicShard": 0
     }
   },
   "Early": {
@@ -22,33 +24,9 @@
       "rare": 0.4,
       "epic": 0.167,
       "legendary": 0.1,
-      "shard": 0.333
-    }
-  },
-  "EarlyChars": {
-    "type": "EarlyChars",
-    "energyCost": 5,
-    "dailyBattleCount": 7,
-    "dropRate": {
-      "common": 0.8517,
-      "uncommon": 0.666,
-      "rare": 0.4,
-      "epic": 0.167,
-      "legendary": 0.1,
-      "shard": 0.333
-    }
-  },
-  "EarlyMirrorChars": {
-    "type": "EarlyMirrorChars",
-    "energyCost": 6,
-    "dailyBattleCount": 3,
-    "dropRate": {
-      "common": 0.9,
-      "uncommon": 0.75,
-      "rare": 0.5,
-      "epic": 0.25,
-      "legendary": 0.111,
-      "shard": 0.3333
+      "shard": 0.333,
+      "mythic": 0,
+      "mythicShard": 0
     }
   },
   "Normal": {
@@ -61,7 +39,9 @@
       "rare": 0.4,
       "epic": 0.167,
       "legendary": 0.1,
-      "shard": 0.333
+      "shard": 0.333,
+      "mythic": 0,
+      "mythicShard": 0
     }
   },
   "Mirror": {
@@ -74,7 +54,9 @@
       "rare": 0.5,
       "epic": 0.25,
       "legendary": 0.111,
-      "shard": 0.3333
+      "shard": 0.3333,
+      "mythic": 0,
+      "mythicShard": 0
     }
   },
   "Elite": {
@@ -87,20 +69,9 @@
       "rare": 1.083,
       "epic": 0.667,
       "legendary": 0.33,
-      "shard": 1.08
-    }
-  },
-  "Onslaught": {
-    "type": "Onslaught",
-    "energyCost": 0,
-    "dailyBattleCount": 3,
-    "dropRate": {
-      "common": 0,
-      "uncommon": 0,
-      "rare": 0,
-      "epic": 0,
-      "legendary": 0,
-      "shard": 0
+      "shard": 1.08,
+      "mythic": 0,
+      "mythicShard": 0
     }
   },
   "Standard": {
@@ -113,7 +84,9 @@
       "rare": 0.5,
       "epic": 0.25,
       "legendary": 0.111,
-      "shard": 0.3333
+      "shard": 0.3333,
+      "mythic": 0,
+      "mythicShard": 0
     }
   },
   "Extremis": {
@@ -129,6 +102,51 @@
       "shard": 0.615,
       "mythic": 0.12,
       "mythicShard": 0.214
+    }
+  },
+  "EarlyChars": {
+    "type": "EarlyChars",
+    "energyCost": 5,
+    "dailyBattleCount": 7,
+    "dropRate": {
+      "common": 0.8517,
+      "uncommon": 0.666,
+      "rare": 0.4,
+      "epic": 0.167,
+      "legendary": 0.1,
+      "shard": 0.333,
+      "mythic": 0,
+      "mythicShard": 0
+    }
+  },
+  "EarlyMirrorChars": {
+    "type": "EarlyMirrorChars",
+    "energyCost": 6,
+    "dailyBattleCount": 3,
+    "dropRate": {
+      "common": 0.9,
+      "uncommon": 0.75,
+      "rare": 0.5,
+      "epic": 0.25,
+      "legendary": 0.111,
+      "shard": 0.3333,
+      "mythic": 0,
+      "mythicShard": 0
+    }
+  },
+  "Onslaught": {
+    "type": "Onslaught",
+    "energyCost": 0,
+    "dailyBattleCount": 3,
+    "dropRate": {
+      "common": 0,
+      "uncommon": 0,
+      "rare": 0,
+      "epic": 0,
+      "legendary": 0,
+      "shard": 0,
+      "mythic": 0,
+      "mythicShard": 0
     }
   }
 }

@@ -8,10 +8,8 @@
  * - Composed battle data with computed drop rates and energy-per-item
  */
 
-import {
-	CAMPAIGN_BATTLES,
-	CAMPAIGN_CONFIGS,
-} from "@/5-assets/campaigns/index.ts";
+import { CAMPAIGN_BATTLES } from "@/5-assets/campaign-battles/index.ts";
+import { DROP_RATES } from "@/5-assets/drop-rates/index.ts";
 import { Campaign, type CampaignType } from "./constants.ts";
 import { rarityStringToNumber } from "./rarity-data.ts";
 
@@ -23,7 +21,7 @@ const SHARD_PREFIX_RE = /^(mythicShards_|shards_)/;
 
 type BattleNode =
 	(typeof CAMPAIGN_BATTLES)[keyof typeof CAMPAIGN_BATTLES][number];
-type ConfigEntry = (typeof CAMPAIGN_CONFIGS)[keyof typeof CAMPAIGN_CONFIGS];
+type ConfigEntry = (typeof DROP_RATES)[keyof typeof DROP_RATES];
 type DropRate = ConfigEntry["dropRate"];
 
 // ---------------------------------------------------------------------------
@@ -155,7 +153,7 @@ function getConfigs(): Map<CampaignType, ICampaignConfig> {
 	if (_configs) return _configs;
 
 	_configs = new Map<CampaignType, ICampaignConfig>();
-	for (const [key, value] of Object.entries(CAMPAIGN_CONFIGS)) {
+	for (const [key, value] of Object.entries(DROP_RATES)) {
 		_configs.set(key as CampaignType, {
 			type: key as CampaignType,
 			energyCost: value.energyCost,

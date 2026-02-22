@@ -153,4 +153,18 @@ export const main = () => {
 		join(import.meta.dirname, "data.generated.ts"),
 		`export const DATA = ${JSON.stringify(parsedData, null, 2)} as const;\n`,
 	);
+
+	const characterIds = parsedData.map((character) => character.id);
+	fs.writeFileSync(
+		join(import.meta.dirname, "ids.generated.ts"),
+		`export const DATA = ${JSON.stringify(characterIds, null, 2)} as const;\n`,
+	);
+
+	const factionIds = Array.from(
+		new Set(parsedData.map((character) => character.factionId)),
+	);
+	fs.writeFileSync(
+		join(import.meta.dirname, "faction-ids.generated.ts"),
+		`export const DATA = ${JSON.stringify(factionIds, null, 2)} as const;\n`,
+	);
 };

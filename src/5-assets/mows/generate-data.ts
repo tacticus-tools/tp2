@@ -12,11 +12,13 @@
  * is sketchy since Vite has not fully started up yet.
  */
 
-// biome-ignore lint/correctness/noNodejsModules: build-time script
+/** biome-ignore-all lint/correctness/noNodejsModules: server-side build script */
 import fs from "node:fs";
-// biome-ignore lint/correctness/noNodejsModules: build-time script
 import { join } from "node:path";
 import { z } from "zod";
+
+// Note: we bypass the `index.ts` here to avoid side effects that might require the Vite environment to be fully started up
+import { DATA as FACTION_IDS } from "../characters/faction-ids.generated.ts";
 
 const characterImagesFolder = join(
 	import.meta.dirname,
@@ -30,33 +32,23 @@ const RawMowSchema = z
 	.strictObject({
 		id: z.string().nonempty(),
 		Name: z.string().trim().nonempty(),
-		Faction: z.string().nonempty(),
+		Faction: z.enum(FACTION_IDS),
 		Alliance: z.string().nonempty(),
 		"Initial rarity": z.string().nonempty(),
-		Icon: z.templateLiteral([
-			"snowprint_assets/characters/ui_image_portrait_",
-			z.string().lowercase().nonempty(),
-			"_",
-			z.string().lowercase().nonempty(),
-			"_01.png",
-		]),
+		Icon: z
+			.string()
+			.startsWith("snowprint_assets/characters/ui_image_portrait_")
+			.endsWith(".png")
+			.transform((iconPath) => iconPath.split("/").slice(-1)[0]),
 		RoundIcon: z
-			.templateLiteral([
-				"snowprint_assets/characters/ui_image_RoundPortrait_",
-				z.string().lowercase().nonempty(),
-				"_",
-				z.string().lowercase().nonempty(),
-				"_01.png",
-			])
-			.refine(
-				(iconPath) =>
-					characterImageNames.includes(iconPath.split("/").slice(-1)[0]),
-				{
-					message:
-						"RoundIcon must correspond to an existing image file in the snowprint_assets/characters folder",
-				},
-			)
-			.transform((roundIconPath) => roundIconPath.split("/").slice(-1)[0]),
+			.string()
+			.startsWith("snowprint_assets/characters/ui_image_RoundPortrait_")
+			.endsWith(".png")
+			.transform((iconPath) => iconPath.split("/").slice(-1)[0])
+			.refine((iconPath) => characterImageNames.includes(iconPath), {
+				message:
+					"RoundIcon must correspond to an existing image file in the snowprint_assets/characters folder",
+			}),
 		PrimaryAbility: z.string().nonempty(),
 		SecondaryAbility: z.string().nonempty(),
 	})

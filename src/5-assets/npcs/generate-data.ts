@@ -30,7 +30,7 @@ const StatsSchema = z.strictObject({
 
 const RawNpcSchema = z
 	.strictObject({
-		id: z.string().trim().nonempty(),
+		id: z.string().trim().nonempty().brand<"NpcId">(),
 		Name: z.string().trim().nonempty(),
 		Faction: z
 			.string()

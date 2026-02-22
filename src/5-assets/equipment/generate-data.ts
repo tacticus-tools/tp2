@@ -18,6 +18,9 @@ import fs from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
 
+// Note: we bypass the `index.ts` here to avoid side effects that might require the Vite environment to be fully started up
+import { DATA as FACTION_IDS } from "../characters/faction-ids.generated.ts";
+
 /*#
 ------------ HANDLING DIFFERENT EQUIPMENT TYPES ------------
 There are currently 5 different equipment types.
@@ -81,7 +84,7 @@ const BaseEquipmentSchema = z.strictObject({
 		.trim()
 		.transform((val) => val || null), // Replace "" with null for simplicity
 	isRelic: z.boolean(),
-	allowedFactions: z.array(z.string().trim().nonempty()),
+	allowedFactions: z.array(z.enum(FACTION_IDS)),
 	isUniqueRelic: z
 		.boolean()
 		.optional()

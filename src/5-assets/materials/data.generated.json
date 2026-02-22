@@ -5,7 +5,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC002": {
@@ -14,7 +13,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC003": {
@@ -23,7 +21,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC004": {
@@ -32,7 +29,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC004.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC005": {
@@ -41,7 +37,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC006": {
@@ -50,7 +45,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC007": {
@@ -59,7 +53,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC007.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC011": {
@@ -68,7 +61,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC011.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC012": {
@@ -77,7 +69,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC012.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmC013": {
@@ -86,7 +77,6 @@
     "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC013.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmCS": {
@@ -95,7 +85,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmCS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmE001C": {
@@ -104,7 +93,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE001C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR001C",
@@ -126,7 +114,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR019",
@@ -148,7 +135,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE003C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR005",
@@ -170,7 +156,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR015",
@@ -192,7 +177,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE005C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR004C",
@@ -214,7 +198,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE006C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR012C",
@@ -236,7 +219,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR009",
@@ -250,7 +232,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE008.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmE009": {
@@ -259,7 +240,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmE010": {
@@ -268,7 +248,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmE011C": {
@@ -277,7 +256,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE011C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR013C",
@@ -299,7 +277,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE012C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR006",
@@ -321,7 +298,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE013.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmE014C": {
@@ -330,7 +306,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE014C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR014C",
@@ -352,7 +327,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE021C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR021",
@@ -366,7 +340,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE022C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR022",
@@ -380,7 +353,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE023C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR023",
@@ -394,7 +366,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE025C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR025",
@@ -408,7 +379,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE026C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR026",
@@ -422,7 +392,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE027C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR027",
@@ -436,7 +405,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE028C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR028",
@@ -450,7 +418,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE029C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR029",
@@ -464,7 +431,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE031C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR031",
@@ -478,7 +444,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE032C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR032",
@@ -492,7 +457,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE033C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR033",
@@ -506,7 +470,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE034C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR034",
@@ -520,7 +483,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE035C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR035",
@@ -534,7 +496,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE036C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR036",
@@ -548,7 +509,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE037C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR037",
@@ -562,7 +522,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE038C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR038",
@@ -576,7 +535,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE039C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR039",
@@ -590,7 +548,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE040C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmR040",
@@ -604,7 +561,6 @@
     "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmECS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmL001": {
@@ -613,7 +569,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmL002C": {
@@ -622,7 +577,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE002C",
@@ -640,7 +594,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL003C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE003C",
@@ -658,7 +611,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE004C",
@@ -676,7 +628,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL005C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE015",
@@ -694,7 +645,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL006C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE010",
@@ -712,7 +662,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE007C",
@@ -730,7 +679,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE012C",
@@ -748,7 +696,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL009C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE008",
@@ -766,7 +713,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL010C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE003",
@@ -784,7 +730,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL011C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE009",
@@ -802,7 +747,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL021C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE021C",
@@ -820,7 +764,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL022C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE022C",
@@ -838,7 +781,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL023C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE023C",
@@ -856,7 +798,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL025C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE025C",
@@ -874,7 +815,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL026C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE026C",
@@ -892,7 +832,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL027C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE027C",
@@ -910,7 +849,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL028C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE028C",
@@ -928,7 +866,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL029C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE029C",
@@ -946,7 +883,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL031C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE031C",
@@ -964,7 +900,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL032C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE032C",
@@ -982,7 +917,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL033C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE033C",
@@ -1000,7 +934,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL034C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE034C",
@@ -1018,7 +951,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL035C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE035C",
@@ -1036,7 +968,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL036C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE036C",
@@ -1054,7 +985,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL037C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE037C",
@@ -1072,7 +1002,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL038C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE038C",
@@ -1090,7 +1019,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL039C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE039C",
@@ -1108,7 +1036,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL040C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmE040C",
@@ -1126,7 +1053,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL120C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL100",
@@ -1148,7 +1074,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL121C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL101",
@@ -1170,7 +1095,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL122C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL102",
@@ -1192,7 +1116,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL123C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL103",
@@ -1214,7 +1137,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL124C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL104",
@@ -1236,7 +1158,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL125C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL105",
@@ -1258,7 +1179,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL126C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL106",
@@ -1280,7 +1200,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL127C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL107",
@@ -1302,7 +1221,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL128C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL108",
@@ -1324,7 +1242,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL129C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL109",
@@ -1346,7 +1263,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL130C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL010",
@@ -1368,7 +1284,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL131C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL111",
@@ -1390,7 +1305,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL132C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL112",
@@ -1412,7 +1326,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL133C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL113",
@@ -1434,7 +1347,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL134C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL114",
@@ -1456,7 +1368,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL135C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL115",
@@ -1478,7 +1389,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL136C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL116",
@@ -1500,7 +1410,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL137C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL117",
@@ -1522,7 +1431,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL138C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL118",
@@ -1544,7 +1452,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL139C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL119",
@@ -1566,7 +1473,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL140C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL099",
@@ -1588,7 +1494,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL202.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmL203": {
@@ -1597,7 +1502,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL203.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmL204": {
@@ -1606,7 +1510,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL204.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmL211C": {
@@ -1615,7 +1518,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL211C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL203",
@@ -1637,7 +1539,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL212C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL202",
@@ -1659,7 +1560,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL213C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL001",
@@ -1681,7 +1581,6 @@
     "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL214C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL204",
@@ -1703,7 +1602,6 @@
     "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM211C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL001",
@@ -1725,7 +1623,6 @@
     "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM212C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL202",
@@ -1747,7 +1644,6 @@
     "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM213C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL204",
@@ -1769,7 +1665,6 @@
     "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM214C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmL203",
@@ -1791,7 +1686,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR001C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU001",
@@ -1813,7 +1707,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU006",
@@ -1831,7 +1724,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR003C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU005",
@@ -1849,7 +1741,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU007",
@@ -1871,7 +1762,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR006": {
@@ -1880,7 +1770,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR007C": {
@@ -1889,7 +1778,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU002",
@@ -1907,7 +1795,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU002",
@@ -1925,7 +1812,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR010": {
@@ -1934,7 +1820,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR012C": {
@@ -1943,7 +1828,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR012C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU009",
@@ -1965,7 +1849,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR013C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU013",
@@ -1987,7 +1870,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR014C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU014",
@@ -2009,7 +1891,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR015.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR021": {
@@ -2018,7 +1899,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR021.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR022": {
@@ -2027,7 +1907,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR022.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR023": {
@@ -2036,7 +1915,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR023.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR025": {
@@ -2045,7 +1923,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR025.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR026": {
@@ -2054,7 +1931,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR026.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR027": {
@@ -2063,7 +1939,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR027.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR028": {
@@ -2072,7 +1947,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR028.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR029": {
@@ -2081,7 +1955,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR029.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR031": {
@@ -2090,7 +1963,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR031.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR032": {
@@ -2099,7 +1971,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR032.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR033": {
@@ -2108,7 +1979,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR033.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR034": {
@@ -2117,7 +1987,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR034.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR035": {
@@ -2126,7 +1995,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR035.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR036": {
@@ -2135,7 +2003,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR036.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR037": {
@@ -2144,7 +2011,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR037.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR038": {
@@ -2153,7 +2019,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR038.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR039": {
@@ -2162,7 +2027,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR039.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmR040": {
@@ -2171,7 +2035,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR040.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmRCS": {
@@ -2180,7 +2043,6 @@
     "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmRCS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU001": {
@@ -2189,7 +2051,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU002": {
@@ -2198,7 +2059,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU003C": {
@@ -2207,7 +2067,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU003C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmC004",
@@ -2221,7 +2080,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmC005",
@@ -2235,7 +2093,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU006": {
@@ -2244,7 +2101,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU007": {
@@ -2253,7 +2109,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU007.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU008": {
@@ -2262,7 +2117,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU008.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU009": {
@@ -2271,7 +2125,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU010C": {
@@ -2280,7 +2133,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU010C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmC002",
@@ -2294,7 +2146,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU012.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU012C": {
@@ -2303,7 +2154,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU012C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmC003",
@@ -2317,7 +2167,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU013.png",
-    "craftable": false,
     "recipe": null
   },
   "upgArmU014": {
@@ -2326,7 +2175,6 @@
     "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU014.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC001": {
@@ -2335,7 +2183,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC002": {
@@ -2344,7 +2191,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC003": {
@@ -2353,7 +2199,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC004": {
@@ -2362,7 +2207,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC004.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC005": {
@@ -2371,7 +2215,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC006": {
@@ -2380,7 +2223,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC007": {
@@ -2389,7 +2231,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC007.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC008": {
@@ -2398,7 +2239,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC008.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC009": {
@@ -2407,7 +2247,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC010": {
@@ -2416,7 +2255,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC011": {
@@ -2425,7 +2263,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC011.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC012": {
@@ -2434,7 +2271,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC012.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC013": {
@@ -2443,7 +2279,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC013.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC014": {
@@ -2452,7 +2287,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC014.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgC015": {
@@ -2461,7 +2295,6 @@
     "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC015.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgCS": {
@@ -2470,7 +2303,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgCS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgE001": {
@@ -2479,7 +2311,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgE002C": {
@@ -2488,7 +2319,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR013C",
@@ -2510,7 +2340,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgE004": {
@@ -2519,7 +2348,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE004.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgE005": {
@@ -2528,7 +2356,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgE006C": {
@@ -2537,7 +2364,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE006C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR010C",
@@ -2559,7 +2385,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR004C",
@@ -2581,7 +2406,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR011C",
@@ -2603,7 +2427,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE009C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR012C",
@@ -2625,7 +2448,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgE011": {
@@ -2634,7 +2456,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE011.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgE021C": {
@@ -2643,7 +2464,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE021C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR021",
@@ -2657,7 +2477,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE022C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR022",
@@ -2671,7 +2490,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE023C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR023",
@@ -2685,7 +2503,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE024C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR024",
@@ -2699,7 +2516,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE025C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR025",
@@ -2713,7 +2529,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE026C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR026",
@@ -2727,7 +2542,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE027C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR027",
@@ -2741,7 +2555,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE028C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR028",
@@ -2755,7 +2568,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE029C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR029",
@@ -2769,7 +2581,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE031C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR031",
@@ -2783,7 +2594,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE032C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR032",
@@ -2797,7 +2607,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE033C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR033",
@@ -2811,7 +2620,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE034C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR034",
@@ -2825,7 +2633,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE035C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR035",
@@ -2839,7 +2646,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE036C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR036",
@@ -2853,7 +2659,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE037C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR037",
@@ -2867,7 +2672,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE038C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR038",
@@ -2881,7 +2685,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE039C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR039",
@@ -2895,7 +2698,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE040C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR040",
@@ -2909,7 +2711,6 @@
     "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgECS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgL001": {
@@ -2918,7 +2719,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgL002C": {
@@ -2927,7 +2727,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE003",
@@ -2949,7 +2748,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgL004C": {
@@ -2958,7 +2756,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE005",
@@ -2980,7 +2777,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL005C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE006C",
@@ -2998,7 +2794,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL006C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE008C",
@@ -3016,7 +2811,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE001",
@@ -3038,7 +2832,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE011",
@@ -3060,7 +2853,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL009C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE004",
@@ -3082,7 +2874,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL010C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE010",
@@ -3104,7 +2895,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL012C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE007C",
@@ -3122,7 +2912,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL015C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR015C",
@@ -3140,7 +2929,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL016C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR016C",
@@ -3158,7 +2946,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL017C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR017C",
@@ -3176,7 +2963,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL021C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE021C",
@@ -3194,7 +2980,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL022C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE022C",
@@ -3212,7 +2997,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL023C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE023C",
@@ -3230,7 +3014,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL024C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE024C",
@@ -3248,7 +3031,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL025C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE025C",
@@ -3266,7 +3048,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL026C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE026C",
@@ -3284,7 +3065,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL027C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE027C",
@@ -3302,7 +3082,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL028C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE028C",
@@ -3320,7 +3099,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL029C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE029C",
@@ -3338,7 +3116,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL030C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR009",
@@ -3356,7 +3133,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL031C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE031C",
@@ -3374,7 +3150,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL032C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE032C",
@@ -3392,7 +3167,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL033C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE033C",
@@ -3410,7 +3184,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL034C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE034C",
@@ -3428,7 +3201,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL035C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE035C",
@@ -3446,7 +3218,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL036C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE036C",
@@ -3464,7 +3235,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL037C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE037C",
@@ -3482,7 +3252,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL038C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE038C",
@@ -3500,7 +3269,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL039C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE039C",
@@ -3518,7 +3286,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL040C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE040C",
@@ -3536,7 +3303,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL120C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL100",
@@ -3558,7 +3324,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL121C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL101",
@@ -3580,7 +3345,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL122C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL102",
@@ -3602,7 +3366,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL123C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL103",
@@ -3624,7 +3387,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL124C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL104",
@@ -3646,7 +3408,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL125C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL105",
@@ -3668,7 +3429,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL126C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL106",
@@ -3690,7 +3450,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL127C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL107",
@@ -3712,7 +3471,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL128C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL108",
@@ -3734,7 +3492,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL129C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL109",
@@ -3756,7 +3513,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL130C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL010",
@@ -3778,7 +3534,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL131C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL111",
@@ -3800,7 +3555,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL132C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL112",
@@ -3822,7 +3576,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL133C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL113",
@@ -3844,7 +3597,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL134C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL114",
@@ -3866,7 +3618,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL135C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL115",
@@ -3888,7 +3639,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL136C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL116",
@@ -3910,7 +3660,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL137C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL117",
@@ -3932,7 +3681,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL138C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL118",
@@ -3954,7 +3702,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL139C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL119",
@@ -3976,7 +3723,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL140C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL099",
@@ -3998,7 +3744,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL202.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgL204": {
@@ -4007,7 +3752,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL204.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgL211C": {
@@ -4016,7 +3760,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL211C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL202",
@@ -4038,7 +3781,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL212C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL001",
@@ -4060,7 +3802,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL213C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL204",
@@ -4082,7 +3823,6 @@
     "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL214C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL003",
@@ -4104,7 +3844,6 @@
     "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM211C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL202",
@@ -4126,7 +3865,6 @@
     "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM212C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL003",
@@ -4148,7 +3886,6 @@
     "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM213C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL001",
@@ -4170,7 +3907,6 @@
     "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM214C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL204",
@@ -4192,7 +3928,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR001C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU002",
@@ -4210,7 +3945,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR003": {
@@ -4219,7 +3953,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR004C": {
@@ -4228,7 +3961,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU009",
@@ -4246,7 +3978,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR006": {
@@ -4255,7 +3986,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR007": {
@@ -4264,7 +3994,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR007.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR008C": {
@@ -4273,7 +4002,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU009",
@@ -4291,7 +4019,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR010C": {
@@ -4300,7 +4027,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR010C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU010",
@@ -4322,7 +4048,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR011C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU010",
@@ -4344,7 +4069,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR012C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU014",
@@ -4362,7 +4086,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR015C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU015C",
@@ -4380,7 +4103,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR016C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU016C",
@@ -4398,7 +4120,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR017C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU017C",
@@ -4416,7 +4137,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR021.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR022": {
@@ -4425,7 +4145,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR022.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR023": {
@@ -4434,7 +4153,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR023.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR024": {
@@ -4443,7 +4161,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR024.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR025": {
@@ -4452,7 +4169,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR025.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR026": {
@@ -4461,7 +4177,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR026.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR027": {
@@ -4470,7 +4185,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR027.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR028": {
@@ -4479,7 +4193,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR028.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR029": {
@@ -4488,7 +4201,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR029.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR031": {
@@ -4497,7 +4209,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR031.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR032": {
@@ -4506,7 +4217,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR032.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR033": {
@@ -4515,7 +4225,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR033.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR034": {
@@ -4524,7 +4233,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR034.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR035": {
@@ -4533,7 +4241,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR035.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR036": {
@@ -4542,7 +4249,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR036.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR037": {
@@ -4551,7 +4257,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR037.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR038": {
@@ -4560,7 +4265,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR038.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR039": {
@@ -4569,7 +4273,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR039.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR040": {
@@ -4578,7 +4281,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR040.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgR13C": {
@@ -4587,7 +4289,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR13C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU012",
@@ -4609,7 +4310,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR14C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU011",
@@ -4631,7 +4331,6 @@
     "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgRCS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU001C": {
@@ -4640,7 +4339,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU001C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC001",
@@ -4654,7 +4352,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC002",
@@ -4668,7 +4365,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU004": {
@@ -4677,7 +4373,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU004.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU005": {
@@ -4686,7 +4381,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU006": {
@@ -4695,7 +4389,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU007C": {
@@ -4704,7 +4397,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC007",
@@ -4718,7 +4410,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC008",
@@ -4732,7 +4423,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU010": {
@@ -4741,7 +4431,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU011": {
@@ -4750,7 +4439,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU011.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU012": {
@@ -4759,7 +4447,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU012.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU013C": {
@@ -4768,7 +4455,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU013C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC009",
@@ -4782,7 +4468,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU014.png",
-    "craftable": false,
     "recipe": null
   },
   "upgDmgU015C": {
@@ -4791,7 +4476,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU015C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC011",
@@ -4809,7 +4493,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU016C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC014",
@@ -4827,7 +4510,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU017C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC015",
@@ -4845,7 +4527,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU018C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgC012",
@@ -4863,7 +4544,6 @@
     "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU019.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC001": {
@@ -4872,7 +4552,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC002": {
@@ -4881,7 +4560,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC003": {
@@ -4890,7 +4568,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC004": {
@@ -4899,7 +4576,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC004.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC005": {
@@ -4908,7 +4584,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC006": {
@@ -4917,7 +4592,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC007": {
@@ -4926,7 +4600,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC007.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC008": {
@@ -4935,7 +4608,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC008.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC009": {
@@ -4944,7 +4616,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC010": {
@@ -4953,7 +4624,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC013": {
@@ -4962,7 +4632,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC013.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC014": {
@@ -4971,7 +4640,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC014.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC015": {
@@ -4980,7 +4648,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC015.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC016": {
@@ -4989,7 +4656,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC016.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpC017": {
@@ -4998,7 +4664,6 @@
     "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC017.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpCS": {
@@ -5007,7 +4672,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpCS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpE001C": {
@@ -5016,7 +4680,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE001C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgR006",
@@ -5038,7 +4701,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR005",
@@ -5060,7 +4722,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpE004C": {
@@ -5069,7 +4730,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR009C",
@@ -5091,7 +4751,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE005C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR010",
@@ -5105,7 +4764,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE006C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR006C",
@@ -5127,7 +4785,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR015C",
@@ -5149,7 +4806,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR008",
@@ -5171,7 +4827,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE009C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR011",
@@ -5185,7 +4840,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE011C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR011",
@@ -5199,7 +4853,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE012.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpE013C": {
@@ -5208,7 +4861,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE013C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR012C",
@@ -5230,7 +4882,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE014C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR014",
@@ -5252,7 +4903,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE015.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpE017": {
@@ -5261,7 +4911,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE017.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpE021C": {
@@ -5270,7 +4919,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE021C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR021",
@@ -5284,7 +4932,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE022C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR022",
@@ -5298,7 +4945,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE023C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR023",
@@ -5312,7 +4958,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE024C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR024",
@@ -5326,7 +4971,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE025C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR007",
@@ -5340,7 +4984,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE027C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR027",
@@ -5354,7 +4997,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE028C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR028",
@@ -5368,7 +5010,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE029C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR029",
@@ -5382,7 +5023,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE031C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR031",
@@ -5396,7 +5036,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE032C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR032",
@@ -5410,7 +5049,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE033C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR033",
@@ -5424,7 +5062,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE034C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR001",
@@ -5438,7 +5075,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE035C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR035",
@@ -5452,7 +5088,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE036C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR036",
@@ -5466,7 +5101,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE037C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR037",
@@ -5480,7 +5114,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE038C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR038",
@@ -5494,7 +5127,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE039C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR039",
@@ -5508,7 +5140,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE040C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpR040",
@@ -5522,7 +5153,6 @@
     "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpECS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL001C": {
@@ -5531,7 +5161,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL001C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE001C",
@@ -5553,7 +5182,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL002C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE002C",
@@ -5575,7 +5203,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL005C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE004C",
@@ -5593,7 +5220,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL006C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE005C",
@@ -5611,7 +5237,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL007C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE009C",
@@ -5629,7 +5254,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL008C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL010",
@@ -5651,7 +5275,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL009C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE012",
@@ -5673,7 +5296,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL011C": {
@@ -5682,7 +5304,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL011C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgE010",
@@ -5704,7 +5325,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL012C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE008C",
@@ -5726,7 +5346,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL013C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE013C",
@@ -5748,7 +5367,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL014C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE014C",
@@ -5770,7 +5388,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL017C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE017",
@@ -5792,7 +5409,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL021C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE021C",
@@ -5810,7 +5426,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL022C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE022C",
@@ -5828,7 +5443,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL023C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE023C",
@@ -5846,7 +5460,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL024C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE024C",
@@ -5864,7 +5477,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL025C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE025C",
@@ -5882,7 +5494,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL027C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE027C",
@@ -5900,7 +5511,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL028C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE028C",
@@ -5918,7 +5528,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL029C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE029C",
@@ -5936,7 +5545,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL031C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE031C",
@@ -5954,7 +5562,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL032C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE032C",
@@ -5972,7 +5579,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL033C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE033C",
@@ -5990,7 +5596,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL034C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE034C",
@@ -6008,7 +5613,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL035C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE035C",
@@ -6026,7 +5630,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL036C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE036C",
@@ -6044,7 +5647,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL037C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE037C",
@@ -6062,7 +5664,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL038C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE038C",
@@ -6080,7 +5681,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL039C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE039C",
@@ -6098,7 +5698,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL040C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpE040C",
@@ -6116,7 +5715,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL099.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL100": {
@@ -6125,7 +5723,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL100.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL101": {
@@ -6134,7 +5731,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL101.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL102": {
@@ -6143,7 +5739,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL102.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL103": {
@@ -6152,7 +5747,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL103.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL104": {
@@ -6161,7 +5755,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL104.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL105": {
@@ -6170,7 +5763,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL105.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL106": {
@@ -6179,7 +5771,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL106.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL107": {
@@ -6188,7 +5779,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL107.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL108": {
@@ -6197,7 +5787,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL108.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL109": {
@@ -6206,7 +5795,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL109.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL111": {
@@ -6215,7 +5803,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL111.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL112": {
@@ -6224,7 +5811,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL112.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL113": {
@@ -6233,7 +5819,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL113.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL114": {
@@ -6242,7 +5827,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL114.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL115": {
@@ -6251,7 +5835,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL115.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL116": {
@@ -6260,7 +5843,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL116.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL117": {
@@ -6269,7 +5851,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL117.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL118": {
@@ -6278,7 +5859,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL118.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL119": {
@@ -6287,7 +5867,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL119.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpL120C": {
@@ -6296,7 +5875,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL120C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL100",
@@ -6318,7 +5896,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL121C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL101",
@@ -6340,7 +5917,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL122C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL102",
@@ -6362,7 +5938,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL123C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL103",
@@ -6384,7 +5959,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL124C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL104",
@@ -6406,7 +5980,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL125C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL105",
@@ -6428,7 +6001,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL126C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL106",
@@ -6450,7 +6022,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL127C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL107",
@@ -6472,7 +6043,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL128C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL108",
@@ -6494,7 +6064,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL129C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL109",
@@ -6516,7 +6085,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL131C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL111",
@@ -6538,7 +6106,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL132C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL112",
@@ -6560,7 +6127,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL133C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL113",
@@ -6582,7 +6148,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL134C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL114",
@@ -6604,7 +6169,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL135C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL115",
@@ -6626,7 +6190,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL136C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL116",
@@ -6648,7 +6211,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL137C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL117",
@@ -6670,7 +6232,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL138C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL118",
@@ -6692,7 +6253,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL139C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL119",
@@ -6714,7 +6274,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL140C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpL099",
@@ -6736,7 +6295,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL211C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL003",
@@ -6758,7 +6316,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL212C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL202",
@@ -6780,7 +6337,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL213C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL001",
@@ -6802,7 +6358,6 @@
     "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL214C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgL204",
@@ -6824,7 +6379,6 @@
     "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpM002": {
@@ -6833,7 +6387,6 @@
     "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpM003": {
@@ -6842,7 +6395,6 @@
     "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpM004": {
@@ -6851,7 +6403,6 @@
     "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM004.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR001": {
@@ -6860,7 +6411,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR002": {
@@ -6869,7 +6419,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR003C": {
@@ -6878,7 +6427,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR003C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpU001",
@@ -6896,7 +6444,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU008",
@@ -6914,7 +6461,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR005.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR006C": {
@@ -6923,7 +6469,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR006C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgDmgU014",
@@ -6941,7 +6486,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR007.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR008": {
@@ -6950,7 +6494,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR008.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR009C": {
@@ -6959,7 +6502,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR009C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgArmU006",
@@ -6977,7 +6519,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR010.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR011": {
@@ -6986,7 +6527,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR011.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR012C": {
@@ -6995,7 +6535,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR012C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpU014",
@@ -7013,7 +6552,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR013C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpU007",
@@ -7031,7 +6569,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR014.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR015C": {
@@ -7040,7 +6577,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR015C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpU012",
@@ -7062,7 +6598,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR016C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpU016",
@@ -7084,7 +6619,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR017C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpU017",
@@ -7102,7 +6636,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR018.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR019": {
@@ -7111,7 +6644,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR019.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR020C": {
@@ -7120,7 +6652,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR020C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpU002",
@@ -7138,7 +6669,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR021.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR022": {
@@ -7147,7 +6677,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR022.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR023": {
@@ -7156,7 +6685,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR023.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR024": {
@@ -7165,7 +6693,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR024.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR027": {
@@ -7174,7 +6701,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR027.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR028": {
@@ -7183,7 +6709,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR028.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR029": {
@@ -7192,7 +6717,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR029.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR031": {
@@ -7201,7 +6725,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR031.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR032": {
@@ -7210,7 +6733,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR032.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR033": {
@@ -7219,7 +6741,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR033.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR035": {
@@ -7228,7 +6749,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR035.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR036": {
@@ -7237,7 +6757,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR036.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR037": {
@@ -7246,7 +6765,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR037.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR038": {
@@ -7255,7 +6773,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR038.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR039": {
@@ -7264,7 +6781,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR039.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpR040": {
@@ -7273,7 +6789,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR040.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpRCS": {
@@ -7282,7 +6797,6 @@
     "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpRCS.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU001": {
@@ -7291,7 +6805,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU001.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU002": {
@@ -7300,7 +6813,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU002.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU003": {
@@ -7309,7 +6821,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU003.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU004C": {
@@ -7318,7 +6829,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU004C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpC002",
@@ -7332,7 +6842,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU005C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpC007",
@@ -7346,7 +6855,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU006.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU007": {
@@ -7355,7 +6863,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU007.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU008": {
@@ -7364,7 +6871,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU008.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU009": {
@@ -7373,7 +6879,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU009.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU010C": {
@@ -7382,7 +6887,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU010C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpC009",
@@ -7396,7 +6900,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU012.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU013": {
@@ -7405,7 +6908,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU013.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU014": {
@@ -7414,7 +6916,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU014.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU015": {
@@ -7423,7 +6924,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU015.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU016": {
@@ -7432,7 +6932,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU016.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU017": {
@@ -7441,7 +6940,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU017.png",
-    "craftable": false,
     "recipe": null
   },
   "upgHpU018C": {
@@ -7450,7 +6948,6 @@
     "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU018C.png",
-    "craftable": true,
     "recipe": [
       {
         "id": "upgHpC015",

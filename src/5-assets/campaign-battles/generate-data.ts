@@ -13,15 +13,13 @@
  * is sketchy since Vite has not fully started up yet.
  */
 
-// biome-ignore lint/correctness/noNodejsModules: build-time script
+/** biome-ignore-all lint/correctness/noNodejsModules: server-side build script */
 import fs from "node:fs";
-// biome-ignore lint/correctness/noNodejsModules: build-time script
 import { join } from "node:path";
 import { z } from "zod";
 
-// ---------------------------------------------------------------------------
-// Battle node schemas
-// ---------------------------------------------------------------------------
+// Note: we bypass the `index.ts` here to avoid side effects that might require the Vite environment to be fully started up
+import { DATA as NPC_IDS } from "../npcs/ids.generated.ts";
 
 const GuaranteedRewardSchema = z.strictObject({
 	id: z.string(),
@@ -47,12 +45,12 @@ const PotentialRewardSchema = z.union([
 ]);
 
 const RawEnemyTypeSchema = z.strictObject({
-	id: z.templateLiteral([z.string(), ":", z.number()]),
+	id: z.templateLiteral([z.enum(NPC_IDS), ":", z.number()]),
 	count: z.number(),
 });
 
 const DetailedEnemyTypeSchema = z.strictObject({
-	id: z.string().nonempty(),
+	id: z.enum(NPC_IDS),
 	name: z.string().nonempty(),
 	count: z.int().positive(),
 	stars: z.int().nonnegative(),
@@ -88,16 +86,6 @@ const BaseNodeType = z.strictObject({
 			}),
 	}),
 });
-
-const CAMPAIGN_TYPES = [
-	"SuperEarly",
-	"Early",
-	"Normal",
-	"Mirror",
-	"Elite",
-	"Standard",
-	"Extremis",
-] as const;
 
 const NodeSchema = z.discriminatedUnion("campaignType", [
 	BaseNodeType.extend({
@@ -153,97 +141,26 @@ const BattleDataSchema = z
 
 export type CampaignBattleData = z.infer<typeof BattleDataSchema>;
 
-// ---------------------------------------------------------------------------
-// Campaign config schemas
-// ---------------------------------------------------------------------------
-
-const DropRateSchema = z.strictObject({
-	common: z.number().nonnegative(),
-	uncommon: z.number().nonnegative(),
-	rare: z.number().nonnegative(),
-	epic: z.number().nonnegative(),
-	legendary: z.number().nonnegative(),
-	shard: z.number().nonnegative(),
-	mythic: z.number().nonnegative().optional(),
-	mythicShard: z.number().nonnegative().optional(),
-});
-
-const CONFIG_TYPES = [
-	...CAMPAIGN_TYPES,
-	"EarlyChars",
-	"EarlyMirrorChars",
-	"Onslaught",
-] as const;
-
-const CampaignConfigSchema = z.strictObject({
-	type: z.enum(CONFIG_TYPES),
-	energyCost: z.int().nonnegative(),
-	dailyBattleCount: z.int().positive(),
-	dropRate: DropRateSchema,
-});
-
-const ConfigsDataSchema = z
-	.record(z.string(), CampaignConfigSchema)
-	.superRefine((configs, ctx) => {
-		// Validate that every key matches the `type` field inside the config
-		for (const [key, config] of Object.entries(configs)) {
-			if (key !== config.type) {
-				ctx.addIssue({
-					code: "custom",
-					message: `Config key "${key}" does not match type "${config.type}"`,
-				});
-			}
-		}
-	});
-
-export type CampaignConfigData = z.infer<typeof ConfigsDataSchema>;
-
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
-
 export const main = () => {
-	// --- Battle data ---
-	const rawBattleData = JSON.parse(
+	const rawData = JSON.parse(
 		fs.readFileSync(join(import.meta.dirname, "data.raw.json"), "utf-8"),
 	);
 
-	const parsedBattleData = BattleDataSchema.parse(rawBattleData);
+	const parsedData = BattleDataSchema.parse(rawData);
 	fs.writeFileSync(
 		join(import.meta.dirname, "data.generated.json"),
-		`${JSON.stringify(parsedBattleData, null, 2)}\n`,
+		`${JSON.stringify(parsedData, null, 2)}\n`,
 	);
 
-	// --- Config data ---
-	const rawConfigData = JSON.parse(
-		fs.readFileSync(join(import.meta.dirname, "configs.raw.json"), "utf-8"),
+	const campaignTypes = Array.from(
+		new Set(
+			Object.values(parsedData).flatMap((nodes) =>
+				nodes.map((n) => n.campaignType),
+			),
+		),
 	);
-
-	const parsedConfigData = ConfigsDataSchema.parse(rawConfigData);
-
-	// Cross-validate: every campaignType in battle nodes must exist in configs
-	// Note: we need to check against the raw (pre-transform) data for campaignType values
-	const rawNodes = JSON.parse(
-		fs.readFileSync(join(import.meta.dirname, "data.raw.json"), "utf-8"),
-	) as Record<string, { campaignType: string }>;
-
-	const configKeys = new Set(Object.keys(parsedConfigData));
-	const missingTypes = new Set<string>();
-
-	for (const [, node] of Object.entries(rawNodes)) {
-		if (!configKeys.has(node.campaignType)) {
-			missingTypes.add(node.campaignType);
-		}
-	}
-
-	if (missingTypes.size > 0) {
-		throw new Error(
-			`Campaign types found in battle data but missing from configs: ${[...missingTypes].join(", ")}`,
-		);
-	}
-
 	fs.writeFileSync(
-		join(import.meta.dirname, "configs.generated.json"),
-		`${JSON.stringify(parsedConfigData, null, 2)}\n`,
+		join(import.meta.dirname, "types.generated.ts"),
+		`export const DATA = ${JSON.stringify(campaignTypes, null, 2)} as const;\n`,
 	);
 };
