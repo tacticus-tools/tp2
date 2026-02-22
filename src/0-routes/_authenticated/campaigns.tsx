@@ -6,7 +6,12 @@ import { CampaignProgressCard } from "@/1-components/general/CampaignProgressCar
 import { Button } from "@/1-components/ui/button.tsx";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
-import { getCampaignNodeCounts } from "@/4-lib/general/campaign-data.ts";
+import {
+	getCampaignMetadata,
+	getEventCampaignBaseNames,
+	getMainCampaignBaseNames,
+	getUnlockedNodeCount,
+} from "@/4-lib/general/campaign-data.ts";
 import type { Campaign } from "@/4-lib/general/constants.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
@@ -25,51 +30,6 @@ interface CampaignGroup {
 	}>;
 }
 
-function categorizeCampaignType(campaignValue: string): string {
-	if (campaignValue.includes("Extremis") && campaignValue.includes("Challenge"))
-		return "Extremis Challenge";
-	if (campaignValue.includes("Extremis")) return "Extremis";
-	if (campaignValue.includes("Standard") && campaignValue.includes("Challenge"))
-		return "Standard Challenge";
-	if (campaignValue.includes("Standard")) return "Standard";
-	if (campaignValue.includes("Mirror") && campaignValue.includes("Elite"))
-		return "Elite Mirror";
-	if (campaignValue.includes("Elite")) return "Elite";
-	if (campaignValue.includes("Mirror")) return "Mirror";
-	return "Normal";
-}
-
-function getBaseName(campaignValue: string): string {
-	return campaignValue
-		.replace(" Mirror Elite", "")
-		.replace(" Elite", "")
-		.replace(" Mirror", "")
-		.replace(" Extremis Challenge", "")
-		.replace(" Standard Challenge", "")
-		.replace(" Extremis", "")
-		.replace(" Standard", "");
-}
-
-const TYPE_ORDER: Record<string, number> = {
-	Normal: 0,
-	Elite: 1,
-	Mirror: 2,
-	"Elite Mirror": 3,
-	Standard: 0,
-	"Standard Challenge": 1,
-	Extremis: 2,
-	"Extremis Challenge": 3,
-};
-
-function isEventType(type: string): boolean {
-	return [
-		"Standard",
-		"Standard Challenge",
-		"Extremis",
-		"Extremis Challenge",
-	].includes(type);
-}
-
 function CampaignsPage() {
 	const getPlayerData = useAction(api.tacticus.actions.getPlayerData);
 
@@ -80,10 +40,9 @@ function CampaignsPage() {
 	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
 
 	const persistedProgress = useCampaignProgressStore((s) => s.progress);
-	const setProgress = useCampaignProgressStore((s) => s.setProgress);
 	const mergeFromApi = useCampaignProgressStore((s) => s.mergeFromApi);
 
-	const nodeCounts = getCampaignNodeCounts();
+	const metadata = getCampaignMetadata();
 
 	// When API campaign progress changes, merge into persisted store
 	useEffect(() => {
@@ -117,48 +76,46 @@ function CampaignsPage() {
 
 	// Build grouped campaign data using persisted progress
 	const { mainGroups, eventGroups } = useMemo(() => {
-		const mainOrder = ["Indomitus", "Fall of Cadia", "Octarius", "Saim-Hann"];
-		const eventOrder = [
-			"Adeptus Mechanicus",
-			"Tyranids",
-			"T'au Empire",
-			"Death Guard",
-		];
-
 		const groupMap = new Map<string, CampaignGroup>();
 
-		for (const [campaign, totalNodes] of nodeCounts) {
+		for (const [campaign, m] of metadata) {
 			if (campaign === "Onslaught") continue;
 
-			const baseName = getBaseName(campaign);
-			const type = categorizeCampaignType(campaign);
-			const unlocked = persistedProgress[campaign] ?? 0;
+			const rawProgress = persistedProgress[campaign] ?? 0;
+			const unlocked = getUnlockedNodeCount(campaign, rawProgress);
 
-			let group = groupMap.get(baseName);
+			let group = groupMap.get(m.baseName);
 			if (!group) {
-				group = { baseName, entries: [] };
-				groupMap.set(baseName, group);
+				group = { baseName: m.baseName, entries: [] };
+				groupMap.set(m.baseName, group);
 			}
 
-			group.entries.push({ campaign, type, unlocked, total: totalNodes });
+			group.entries.push({
+				campaign,
+				type: m.displayType,
+				unlocked,
+				total: m.totalNodes,
+			});
 		}
 
 		for (const group of groupMap.values()) {
-			group.entries.sort(
-				(a, b) => (TYPE_ORDER[a.type] ?? 99) - (TYPE_ORDER[b.type] ?? 99),
-			);
+			group.entries.sort((a, b) => {
+				const aM = metadata.get(a.campaign);
+				const bM = metadata.get(b.campaign);
+				return (aM?.typeOrder ?? 99) - (bM?.typeOrder ?? 99);
+			});
 		}
 
-		const toGroups = (order: string[]) =>
+		const toGroups = (order: readonly string[]) =>
 			order
 				.map((name) => groupMap.get(name))
 				.filter((g): g is CampaignGroup => !!g);
 
 		return {
-			mainGroups: toGroups(mainOrder),
-			eventGroups: toGroups(eventOrder),
+			mainGroups: toGroups(getMainCampaignBaseNames()),
+			eventGroups: toGroups(getEventCampaignBaseNames()),
 		};
-	}, [nodeCounts, persistedProgress]);
+	}, [metadata, persistedProgress]);
 
 	return (
 		<div className="space-y-6">
@@ -201,7 +158,7 @@ function CampaignsPage() {
 									{group.entries.map((entry) => (
 										<CampaignProgressCard
 											key={entry.campaign}
-											name={entry.campaign}
+											campaign={entry.campaign}
 											type={entry.type}
 											unlockedNodes={entry.unlocked}
 											totalNodes={entry.total}
@@ -227,12 +184,10 @@ function CampaignsPage() {
 									{group.entries.map((entry) => (
 										<CampaignProgressCard
 											key={entry.campaign}
-											name={entry.campaign}
+											campaign={entry.campaign}
 											type={entry.type}
 											unlockedNodes={entry.unlocked}
 											totalNodes={entry.total}
-											editable={isEventType(entry.type)}
-											onProgressChange={(v) => setProgress(entry.campaign, v)}
 										/>
 									))}
 								</div>

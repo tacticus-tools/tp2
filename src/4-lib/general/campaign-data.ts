@@ -76,7 +76,7 @@ export interface IShardLocation {
 // Static mappings
 // ---------------------------------------------------------------------------
 
-/** Map from campaign API id to Campaign enum */
+/** Map from campaign API id to Campaign enum (non-event campaigns only) */
 export const idToCampaign: Record<string, Campaign> = {
 	campaign1: Campaign.I,
 	campaign2: Campaign.FoC,
@@ -97,49 +97,31 @@ export const idToCampaign: Record<string, Campaign> = {
 	eliteMirror2: Campaign.FoCME,
 	eliteMirror3: Campaign.OME,
 	eliteMirror4: Campaign.SHME,
-
-	eventCampaign1: Campaign.AMS,
-	eventCampaign2: Campaign.TS,
-	eventCampaign3: Campaign.TAS,
-	eventCampaign4: Campaign.DGS,
 };
 
-/** Map from battle data campaign name to Campaign enum */
-const campaignNameToEnum: Record<string, Campaign> = {
-	Indomitus: Campaign.I,
-	"Indomitus Elite": Campaign.IE,
-	"Indomitus Mirror": Campaign.IM,
-	"Indomitus Mirror Elite": Campaign.IME,
-	"Fall of Cadia": Campaign.FoC,
-	"Fall of Cadia Elite": Campaign.FoCE,
-	"Fall of Cadia Mirror": Campaign.FoCM,
-	"Fall of Cadia Mirror Elite": Campaign.FoCME,
-	Octarius: Campaign.O,
-	"Octarius Elite": Campaign.OE,
-	"Octarius Mirror": Campaign.OM,
-	"Octarius Mirror Elite": Campaign.OME,
-	"Saim-Hann": Campaign.SH,
-	"Saim-Hann Elite": Campaign.SHE,
-	"Saim-Hann Mirror": Campaign.SHM,
-	"Saim-Hann Mirror Elite": Campaign.SHME,
-	"Adeptus Mechanicus Standard": Campaign.AMS,
-	"Adeptus Mechanicus Standard Challenge": Campaign.AMSC,
-	"Adeptus Mechanicus Extremis": Campaign.AME,
-	"Adeptus Mechanicus Extremis Challenge": Campaign.AMEC,
-	"Tyranids Standard": Campaign.TS,
-	"Tyranids Standard Challenge": Campaign.TSC,
-	"Tyranids Extremis": Campaign.TE,
-	"Tyranids Extremis Challenge": Campaign.TEC,
-	"T'au Empire Standard": Campaign.TAS,
-	"T'au Empire Standard Challenge": Campaign.TASC,
-	"T'au Empire Extremis": Campaign.TAE,
-	"T'au Empire Extremis Challenge": Campaign.TAEC,
-	"Death Guard Standard": Campaign.DGS,
-	"Death Guard Standard Challenge": Campaign.DGSC,
-	"Death Guard Extremis": Campaign.DGE,
-	"Death Guard Extremis Challenge": Campaign.DGEC,
-	Onslaught: Campaign.Onslaught,
+// ---------------------------------------------------------------------------
+// Event campaign mapping (API id → Standard + Extremis Campaign pairs)
+// ---------------------------------------------------------------------------
+
+const EVENT_CAMPAIGN_MAP: Record<
+	string,
+	{ standard: Campaign; extremis: Campaign }
+> = {
+	eventcampaign1: { standard: Campaign.AMS, extremis: Campaign.AME },
+	eventcampaign2: { standard: Campaign.TS, extremis: Campaign.TE },
+	eventcampaign3: { standard: Campaign.TAS, extremis: Campaign.TAE },
+	eventcampaign4: { standard: Campaign.DGS, extremis: Campaign.DGE },
 };
+
+/** Reverse lookup: Campaign display-name string → Campaign enum value.
+ *  Campaign enum values ARE the display names, so this is an identity map. */
+const campaignValues = new Map<string, Campaign>(
+	Object.values(Campaign).map((v) => [v, v]),
+);
+
+function toCampaign(name: string): Campaign | undefined {
+	return campaignValues.get(name);
+}
 
 // ---------------------------------------------------------------------------
 // Lazy-initialized data (built synchronously from pipeline imports on first access)
@@ -214,7 +196,7 @@ async function buildUpgradeLocations(): Promise<
 	_upgradeLocations = new Map<string, IUpgradeLocation[]>();
 
 	for (const [battleId, node] of nodes) {
-		const campaign = campaignNameToEnum[node.campaign];
+		const campaign = toCampaign(node.campaign);
 		if (!campaign) continue;
 
 		const config = configs.get(node.campaignType as CampaignType);
@@ -287,7 +269,7 @@ async function buildShardLocations(): Promise<Map<string, IShardLocation[]>> {
 	_shardLocations = new Map<string, IShardLocation[]>();
 
 	for (const [battleId, node] of nodes) {
-		const campaign = campaignNameToEnum[node.campaign];
+		const campaign = toCampaign(node.campaign);
 		if (!campaign) continue;
 
 		const config = configs.get(node.campaignType as CampaignType);
@@ -463,58 +445,153 @@ export async function selectBestShardLocations(
 	);
 }
 
-/**
- * Max nodes per campaign, matching the game's difficulty-based structure:
- * - Standard/Mirror: 75 nodes
- * - Elite: 40 nodes
- * - Event Standard/Extremis: 30 nodes
- * - Event Challenge: 3 nodes
- */
-const campaignNodeCounts: Map<Campaign, number> = new Map([
-	// Indomitus
-	[Campaign.I, 75],
-	[Campaign.IE, 40],
-	[Campaign.IM, 75],
-	[Campaign.IME, 40],
-	// Fall of Cadia
-	[Campaign.FoC, 75],
-	[Campaign.FoCE, 40],
-	[Campaign.FoCM, 75],
-	[Campaign.FoCME, 40],
-	// Octarius
-	[Campaign.O, 75],
-	[Campaign.OE, 40],
-	[Campaign.OM, 75],
-	[Campaign.OME, 40],
-	// Saim-Hann
-	[Campaign.SH, 75],
-	[Campaign.SHE, 40],
-	[Campaign.SHM, 75],
-	[Campaign.SHME, 40],
-	// Adeptus Mechanicus
-	[Campaign.AMS, 30],
-	[Campaign.AMSC, 3],
-	[Campaign.AME, 30],
-	[Campaign.AMEC, 3],
-	// Tyranids
-	[Campaign.TS, 30],
-	[Campaign.TSC, 3],
-	[Campaign.TE, 30],
-	[Campaign.TEC, 3],
-	// T'au Empire
-	[Campaign.TAS, 30],
-	[Campaign.TASC, 3],
-	[Campaign.TAE, 30],
-	[Campaign.TAEC, 3],
-	// Death Guard
-	[Campaign.DGS, 30],
-	[Campaign.DGSC, 3],
-	[Campaign.DGE, 30],
-	[Campaign.DGEC, 3],
-]);
+let _campaignNodeCounts: Map<Campaign, number> | undefined;
+
+function buildCampaignNodeCounts(): Map<Campaign, number> {
+	if (_campaignNodeCounts) return _campaignNodeCounts;
+
+	_campaignNodeCounts = new Map<Campaign, number>();
+	for (const [name, nodes] of Object.entries(CAMPAIGN_BATTLES)) {
+		const campaign = toCampaign(name);
+		if (!campaign) continue;
+		_campaignNodeCounts.set(campaign, nodes.length);
+	}
+	return _campaignNodeCounts;
+}
 
 export function getCampaignNodeCounts(): Map<Campaign, number> {
-	return campaignNodeCounts;
+	return buildCampaignNodeCounts();
+}
+
+// ---------------------------------------------------------------------------
+// Campaign metadata — derived from pipeline data + Campaign enum
+// ---------------------------------------------------------------------------
+
+export interface CampaignMetadata {
+	campaign: Campaign;
+	baseName: string;
+	displayType: string;
+	typeOrder: number;
+	isEvent: boolean;
+	totalNodes: number;
+}
+
+const TYPE_ORDER: Record<string, number> = {
+	Normal: 0,
+	Elite: 1,
+	Mirror: 2,
+	"Elite Mirror": 3,
+	Standard: 0,
+	"Standard Challenge": 1,
+	Extremis: 2,
+	"Extremis Challenge": 3,
+};
+
+function categorizeCampaignType(campaignValue: string): string {
+	if (campaignValue.includes("Extremis") && campaignValue.includes("Challenge"))
+		return "Extremis Challenge";
+	if (campaignValue.includes("Extremis")) return "Extremis";
+	if (campaignValue.includes("Standard") && campaignValue.includes("Challenge"))
+		return "Standard Challenge";
+	if (campaignValue.includes("Standard")) return "Standard";
+	if (campaignValue.includes("Mirror") && campaignValue.includes("Elite"))
+		return "Elite Mirror";
+	if (campaignValue.includes("Elite")) return "Elite";
+	if (campaignValue.includes("Mirror")) return "Mirror";
+	return "Normal";
+}
+
+function getBaseName(campaignValue: string): string {
+	return campaignValue
+		.replace(" Mirror Elite", "")
+		.replace(" Elite", "")
+		.replace(" Mirror", "")
+		.replace(" Extremis Challenge", "")
+		.replace(" Standard Challenge", "")
+		.replace(" Extremis", "")
+		.replace(" Standard", "");
+}
+
+export function isEventType(type: string): boolean {
+	return [
+		"Standard",
+		"Standard Challenge",
+		"Extremis",
+		"Extremis Challenge",
+	].includes(type);
+}
+
+let _campaignMetadata: ReadonlyMap<Campaign, CampaignMetadata> | undefined;
+
+export function getCampaignMetadata(): ReadonlyMap<Campaign, CampaignMetadata> {
+	if (_campaignMetadata) return _campaignMetadata;
+
+	const nodeCounts = buildCampaignNodeCounts();
+	const meta = new Map<Campaign, CampaignMetadata>();
+
+	for (const campaign of Object.values(Campaign)) {
+		const totalNodes = nodeCounts.get(campaign);
+		if (totalNodes === undefined) continue;
+
+		const displayType = categorizeCampaignType(campaign);
+		meta.set(campaign, {
+			campaign,
+			baseName: getBaseName(campaign),
+			displayType,
+			typeOrder: TYPE_ORDER[displayType] ?? 99,
+			isEvent: isEventType(displayType),
+			totalNodes,
+		});
+	}
+
+	_campaignMetadata = meta;
+	return _campaignMetadata;
+}
+
+let _baseNameLists:
+	| { main: readonly string[]; event: readonly string[] }
+	| undefined;
+
+function getBaseNameLists(): {
+	main: readonly string[];
+	event: readonly string[];
+} {
+	if (_baseNameLists) return _baseNameLists;
+
+	const meta = getCampaignMetadata();
+	const mainSeen = new Set<string>();
+	const eventSeen = new Set<string>();
+	const main: string[] = [];
+	const event: string[] = [];
+
+	// Iterate Campaign enum values to preserve game progression order
+	for (const campaign of Object.values(Campaign)) {
+		const m = meta.get(campaign);
+		if (!m) continue;
+
+		if (m.isEvent) {
+			if (!eventSeen.has(m.baseName)) {
+				eventSeen.add(m.baseName);
+				event.push(m.baseName);
+			}
+		} else {
+			if (!mainSeen.has(m.baseName)) {
+				mainSeen.add(m.baseName);
+				main.push(m.baseName);
+			}
+		}
+	}
+
+	_baseNameLists = { main, event };
+	return _baseNameLists;
+}
+
+export function getMainCampaignBaseNames(): readonly string[] {
+	return getBaseNameLists().main;
+}
+
+export function getEventCampaignBaseNames(): readonly string[] {
+	return getBaseNameLists().event;
 }
 
 /**
@@ -544,4 +621,147 @@ export async function getDropRateForRarity(
 	if (!key) return 0;
 
 	return config.dropRate[key] ?? 0;
+}
+
+// ---------------------------------------------------------------------------
+// Event campaign helpers — flat battle map + resolution
+// ---------------------------------------------------------------------------
+
+interface FlatBattleEntry {
+	nodeNumber: number;
+	isChallenge: boolean;
+}
+
+let _eventBattleMaps: Map<Campaign, readonly FlatBattleEntry[]> | undefined;
+
+function buildEventBattleMaps(): Map<Campaign, readonly FlatBattleEntry[]> {
+	if (_eventBattleMaps) return _eventBattleMaps;
+
+	_eventBattleMaps = new Map();
+	const meta = getCampaignMetadata();
+
+	// For each event base campaign (Standard/Extremis), build the flat map
+	for (const [campaign, m] of meta) {
+		if (m.displayType !== "Standard" && m.displayType !== "Extremis") continue;
+
+		// Find the matching challenge campaign by baseName + challenge displayType
+		const challengeType =
+			m.displayType === "Standard"
+				? "Standard Challenge"
+				: "Extremis Challenge";
+		let challengeNodeNumbers: number[] = [];
+
+		for (const [c, cm] of meta) {
+			if (cm.baseName === m.baseName && cm.displayType === challengeType) {
+				// Get actual nodeNumbers from battle data
+				const nodes = CAMPAIGN_BATTLES[c as keyof typeof CAMPAIGN_BATTLES];
+				if (nodes) {
+					challengeNodeNumbers = (
+						nodes as ReadonlyArray<{ nodeNumber: number }>
+					).map((n) => n.nodeNumber);
+				}
+				break;
+			}
+		}
+
+		const challengeSet = new Set(challengeNodeNumbers);
+		const baseNodes = CAMPAIGN_BATTLES[
+			campaign as keyof typeof CAMPAIGN_BATTLES
+		] as ReadonlyArray<{ nodeNumber: number }> | undefined;
+		if (!baseNodes) continue;
+
+		const flatMap: FlatBattleEntry[] = [];
+		for (const node of baseNodes) {
+			flatMap.push({ nodeNumber: node.nodeNumber, isChallenge: false });
+			if (challengeSet.has(node.nodeNumber)) {
+				flatMap.push({ nodeNumber: node.nodeNumber, isChallenge: true });
+			}
+		}
+
+		_eventBattleMaps.set(campaign, flatMap);
+	}
+
+	return _eventBattleMaps;
+}
+
+/**
+ * Get the flat battle ordering for an event base campaign.
+ * Maps API battleIndex → {nodeNumber, isChallenge}.
+ */
+export function getEventBattleMap(
+	baseCampaign: Campaign,
+): readonly FlatBattleEntry[] | undefined {
+	return buildEventBattleMaps().get(baseCampaign);
+}
+
+/**
+ * Get the sorted challenge node numbers for a challenge campaign.
+ * Returns undefined for non-challenge campaigns.
+ */
+export function getChallengeNodeNumbers(
+	campaign: Campaign,
+): readonly number[] | undefined {
+	const meta = getCampaignMetadata().get(campaign);
+	if (
+		!meta ||
+		(meta.displayType !== "Standard Challenge" &&
+			meta.displayType !== "Extremis Challenge")
+	)
+		return undefined;
+
+	const nodes = CAMPAIGN_BATTLES[campaign as keyof typeof CAMPAIGN_BATTLES] as
+		| ReadonlyArray<{ nodeNumber: number }>
+		| undefined;
+	if (!nodes) return undefined;
+
+	return nodes.map((n) => n.nodeNumber).sort((a, b) => a - b);
+}
+
+/**
+ * Resolve an API campaign id + type to the base and challenge Campaign enum values.
+ * Returns undefined for non-event campaigns.
+ */
+export function resolveEventCampaign(
+	apiId: string,
+	apiType: string,
+): { base: Campaign; challenge: Campaign | undefined } | undefined {
+	const entry = EVENT_CAMPAIGN_MAP[apiId.toLowerCase()];
+	if (!entry) return undefined;
+
+	const isExtremis = apiType.toLowerCase() === "extremis";
+	const base = isExtremis ? entry.extremis : entry.standard;
+
+	// Find challenge counterpart via metadata
+	const meta = getCampaignMetadata();
+	const baseMeta = meta.get(base);
+	if (!baseMeta) return { base, challenge: undefined };
+
+	const challengeType = isExtremis
+		? "Extremis Challenge"
+		: "Standard Challenge";
+
+	let challenge: Campaign | undefined;
+	for (const [c, cm] of meta) {
+		if (cm.baseName === baseMeta.baseName && cm.displayType === challengeType) {
+			challenge = c;
+			break;
+		}
+	}
+
+	return { base, challenge };
+}
+
+/**
+ * Convert a max unlocked nodeNumber to a display count for challenge campaigns.
+ * Challenge campaigns have sparse node numbers (e.g. [3, 13, 25]), so count
+ * how many are ≤ maxNode. For non-challenge campaigns, returns maxNode as-is.
+ */
+export function getUnlockedNodeCount(
+	campaign: Campaign,
+	maxNode: number,
+): number {
+	const nodeNumbers = getChallengeNodeNumbers(campaign);
+	if (!nodeNumbers) return maxNode;
+
+	return nodeNumbers.filter((n) => n <= maxNode).length;
 }

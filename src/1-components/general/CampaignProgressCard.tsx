@@ -1,3 +1,5 @@
+import { CampaignIcon } from "@/1-components/general/CampaignIcon.tsx";
+import type { Campaign } from "@/4-lib/general/constants.ts";
 import { cn } from "@/4-lib/utils.ts";
 
 const TYPE_BADGE_STYLES: Record<string, string> = {
@@ -12,21 +14,17 @@ const TYPE_BADGE_STYLES: Record<string, string> = {
 };
 
 interface CampaignProgressCardProps {
-	name: string;
+	campaign: Campaign;
 	type: string;
 	unlockedNodes: number;
 	totalNodes: number;
-	editable?: boolean;
-	onProgressChange?: (value: number) => void;
 }
 
 export function CampaignProgressCard({
-	name,
+	campaign,
 	type,
 	unlockedNodes,
 	totalNodes,
-	editable,
-	onProgressChange,
 }: CampaignProgressCardProps) {
 	const percent = totalNodes > 0 ? (unlockedNodes / totalNodes) * 100 : 0;
 	const isComplete = unlockedNodes >= totalNodes;
@@ -35,7 +33,10 @@ export function CampaignProgressCard({
 	return (
 		<div className="space-y-3 rounded-xl border border-border/60 bg-card p-4">
 			<div className="flex items-center justify-between gap-2">
-				<h3 className="truncate text-sm font-semibold">{name}</h3>
+				<div className="flex items-center gap-2 overflow-hidden">
+					<CampaignIcon campaign={campaign} size={28} />
+					<h3 className="truncate text-sm font-semibold">{campaign}</h3>
+				</div>
 				<span
 					className={cn(
 						"shrink-0 rounded-full px-2 py-0.5 text-xs font-medium",
@@ -61,41 +62,18 @@ export function CampaignProgressCard({
 				/>
 			</div>
 
-			<div className="flex items-center justify-between">
-				<p
-					className={cn(
-						"text-xs",
-						isComplete
-							? "text-emerald-400"
-							: isStarted
-								? "text-muted-foreground"
-								: "text-muted-foreground/60",
-					)}
-				>
-					{editable ? "" : `${unlockedNodes} / `}
-					{!editable && `${totalNodes} nodes`}
-				</p>
-				{editable && onProgressChange ? (
-					<div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-						<input
-							type="number"
-							min={0}
-							max={totalNodes}
-							value={unlockedNodes}
-							onChange={(e) => {
-								const v = Number.parseInt(e.target.value, 10);
-								if (!Number.isNaN(v)) {
-									onProgressChange(Math.max(0, Math.min(v, totalNodes)));
-								}
-							}}
-							className="w-12 rounded-sm border border-border bg-background px-1.5 py-0.5 text-center text-xs tabular-nums focus:ring-1 focus:ring-ring focus:outline-none"
-						/>
-						<span>/ {totalNodes}</span>
-					</div>
-				) : (
-					editable || null
+			<p
+				className={cn(
+					"text-xs",
+					isComplete
+						? "text-emerald-400"
+						: isStarted
+							? "text-muted-foreground"
+							: "text-muted-foreground/60",
 				)}
-			</div>
+			>
+				{unlockedNodes} / {totalNodes} nodes
+			</p>
 		</div>
 	);
 }
