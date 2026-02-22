@@ -305,7 +305,7 @@ Use Zod for parsing and transforming the raw JSON into forms that are better for
   - Enums Considered Harmful: https://www.youtube.com/watch?v=jjMbPt_H3RQ
   - TypeScript 5.8 Ships `--erasableSyntaxOnly` To Disable Enums: https://www.totaltypescript.com/erasable-syntax-only
 
-### Decision: Freeze and `DeepReadonly`all exported JSON assets
+### Decision: Freeze and `DeepReadonly` all exported JSON assets
 
 - **Motivation**: We have a lot of JSON assets that are imported into the codebase. These are meant to be static and immutable, but there's nothing preventing someone from accidentally mutating them in the code, which can lead to bugs that are hard to track down.
 - **Alternatives considered**:
