@@ -28,9 +28,9 @@ This directory contains 2 classes of assets:
 
 Each asset type (characters, equipment, materials, etc.) follows a consistent pattern:
 
-1. **Raw data** (`data.raw.json`) is checked into version control
+1. **Raw data** (`data.raw.json`) is checked into version control — one input per folder
 2. **Build script** (`generate-data.ts`) validates and transforms the data using Zod
-3. **Generated files** (`data.generated.json` or `data.generated.ts`) are created at build time
+3. **Generated files** (e.g., `data.generated.json`, `ids.generated.ts`, `types.generated.ts`) are created at build time — naming reflects what data is extracted
 4. **Public API** (`index.ts`) exports the data and resolves asset URLs for use in the app
 
 For detailed architectural patterns, see [`AGENTS.md`](./AGENTS.md).

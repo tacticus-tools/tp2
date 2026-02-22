@@ -35,7 +35,7 @@ export const main = () => {
 	const parsedData = RankUpSchema.parse(rawData);
 
 	fs.writeFileSync(
-		join(import.meta.dirname, "rank-up-data.generated.json"),
+		join(import.meta.dirname, "data.generated.json"),
 		`${JSON.stringify(parsedData, null, 2)}\n`,
 	);
 };
