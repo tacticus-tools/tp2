@@ -67,7 +67,7 @@ const config = defineConfig({
 			buildStart: prepareCampaignBattleData, // References: Characters[ids], Materials[ids], NPCs[ids]
 		},
 		{ name: "prepareDropRateData", buildStart: prepareDropRateData }, // References: CampaignBattles[types]
-		{ name: "prepareLeBattleData", buildStart: prepareLeBattleData }, // References: Characters[Factions], Characters[Traits], Characters[DamangeTypes], NPCs[ids]
+		{ name: "prepareLeBattleData", buildStart: prepareLeBattleData }, // References: Characters[Factions], Characters[Traits], Characters[DamageTypes], NPCs[ids]
 	],
 });
 

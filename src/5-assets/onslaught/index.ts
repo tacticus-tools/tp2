@@ -1,3 +1,4 @@
+import type { DeepReadonly } from "@/types.ts";
 import data from "./data.generated.json" with { type: "json" };
 import type { OnslaughtData } from "./generate-data.ts"; // Use the zod schema type since we don't need exact types for the generated data
 
@@ -6,4 +7,6 @@ export type OnslaughtBadgeAlliance = OnslaughtTrack["badgeAlliance"];
 export type OnslaughtSector = OnslaughtTrack["sectors"][number];
 export type OnslaughtKillzone = OnslaughtSector["killzones"][number];
 
-export const ONSLAUGHT_TRACKS = data as OnslaughtData; // Safe to cast since it's generated from the same zod schema
+export const ONSLAUGHT_TRACKS = Object.freeze(
+	data,
+) as DeepReadonly<OnslaughtData>; // Safe to cast since it's generated from the same zod schema

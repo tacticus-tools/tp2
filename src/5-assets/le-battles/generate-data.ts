@@ -1,5 +1,5 @@
 /**
- * @description This script takes the datamined JSON of <DATA_TYPE> and transforms it.
+ * @description This script takes the datamined JSON of Legendary Event data and transforms it.
  * @private This script is run automatically as part of the build process. Do not import it into the app.
  *
  * Goals:
@@ -132,7 +132,7 @@ const BattleSchema = z
 		mapId: z.string(),
 		number: z.int().positive(),
 		power: z.int().positive(),
-		tier: z.literal(1), // Always 1 in curent data but let's validate in case it changes in the future
+		tier: z.literal(1), // Always 1 in current data but let's validate in case it changes in the future
 		disallowedFactions: z.array(z.enum(FACTION_IDS)).min(1),
 		waves: z.array(WaveSchema).min(1),
 		objectives: z.tuple([
@@ -159,7 +159,7 @@ const BattleSchema = z
 
 		// Wave numbers can be non-consecutive, but they should always start at 0 and be in ascending order.
 		const roundNumbers = data.waves.map((wave) => wave.round);
-		const sortedRoundNumbers = [...roundNumbers].sort();
+		const sortedRoundNumbers = [...roundNumbers].sort((a, b) => a - b);
 		if (!arraysEqual(roundNumbers, sortedRoundNumbers))
 			ctx.addIssue({
 				code: "custom",

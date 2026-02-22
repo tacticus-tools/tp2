@@ -60,7 +60,6 @@ const DropRateSchema = z
 			}
 		}
 	});
-
 export type DropRateData = z.infer<typeof DropRateSchema>;
 
 export const main = () => {

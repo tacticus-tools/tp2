@@ -15,16 +15,18 @@ const characterRoundIcons = import.meta.glob<string>(
 
 export type Character = (typeof DATA)[number];
 export type CharacterId = (typeof CHARACTER_IDS)[number];
-export type Factionid = (typeof FACTION_IDS)[number];
+export type FactionId = (typeof FACTION_IDS)[number];
 export type CharacterTrait = (typeof CHARACTER_TRAITS)[number];
 export type DamageType = (typeof DAMAGE_TYPES)[number];
 
-export const CHARACTERS = DATA.map((character) => ({
-	...character,
-	roundIcon:
-		characterRoundIcons[
-			`/src/5-assets/snowprint_assets/characters/${character.roundIcon}`
-		],
-}));
+export const CHARACTERS = Object.freeze(
+	DATA.map((character) => ({
+		...character,
+		roundIcon:
+			characterRoundIcons[
+				`/src/5-assets/snowprint_assets/characters/${character.roundIcon}`
+			],
+	})),
+);
 
 export { CHARACTER_IDS, FACTION_IDS, CHARACTER_TRAITS, DAMAGE_TYPES };

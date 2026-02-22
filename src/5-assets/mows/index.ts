@@ -12,8 +12,12 @@ const mowRoundIcons = import.meta.glob<string>(
 export type Mow = (typeof DATA)[number];
 export type MowId = Mow["id"];
 
-export const MOWS = DATA.map((mow) => ({
-	...mow,
-	roundIcon:
-		mowRoundIcons[`/src/5-assets/snowprint_assets/characters/${mow.roundIcon}`],
-}));
+export const MOWS = Object.freeze(
+	DATA.map((mow) => ({
+		...mow,
+		roundIcon:
+			mowRoundIcons[
+				`/src/5-assets/snowprint_assets/characters/${mow.roundIcon}`
+			],
+	})),
+);

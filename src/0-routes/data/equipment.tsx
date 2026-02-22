@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { EQUIPMENT } from "@/5-assets/equipment/index.ts";
+import { EQUIPMENT, type EquipmentId } from "@/5-assets/equipment/index.ts";
 
 export const Route = createFileRoute("/data/equipment")({
 	component: RouteComponent,
 });
 
-const ItemStats = ({ item }: { item: (typeof EQUIPMENT)[string] }) => {
+const ItemStats = ({ item }: { item: (typeof EQUIPMENT)[EquipmentId] }) => {
 	switch (item.type) {
 		case "I_Block":
 			return (

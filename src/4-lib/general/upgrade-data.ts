@@ -199,7 +199,7 @@ export async function getExpandedRecipe(
 export async function getRankUpgrades(
 	unitId: (typeof CHARACTERS)[number]["id"],
 	rankString: string,
-): Promise<string[]> {
+) {
 	const rankUpData = CHARACTER_RANK_UP_MATERIALS;
 	return rankUpData[unitId]?.[rankString] ?? [];
 }
