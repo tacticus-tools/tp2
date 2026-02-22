@@ -99,6 +99,8 @@ export const main = () => {
 		if (!legacyHashes.has(hash)) {
 			legacyHashes.set(hash, new Set());
 		}
+
+		// biome-ignore lint/style/noNonNullAssertion: we just checked that this exists
 		legacyHashes.get(hash)!.add(relPath);
 	}
 
