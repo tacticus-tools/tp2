@@ -9,7 +9,8 @@
 
 import { CAMPAIGN_BATTLES } from "@/5-assets/campaign-battles/index.ts";
 import { NPCS } from "@/5-assets/npcs/index.ts";
-import { Campaign } from "./constants.ts";
+import { getCampaignMetadata } from "./campaign-data.ts";
+import type { Campaign } from "./constants.ts";
 
 // ---------------------------------------------------------------------------
 // Campaign Event types & constants
@@ -43,21 +44,56 @@ export const HSE_LABELS: Record<HomeScreenEventType, string> = {
 	machineHunt: "Machine Hunt",
 };
 
-/** Maps each CE type to the Campaign values it activates. */
-export const CAMPAIGN_EVENT_GROUPS: Record<
-	Exclude<CampaignEventType, "none">,
-	Campaign[]
+const BASE_NAME_TO_EVENT_TYPE: Record<
+	string,
+	Exclude<CampaignEventType, "none">
 > = {
-	adMech: [Campaign.AMS, Campaign.AMSC, Campaign.AME, Campaign.AMEC],
-	tyranids: [Campaign.TS, Campaign.TSC, Campaign.TE, Campaign.TEC],
-	tau: [Campaign.TAS, Campaign.TASC, Campaign.TAE, Campaign.TAEC],
-	deathGuard: [Campaign.DGS, Campaign.DGSC, Campaign.DGE, Campaign.DGEC],
+	"Adeptus Mechanicus": "adMech",
+	Tyranids: "tyranids",
+	"T'au Empire": "tau",
+	"Death Guard": "deathGuard",
 };
 
+function buildCampaignEventGroups(): Record<
+	Exclude<CampaignEventType, "none">,
+	Campaign[]
+> {
+	const groups: Record<string, Campaign[]> = {
+		adMech: [],
+		tyranids: [],
+		tau: [],
+		deathGuard: [],
+	};
+	for (const [campaign, m] of getCampaignMetadata()) {
+		if (!m.isEvent) continue;
+		const eventType = BASE_NAME_TO_EVENT_TYPE[m.baseName];
+		if (eventType) groups[eventType].push(campaign);
+	}
+	return groups as Record<Exclude<CampaignEventType, "none">, Campaign[]>;
+}
+
+let _campaignEventGroups:
+	| Record<Exclude<CampaignEventType, "none">, Campaign[]>
+	| undefined;
+
+/** Maps each CE type to the Campaign values it activates. */
+export function getCampaignEventGroups(): Record<
+	Exclude<CampaignEventType, "none">,
+	Campaign[]
+> {
+	if (!_campaignEventGroups) _campaignEventGroups = buildCampaignEventGroups();
+	return _campaignEventGroups;
+}
+
+let _allCeCampaigns: Set<Campaign> | undefined;
+
 /** Flat set of every campaign that belongs to any campaign event. */
-export const ALL_CE_CAMPAIGNS: Set<Campaign> = new Set(
-	Object.values(CAMPAIGN_EVENT_GROUPS).flat(),
-);
+export function getAllCeCampaigns(): Set<Campaign> {
+	if (!_allCeCampaigns) {
+		_allCeCampaigns = new Set(Object.values(getCampaignEventGroups()).flat());
+	}
+	return _allCeCampaigns;
+}
 
 // ---------------------------------------------------------------------------
 // CE auto-detection
@@ -72,7 +108,9 @@ export const ALL_CE_CAMPAIGNS: Set<Campaign> = new Set(
 export function detectCampaignEvent(
 	progress: Map<Campaign, number>,
 ): CampaignEventType {
-	for (const [eventType, campaigns] of Object.entries(CAMPAIGN_EVENT_GROUPS)) {
+	for (const [eventType, campaigns] of Object.entries(
+		getCampaignEventGroups(),
+	)) {
 		if (campaigns.some((c) => progress.has(c))) {
 			return eventType as CampaignEventType;
 		}
@@ -93,15 +131,15 @@ export function detectCampaignEvent(
 export function filterLocationsByCampaignEvent<
 	T extends { campaign: Campaign },
 >(locations: T[], campaignEvent: CampaignEventType): T[] {
+	const allCe = getAllCeCampaigns();
 	if (campaignEvent === "none") {
 		// Exclude all CE campaigns
-		return locations.filter((loc) => !ALL_CE_CAMPAIGNS.has(loc.campaign));
+		return locations.filter((loc) => !allCe.has(loc.campaign));
 	}
 
-	const activeGroup = new Set(CAMPAIGN_EVENT_GROUPS[campaignEvent]);
+	const activeGroup = new Set(getCampaignEventGroups()[campaignEvent]);
 	return locations.filter(
-		(loc) =>
-			!ALL_CE_CAMPAIGNS.has(loc.campaign) || activeGroup.has(loc.campaign),
+		(loc) => !allCe.has(loc.campaign) || activeGroup.has(loc.campaign),
 	);
 }
 

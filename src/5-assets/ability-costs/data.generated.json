@@ -1,0 +1,272 @@
+[
+  {
+    "level": 1,
+    "gold": 25,
+    "badges": 1
+  },
+  {
+    "level": 2,
+    "gold": 50,
+    "badges": 1
+  },
+  {
+    "level": 3,
+    "gold": 100,
+    "badges": 1
+  },
+  {
+    "level": 4,
+    "gold": 150,
+    "badges": 2
+  },
+  {
+    "level": 5,
+    "gold": 200,
+    "badges": 2
+  },
+  {
+    "level": 6,
+    "gold": 300,
+    "badges": 2
+  },
+  {
+    "level": 7,
+    "gold": 400,
+    "badges": 3
+  },
+  {
+    "level": 8,
+    "gold": 500,
+    "badges": 1
+  },
+  {
+    "level": 9,
+    "gold": 600,
+    "badges": 1
+  },
+  {
+    "level": 10,
+    "gold": 700,
+    "badges": 1
+  },
+  {
+    "level": 11,
+    "gold": 800,
+    "badges": 2
+  },
+  {
+    "level": 12,
+    "gold": 900,
+    "badges": 2
+  },
+  {
+    "level": 13,
+    "gold": 1000,
+    "badges": 2
+  },
+  {
+    "level": 14,
+    "gold": 1250,
+    "badges": 3
+  },
+  {
+    "level": 15,
+    "gold": 1500,
+    "badges": 4
+  },
+  {
+    "level": 16,
+    "gold": 1750,
+    "badges": 5
+  },
+  {
+    "level": 17,
+    "gold": 2000,
+    "badges": 1
+  },
+  {
+    "level": 18,
+    "gold": 2500,
+    "badges": 1
+  },
+  {
+    "level": 19,
+    "gold": 3000,
+    "badges": 1
+  },
+  {
+    "level": 20,
+    "gold": 3500,
+    "badges": 2
+  },
+  {
+    "level": 21,
+    "gold": 4000,
+    "badges": 2
+  },
+  {
+    "level": 22,
+    "gold": 4500,
+    "badges": 2
+  },
+  {
+    "level": 23,
+    "gold": 5000,
+    "badges": 3
+  },
+  {
+    "level": 24,
+    "gold": 5500,
+    "badges": 4
+  },
+  {
+    "level": 25,
+    "gold": 6000,
+    "badges": 5
+  },
+  {
+    "level": 26,
+    "gold": 6500,
+    "badges": 1
+  },
+  {
+    "level": 27,
+    "gold": 7000,
+    "badges": 1
+  },
+  {
+    "level": 28,
+    "gold": 7500,
+    "badges": 1
+  },
+  {
+    "level": 29,
+    "gold": 8000,
+    "badges": 2
+  },
+  {
+    "level": 30,
+    "gold": 8500,
+    "badges": 2
+  },
+  {
+    "level": 31,
+    "gold": 9000,
+    "badges": 2
+  },
+  {
+    "level": 32,
+    "gold": 9500,
+    "badges": 3
+  },
+  {
+    "level": 33,
+    "gold": 10000,
+    "badges": 4
+  },
+  {
+    "level": 34,
+    "gold": 11000,
+    "badges": 5
+  },
+  {
+    "level": 35,
+    "gold": 12000,
+    "badges": 1
+  },
+  {
+    "level": 36,
+    "gold": 13000,
+    "badges": 1
+  },
+  {
+    "level": 37,
+    "gold": 14000,
+    "badges": 1
+  },
+  {
+    "level": 38,
+    "gold": 15000,
+    "badges": 2
+  },
+  {
+    "level": 39,
+    "gold": 16000,
+    "badges": 2
+  },
+  {
+    "level": 40,
+    "gold": 18000,
+    "badges": 2
+  },
+  {
+    "level": 41,
+    "gold": 20000,
+    "badges": 3
+  },
+  {
+    "level": 42,
+    "gold": 22500,
+    "badges": 3
+  },
+  {
+    "level": 43,
+    "gold": 25000,
+    "badges": 4
+  },
+  {
+    "level": 44,
+    "gold": 30000,
+    "badges": 5
+  },
+  {
+    "level": 45,
+    "gold": 40000,
+    "badges": 6
+  },
+  {
+    "level": 46,
+    "gold": 50000,
+    "badges": 7
+  },
+  {
+    "level": 47,
+    "gold": 75000,
+    "badges": 8
+  },
+  {
+    "level": 48,
+    "gold": 100000,
+    "badges": 9
+  },
+  {
+    "level": 49,
+    "gold": 125000,
+    "badges": 10
+  },
+  {
+    "level": 50,
+    "gold": 127500,
+    "badges": 1
+  },
+  {
+    "level": 51,
+    "gold": 127500,
+    "badges": 1
+  },
+  {
+    "level": 52,
+    "gold": 130000,
+    "badges": 1
+  },
+  {
+    "level": 53,
+    "gold": 135000,
+    "badges": 2
+  },
+  {
+    "level": 54,
+    "gold": 137500,
+    "badges": 2
+  }
+]
