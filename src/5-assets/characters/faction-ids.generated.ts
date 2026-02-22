@@ -1,0 +1,23 @@
+export const DATA = [
+  "Sisterhood",
+  "AdeptusMechanicus",
+  "AstraMilitarum",
+  "BlackLegion",
+  "BloodAngels",
+  "Custodes",
+  "DarkAngels",
+  "DeathGuard",
+  "Aeldari",
+  "EmperorsChildren",
+  "Genestealers",
+  "Necrons",
+  "Orks",
+  "SpaceWolves",
+  "Tau",
+  "BlackTemplars",
+  "ThousandSons",
+  "Tyranids",
+  "Ultramarines",
+  "LeaguesOfVotann",
+  "WorldEaters"
+] as const;

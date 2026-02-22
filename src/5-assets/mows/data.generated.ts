@@ -5,7 +5,7 @@ export const DATA = [
     "factionId": "Sisterhood",
     "alliance": "Imperial",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_adept_exorcist_01.png",
+    "icon": "ui_image_portrait_adept_exorcist_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_exorcist_01.png",
     "primaryAbility": "ThriceBlessedConflagration",
     "secondaryAbility": "DevastatingRefrain"
@@ -16,7 +16,7 @@ export const DATA = [
     "factionId": "AstraMilitarum",
     "alliance": "Imperial",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_astra_ordnancebattery_01.png",
+    "icon": "ui_image_portrait_astra_ordnancebattery_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_ordnancebattery_01.png",
     "primaryAbility": "MalleusRocketLauncher",
     "secondaryAbility": "ForwardSpotter"
@@ -27,7 +27,7 @@ export const DATA = [
     "factionId": "BlackLegion",
     "alliance": "Chaos",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_black_forgefiend_01.png",
+    "icon": "ui_image_portrait_black_forgefiend_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_forgefiend_01.png",
     "primaryAbility": "HadesAutocannons",
     "secondaryAbility": "DaemonicOrdnance"
@@ -38,7 +38,7 @@ export const DATA = [
     "factionId": "DarkAngels",
     "alliance": "Imperial",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_darka_stormspeeder_01.png",
+    "icon": "ui_image_portrait_darka_stormspeeder_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_stormspeeder_01.png",
     "primaryAbility": "DeathOnTheWind",
     "secondaryAbility": "Hailstrike"
@@ -49,7 +49,7 @@ export const DATA = [
     "factionId": "DeathGuard",
     "alliance": "Chaos",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_death_crawler_01.png",
+    "icon": "ui_image_portrait_death_crawler_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_crawler_01.png",
     "primaryAbility": "EntropyCannons",
     "secondaryAbility": "PlagueburstMortar"
@@ -60,7 +60,7 @@ export const DATA = [
     "factionId": "Orks",
     "alliance": "Xenos",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_orkss_rukkatruk_01.png",
+    "icon": "ui_image_portrait_orkss_rukkatruk_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_rukkatrukk_01.png",
     "primaryAbility": "SquigLaunchas",
     "secondaryAbility": "SquigMine"
@@ -71,7 +71,7 @@ export const DATA = [
     "factionId": "Tau",
     "alliance": "Xenos",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_tauta_broadside_01.png",
+    "icon": "ui_image_portrait_tauta_broadside_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_broadside_01.png",
     "primaryAbility": "HeavyRailRifle",
     "secondaryAbility": "TwinSmartMissileSystem"
@@ -82,7 +82,7 @@ export const DATA = [
     "factionId": "ThousandSons",
     "alliance": "Chaos",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_thous_daemonprince_01.png",
+    "icon": "ui_image_portrait_thous_daemonprince_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_daemonprince_01.png",
     "primaryAbility": "AetherStride",
     "secondaryAbility": "InfernalCannon"
@@ -93,7 +93,7 @@ export const DATA = [
     "factionId": "Tyranids",
     "alliance": "Xenos",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_tyran_biovore_01.png",
+    "icon": "ui_image_portrait_tyran_biovore_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_biovore_01.png",
     "primaryAbility": "BioMinefield",
     "secondaryAbility": "SporeMineLauncher"
@@ -104,7 +104,7 @@ export const DATA = [
     "factionId": "Ultramarines",
     "alliance": "Imperial",
     "initialRarity": "Common",
-    "icon": "snowprint_assets/characters/ui_image_portrait_ultra_dreadnought_01.png",
+    "icon": "ui_image_portrait_ultra_dreadnought_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_dreadnought_01.png",
     "primaryAbility": "DutyEternal",
     "secondaryAbility": "MacroPlasmaIncinerator"

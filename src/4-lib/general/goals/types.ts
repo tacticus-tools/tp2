@@ -1,3 +1,4 @@
+import type { CharacterId } from "@/5-assets/characters/index.ts";
 import {
 	type Alliance,
 	type CampaignsLocationsUsage,
@@ -60,7 +61,7 @@ export interface ICharacterRaidGoalSelectBase {
 	priority: number;
 	include: boolean;
 	goalId: string;
-	unitId: string;
+	unitId: CharacterId;
 	unitName: string;
 	unitAlliance: Alliance;
 	notes: string;

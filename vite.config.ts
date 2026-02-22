@@ -7,8 +7,10 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteTsConfigPaths from "vite-tsconfig-paths";
-import { main as prepareCampaignData } from "./src/5-assets/campaigns/generate-data.ts";
+import { main as prepareCampaignBattleData } from "./src/5-assets/campaign-battles/generate-data.ts";
+import { main as prepareCharacterRankUpMaterialData } from "./src/5-assets/character-rank-up-materials/generate-data.ts";
 import { main as prepareCharacterData } from "./src/5-assets/characters/generate-data.ts";
+import { main as prepareDropRateData } from "./src/5-assets/drop-rates/generate-data.ts";
 import { main as prepareEquipmentData } from "./src/5-assets/equipment/generate-data.ts";
 import { main as prepareMaterialData } from "./src/5-assets/materials/generate-data.ts";
 import { main as prepareMowData } from "./src/5-assets/mows/generate-data.ts";
@@ -47,13 +49,23 @@ const config = defineConfig({
 				plugins: ["babel-plugin-react-compiler"],
 			},
 		}),
-		{ name: "prepareCharacterData", buildStart: prepareCharacterData },
-		{ name: "prepareOnslaughtData", buildStart: prepareOnslaughtData },
-		{ name: "prepareNpcData", buildStart: prepareNpcData },
-		{ name: "prepareEquipmentData", buildStart: prepareEquipmentData },
-		{ name: "prepareMaterialData", buildStart: prepareMaterialData },
-		{ name: "prepareMowData", buildStart: prepareMowData },
-		{ name: "prepareCampaignData", buildStart: prepareCampaignData },
+		// Order is important here. Some of the data generation scripts depend on the output of others.
+		// e.g. CharacterRankUpMaterials depends on both Character and Material data.
+		{ name: "prepareNpcData", buildStart: prepareNpcData }, // References: <None>
+		{ name: "prepareCharacterData", buildStart: prepareCharacterData }, // References: <None>
+		{ name: "prepareMaterialData", buildStart: prepareMaterialData }, // References: <None>
+		{ name: "prepareOnslaughtData", buildStart: prepareOnslaughtData }, // References: NPCs[ids]
+		{ name: "prepareEquipmentData", buildStart: prepareEquipmentData }, // References: Characters[Factions]
+		{ name: "prepareMowData", buildStart: prepareMowData }, // References: Characters[Factions]
+		{
+			name: "prepareCharacterRankUpMaterialData",
+			buildStart: prepareCharacterRankUpMaterialData, // References: Characters[ids], Materials[ids]
+		},
+		{
+			name: "prepareCampaignBattleData",
+			buildStart: prepareCampaignBattleData, // REferences: Characters[ids], Materials[ids], NPCs[ids]
+		},
+		{ name: "prepareDropRateData", buildStart: prepareDropRateData }, // References: Campaigns[types]
 	],
 });
 

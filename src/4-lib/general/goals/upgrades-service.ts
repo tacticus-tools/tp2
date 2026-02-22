@@ -1,3 +1,4 @@
+import type { CharacterId } from "@/5-assets/characters/index.ts";
 import type { IUpgradeLocation } from "../campaign-data.ts";
 import { getAllUpgradeLocations } from "../campaign-data.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
@@ -19,7 +20,7 @@ export interface IUpgradeEstimate {
  * to compute accurate energy and raid estimates.
  */
 export async function estimateUpgradeDays(
-	unitId: string,
+	unitId: CharacterId,
 	rankStart: Rank,
 	rankEnd: Rank,
 	dailyEnergy: number,

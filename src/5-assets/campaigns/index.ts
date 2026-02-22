@@ -1,9 +1,0 @@
-import configsData from "./configs.generated.json" with { type: "json" };
-import battleData from "./data.generated.json" with { type: "json" };
-import type {
-	CampaignBattleData,
-	CampaignConfigData,
-} from "./generate-data.ts";
-
-export const CAMPAIGN_BATTLES = battleData as unknown as CampaignBattleData;
-export const CAMPAIGN_CONFIGS = configsData as unknown as CampaignConfigData;
