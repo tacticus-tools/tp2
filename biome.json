@@ -16,7 +16,8 @@
 			"!**/convex/_generated/**/*",
 			"!**/data.raw.json",
 			"!**/*.generated.json",
-			"!**/*.generated.ts"
+			"!**/*.generated.ts",
+			"!**/src/5-assets/legacy-json/**/*"
 		]
 	},
 	"formatter": {
