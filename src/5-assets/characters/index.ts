@@ -1,4 +1,8 @@
+import { DATA as DAMAGE_TYPES } from "./damage-types.generated.ts";
 import { DATA } from "./data.generated.ts";
+import { DATA as FACTION_IDS } from "./faction-ids.generated.ts";
+import { DATA as CHARACTER_IDS } from "./ids.generated.ts";
+import { DATA as CHARACTER_TRAITS } from "./traits.generated.ts";
 
 // `import.meta.glob` is a Vite feature that allows us to import multiple files matching a pattern.
 // It is not available in the `generate-data.ts` Vite plugin, so we have to do it here.
@@ -10,9 +14,10 @@ const characterRoundIcons = import.meta.glob<string>(
 );
 
 export type Character = (typeof DATA)[number];
-export type CharacterId = Character["id"];
-export type Factionid = Character["factionId"];
-export type CharacterTrait = Character["traits"][number];
+export type CharacterId = (typeof CHARACTER_IDS)[number];
+export type Factionid = (typeof FACTION_IDS)[number];
+export type CharacterTrait = (typeof CHARACTER_TRAITS)[number];
+export type DamageType = (typeof DAMAGE_TYPES)[number];
 
 export const CHARACTERS = DATA.map((character) => ({
 	...character,
@@ -21,3 +26,5 @@ export const CHARACTERS = DATA.map((character) => ({
 			`/src/5-assets/snowprint_assets/characters/${character.roundIcon}`
 		],
 }));
+
+export { CHARACTER_IDS, FACTION_IDS, CHARACTER_TRAITS, DAMAGE_TYPES };

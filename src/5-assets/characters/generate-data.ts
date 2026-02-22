@@ -167,4 +167,29 @@ export const main = () => {
 		join(import.meta.dirname, "faction-ids.generated.ts"),
 		`export const DATA = ${JSON.stringify(factionIds, null, 2)} as const;\n`,
 	);
+
+	const traits = Array.from(
+		new Set(parsedData.flatMap((character) => character.traits)),
+	);
+	fs.writeFileSync(
+		join(import.meta.dirname, "traits.generated.ts"),
+		`export const DATA = ${JSON.stringify(traits, null, 2)} as const;\n`,
+	);
+
+	const damageTypes = Array.from(
+		new Set(
+			parsedData.flatMap((character) =>
+				[
+					character.meleeDamage,
+					character.rangedDamage,
+					...(character.activeAbility ?? []),
+					...(character.passiveAbility ?? []),
+				].filter(Boolean),
+			),
+		),
+	);
+	fs.writeFileSync(
+		join(import.meta.dirname, "damage-types.generated.ts"),
+		`export const DATA = ${JSON.stringify(damageTypes, null, 2)} as const;\n`,
+	);
 };

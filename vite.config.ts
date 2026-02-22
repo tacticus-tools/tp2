@@ -12,6 +12,7 @@ import { main as prepareCharacterRankUpMaterialData } from "./src/5-assets/chara
 import { main as prepareCharacterData } from "./src/5-assets/characters/generate-data.ts";
 import { main as prepareDropRateData } from "./src/5-assets/drop-rates/generate-data.ts";
 import { main as prepareEquipmentData } from "./src/5-assets/equipment/generate-data.ts";
+import { main as prepareLeBattleData } from "./src/5-assets/le-battles/generate-data.ts";
 import { main as prepareMaterialData } from "./src/5-assets/materials/generate-data.ts";
 import { main as prepareMowData } from "./src/5-assets/mows/generate-data.ts";
 import { main as prepareNpcData } from "./src/5-assets/npcs/generate-data.ts";
@@ -66,6 +67,7 @@ const config = defineConfig({
 			buildStart: prepareCampaignBattleData, // References: Characters[ids], Materials[ids], NPCs[ids]
 		},
 		{ name: "prepareDropRateData", buildStart: prepareDropRateData }, // References: CampaignBattles[types]
+		{ name: "prepareLeBattleData", buildStart: prepareLeBattleData }, // References: Characters[Factions], Characters[Traits], Characters[DamangeTypes], NPCs[ids]
 	],
 });
 

@@ -1,0 +1,23 @@
+export const DATA = [
+  "Chain",
+  "Bolter",
+  "Flame",
+  "Power",
+  "Blast",
+  "Physical",
+  "Gauss",
+  "Toxic",
+  "Energy",
+  "DirectDamage",
+  "Las",
+  "Psychic",
+  "Piercing",
+  "HeavyRound",
+  "Melta",
+  "Plasma",
+  "Eviscerate",
+  "Projectile",
+  "Bio",
+  "Particle",
+  "Pulse"
+] as const;
