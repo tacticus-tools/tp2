@@ -304,3 +304,13 @@ Use Zod for parsing and transforming the raw JSON into forms that are better for
 - **Rationale**:
   - Enums Considered Harmful: https://www.youtube.com/watch?v=jjMbPt_H3RQ
   - TypeScript 5.8 Ships `--erasableSyntaxOnly` To Disable Enums: https://www.totaltypescript.com/erasable-syntax-only
+
+### Decision: Freeze and `DeepReadonly`all exported JSON assets
+
+- **Motivation**: We have a lot of JSON assets that are imported into the codebase. These are meant to be static and immutable, but there's nothing preventing someone from accidentally mutating them in the code, which can lead to bugs that are hard to track down.
+- **Alternatives considered**:
+  - 1) Just be careful and hope that no one mutates the JSON. This doesn't scale as the codebase grows and more people contribute.
+  - 2) Mark it as `readonly` in TypeScript. This gives us some protection but it's not foolproof since it can be circumvented with type assertions.
+  - 3) Use `Object.freeze()` to make the JSON truly immutable at runtime. This protects us from runtime changes but doesn't give us any compile-time protection.
+  - 4) Use a combination of `Object.freeze()` and a custom `DeepReadonly` type to achieve both runtime and compile-time immutability.
+- **Chosen solution**: Use a combination of `Object.freeze()` and a custom `DeepReadonly` type. It gives the best protection against accidental mutations. Working with `readonly` types takes some getting used to but I think it's worth it for our core static assets.
