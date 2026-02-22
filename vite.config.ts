@@ -25,6 +25,15 @@ const config = defineConfig({
 			"~": fileURLToPath(new URL("./convex", import.meta.url)),
 		},
 	},
+	server: {
+		watch: {
+			// Ignore files written by buildStart data-generation plugins.
+			// Without this, Vite detects the changes, restarts the server mid-startup,
+			// and the Cloudflare plugin's Miniflare worker isn't ready — causing a
+			// "fetch failed" crash in fetchWorkerExportTypes.
+			ignored: ["**/*.generated.ts", "**/*.generated.json"],
+		},
+	},
 	ssr: {
 		// @convex-dev/auth/react has a "use client" directive that the
 		// Cloudflare Workers SSR environment misinterprets as an RSC boundary,

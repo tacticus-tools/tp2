@@ -1,21 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useAction, useMutation, useQuery } from "convex/react";
 import {
-	Calendar,
 	LayoutGrid,
 	Loader2,
 	Palette,
 	RefreshCw,
+	Settings,
 	Table,
 	Target,
 	Trash2,
 	Upload,
+	X,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AddGoalDialog } from "@/1-components/goals/AddGoalDialog.tsx";
 import { DailyRaidsPlan } from "@/1-components/goals/DailyRaidsPlan.tsx";
 import { EditGoalDialog } from "@/1-components/goals/EditGoalDialog.tsx";
 import { GoalCard, type GoalData } from "@/1-components/goals/GoalCard.tsx";
+import { GoalSettingsForm } from "@/1-components/goals/GoalSettingsForm.tsx";
 import { GoalsTable } from "@/1-components/goals/GoalsTable.tsx";
 import {
 	AlertDialog,
@@ -30,15 +32,39 @@ import {
 } from "@/1-components/ui/alert-dialog.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/1-components/ui/popover.tsx";
+import {
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger,
+} from "@/1-components/ui/tabs.tsx";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
-import { useGoalPreferencesStore } from "@/3-hooks/useGoalPreferencesStore.ts";
+import {
+	useGoalPreferencesStore,
+	useHasHydrated,
+} from "@/3-hooks/useGoalPreferencesStore.ts";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
+import {
+	allocateBadgesToGoals,
+	allocateXpBooksToGoals,
+	buildBadgeInventory,
+	buildXpBookInventory,
+} from "@/4-lib/general/badge-inventory.ts";
+import { detectCampaignEvent } from "@/4-lib/general/campaign-events.ts";
 import {
 	buildInventoryMap,
 	parseCampaignProgress,
 } from "@/4-lib/general/campaign-progress.ts";
 import type { Campaign, PersonalGoalType } from "@/4-lib/general/constants.ts";
-import { PersonalGoalType as GoalType } from "@/4-lib/general/constants.ts";
+import {
+	CampaignsLocationsUsage,
+	PersonalGoalType as GoalType,
+} from "@/4-lib/general/constants.ts";
 import { generateDailyRaidsPlan } from "@/4-lib/general/daily-raids/service.ts";
 import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types.ts";
 import {
@@ -49,8 +75,10 @@ import type {
 	CharacterRaidGoalSelect,
 	IGoalEstimate,
 } from "@/4-lib/general/goals/types.ts";
+import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { parsePlannerExport } from "@/4-lib/general/import-planner.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
+import { unitById } from "@/4-lib/general/unit-data.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
@@ -102,7 +130,7 @@ function buildTypedGoals(
 	return goals.map((goal) => {
 		const parsed = JSON.parse(goal.data) as Record<string, unknown>;
 
-		// Override rankStart with roster's current rank if higher
+		// Sync UpgradeRank starting state from roster
 		if (goal.type === GoalType.UpgradeRank && roster) {
 			const rosterUnit = roster.get(goal.unitId);
 			if (rosterUnit) {
@@ -110,8 +138,40 @@ function buildTypedGoals(
 				if (rosterUnit.rank > storedRankStart) {
 					parsed.rankStart = rosterUnit.rank;
 				}
+				parsed.rarity = rosterUnit.rarity;
+				parsed.level = rosterUnit.level;
+				parsed.xp = rosterUnit.xp;
 			}
 		}
+
+		// Sync Ascend starting state from roster + backfill onslaught defaults
+		if (goal.type === GoalType.Ascend) {
+			parsed.onslaughtShards ??= 1;
+			parsed.onslaughtMythicShards ??= 1;
+			parsed.campaignsUsage ??= CampaignsLocationsUsage.LeastEnergy;
+			if (roster) {
+				const rosterUnit = roster.get(goal.unitId);
+				if (rosterUnit) {
+					parsed.rarityStart = rosterUnit.rarity;
+					parsed.starsStart = rosterUnit.stars;
+					parsed.shards = rosterUnit.shards;
+					parsed.mythicShards = rosterUnit.mythicShards;
+				}
+			}
+		}
+
+		// Sync Abilities starting state from roster
+		if (goal.type === GoalType.CharacterAbilities && roster) {
+			const rosterUnit = roster.get(goal.unitId);
+			if (rosterUnit) {
+				parsed.activeStart = rosterUnit.abilities[0];
+				parsed.passiveStart = rosterUnit.abilities[1];
+				parsed.level = rosterUnit.level;
+				parsed.xp = rosterUnit.xp;
+			}
+		}
+
+		const unitData = unitById.get(goal.unitId);
 
 		return {
 			priority: goal.priority,
@@ -119,7 +179,7 @@ function buildTypedGoals(
 			goalId: goal.goalId,
 			unitId: goal.unitId,
 			unitName: goal.unitName,
-			unitAlliance: "Imperial" as const,
+			unitAlliance: unitData?.alliance ?? ("Imperial" as const),
 			notes: goal.notes ?? "",
 			type: goal.type,
 			...parsed,
@@ -142,6 +202,7 @@ function GoalsPage() {
 	const campaignProgress = usePlayerDataStore((s) => s.campaignProgress);
 	const inventory = usePlayerDataStore((s) => s.inventory);
 	const syncing = usePlayerDataStore((s) => s.syncing);
+	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
 	const setPlayerData = usePlayerDataStore((s) => s.setPlayerData);
 	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
 
@@ -164,6 +225,7 @@ function GoalsPage() {
 	// Persisted campaign progress (includes manually-entered event campaign data)
 	const persistedProgress = useCampaignProgressStore((s) => s.progress);
 
+	const hasHydrated = useHasHydrated();
 	const dailyEnergy = useGoalPreferencesStore((s) => s.dailyEnergy);
 	const shardsEnergy = useGoalPreferencesStore((s) => s.shardsEnergy);
 	const tableView = useGoalPreferencesStore((s) => s.goalsTableView);
@@ -174,6 +236,19 @@ function GoalsPage() {
 	const farmOrder = useGoalPreferencesStore((s) => s.farmOrder);
 	const viewMode = useGoalPreferencesStore((s) => s.goalsViewMode);
 	const setViewMode = useGoalPreferencesStore((s) => s.setGoalsViewMode);
+	const campaignEventEnabled = useGoalPreferencesStore(
+		(s) => s.campaignEventEnabled,
+	);
+	const homeScreenEvent = useGoalPreferencesStore((s) => s.homeScreenEvent);
+	const hseMinEnemyCount = useGoalPreferencesStore((s) => s.hseMinEnemyCount);
+	const settingsVersion = useGoalPreferencesStore((s) => s.settingsVersion);
+	const goalTypeFilter = useGoalPreferencesStore((s) => s.goalTypeFilter);
+	const toggleGoalTypeFilter = useGoalPreferencesStore(
+		(s) => s.toggleGoalTypeFilter,
+	);
+	const clearGoalTypeFilter = useGoalPreferencesStore(
+		(s) => s.clearGoalTypeFilter,
+	);
 
 	const isLoading = goals === undefined;
 	const goalCount = goals?.length ?? 0;
@@ -201,49 +276,157 @@ function GoalsPage() {
 		if (inventory) {
 			ctx.inventory = buildInventoryMap(inventory.upgrades);
 		}
+		// Auto-detect active campaign event from API progress (user can disable)
+		ctx.campaignEvent = campaignEventEnabled
+			? detectCampaignEvent(apiProgress)
+			: "none";
 		return ctx;
-	}, [campaignProgress, inventory, persistedProgress]);
+	}, [campaignProgress, inventory, persistedProgress, campaignEventEnabled]);
+
+	// Track when the initial data sync attempt completes (success or failure)
+	// so we don't compute estimates/daily-raids with empty inventory before data arrives.
+	const [initialSyncDone, setInitialSyncDone] = useState(false);
 
 	// Calculate estimates for all goals (async — uses real campaign/recipe data)
-	const [estimates, setEstimates] = useState(new Map<string, IGoalEstimate>());
+	// Goals are processed sequentially in priority order with a shared mutable
+	// inventory so lower-priority goals see reduced materials.
+	// Estimates are stored with the deps token that produced them.
+	// During render, if the token doesn't match, estimates are treated as empty.
+	const [estimatesResult, setEstimatesResult] = useState<{
+		map: Map<string, IGoalEstimate>;
+		token: object;
+	} | null>(null);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: settingsVersion is an intentional cache-buster
+	const estimatesDepsToken = useMemo(
+		() => ({}),
+		[
+			goals,
+			dailyEnergy,
+			shardsEnergy,
+			playerContext,
+			roster,
+			hasHydrated,
+			initialSyncDone,
+			settingsVersion,
+		],
+	);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: deps tracked via estimatesDepsToken
 	useEffect(() => {
-		if (!goals) {
-			setEstimates(new Map());
+		if (!goals || !hasHydrated || !initialSyncDone) {
+			setEstimatesResult(null);
 			return;
 		}
 
 		let cancelled = false;
+		const currentToken = estimatesDepsToken;
 		const typedGoals = buildTypedGoals(goals, roster);
+		const sorted = [...typedGoals].sort((a, b) => a.priority - b.priority);
+		const inventoryCopy = { ...(playerContext.inventory ?? {}) };
 
-		void Promise.all(
-			typedGoals.map((typed) =>
-				calculateGoalEstimate(typed, dailyEnergy, shardsEnergy, playerContext),
-			),
-		).then((results) => {
+		void (async () => {
+			const results: IGoalEstimate[] = [];
+			for (const goal of sorted) {
+				if (cancelled) return;
+				const ctx: PlayerContext = {
+					...playerContext,
+					inventory: inventoryCopy,
+					mutateInventory: true,
+				};
+				// biome-ignore lint/performance/noAwaitInLoops: Sequential processing — each goal consumes shared inventory
+				const est = await calculateGoalEstimate(
+					goal,
+					dailyEnergy,
+					shardsEnergy,
+					ctx,
+				);
+				results.push(est);
+			}
 			if (cancelled) return;
 			const map = new Map<string, IGoalEstimate>();
 			for (const est of results) {
 				map.set(est.goalId, est);
 			}
-			setEstimates(map);
-		});
+			setEstimatesResult({ map, token: currentToken });
+		})();
 
 		return () => {
 			cancelled = true;
 		};
-	}, [goals, dailyEnergy, shardsEnergy, playerContext, roster]);
+	}, [estimatesDepsToken]);
 
-	// Daily raids plan computation
-	const [raidsPlan, setRaidsPlan] = useState<IDailyRaidsPlan | null>(null);
+	// Only use estimates if they were computed with the current deps
+	const activeEstimates =
+		estimatesResult?.token === estimatesDepsToken
+			? estimatesResult.map
+			: new Map<string, IGoalEstimate>();
+
+	// Badge coverage: allocate inventory badges to goals in priority order
+	const badgeCoverageMap = useMemo(() => {
+		if (!inventory || !goals || activeEstimates.size === 0) return new Map();
+		const pools = buildBadgeInventory(inventory);
+		const sortedGoalIds = [...goals]
+			.sort((a, b) => a.priority - b.priority)
+			.map((g) => g.goalId);
+		return allocateBadgesToGoals(sortedGoalIds, activeEstimates, pools);
+	}, [inventory, goals, activeEstimates]);
+
+	// XP book coverage: allocate inventory XP books to goals in priority order
+	const xpBookCoverageMap = useMemo(() => {
+		if (!inventory || !goals || activeEstimates.size === 0) return new Map();
+		const pools = buildXpBookInventory(inventory);
+		const sortedGoalIds = [...goals]
+			.sort((a, b) => a.priority - b.priority)
+			.map((g) => g.goalId);
+		return allocateXpBooksToGoals(sortedGoalIds, activeEstimates, pools);
+	}, [inventory, goals, activeEstimates]);
+
+	// Daily raids plan computation.
+	// The plan is stored together with the deps token that produced it.
+	// During render, if the stored token doesn't match the current token,
+	// the plan is treated as stale and null is returned — no flash of old data.
+	const [raidsResult, setRaidsResult] = useState<{
+		plan: IDailyRaidsPlan;
+		token: object;
+	} | null>(null);
 	const [computingRaids, setComputingRaids] = useState(false);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: settingsVersion is an intentional cache-buster
+	const raidsDepsToken = useMemo(
+		() => ({}),
+		[
+			viewMode,
+			goals,
+			dailyEnergy,
+			playerContext,
+			farmStrategy,
+			farmOrder,
+			roster,
+			homeScreenEvent,
+			hseMinEnemyCount,
+			hasHydrated,
+			initialSyncDone,
+			settingsVersion,
+		],
+	);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: deps tracked via raidsDepsToken
 	useEffect(() => {
-		if (viewMode !== "dailyRaids" || !goals) {
-			setRaidsPlan(null);
+		if (
+			viewMode !== "dailyRaids" ||
+			!goals ||
+			!hasHydrated ||
+			!initialSyncDone
+		) {
+			setRaidsResult(null);
+			setComputingRaids(false);
 			return;
 		}
 
 		let cancelled = false;
 		setComputingRaids(true);
+		const currentToken = raidsDepsToken;
 
 		const typedGoals = buildTypedGoals(goals, roster);
 
@@ -258,24 +441,28 @@ function GoalsPage() {
 			inv,
 			farmStrategy,
 			farmOrder,
-		).then((plan) => {
-			if (cancelled) return;
-			setRaidsPlan(plan);
-			setComputingRaids(false);
-		});
+			playerContext.campaignEvent ?? "none",
+			homeScreenEvent,
+			hseMinEnemyCount,
+		)
+			.then((plan) => {
+				if (cancelled) return;
+				setRaidsResult({ plan, token: currentToken });
+				setComputingRaids(false);
+			})
+			.catch((err) => {
+				console.error("[DailyRaids] generation failed:", err);
+				if (!cancelled) setComputingRaids(false);
+			});
 
 		return () => {
 			cancelled = true;
 		};
-	}, [
-		viewMode,
-		goals,
-		dailyEnergy,
-		playerContext,
-		farmStrategy,
-		farmOrder,
-		roster,
-	]);
+	}, [raidsDepsToken]);
+
+	// Only use the plan if it was computed with the current deps
+	const raidsPlan =
+		raidsResult?.token === raidsDepsToken ? raidsResult.plan : null;
 
 	const handleEdit = useCallback(
 		(goalId: string) => {
@@ -307,6 +494,17 @@ function GoalsPage() {
 			await updateGoal({ goalId, include });
 		},
 		[updateGoal],
+	);
+
+	const handleToggleOnslaught = useCallback(
+		async (goalId: string, enabled: boolean) => {
+			const goal = goals?.find((g) => g.goalId === goalId);
+			if (!goal) return;
+			const parsed = JSON.parse(goal.data) as Record<string, unknown>;
+			parsed.onslaughtShards = enabled ? 1 : 0;
+			await updateGoal({ goalId, data: JSON.stringify(parsed) });
+		},
+		[goals, updateGoal],
 	);
 
 	const handleMoveUp = useCallback(
@@ -347,15 +545,19 @@ function GoalsPage() {
 		}
 	}, [getPlayerData, setPlayerData, setSyncing]);
 
-	// Auto-fetch roster on mount only if store has no data
-	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
+	// Auto-fetch roster on mount only if store has no data.
+	// When the initial sync completes (success or failure), mark initialSyncDone
+	// so estimate/daily-raids computations can begin with real data.
 	const didAutoSync = useRef(false);
 	useEffect(() => {
 		if (!didAutoSync.current && !lastSyncedAt) {
 			didAutoSync.current = true;
-			void handleSync();
+			void handleSync().finally(() => setInitialSyncDone(true));
+		} else if (!initialSyncDone && lastSyncedAt !== null) {
+			// Data already available from a previous navigation — ready immediately
+			setInitialSyncDone(true);
 		}
-	}, [handleSync, lastSyncedAt]);
+	}, [handleSync, lastSyncedAt, initialSyncDone]);
 
 	const handleImport = useCallback(
 		async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -396,10 +598,37 @@ function GoalsPage() {
 		[importGoals],
 	);
 
-	function parseGoalData(data: string, type: number): GoalData {
+	function parseGoalData(data: string, type: number, unitId: string): GoalData {
 		const parsed = JSON.parse(data) as Record<string, unknown>;
+		if (roster) {
+			const rosterUnit = roster.get(unitId);
+			if (rosterUnit) {
+				if (type === GoalType.Ascend) {
+					parsed.rarityStart = rosterUnit.rarity;
+					parsed.starsStart = rosterUnit.stars;
+				}
+				if (type === GoalType.CharacterAbilities) {
+					parsed.activeStart = rosterUnit.abilities[0];
+					parsed.passiveStart = rosterUnit.abilities[1];
+				}
+				if (type === GoalType.UpgradeRank) {
+					const storedRankStart = parsed.rankStart as number;
+					if (rosterUnit.rank > storedRankStart) {
+						parsed.rankStart = rosterUnit.rank;
+					}
+				}
+			}
+		}
 		return { type, ...parsed } as GoalData;
 	}
+
+	// Apply goal type filter for display (doesn't affect estimates or daily raids)
+	const filteredGoals = useMemo(() => {
+		if (!goals || goalTypeFilter.length === 0) return goals;
+		return goals.filter((g) =>
+			goalTypeFilter.includes(g.type as PersonalGoalType),
+		);
+	}, [goals, goalTypeFilter]);
 
 	const goalIds = goals?.map((g) => g.goalId) ?? [];
 	const isFirstGoal = (id: string) => goalIds[0] === id;
@@ -411,7 +640,9 @@ function GoalsPage() {
 			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<div>
 					<div className="flex items-center gap-2">
-						<h1 className="text-2xl font-bold tracking-tight">Goals</h1>
+						<h1 className="text-2xl font-bold tracking-tight">
+							Goals / Daily Raids
+						</h1>
 						{goalCount > 0 && <Badge variant="secondary">{goalCount}</Badge>}
 					</div>
 					<p className="text-muted-foreground">
@@ -439,43 +670,22 @@ function GoalsPage() {
 								</span>
 							</Button>
 
-							{/* Color mode toggle */}
-							<Button
-								variant="outline"
-								size="sm"
-								onClick={() => setColorMode((colorMode + 1) % 3)}
-								title={`Color: ${COLOR_MODE_LABELS[colorMode]}`}
-							>
-								<Palette className="size-4" />
-								<span className="hidden sm:inline">
-									{COLOR_MODE_LABELS[colorMode]}
-								</span>
-							</Button>
+							{/* Color mode toggle — only in Goals view */}
+							{viewMode === "goals" && (
+								<Button
+									variant="outline"
+									size="sm"
+									onClick={() => setColorMode((colorMode + 1) % 3)}
+									title={`Color: ${COLOR_MODE_LABELS[colorMode]}`}
+								>
+									<Palette className="size-4" />
+									<span className="hidden sm:inline">
+										{COLOR_MODE_LABELS[colorMode]}
+									</span>
+								</Button>
+							)}
 
-							{/* Daily Raids / Goals toggle */}
-							<Button
-								variant={viewMode === "dailyRaids" ? "default" : "outline"}
-								size="sm"
-								onClick={() =>
-									setViewMode(viewMode === "goals" ? "dailyRaids" : "goals")
-								}
-								title={
-									viewMode === "dailyRaids"
-										? "Switch to Goals view"
-										: "Switch to Daily Raids view"
-								}
-							>
-								{viewMode === "dailyRaids" ? (
-									<Target className="size-4" />
-								) : (
-									<Calendar className="size-4" />
-								)}
-								<span className="hidden sm:inline">
-									{viewMode === "dailyRaids" ? "Goals" : "Daily Raids"}
-								</span>
-							</Button>
-
-							{/* View toggle — hidden on mobile */}
+							{/* View toggle — only in Goals view, hidden on mobile */}
 							{viewMode === "goals" && (
 								<Button
 									variant="outline"
@@ -491,6 +701,24 @@ function GoalsPage() {
 									)}
 								</Button>
 							)}
+
+							{/* Settings popover */}
+							<Popover>
+								<PopoverTrigger asChild>
+									<Button variant="outline" size="sm" title="Raid settings">
+										<Settings className="size-4" />
+										<span className="hidden sm:inline">Settings</span>
+									</Button>
+								</PopoverTrigger>
+								<PopoverContent className="w-80" align="end">
+									<div className="mb-3 text-sm font-medium">Raid Settings</div>
+									<GoalSettingsForm
+										detectedCampaignEvent={
+											playerContext.campaignEvent ?? "none"
+										}
+									/>
+								</PopoverContent>
+							</Popover>
 						</>
 					)}
 
@@ -596,8 +824,8 @@ function GoalsPage() {
 				</div>
 			)}
 
-			{/* Content */}
-			{isLoading ? (
+			{/* Content — wait for goals, Zustand hydration, and initial sync */}
+			{isLoading || !hasHydrated || !initialSyncDone ? (
 				<div className="flex items-center justify-center py-20">
 					<Loader2 className="size-8 animate-spin text-muted-foreground" />
 				</div>
@@ -614,53 +842,123 @@ function GoalsPage() {
 					</p>
 					<AddGoalDialog goalCount={0} roster={roster} />
 				</div>
-			) : viewMode === "dailyRaids" ? (
-				<DailyRaidsPlan plan={raidsPlan} computing={computingRaids} />
-			) : tableView ? (
-				<GoalsTable
-					rows={goals.map((goal) => ({
-						goalId: goal.goalId,
-						type: goal.type as PersonalGoalType,
-						unitId: goal.unitId,
-						unitName: goal.unitName,
-						priority: goal.priority,
-						include: goal.include,
-						estimate: estimates.get(goal.goalId),
-						data: goal.data,
-					}))}
-					isFirst={isFirstGoal}
-					isLast={isLastGoal}
-					onEdit={handleEdit}
-					onDelete={handleDelete}
-					onToggleInclude={handleToggleInclude}
-					onMoveUp={handleMoveUp}
-					onMoveDown={handleMoveDown}
-				/>
 			) : (
-				<div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-					{goals.map((goal, index) => (
-						<GoalCard
-							key={goal.goalId}
-							goalId={goal.goalId}
-							type={goal.type as PersonalGoalType}
-							unitId={goal.unitId}
-							unitName={goal.unitName}
-							priority={goal.priority}
-							include={goal.include}
-							notes={goal.notes}
-							data={parseGoalData(goal.data, goal.type)}
-							estimate={estimates.get(goal.goalId)}
-							colorTint={getColorTint(estimates.get(goal.goalId), colorMode)}
-							isFirst={index === 0}
-							isLast={index === goals.length - 1}
-							onEdit={handleEdit}
-							onDelete={handleDelete}
-							onToggleInclude={handleToggleInclude}
-							onMoveUp={handleMoveUp}
-							onMoveDown={handleMoveDown}
-						/>
-					))}
-				</div>
+				<Tabs
+					value={viewMode}
+					onValueChange={(val) => setViewMode(val as "goals" | "dailyRaids")}
+				>
+					<TabsList>
+						<TabsTrigger value="goals">Goals</TabsTrigger>
+						<TabsTrigger value="dailyRaids">Daily Raids</TabsTrigger>
+					</TabsList>
+
+					{/* Goal type filter chips — only in Goals view */}
+					{viewMode === "goals" && (
+						<div className="mt-3 flex flex-wrap items-center gap-1.5">
+							{(Object.entries(goalTypeLabels) as [string, string][]).map(
+								([typeVal, label]) => {
+									const typeNum = Number(typeVal) as PersonalGoalType;
+									const active = goalTypeFilter.includes(typeNum);
+									return (
+										<button
+											key={typeVal}
+											type="button"
+											onClick={() => toggleGoalTypeFilter(typeNum)}
+											className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+												active
+													? "border-emerald-500/50 bg-emerald-500/15 text-emerald-400"
+													: "border-border bg-muted/30 text-muted-foreground hover:bg-muted/50"
+											}`}
+										>
+											{label}
+										</button>
+									);
+								},
+							)}
+							{goalTypeFilter.length > 0 && (
+								<button
+									type="button"
+									onClick={clearGoalTypeFilter}
+									className="inline-flex items-center rounded-full border border-border bg-muted/30 p-1 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+									title="Clear filters"
+								>
+									<X className="size-3" />
+								</button>
+							)}
+						</div>
+					)}
+
+					<TabsContent value="goals">
+						{tableView ? (
+							<GoalsTable
+								rows={(filteredGoals ?? []).map((goal) => ({
+									goalId: goal.goalId,
+									type: goal.type as PersonalGoalType,
+									unitId: goal.unitId,
+									unitName: goal.unitName,
+									priority: goal.priority,
+									include: goal.include,
+									estimate: activeEstimates.get(goal.goalId),
+									data: goal.data,
+								}))}
+								isFirst={isFirstGoal}
+								isLast={isLastGoal}
+								onEdit={handleEdit}
+								onDelete={handleDelete}
+								onToggleInclude={handleToggleInclude}
+								onMoveUp={handleMoveUp}
+								onMoveDown={handleMoveDown}
+							/>
+						) : (
+							<div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+								{(filteredGoals ?? []).map((goal, index) => {
+									const parsedData = JSON.parse(goal.data) as Record<
+										string,
+										unknown
+									>;
+									const isAscend = goal.type === (GoalType.Ascend as number);
+									return (
+										<GoalCard
+											key={goal.goalId}
+											goalId={goal.goalId}
+											type={goal.type as PersonalGoalType}
+											unitId={goal.unitId}
+											unitName={goal.unitName}
+											priority={goal.priority}
+											include={goal.include}
+											notes={goal.notes}
+											data={parseGoalData(goal.data, goal.type, goal.unitId)}
+											estimate={activeEstimates.get(goal.goalId)}
+											badgeCoverage={badgeCoverageMap.get(goal.goalId)}
+											xpBookCoverage={xpBookCoverageMap.get(goal.goalId)}
+											colorTint={getColorTint(
+												activeEstimates.get(goal.goalId),
+												colorMode,
+											)}
+											isFirst={index === 0}
+											isLast={index === (filteredGoals ?? []).length - 1}
+											onslaughtActive={
+												isAscend
+													? ((parsedData.onslaughtShards as number) ?? 0) > 0
+													: undefined
+											}
+											onEdit={handleEdit}
+											onDelete={handleDelete}
+											onToggleInclude={handleToggleInclude}
+											onToggleOnslaught={handleToggleOnslaught}
+											onMoveUp={handleMoveUp}
+											onMoveDown={handleMoveDown}
+										/>
+									);
+								})}
+							</div>
+						)}
+					</TabsContent>
+
+					<TabsContent value="dailyRaids">
+						<DailyRaidsPlan plan={raidsPlan} computing={computingRaids} />
+					</TabsContent>
+				</Tabs>
 			)}
 
 			{/* Edit dialog */}

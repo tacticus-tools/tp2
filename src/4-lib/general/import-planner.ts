@@ -1,4 +1,4 @@
-import { PersonalGoalType } from "./constants.ts";
+import { CampaignsLocationsUsage, PersonalGoalType } from "./constants.ts";
 import { unitById } from "./unit-data.ts";
 
 /**
@@ -20,6 +20,8 @@ interface PlannerGoal {
 	// Ascend (type 2)
 	targetRarity?: number;
 	targetStars?: number;
+	shardsPerToken?: number;
+	mythicShardsPerToken?: number;
 
 	// Unlock (type 3)
 	campaignsUsage?: number;
@@ -135,6 +137,11 @@ function convertGoal(pg: PlannerGoal, unitName: string): ImportedGoal | null {
 				type: pg.type,
 				data: JSON.stringify({
 					type: pg.type,
+					rarityEnd: pg.targetRarity,
+					starsEnd: pg.targetStars,
+					onslaughtShards: pg.shardsPerToken ?? 0,
+					onslaughtMythicShards: pg.mythicShardsPerToken ?? 0,
+					campaignsUsage: CampaignsLocationsUsage.LeastEnergy,
 				}),
 			};
 		}

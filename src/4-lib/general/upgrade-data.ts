@@ -55,39 +55,40 @@ function buildMaterialsById(): Map<string, IProcessedMaterial> {
 
 	_materialsById = new Map<string, IProcessedMaterial>();
 
-	for (const [key, mat] of Object.entries(MATERIALS)) {
+	for (const [key, rawMat] of Object.entries(MATERIALS)) {
+		// MaterialData is typed as the whole dataset record; cast to the actual per-material shape
+		const mat = rawMat as unknown as {
+			id: string;
+			name: string;
+			rarity: string;
+			stat: string;
+			iconFilename?: string;
+			recipe: Array<{ id: string; count: number }> | null;
+		};
 		const rarity =
-			// @ts-expect-error FIXME
 			rarityStringToNumber[mat.rarity as keyof typeof rarityStringToNumber] ??
 			0;
 
-		if (!mat.craftable) {
+		const isCrafted = mat.recipe != null && mat.recipe.length > 0;
+
+		if (!isCrafted) {
 			_materialsById.set(key, {
-				// @ts-expect-error FIXME
 				id: mat.id,
-				// @ts-expect-error FIXME
 				label: mat.name,
 				rarity,
-				// @ts-expect-error FIXME
 				stat: mat.stat,
-				// @ts-expect-error FIXME
-				icon: mat.iconUrl ?? undefined,
+				icon: mat.iconFilename,
 				crafted: false,
 			});
 		} else {
 			_materialsById.set(key, {
-				// @ts-expect-error FIXME
 				id: mat.id,
-				// @ts-expect-error FIXME
 				label: mat.name,
 				rarity,
-				// @ts-expect-error FIXME
 				stat: mat.stat,
-				// @ts-expect-error FIXME
-				icon: mat.iconUrl ?? undefined,
+				icon: mat.iconFilename,
 				crafted: true,
-				// @ts-expect-error FIXME
-				recipe: mat.recipe?.map((r) => ({ id: r.id, count: r.count })) ?? [],
+				recipe: mat.recipe!.map((r) => ({ id: r.id, count: r.count })),
 			});
 		}
 	}
@@ -214,6 +215,7 @@ export async function getRankUpgrades(
  * @param appliedUpgrades Material IDs already applied at the current rank
  * @param upgradesRarity If non-empty, only include materials of these rarities
  * @param inventory If provided, subtract owned counts from requirements
+ * @param mutateInventory When true, mutate `inventory` in place (no copy). Use when passing a shared inventory across sequential goals.
  */
 export async function getBaseUpgradesForRankUp(
 	unitId: CharacterId,
@@ -222,6 +224,7 @@ export async function getBaseUpgradesForRankUp(
 	appliedUpgrades: string[] = [],
 	upgradesRarity: Rarity[] = [],
 	inventory: Record<string, number> = {},
+	mutateInventory = false,
 ): Promise<Record<string, number>> {
 	const rankUpData = CHARACTER_RANK_UP_MATERIALS;
 	const materials = buildMaterialsById();
@@ -229,7 +232,7 @@ export async function getBaseUpgradesForRankUp(
 	const characterData = rankUpData[unitId] ?? {};
 
 	const baseUpgradesTotal: Record<string, number> = {};
-	const inventoryCopy = { ...inventory };
+	const inventoryCopy = mutateInventory ? inventory : { ...inventory };
 
 	// Process each rank transition
 	let isFirstRank = true;

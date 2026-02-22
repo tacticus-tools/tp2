@@ -7,8 +7,6 @@ import {
 	Key,
 	Loader2,
 	ShieldCheck,
-	Swords,
-	Zap,
 } from "lucide-react";
 import { useId, useState } from "react";
 import { Badge } from "@/1-components/ui/badge.tsx";
@@ -22,31 +20,12 @@ import {
 } from "@/1-components/ui/card.tsx";
 import { Input } from "@/1-components/ui/input.tsx";
 import { Label } from "@/1-components/ui/label.tsx";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/1-components/ui/select.tsx";
-import { useGoalPreferencesStore } from "@/3-hooks/useGoalPreferencesStore.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/settings")({
 	component: SettingsPage,
 });
-
-const ENERGY_PRESETS = [
-	{ value: 288, label: "288 (Base)" },
-	{ value: 378, label: "378 (Ads)" },
-	{ value: 438, label: "438 (25 BP)" },
-	{ value: 538, label: "538 (50 BP)" },
-	{ value: 638, label: "638 (110 BP)" },
-	{ value: 738, label: "738 (250 BP)" },
-	{ value: 838, label: "838 (500 BP)" },
-	{ value: 938, label: "938 (1000 BP)" },
-] as const;
 
 function SettingsPage() {
 	const uid = useId();
@@ -62,17 +41,6 @@ function SettingsPage() {
 
 	const isLoading = credentials === undefined;
 	const isFirstSetup = credentials === null;
-
-	const {
-		dailyEnergy,
-		shardsEnergy,
-		farmStrategy,
-		farmOrder,
-		setDailyEnergy,
-		setShardsEnergy,
-		setFarmStrategy,
-		setFarmOrder,
-	} = useGoalPreferencesStore();
 
 	async function handleSave(e: React.FormEvent) {
 		e.preventDefault();
@@ -270,143 +238,6 @@ function SettingsPage() {
 							</Button>
 						</form>
 					)}
-				</CardContent>
-			</Card>
-
-			<Card>
-				<CardHeader>
-					<CardTitle className="flex items-center gap-2">
-						<Swords className="size-5" />
-						Goals & Daily Raids
-					</CardTitle>
-					<CardDescription>
-						Configure energy budget and farming preferences for goal
-						estimations.
-					</CardDescription>
-				</CardHeader>
-				<CardContent className="space-y-6">
-					<div className="space-y-2">
-						<Label htmlFor={`${uid}-dailyEnergy`}>Daily Energy</Label>
-						<div className="flex items-center gap-3">
-							<Select
-								value={
-									ENERGY_PRESETS.some((p) => p.value === dailyEnergy)
-										? String(dailyEnergy)
-										: "custom"
-								}
-								onValueChange={(val) => {
-									if (val !== "custom") {
-										setDailyEnergy(Number(val));
-									}
-								}}
-							>
-								<SelectTrigger className="w-48">
-									<SelectValue />
-								</SelectTrigger>
-								<SelectContent>
-									{ENERGY_PRESETS.map((preset) => (
-										<SelectItem key={preset.value} value={String(preset.value)}>
-											{preset.label}
-										</SelectItem>
-									))}
-									<SelectItem value="custom">Custom</SelectItem>
-								</SelectContent>
-							</Select>
-							<Input
-								id={`${uid}-dailyEnergy`}
-								type="number"
-								min={0}
-								max={9999}
-								className="w-24"
-								value={dailyEnergy}
-								onChange={(e) =>
-									setDailyEnergy(
-										Math.max(0, Number.parseInt(e.target.value, 10) || 0),
-									)
-								}
-							/>
-							<Zap className="size-4 text-yellow-400" />
-						</div>
-						<p className="text-xs text-muted-foreground">
-							Total energy available per day (288 base + ads + Battle Pass).
-						</p>
-					</div>
-
-					<div className="space-y-2">
-						<Label htmlFor={`${uid}-shardsEnergy`}>Shards Energy Budget</Label>
-						<div className="flex items-center gap-3">
-							<Input
-								id={`${uid}-shardsEnergy`}
-								type="number"
-								min={0}
-								max={dailyEnergy}
-								className="w-24"
-								value={shardsEnergy}
-								onChange={(e) =>
-									setShardsEnergy(
-										Math.max(
-											0,
-											Math.min(
-												dailyEnergy,
-												Number.parseInt(e.target.value, 10) || 0,
-											),
-										),
-									)
-								}
-							/>
-							<span className="text-sm text-muted-foreground">
-								of {dailyEnergy} daily energy
-							</span>
-						</div>
-						<p className="text-xs text-muted-foreground">
-							Energy reserved for shard farming. Remaining energy goes to
-							upgrade materials.
-						</p>
-					</div>
-
-					<div className="space-y-2">
-						<Label>Farm Strategy</Label>
-						<Select
-							value={farmStrategy}
-							onValueChange={(val) =>
-								setFarmStrategy(val as "leastEnergy" | "leastTime")
-							}
-						>
-							<SelectTrigger className="w-48">
-								<SelectValue />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value="leastEnergy">Least Energy</SelectItem>
-								<SelectItem value="leastTime">Least Time</SelectItem>
-							</SelectContent>
-						</Select>
-						<p className="text-xs text-muted-foreground">
-							Least Energy picks the cheapest nodes. Least Time uses all
-							available nodes.
-						</p>
-					</div>
-
-					<div className="space-y-2">
-						<Label>Farm Order</Label>
-						<Select
-							value={farmOrder}
-							onValueChange={(val) =>
-								setFarmOrder(val as "goalPriority" | "totalMaterials")
-							}
-						>
-							<SelectTrigger className="w-48">
-								<SelectValue />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value="goalPriority">Goal Priority</SelectItem>
-								<SelectItem value="totalMaterials">Total Materials</SelectItem>
-							</SelectContent>
-						</Select>
-						<p className="text-xs text-muted-foreground">
-							Goal Priority farms per-goal sequentially. Total Materials
-							combines needs across all goals.
-						</p>
-					</div>
 				</CardContent>
 			</Card>
 		</div>

@@ -3,12 +3,14 @@ import { xpLevelThresholds } from "../xp-data.ts";
 
 export interface IXpEstimate {
 	legendaryBooks: number;
+	mythicBooks: number;
 	currentLevel: number;
 	targetLevel: number;
 	xpLeft: number;
 }
 
 const LEGENDARY_BOOK_XP = 12_500;
+const MYTHIC_BOOK_XP = 62_500;
 
 /**
  * Calculate total XP needed to go from one level to another.
@@ -47,6 +49,7 @@ export function getXpEstimateForRank(
 
 	return {
 		legendaryBooks: Math.ceil(xpLeft / LEGENDARY_BOOK_XP),
+		mythicBooks: Math.ceil(xpLeft / MYTHIC_BOOK_XP),
 		currentLevel,
 		targetLevel,
 		xpLeft,
@@ -68,6 +71,7 @@ export function getXpEstimateForAbilities(
 
 	return {
 		legendaryBooks: Math.ceil(xpLeft / LEGENDARY_BOOK_XP),
+		mythicBooks: Math.ceil(xpLeft / MYTHIC_BOOK_XP),
 		currentLevel,
 		targetLevel: targetAbilityLevel,
 		xpLeft,

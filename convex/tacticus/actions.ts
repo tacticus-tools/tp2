@@ -1,7 +1,9 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
-import { internal } from "../_generated/api.ts";
-import { action } from "../_generated/server.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
+import { internal } from "../_generated/api";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
+import { action } from "../_generated/server";
 import { env } from "../env.ts";
 import type {
 	TacticusGuildRaidResponse,

@@ -30,25 +30,19 @@ function NavItem({
 	onClick?: () => void;
 }) {
 	const base =
-		"group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all";
+		"group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium";
 
 	return (
 		<Link
 			to={to}
 			onClick={onClick}
-			className={cn(
-				base,
-				"text-muted-foreground hover:bg-muted hover:text-foreground",
-			)}
+			className={cn(base, "text-muted-foreground")}
 			activeOptions={{ exact: true }}
 			activeProps={{
-				className: cn(
-					base,
-					"bg-cyan-950/40 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.1)]",
-				),
+				className: cn(base, "bg-emerald-600 text-white"),
 			}}
 		>
-			<Icon className="size-5 shrink-0 transition-transform group-hover:scale-110" />
+			<Icon className="size-5 shrink-0" />
 			<span>{label}</span>
 		</Link>
 	);
@@ -79,11 +73,11 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 			{/* Logo */}
 			<div className="px-6 pt-8 pb-6">
 				<div className="flex items-center gap-3">
-					<div className="flex size-10 items-center justify-center rounded-xl bg-linear-to-br from-cyan-600 to-blue-700 text-lg font-bold text-white shadow-lg">
+					<div className="flex size-10 items-center justify-center rounded-xl bg-linear-to-br from-emerald-600 to-emerald-800 text-lg font-bold text-white shadow-lg">
 						T
 					</div>
 					<div>
-						<h1 className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-lg font-bold text-transparent">
+						<h1 className="bg-linear-to-r from-emerald-400 to-emerald-500 bg-clip-text text-lg font-bold text-transparent">
 							TACTICUS
 						</h1>
 						<p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
@@ -102,7 +96,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 					<NavItem
 						to="/goals"
 						icon={Target}
-						label="Goals"
+						label="Goals / Daily Raids"
 						onClick={onNavigate}
 					/>
 					<NavItem
@@ -130,7 +124,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 			<div className="p-4">
 				<Separator className="mb-4" />
 				<div className="flex items-center gap-3 rounded-xl border border-border/50 bg-muted/40 p-3">
-					<div className="flex size-9 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400">
+					<div className="flex size-9 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
 						<User className="size-4" />
 					</div>
 					<div className="min-w-0 flex-1">
@@ -169,7 +163,7 @@ function AuthenticatedLayout() {
 						onClick={() => setMobileOpen(false)}
 						aria-label="Close sidebar"
 					/>
-					<aside className="relative h-full w-72 bg-sidebar shadow-2xl shadow-cyan-900/20">
+					<aside className="relative h-full w-72 bg-sidebar shadow-2xl shadow-emerald-900/20">
 						<button
 							type="button"
 							onClick={() => setMobileOpen(false)}

@@ -1,4 +1,4 @@
-import { type Campaign, Rank, Rarity } from "./constants.ts";
+import { type Alliance, type Campaign, Rank, Rarity } from "./constants.ts";
 
 const rankFilenames: Record<Rank, string> = {
 	[Rank.Locked]: "stone1.png",
@@ -57,9 +57,39 @@ export function getEnergyIconUrl(): string {
 	).href;
 }
 
+export function getXpBookIconUrl(rarity: "legendary" | "mythic"): string {
+	return new URL(
+		`../../5-assets/images/tacticus/icons/xp_book_${rarity}.png`,
+		import.meta.url,
+	).href;
+}
+
 export function getCampaignImageUrl(campaign: Campaign): string {
 	return new URL(
 		`../../5-assets/images/tacticus/campaigns/${campaign}.png`,
+		import.meta.url,
+	).href;
+}
+
+const allianceFilenames: Record<Alliance, string> = {
+	Imperial: "imperial",
+	Xenos: "xenos",
+	Chaos: "chaos",
+};
+
+const rarityNames: Record<Rarity, string> = {
+	[Rarity.Common]: "common",
+	[Rarity.Uncommon]: "uncommon",
+	[Rarity.Rare]: "rare",
+	[Rarity.Epic]: "epic",
+	[Rarity.Legendary]: "legendary",
+	[Rarity.Mythic]: "mythic",
+};
+
+export function getBadgeImageUrl(alliance: Alliance, rarity: Rarity): string {
+	const filename = `${allianceFilenames[alliance]}-${rarityNames[rarity]}.png`;
+	return new URL(
+		`../../5-assets/images/tacticus/badges/${filename}`,
 		import.meta.url,
 	).href;
 }

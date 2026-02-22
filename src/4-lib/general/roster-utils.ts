@@ -49,6 +49,10 @@ export interface RosterUnit {
 	rarity: Rarity;
 	stars: RarityStars;
 	abilities: [number, number];
+	shards: number;
+	mythicShards: number;
+	level: number;
+	xp: number;
 }
 
 /**
@@ -63,6 +67,10 @@ export function buildRosterMap(units: TacticusUnit[]): Map<string, RosterUnit> {
 			rarity,
 			stars,
 			abilities: [u.abilities[0].level, u.abilities[1].level],
+			shards: u.shards,
+			mythicShards: u.mythicShards,
+			level: u.xpLevel,
+			xp: u.xp,
 		});
 	}
 	return map;

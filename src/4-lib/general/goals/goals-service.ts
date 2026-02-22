@@ -1,3 +1,4 @@
+import type { CampaignEventType } from "../campaign-events.ts";
 import type { Campaign } from "../constants.ts";
 import { PersonalGoalType } from "../constants.ts";
 import { getCombinedAbilitiesMaterials } from "./abilities-service.ts";
@@ -21,6 +22,9 @@ import {
 export interface PlayerContext {
 	campaignProgress?: Map<Campaign, number>;
 	inventory?: Record<string, number>;
+	campaignEvent?: CampaignEventType;
+	/** When true, estimateUpgradeDays will mutate inventory in place (for sequential goal processing). */
+	mutateInventory?: boolean;
 }
 
 /** Approximate days per legendary XP book (daily acquisition rate) */
@@ -85,14 +89,18 @@ async function estimateRankGoal(
 		goal.upgradesRarity,
 		ctx.inventory ?? {},
 		ctx.campaignProgress ?? new Map(),
+		ctx.campaignEvent ?? "none",
+		ctx.mutateInventory,
 	);
 
 	// XP estimate for the rank level requirement
 	const xpEst = getXpEstimateForRank(goal.level, goal.xp, goal.rankEnd);
 	const xpBooksTotal = xpEst?.legendaryBooks ?? 0;
+	const xpMythicBooksTotal = xpEst?.mythicBooks ?? 0;
 	const xpDaysLeft = xpBooksTotal > 0 ? xpBooksTotal / XP_BOOKS_PER_DAY : 0;
 
-	const daysTotal = Math.max(upgradeEst.daysTotal, xpDaysLeft);
+	// XP books are informational — not a farming bottleneck for daysTotal
+	const daysTotal = upgradeEst.daysTotal;
 
 	return {
 		...base,
@@ -101,9 +109,13 @@ async function estimateRankGoal(
 		xpDaysLeft: xpDaysLeft > 0 ? xpDaysLeft : undefined,
 		energyTotal: upgradeEst.energyTotal,
 		xpBooksTotal,
+		xpMythicBooksTotal: xpMythicBooksTotal > 0 ? xpMythicBooksTotal : undefined,
 		xpBooksRequired: xpBooksTotal > 0 ? xpBooksTotal : undefined,
 	};
 }
+
+/** Onslaught tokens refresh every 16 hours → 1.5 per day */
+const ONSLAUGHT_TOKENS_PER_DAY = 1.5;
 
 async function estimateAscendGoal(
 	goal: ICharacterAscendGoal,
@@ -117,30 +129,76 @@ async function estimateAscendGoal(
 		goal.rarityEnd,
 		goal.starsEnd,
 		goal.shards,
+		goal.mythicShards,
 	);
 
+	// Campaign shard farming estimate (provides campaignShardsPerDay + hasLocations)
 	const shardEst = await estimateShardFarmingDays(
 		shards,
 		shardsEnergy,
 		goal.campaignsUsage,
 		goal.unitId,
 		ctx.campaignProgress ?? new Map(),
+		ctx.campaignEvent ?? "none",
 	);
 
-	// Mythic shards come from onslaught, not campaign farming
-	const mythicDays =
-		mythicShards > 0
-			? Math.ceil(mythicShards / 1.5) // ~1.5 mythic shards per day from onslaught
-			: 0;
+	// Onslaught rates from goal config
+	const onslaughtShardsPerToken = goal.onslaughtShards || 0; // 0 = toggle off
+	const mythicShardsPerToken = goal.onslaughtMythicShards || 1;
+	const regularOnslaughtActive = onslaughtShardsPerToken > 0;
+	const campaignRate = shardEst.campaignShardsPerDay;
 
-	const daysTotal = Math.max(shardEst.daysTotal, mythicDays);
+	// Mythic shards always come from onslaught (regardless of toggle)
+	const mythicTokens =
+		mythicShards > 0 ? Math.ceil(mythicShards / mythicShardsPerToken) : 0;
+	const mythicDays =
+		mythicTokens > 0 ? mythicTokens / ONSLAUGHT_TOKENS_PER_DAY : 0;
+
+	let combinedDays: number;
+	let oTokensTotal: number;
+
+	if (regularOnslaughtActive) {
+		// Combined formula — campaign and onslaught farm regular shards in parallel.
+		// Each day: campaignRate regular shards + (available onslaught tokens) * onslaughtShardsPerToken
+		// Onslaught tokens are shared: mythic farming uses some, rest goes to regular shards.
+		// D = (regularShards + mythicTokens * onslaughtShardsPerToken)
+		//     / (campaignRate + ONSLAUGHT_TOKENS_PER_DAY * onslaughtShardsPerToken)
+		// D must be >= mythicDays (mythic must finish)
+		const totalOnslaughtRate =
+			ONSLAUGHT_TOKENS_PER_DAY * onslaughtShardsPerToken;
+		const combinedRate = campaignRate + totalOnslaughtRate;
+
+		if (combinedRate > 0 && shards > 0) {
+			const formulaDays =
+				(shards + mythicTokens * onslaughtShardsPerToken) / combinedRate;
+			combinedDays = Math.max(Math.ceil(formulaDays), Math.ceil(mythicDays));
+		} else if (shards <= 0) {
+			combinedDays = Math.ceil(mythicDays);
+		} else {
+			// No campaign rate and no onslaught rate — shouldn't happen when active, but guard
+			combinedDays = Number.POSITIVE_INFINITY;
+		}
+
+		// Total onslaught tokens = all tokens used over combinedDays
+		oTokensTotal = Math.ceil(combinedDays * ONSLAUGHT_TOKENS_PER_DAY);
+	} else {
+		// Campaign only for regular shards + onslaught for mythic only
+		const campaignDays =
+			shards > 0 && campaignRate > 0
+				? Math.ceil(shards / campaignRate)
+				: shardEst.daysTotal;
+		combinedDays = Math.max(campaignDays, Math.ceil(mythicDays));
+		oTokensTotal = mythicTokens;
+	}
 
 	return {
 		...base,
-		daysTotal,
-		daysLeft: daysTotal,
+		daysTotal: combinedDays,
+		daysLeft: combinedDays,
 		energyTotal: shardEst.energyTotal,
-		oTokensTotal: shardEst.onslaughtTokensTotal,
+		oTokensTotal,
+		hasLocations: shardEst.hasLocations,
+		onslaughtActive: regularOnslaughtActive,
 	};
 }
 
@@ -158,6 +216,7 @@ async function estimateUnlockGoal(
 		goal.campaignsUsage,
 		goal.unitId,
 		ctx.campaignProgress ?? new Map(),
+		ctx.campaignEvent ?? "none",
 	);
 
 	return {
@@ -197,6 +256,7 @@ function estimateMowGoal(
 		...base,
 		daysTotal,
 		daysLeft: daysTotal,
+		mowEstimate: materials,
 	};
 }
 
@@ -219,6 +279,10 @@ function estimateAbilitiesGoal(
 	const maxXpBooks = Math.max(
 		activeXp?.legendaryBooks ?? 0,
 		passiveXp?.legendaryBooks ?? 0,
+	);
+	const maxMythicBooks = Math.max(
+		activeXp?.mythicBooks ?? 0,
+		passiveXp?.mythicBooks ?? 0,
 	);
 
 	// Use real badge cost tables for abilities
@@ -247,13 +311,16 @@ function estimateAbilitiesGoal(
 		daysLeft: daysTotal,
 		xpDaysLeft: xpDaysLeft > 0 ? xpDaysLeft : undefined,
 		xpBooksTotal: maxXpBooks,
+		xpMythicBooksTotal: maxMythicBooks > 0 ? maxMythicBooks : undefined,
 		xpBooksRequired: maxXpBooks > 0 ? maxXpBooks : undefined,
+		abilitiesEstimate: materials,
 	};
 }
 
 /**
  * Calculate estimates for all goals.
- * Goals are processed in priority order.
+ * Goals are processed sequentially in priority order with a shared mutable
+ * inventory so lower-priority goals see reduced materials.
  */
 export async function calculateAllGoalEstimates(
 	goals: CharacterRaidGoalSelect[],
@@ -262,9 +329,22 @@ export async function calculateAllGoalEstimates(
 	playerContext?: PlayerContext,
 ): Promise<IGoalEstimate[]> {
 	const sorted = [...goals].sort((a, b) => a.priority - b.priority);
-	return Promise.all(
-		sorted.map((goal) =>
-			calculateGoalEstimate(goal, dailyEnergy, shardsEnergy, playerContext),
-		),
-	);
+	const inventoryCopy = { ...(playerContext?.inventory ?? {}) };
+	const results: IGoalEstimate[] = [];
+	for (const goal of sorted) {
+		const ctx: PlayerContext = {
+			...playerContext,
+			inventory: inventoryCopy,
+			mutateInventory: true,
+		};
+		// biome-ignore lint/performance/noAwaitInLoops: Sequential processing — each goal consumes shared inventory
+		const est = await calculateGoalEstimate(
+			goal,
+			dailyEnergy,
+			shardsEnergy,
+			ctx,
+		);
+		results.push(est);
+	}
+	return results;
 }

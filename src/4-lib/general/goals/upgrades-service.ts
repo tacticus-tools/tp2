@@ -1,6 +1,10 @@
 import type { CharacterId } from "@/5-assets/characters/index.ts";
 import type { IUpgradeLocation } from "../campaign-data.ts";
 import { getAllUpgradeLocations } from "../campaign-data.ts";
+import {
+	type CampaignEventType,
+	filterLocationsByCampaignEvent,
+} from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
 import type { Campaign, Rank, Rarity } from "../constants.ts";
 import { rankToLevel } from "../rank-data.ts";
@@ -28,6 +32,8 @@ export async function estimateUpgradeDays(
 	upgradesRarity: Rarity[] = [],
 	inventory: Record<string, number> = {},
 	campaignProgress: Map<Campaign, number> = new Map(),
+	campaignEvent: CampaignEventType = "none",
+	mutateInventory = false,
 ): Promise<IUpgradeEstimate> {
 	if (rankEnd <= rankStart || dailyEnergy <= 0) {
 		return { daysTotal: 0, energyTotal: 0, raidsTotal: 0 };
@@ -47,6 +53,7 @@ export async function estimateUpgradeDays(
 		appliedUpgrades,
 		upgradesRarity,
 		inventory,
+		mutateInventory,
 	);
 
 	const materialIds = Object.keys(baseUpgrades);
@@ -72,11 +79,14 @@ export async function estimateUpgradeDays(
 
 	for (const [materialId, count] of Object.entries(baseUpgrades)) {
 		const rawLocations = allLocations.get(materialId);
-		const locations = rawLocations
+		const progressFiltered = rawLocations
 			? filterLocationsByCampaignProgress<IUpgradeLocation>(
 					rawLocations,
 					campaignProgress,
 				)
+			: undefined;
+		const locations = progressFiltered
+			? filterLocationsByCampaignEvent(progressFiltered, campaignEvent)
 			: undefined;
 		if (!locations || locations.length === 0) {
 			// No known farming location — use fallback estimate

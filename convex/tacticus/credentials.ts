@@ -1,6 +1,10 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
-import { internalQuery, mutation, query } from "../_generated/server.ts";
+import {
+	internalQuery,
+	mutation,
+	query, // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
+} from "../_generated/server";
 import { decrypt, encrypt, maskValue } from "./crypto.ts";
 
 export const get = query({

@@ -7,6 +7,8 @@ import {
 	type Rarity,
 	type RarityStars,
 } from "../constants.ts";
+import type { IAbilitiesMaterialsTotal } from "./abilities-service.ts";
+import type { IMowMaterialsTotal } from "./mow-service.ts";
 
 /**
  * Stored goal shape — what we persist in Convex.
@@ -143,8 +145,13 @@ export interface IGoalEstimate {
 	energyTotal: number;
 	oTokensTotal: number;
 	xpBooksTotal: number;
+	xpMythicBooksTotal?: number;
 	xpBooksApplied?: number;
 	xpBooksRequired?: number;
+	abilitiesEstimate?: IAbilitiesMaterialsTotal;
+	mowEstimate?: IMowMaterialsTotal;
+	hasLocations?: boolean;
+	onslaughtActive?: boolean;
 }
 
 /** Goal type labels for display */

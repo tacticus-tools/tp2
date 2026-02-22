@@ -22,7 +22,12 @@ import {
 	SelectValue,
 } from "@/1-components/ui/select.tsx";
 import { Textarea } from "@/1-components/ui/textarea.tsx";
-import { PersonalGoalType, Rank, Rarity } from "@/4-lib/general/constants.ts";
+import {
+	PersonalGoalType,
+	Rank,
+	Rarity,
+	RarityStars,
+} from "@/4-lib/general/constants.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { rarityToMaxRank } from "@/4-lib/general/rarity-data.ts";
@@ -54,6 +59,27 @@ const rarityLabels: Record<Rarity, string> = {
 	[Rarity.Legendary]: "Legendary",
 	[Rarity.Mythic]: "Mythic",
 };
+
+const starsOptions = [
+	{ value: RarityStars.None, label: "No stars" },
+	{ value: RarityStars.OneStar, label: "\u2605" },
+	{ value: RarityStars.TwoStars, label: "\u2605\u2605" },
+	{ value: RarityStars.ThreeStars, label: "\u2605\u2605\u2605" },
+	{ value: RarityStars.FourStars, label: "\u2605\u2605\u2605\u2605" },
+	{ value: RarityStars.FiveStars, label: "\u2605\u2605\u2605\u2605\u2605" },
+	{ value: RarityStars.RedOneStar, label: "\u2605 (Red)" },
+	{ value: RarityStars.RedTwoStars, label: "\u2605\u2605 (Red)" },
+	{ value: RarityStars.RedThreeStars, label: "\u2605\u2605\u2605 (Red)" },
+	{ value: RarityStars.RedFourStars, label: "\u2605\u2605\u2605\u2605 (Red)" },
+	{
+		value: RarityStars.RedFiveStars,
+		label: "\u2605\u2605\u2605\u2605\u2605 (Red)",
+	},
+	{ value: RarityStars.OneBlueStar, label: "\u2605 (Blue)" },
+	{ value: RarityStars.TwoBlueStars, label: "\u2605\u2605 (Blue)" },
+	{ value: RarityStars.ThreeBlueStars, label: "\u2605\u2605\u2605 (Blue)" },
+	{ value: RarityStars.MythicWings, label: "Mythic Wings" },
+];
 
 interface EditGoalDialogProps {
 	open: boolean;
@@ -103,6 +129,15 @@ export function EditGoalDialog({
 	);
 	const [upgradesRarity, setUpgradesRarity] = useState<Rarity[]>(
 		(parsed.upgradesRarity as Rarity[]) ?? [],
+	);
+	const [onslaughtShards, setOnslaughtShards] = useState<number>(
+		(parsed.onslaughtShards as number) ?? 0,
+	);
+	const [rarityEnd, setRarityEnd] = useState<Rarity>(
+		(parsed.rarityEnd as Rarity) ?? Rarity.Legendary,
+	);
+	const [starsEnd, setStarsEnd] = useState<RarityStars>(
+		(parsed.starsEnd as RarityStars) ?? RarityStars.None,
 	);
 
 	// Override toggle
@@ -177,6 +212,9 @@ export function EditGoalDialog({
 		setActiveEnd((p.activeEnd as number) ?? 1);
 		setPassiveEnd((p.passiveEnd as number) ?? 1);
 		setUpgradesRarity((p.upgradesRarity as Rarity[]) ?? []);
+		setOnslaughtShards((p.onslaughtShards as number) ?? 0);
+		setRarityEnd((p.rarityEnd as Rarity) ?? Rarity.Legendary);
+		setStarsEnd((p.starsEnd as RarityStars) ?? RarityStars.None);
 		setOverrideMode(false);
 	}, [goal]);
 
@@ -218,6 +256,9 @@ export function EditGoalDialog({
 						upgradesRarity:
 							upgradesRarity.length > 0 ? upgradesRarity : undefined,
 					};
+					break;
+				case PersonalGoalType.Ascend:
+					data = { ...data, rarityEnd, starsEnd, onslaughtShards };
 					break;
 				case PersonalGoalType.MowAbilities:
 					data = {
@@ -406,6 +447,68 @@ export function EditGoalDialog({
 								})}
 							</div>
 						</div>
+					)}
+
+					{/* Ascend fields */}
+					{goal.type === PersonalGoalType.Ascend && (
+						<>
+							<div className="grid grid-cols-2 gap-3">
+								<div className="space-y-2">
+									<Label>Target Rarity</Label>
+									<Select
+										value={String(rarityEnd)}
+										onValueChange={(v) => setRarityEnd(Number(v) as Rarity)}
+									>
+										<SelectTrigger className="w-full">
+											<SelectValue />
+										</SelectTrigger>
+										<SelectContent>
+											{allRarities.map((rarity) => (
+												<SelectItem key={rarity} value={String(rarity)}>
+													<span className="flex items-center gap-1.5">
+														<RarityIcon rarity={rarity} size={16} />
+														{rarityLabels[rarity]}
+													</span>
+												</SelectItem>
+											))}
+										</SelectContent>
+									</Select>
+								</div>
+								<div className="space-y-2">
+									<Label>Target Stars</Label>
+									<Select
+										value={String(starsEnd)}
+										onValueChange={(v) => setStarsEnd(Number(v) as RarityStars)}
+									>
+										<SelectTrigger className="w-full">
+											<SelectValue />
+										</SelectTrigger>
+										<SelectContent>
+											{starsOptions.map((opt) => (
+												<SelectItem key={opt.value} value={String(opt.value)}>
+													{opt.label}
+												</SelectItem>
+											))}
+										</SelectContent>
+									</Select>
+								</div>
+							</div>
+							<div className="flex items-center gap-2">
+								<input
+									type="checkbox"
+									id={`${uid}-onslaught`}
+									checked={onslaughtShards > 0}
+									onChange={(e) => setOnslaughtShards(e.target.checked ? 1 : 0)}
+									className="size-4 rounded-sm border-border"
+								/>
+								<Label
+									htmlFor={`${uid}-onslaught`}
+									className="text-sm font-normal"
+								>
+									Use onslaught tokens for regular shards
+								</Label>
+							</div>
+						</>
 					)}
 
 					{/* Include in daily raids */}

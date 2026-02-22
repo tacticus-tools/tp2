@@ -1,8 +1,10 @@
 import {
 	ArrowRight,
+	Check,
 	ChevronDown,
 	ChevronRight,
 	ChevronUp,
+	Info,
 	Pencil,
 	Trash2,
 } from "lucide-react";
@@ -14,16 +16,57 @@ import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
 import { Card, CardContent } from "@/1-components/ui/card.tsx";
+import type {
+	IBadgeCoverage,
+	IRarityCoverage,
+	IXpBookCoverage,
+} from "@/4-lib/general/badge-inventory.ts";
 import {
+	type Alliance,
 	PersonalGoalType,
 	type Rank,
 	type Rarity,
-	type RarityStars,
+	Rarity as RarityEnum,
+	RarityStars,
+	type RarityStars as RarityStarsType,
 } from "@/4-lib/general/constants.ts";
 import type { IGoalEstimate } from "@/4-lib/general/goals/types.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
+import {
+	getBadgeImageUrl,
+	getXpBookIconUrl,
+} from "@/4-lib/general/image-utils.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { cn } from "@/4-lib/utils.ts";
+
+const rarityLabels: Record<Rarity, string> = {
+	[RarityEnum.Common]: "Common",
+	[RarityEnum.Uncommon]: "Uncommon",
+	[RarityEnum.Rare]: "Rare",
+	[RarityEnum.Epic]: "Epic",
+	[RarityEnum.Legendary]: "Legendary",
+	[RarityEnum.Mythic]: "Mythic",
+};
+
+function starsLabel(stars: RarityStarsType): string {
+	if (stars >= RarityStars.OneBlueStar) {
+		if (stars === RarityStars.MythicWings) return "Wings";
+		return "★".repeat(stars - RarityStars.OneBlueStar + 1);
+	}
+	if (stars >= RarityStars.RedOneStar) {
+		return "★".repeat(stars - RarityStars.RedOneStar + 1);
+	}
+	if (stars >= RarityStars.OneStar) {
+		return "★".repeat(stars);
+	}
+	return "";
+}
+
+function starsColor(stars: RarityStarsType): string {
+	if (stars >= RarityStars.OneBlueStar) return "text-blue-400";
+	if (stars >= RarityStars.RedOneStar) return "text-red-400";
+	return "text-yellow-400";
+}
 
 interface GoalCardProps {
 	goalId: string;
@@ -35,12 +78,16 @@ interface GoalCardProps {
 	notes?: string;
 	data: GoalData;
 	estimate?: IGoalEstimate;
+	badgeCoverage?: IBadgeCoverage;
+	xpBookCoverage?: IXpBookCoverage;
 	colorTint?: string;
 	isFirst: boolean;
 	isLast: boolean;
+	onslaughtActive?: boolean;
 	onEdit: (goalId: string) => void;
 	onDelete: (goalId: string) => void;
 	onToggleInclude: (goalId: string, include: boolean) => void;
+	onToggleOnslaught?: (goalId: string, enabled: boolean) => void;
 	onMoveUp: (goalId: string) => void;
 	onMoveDown: (goalId: string) => void;
 }
@@ -56,8 +103,8 @@ export type GoalData =
 			type: typeof PersonalGoalType.Ascend;
 			rarityStart: Rarity;
 			rarityEnd: Rarity;
-			starsStart: RarityStars;
-			starsEnd: RarityStars;
+			starsStart: RarityStarsType;
+			starsEnd: RarityStarsType;
 	  }
 	| { type: typeof PersonalGoalType.Unlock }
 	| {
@@ -92,17 +139,28 @@ const goalTypeBadgeColor: Record<PersonalGoalType, string> = {
 function RarityFilterIcons({ upgradesRarity }: { upgradesRarity?: number[] }) {
 	if (!upgradesRarity || upgradesRarity.length === 0) return null;
 	return (
-		<div className="flex items-center gap-1">
+		<div className="flex items-center gap-1" title="Upgrade rarity filter">
 			{upgradesRarity.map((r) => (
-				<RarityIcon key={r} rarity={r as Rarity} size={16} />
+				<span key={r} title={`${rarityLabels[r as Rarity]} upgrades`}>
+					<RarityIcon rarity={r as Rarity} size={16} />
+				</span>
 			))}
 		</div>
 	);
 }
 
+function CompletedCheck() {
+	return (
+		<span title="Goal completed">
+			<Check className="size-4 text-emerald-400" />
+		</span>
+	);
+}
+
 function GoalProgress({ data }: { data: GoalData }) {
 	switch (data.type) {
-		case PersonalGoalType.UpgradeRank:
+		case PersonalGoalType.UpgradeRank: {
+			const completed = data.rankStart >= data.rankEnd;
 			return (
 				<div className="space-y-1.5">
 					<div className="flex items-center gap-2 text-sm">
@@ -121,90 +179,355 @@ function GoalProgress({ data }: { data: GoalData }) {
 								{rankToString[data.rankEnd]}
 							</span>
 						</div>
+						{completed && <CompletedCheck />}
 					</div>
 					<RarityFilterIcons upgradesRarity={data.upgradesRarity} />
 				</div>
 			);
-		case PersonalGoalType.Ascend:
+		}
+		case PersonalGoalType.Ascend: {
+			const startIdx = data.rarityStart * 100 + data.starsStart;
+			const endIdx = data.rarityEnd * 100 + data.starsEnd;
+			const completed = startIdx >= endIdx;
 			return (
-				<div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-					<span>Ascend to target rarity</span>
+				<div className="flex items-center gap-2 text-sm">
+					<div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2 py-1">
+						<RarityIcon rarity={data.rarityStart} size={20} />
+						<span className="text-muted-foreground">
+							{rarityLabels[data.rarityStart]}
+						</span>
+						{starsLabel(data.starsStart) && (
+							<span className={cn("text-xs", starsColor(data.starsStart))}>
+								{starsLabel(data.starsStart)}
+							</span>
+						)}
+					</div>
+					<div className="flex items-center text-muted-foreground/40">
+						<ChevronRight className="size-4" />
+					</div>
+					<div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2 py-1 ring-1 ring-purple-500/20">
+						<RarityIcon rarity={data.rarityEnd} size={20} />
+						<span className="font-medium text-foreground">
+							{rarityLabels[data.rarityEnd]}
+						</span>
+						{starsLabel(data.starsEnd) && (
+							<span className={cn("text-xs", starsColor(data.starsEnd))}>
+								{starsLabel(data.starsEnd)}
+							</span>
+						)}
+					</div>
+					{completed && <CompletedCheck />}
 				</div>
 			);
+		}
 		case PersonalGoalType.Unlock:
 			return (
 				<div className="text-sm text-muted-foreground">Unlock character</div>
 			);
-		case PersonalGoalType.MowAbilities:
+		case PersonalGoalType.MowAbilities: {
 			return (
 				<div className="space-y-1.5">
 					<div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-						<span>
+						<span className="flex items-center">
 							Primary {data.primaryStart}
 							<ArrowRight className="mx-1 inline size-3" />
 							{data.primaryEnd}
+							{data.primaryStart >= data.primaryEnd && <CompletedCheck />}
 						</span>
 						<span className="text-muted-foreground/40">|</span>
-						<span>
+						<span className="flex items-center">
 							Secondary {data.secondaryStart}
 							<ArrowRight className="mx-1 inline size-3" />
 							{data.secondaryEnd}
+							{data.secondaryStart >= data.secondaryEnd && <CompletedCheck />}
 						</span>
 					</div>
 					<RarityFilterIcons upgradesRarity={data.upgradesRarity} />
 				</div>
 			);
-		case PersonalGoalType.CharacterAbilities:
+		}
+		case PersonalGoalType.CharacterAbilities: {
 			return (
 				<div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-					<span>
+					<span className="flex items-center">
 						Active {data.activeStart}
 						<ArrowRight className="mx-1 inline size-3" />
 						{data.activeEnd}
+						{data.activeStart >= data.activeEnd && <CompletedCheck />}
 					</span>
 					<span className="text-muted-foreground/40">|</span>
-					<span>
+					<span className="flex items-center">
 						Passive {data.passiveStart}
 						<ArrowRight className="mx-1 inline size-3" />
 						{data.passiveEnd}
+						{data.passiveStart >= data.passiveEnd && <CompletedCheck />}
 					</span>
 				</div>
 			);
+		}
 	}
 }
 
-function GoalEstimateDisplay({ estimate }: { estimate: IGoalEstimate }) {
-	const completionDate = new Date();
-	completionDate.setDate(completionDate.getDate() + estimate.daysTotal);
-	const dateStr = completionDate.toLocaleDateString(undefined, {
-		month: "short",
-		day: "numeric",
-		year:
-			completionDate.getFullYear() !== new Date().getFullYear()
-				? "numeric"
-				: undefined,
-	});
+const BADGE_RARITIES = [
+	RarityEnum.Common,
+	RarityEnum.Uncommon,
+	RarityEnum.Rare,
+	RarityEnum.Epic,
+	RarityEnum.Legendary,
+	RarityEnum.Mythic,
+] as const;
+
+function BadgeBreakdown({
+	badges,
+	alliance,
+	coverage,
+}: {
+	badges: Record<Rarity, number>;
+	alliance?: Alliance;
+	coverage?: Record<Rarity, IRarityCoverage>;
+}) {
+	const nonZero = BADGE_RARITIES.filter((r) => badges[r] > 0);
+	if (nonZero.length === 0) return null;
 
 	return (
-		<div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-			<span className="font-medium text-foreground">
-				{estimate.daysTotal > 0
-					? `~${Math.round(estimate.daysTotal)}d`
-					: "Ready"}
+		<div className="flex flex-wrap items-center gap-1.5">
+			{nonZero.map((r) => {
+				const cov = coverage?.[r];
+				const isFullyCovered = cov != null && cov.covered >= cov.needed;
+				const label = alliance
+					? `${rarityLabels[r]} ${alliance} badge`
+					: `${rarityLabels[r]} badge`;
+				const titleSuffix =
+					cov != null ? ` (${cov.covered}/${cov.needed} in inventory)` : "";
+				return (
+					<span
+						key={r}
+						className="flex items-center gap-0.5"
+						title={`${badges[r]} ${label}${badges[r] !== 1 ? "s" : ""}${titleSuffix}`}
+					>
+						<span className="relative shrink-0">
+							{alliance ? (
+								<img
+									src={getBadgeImageUrl(alliance, r)}
+									alt={label}
+									width={16}
+									height={16}
+									loading="lazy"
+								/>
+							) : (
+								<RarityIcon rarity={r} size={14} />
+							)}
+							{isFullyCovered && (
+								<Check className="absolute -right-1 -bottom-1 size-2.5 text-emerald-400" />
+							)}
+						</span>
+						<span
+							className={cn(
+								"text-xs",
+								isFullyCovered ? "text-emerald-400" : "text-muted-foreground",
+							)}
+						>
+							{badges[r]}
+						</span>
+					</span>
+				);
+			})}
+		</div>
+	);
+}
+
+function XpBookDisplay({
+	estimate,
+	xpBookCoverage,
+}: {
+	estimate: IGoalEstimate;
+	xpBookCoverage?: IXpBookCoverage;
+}) {
+	const legCov = xpBookCoverage?.legendaryCoverage;
+	const legFullyCovered = legCov != null && legCov.covered >= legCov.needed;
+	const legTitleSuffix =
+		legCov != null ? ` (${legCov.covered}/${legCov.needed} in inventory)` : "";
+
+	const mythCov = xpBookCoverage?.mythicCoverage;
+	const mythFullyCovered = mythCov != null && mythCov.covered >= mythCov.needed;
+	const mythTitleSuffix =
+		mythCov != null
+			? ` (${mythCov.covered}/${mythCov.needed} in inventory)`
+			: "";
+
+	return (
+		<span className="flex items-center gap-1 text-muted-foreground">
+			<span
+				className="flex items-center gap-0.5"
+				title={`${estimate.xpBooksTotal} Legendary XP book${estimate.xpBooksTotal !== 1 ? "s" : ""} (12,500 XP each)${legTitleSuffix}`}
+			>
+				<span className="relative shrink-0">
+					<img
+						src={getXpBookIconUrl("legendary")}
+						alt="Legendary XP book"
+						width={14}
+						height={14}
+						loading="lazy"
+					/>
+					{legFullyCovered && (
+						<Check className="absolute -right-1 -bottom-1 size-2.5 text-emerald-400" />
+					)}
+				</span>
+				<span
+					className={cn(
+						"text-xs",
+						legFullyCovered ? "text-emerald-400" : "text-muted-foreground",
+					)}
+				>
+					{estimate.xpBooksTotal}
+				</span>
 			</span>
-			{estimate.daysTotal > 0 && (
-				<span className="text-muted-foreground">est. {dateStr}</span>
+			{estimate.xpMythicBooksTotal != null && (
+				<>
+					<span className="text-muted-foreground/40">or</span>
+					<span
+						className="flex items-center gap-0.5"
+						title={`${estimate.xpMythicBooksTotal} Mythic XP book${estimate.xpMythicBooksTotal !== 1 ? "s" : ""} (62,500 XP each)${mythTitleSuffix}`}
+					>
+						<span className="relative shrink-0">
+							<img
+								src={getXpBookIconUrl("mythic")}
+								alt="Mythic XP book"
+								width={14}
+								height={14}
+								loading="lazy"
+							/>
+							{mythFullyCovered && (
+								<Check className="absolute -right-1 -bottom-1 size-2.5 text-emerald-400" />
+							)}
+						</span>
+						<span
+							className={cn(
+								"text-xs",
+								mythFullyCovered ? "text-emerald-400" : "text-muted-foreground",
+							)}
+						>
+							{estimate.xpMythicBooksTotal}
+						</span>
+					</span>
+				</>
 			)}
-			{estimate.energyTotal > 0 && (
-				<span className="flex items-center gap-1 text-muted-foreground">
-					<EnergyIcon size={14} />
-					{estimate.energyTotal.toLocaleString()}
-				</span>
+		</span>
+	);
+}
+
+function GoalEstimateDisplay({
+	estimate,
+	type,
+	badgeCoverage,
+	xpBookCoverage,
+}: {
+	estimate: IGoalEstimate;
+	type: PersonalGoalType;
+	badgeCoverage?: IBadgeCoverage;
+	xpBookCoverage?: IXpBookCoverage;
+}) {
+	const isAbilityGoal =
+		type === PersonalGoalType.CharacterAbilities ||
+		type === PersonalGoalType.MowAbilities;
+
+	const isDaysFinite =
+		!isAbilityGoal &&
+		Number.isFinite(estimate.daysTotal) &&
+		estimate.daysTotal <= 99999;
+
+	const completionDate = isDaysFinite ? new Date() : null;
+	if (completionDate) {
+		completionDate.setDate(completionDate.getDate() + estimate.daysTotal);
+	}
+	const dateStr = completionDate
+		? completionDate.toLocaleDateString(undefined, {
+				month: "short",
+				day: "numeric",
+				year:
+					completionDate.getFullYear() !== new Date().getFullYear()
+						? "numeric"
+						: undefined,
+			})
+		: null;
+
+	const abilitiesBadges = estimate.abilitiesEstimate?.badges;
+	const mowBadges = estimate.mowEstimate?.badges;
+	const gold =
+		(estimate.abilitiesEstimate?.gold ?? 0) + (estimate.mowEstimate?.gold ?? 0);
+
+	// Show energy tooltip when campaign nodes exist but no energy is configured
+	const showEnergyHint =
+		!isAbilityGoal &&
+		estimate.hasLocations &&
+		estimate.energyTotal === 0 &&
+		!isDaysFinite;
+
+	return (
+		<div className="space-y-1.5">
+			<div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+				{!isAbilityGoal &&
+					(isDaysFinite ? (
+						<>
+							<span className="font-medium text-foreground">
+								{estimate.daysTotal > 0
+									? `~${Math.round(estimate.daysTotal)}d`
+									: "Ready"}
+							</span>
+							{estimate.daysTotal > 0 && dateStr && (
+								<span className="text-muted-foreground">est. {dateStr}</span>
+							)}
+						</>
+					) : (
+						<span className="font-medium text-muted-foreground">No source</span>
+					))}
+				{showEnergyHint && (
+					<span
+						className="flex items-center gap-1 text-amber-400"
+						title="This character has campaign shard nodes. Add energy in Settings to speed up farming."
+					>
+						<Info className="size-3.5" />
+						<span>Add shard energy</span>
+					</span>
+				)}
+				{estimate.energyTotal > 0 && (
+					<span
+						className="flex items-center gap-1 text-muted-foreground"
+						title="Total energy required"
+					>
+						<EnergyIcon size={14} />
+						{estimate.energyTotal.toLocaleString()}
+					</span>
+				)}
+				{estimate.xpBooksTotal > 0 && (
+					<XpBookDisplay estimate={estimate} xpBookCoverage={xpBookCoverage} />
+				)}
+				{estimate.oTokensTotal > 0 && (
+					<span
+						className="text-muted-foreground"
+						title="Onslaught tokens needed"
+					>
+						{estimate.oTokensTotal} tokens
+					</span>
+				)}
+				{gold > 0 && (
+					<span className="text-yellow-500/80" title="Gold required">
+						{gold.toLocaleString()} gold
+					</span>
+				)}
+			</div>
+			{abilitiesBadges && (
+				<BadgeBreakdown
+					badges={abilitiesBadges}
+					alliance={estimate.abilitiesEstimate?.alliance}
+					coverage={badgeCoverage?.abilityCoverage}
+				/>
 			)}
-			{estimate.xpBooksTotal > 0 && (
-				<span className="text-muted-foreground">
-					{estimate.xpBooksTotal} books
-				</span>
+			{mowBadges && (
+				<BadgeBreakdown
+					badges={mowBadges}
+					coverage={badgeCoverage?.forgeCoverage}
+				/>
 			)}
 		</div>
 	);
@@ -220,12 +543,16 @@ export function GoalCard({
 	notes,
 	data,
 	estimate,
+	badgeCoverage,
+	xpBookCoverage,
 	colorTint,
 	isFirst,
 	isLast,
+	onslaughtActive,
 	onEdit,
 	onDelete,
 	onToggleInclude,
+	onToggleOnslaught,
 	onMoveUp,
 	onMoveDown,
 }: GoalCardProps) {
@@ -290,8 +617,8 @@ export function GoalCard({
 					</div>
 				</div>
 
-				{/* Goal type badge + include toggle */}
-				<div className="flex items-center gap-2">
+				{/* Goal type badge + include toggle + onslaught toggle */}
+				<div className="flex flex-wrap items-center gap-2">
 					<Badge
 						variant="outline"
 						className={cn("text-xs", goalTypeBadgeColor[type])}
@@ -310,6 +637,20 @@ export function GoalCard({
 					>
 						{include ? "Included in raids" : "Excluded from raids"}
 					</button>
+					{type === PersonalGoalType.Ascend && onToggleOnslaught && (
+						<button
+							type="button"
+							onClick={() => onToggleOnslaught(goalId, !onslaughtActive)}
+							className={cn(
+								"text-xs transition-colors",
+								onslaughtActive
+									? "text-purple-400 hover:text-purple-300"
+									: "text-muted-foreground hover:text-foreground",
+							)}
+						>
+							{onslaughtActive ? "Onslaught on" : "Onslaught off"}
+						</button>
+					)}
 				</div>
 
 				{/* Progress visualization */}
@@ -317,7 +658,12 @@ export function GoalCard({
 
 				{/* Estimation */}
 				{estimate ? (
-					<GoalEstimateDisplay estimate={estimate} />
+					<GoalEstimateDisplay
+						estimate={estimate}
+						type={type}
+						badgeCoverage={badgeCoverage}
+						xpBookCoverage={xpBookCoverage}
+					/>
 				) : (
 					<div className="text-xs text-muted-foreground/60">
 						Estimation available after sync

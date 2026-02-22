@@ -1,4 +1,8 @@
 import { getShardLocations } from "../campaign-data.ts";
+import {
+	type CampaignEventType,
+	filterLocationsByCampaignEvent,
+} from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
 import type {
 	Campaign,
@@ -14,6 +18,8 @@ export interface IShardsEstimate {
 	daysTotal: number;
 	energyTotal: number;
 	onslaughtTokensTotal: number;
+	hasLocations: boolean;
+	campaignShardsPerDay: number;
 }
 
 /** Onslaught tokens refresh every 16 hours → 1.5 per day */
@@ -28,6 +34,7 @@ export function getShardsNeeded(
 	endRarity: Rarity,
 	endStars: RarityStars,
 	currentShards: number,
+	currentMythicShards = 0,
 ): { shards: number; mythicShards: number } {
 	let totalShards = 0;
 	let totalMythicShards = 0;
@@ -41,8 +48,9 @@ export function getShardsNeeded(
 		totalMythicShards += cost.mythicShards ?? 0;
 	}
 
-	// Subtract currently held shards from total
+	// Subtract currently held shards from totals
 	totalShards = Math.max(0, totalShards - currentShards);
+	totalMythicShards = Math.max(0, totalMythicShards - currentMythicShards);
 
 	return { shards: totalShards, mythicShards: totalMythicShards };
 }
@@ -68,6 +76,7 @@ export async function estimateShardFarmingDays(
 	_campaignsUsage: CampaignsLocationsUsage,
 	unitId?: string,
 	campaignProgress: Map<Campaign, number> = new Map(),
+	campaignEvent: CampaignEventType = "none",
 ): Promise<IShardsEstimate> {
 	if (shardsNeeded <= 0) {
 		return {
@@ -76,15 +85,21 @@ export async function estimateShardFarmingDays(
 			daysTotal: 0,
 			energyTotal: 0,
 			onslaughtTokensTotal: 0,
+			hasLocations: false,
+			campaignShardsPerDay: 0,
 		};
 	}
 
 	// Try to use real shard location data if unitId is provided
 	if (unitId) {
 		const allLocations = await getShardLocations(unitId);
-		const filtered = filterLocationsByCampaignProgress(
+		const progressFiltered = filterLocationsByCampaignProgress(
 			allLocations,
 			campaignProgress,
+		);
+		const filtered = filterLocationsByCampaignEvent(
+			progressFiltered,
+			campaignEvent,
 		);
 		const regularLocations = filtered.filter((loc) => !loc.isMythic);
 
@@ -105,6 +120,8 @@ export async function estimateShardFarmingDays(
 					daysTotal: Number.POSITIVE_INFINITY,
 					energyTotal,
 					onslaughtTokensTotal: 0,
+					hasLocations: true,
+					campaignShardsPerDay: 0,
 				};
 			}
 
@@ -117,6 +134,8 @@ export async function estimateShardFarmingDays(
 				daysTotal,
 				energyTotal,
 				onslaughtTokensTotal: 0,
+				hasLocations: true,
+				campaignShardsPerDay: shardsPerDay,
 			};
 		}
 	}
@@ -137,6 +156,8 @@ export async function estimateShardFarmingDays(
 			daysTotal: Number.POSITIVE_INFINITY,
 			energyTotal: 0,
 			onslaughtTokensTotal: 0,
+			hasLocations: false,
+			campaignShardsPerDay: 0,
 		};
 	}
 
@@ -151,6 +172,8 @@ export async function estimateShardFarmingDays(
 		daysTotal,
 		energyTotal,
 		onslaughtTokensTotal: 0,
+		hasLocations: false,
+		campaignShardsPerDay: shardsPerDay,
 	};
 }
 

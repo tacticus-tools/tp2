@@ -101,6 +101,7 @@ export const idToCampaign: Record<string, Campaign> = {
 	eventCampaign1: Campaign.AMS,
 	eventCampaign2: Campaign.TS,
 	eventCampaign3: Campaign.TAS,
+	eventCampaign4: Campaign.DGS,
 };
 
 /** Map from battle data campaign name to Campaign enum */
