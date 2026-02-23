@@ -74,9 +74,11 @@ export function UnitCard({ unit }: UnitCardProps) {
 						className="pointer-events-none absolute inset-0 z-1"
 					/>
 				)}
-				<div className="absolute -right-1 -bottom-1 z-2">
-					<RankIcon rank={unit.rank} size={20} />
-				</div>
+				{!unit.isMow && (
+					<div className="absolute -right-1 -bottom-1 z-2">
+						<RankIcon rank={unit.rank} size={20} />
+					</div>
+				)}
 			</div>
 
 			{/* Stars */}
