@@ -76,12 +76,12 @@ export function parseCampaignProgress(
  * When progress is empty (no data), returns all locations (no filtering → no regression).
  */
 export function filterLocationsByCampaignProgress<
-	T extends { campaign: Campaign; nodeNumber: number },
+	T extends { campaign: string; nodeNumber: number },
 >(locations: T[], progress: Map<Campaign, number>): T[] {
 	if (progress.size === 0) return locations;
 
 	return locations.filter((loc) => {
-		const maxNode = progress.get(loc.campaign);
+		const maxNode = progress.get(loc.campaign as Campaign);
 		// If campaign not in progress data, player hasn't started it → exclude
 		if (maxNode === undefined) return false;
 		return loc.nodeNumber <= maxNode;

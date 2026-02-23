@@ -7,9 +7,11 @@
  *     the active home-screen event faster.
  */
 
-import { CAMPAIGN_BATTLES } from "@/5-assets/campaign-battles/index.ts";
-import { NPCS } from "@/5-assets/npcs/index.ts";
-import { getCampaignMetadata } from "./campaign-data.ts";
+import {
+	ALL_CE_CAMPAIGNS,
+	BATTLE_ENEMY_COUNTS,
+	EVENT_GROUPS,
+} from "@/5-assets/campaign-derived/index.ts";
 import type { Campaign } from "./constants.ts";
 
 // ---------------------------------------------------------------------------
@@ -44,54 +46,24 @@ export const HSE_LABELS: Record<HomeScreenEventType, string> = {
 	machineHunt: "Machine Hunt",
 };
 
-const BASE_NAME_TO_EVENT_TYPE: Record<
-	string,
-	Exclude<CampaignEventType, "none">
-> = {
-	"Adeptus Mechanicus": "adMech",
-	Tyranids: "tyranids",
-	"T'au Empire": "tau",
-	"Death Guard": "deathGuard",
-};
+// ---------------------------------------------------------------------------
+// CE data (from generated pipeline)
+// ---------------------------------------------------------------------------
 
-function buildCampaignEventGroups(): Record<
-	Exclude<CampaignEventType, "none">,
-	Campaign[]
-> {
-	const groups: Record<string, Campaign[]> = {
-		adMech: [],
-		tyranids: [],
-		tau: [],
-		deathGuard: [],
-	};
-	for (const [campaign, m] of getCampaignMetadata()) {
-		if (!m.isEvent) continue;
-		const eventType = BASE_NAME_TO_EVENT_TYPE[m.baseName];
-		if (eventType) groups[eventType].push(campaign);
-	}
-	return groups as Record<Exclude<CampaignEventType, "none">, Campaign[]>;
-}
-
-let _campaignEventGroups:
-	| Record<Exclude<CampaignEventType, "none">, Campaign[]>
-	| undefined;
+type EventGroupKey = Exclude<CampaignEventType, "none">;
 
 /** Maps each CE type to the Campaign values it activates. */
 export function getCampaignEventGroups(): Record<
-	Exclude<CampaignEventType, "none">,
-	Campaign[]
+	EventGroupKey,
+	readonly string[]
 > {
-	if (!_campaignEventGroups) _campaignEventGroups = buildCampaignEventGroups();
-	return _campaignEventGroups;
+	return EVENT_GROUPS as unknown as Record<EventGroupKey, readonly string[]>;
 }
 
-let _allCeCampaigns: Set<Campaign> | undefined;
+const _allCeCampaigns = new Set(ALL_CE_CAMPAIGNS as unknown as string[]);
 
 /** Flat set of every campaign that belongs to any campaign event. */
-export function getAllCeCampaigns(): Set<Campaign> {
-	if (!_allCeCampaigns) {
-		_allCeCampaigns = new Set(Object.values(getCampaignEventGroups()).flat());
-	}
+export function getAllCeCampaigns(): Set<string> {
 	return _allCeCampaigns;
 }
 
@@ -111,7 +83,7 @@ export function detectCampaignEvent(
 	for (const [eventType, campaigns] of Object.entries(
 		getCampaignEventGroups(),
 	)) {
-		if (campaigns.some((c) => progress.has(c))) {
+		if (campaigns.some((c) => progress.has(c as Campaign))) {
 			return eventType as CampaignEventType;
 		}
 	}
@@ -128,9 +100,10 @@ export function detectCampaignEvent(
  * - If a CE is selected, only that CE's locations are kept; other CE locations
  *   are excluded. Non-CE locations always pass through.
  */
-export function filterLocationsByCampaignEvent<
-	T extends { campaign: Campaign },
->(locations: T[], campaignEvent: CampaignEventType): T[] {
+export function filterLocationsByCampaignEvent<T extends { campaign: string }>(
+	locations: T[],
+	campaignEvent: CampaignEventType,
+): T[] {
 	const allCe = getAllCeCampaigns();
 	if (campaignEvent === "none") {
 		// Exclude all CE campaigns
@@ -144,78 +117,8 @@ export function filterLocationsByCampaignEvent<
 }
 
 // ---------------------------------------------------------------------------
-// HSE — enemy counting
+// HSE — enemy counting (from generated pipeline)
 // ---------------------------------------------------------------------------
-
-interface BattleEnemyCounts {
-	tyranids: number;
-	chaos: number;
-	mechanical: number;
-}
-
-let _battleEnemyCounts: Map<string, BattleEnemyCounts> | undefined;
-
-/** Build a lookup from NPC id → { faction, alliance, traits }. */
-function buildNpcLookup(): Map<
-	string,
-	{
-		faction: string | null;
-		alliance: string | null;
-		traits: readonly string[];
-	}
-> {
-	const lookup = new Map<
-		string,
-		{
-			faction: string | null;
-			alliance: string | null;
-			traits: readonly string[];
-		}
-	>();
-	for (const npc of NPCS) {
-		lookup.set(npc.id, {
-			faction: npc.faction,
-			alliance: npc.alliance,
-			traits: npc.traits,
-		});
-	}
-	return lookup;
-}
-
-/**
- * Lazy-built map from battle ID → HSE-relevant enemy counts.
- * Iterates every battle node's `detailedEnemyTypes`, looks up the NPC's
- * faction / alliance / traits, and counts non-Summon enemies.
- */
-export function getBattleEnemyCounts(): Map<string, BattleEnemyCounts> {
-	if (_battleEnemyCounts) return _battleEnemyCounts;
-
-	const npcLookup = buildNpcLookup();
-	_battleEnemyCounts = new Map();
-
-	for (const nodes of Object.values(CAMPAIGN_BATTLES)) {
-		for (const node of nodes) {
-			let tyranids = 0;
-			let chaos = 0;
-			let mechanical = 0;
-
-			for (const enemy of node.detailedEnemyTypes) {
-				const npc = npcLookup.get(enemy.id);
-				if (!npc) continue;
-				// Skip summoned units
-				if (npc.traits.includes("Summon")) continue;
-
-				if (npc.faction === "Tyranids") tyranids += enemy.count;
-				if (npc.alliance === "Chaos") chaos += enemy.count;
-				if (npc.traits.includes("Mechanical")) mechanical += enemy.count;
-			}
-
-			_battleEnemyCounts.set(node.id, { tyranids, chaos, mechanical });
-		}
-	}
-
-	return _battleEnemyCounts;
-}
 
 /**
  * Check whether a battle meets the HSE minimum enemy threshold.
@@ -227,7 +130,12 @@ export function passesHseFilter(
 ): boolean {
 	if (hse === "none") return true;
 
-	const counts = getBattleEnemyCounts().get(battleId);
+	const counts = (
+		BATTLE_ENEMY_COUNTS as unknown as Record<
+			string,
+			{ tyranids: number; chaos: number; mechanical: number }
+		>
+	)[battleId];
 	if (!counts) return false;
 
 	switch (hse) {
@@ -244,7 +152,12 @@ export function passesHseFilter(
  * Return the HSE-relevant enemy count for a specific battle.
  */
 function getHseCount(battleId: string, hse: HomeScreenEventType): number {
-	const counts = getBattleEnemyCounts().get(battleId);
+	const counts = (
+		BATTLE_ENEMY_COUNTS as unknown as Record<
+			string,
+			{ tyranids: number; chaos: number; mechanical: number }
+		>
+	)[battleId];
 	if (!counts) return 0;
 	switch (hse) {
 		case "purgeOrder":

@@ -1,0 +1,5922 @@
+{
+  "I01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "I02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "I03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "I04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "I05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "I06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "I07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "I08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "I09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "I12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "I17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "I20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "I26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "I27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "I29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I41": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "I42": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I43": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 11
+  },
+  "I44": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I45": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I46": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I47": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I48": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I49": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I50": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I51": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 11
+  },
+  "I52": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I53": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I54": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I55": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I56": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I57": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I58": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I59": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I60": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I61": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I62": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I63": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I64": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I65": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I66": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I67": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I68": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I69": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I70": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 11
+  },
+  "I71": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I72": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "I73": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "I74": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "I75": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 11
+  },
+  "FoC01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC41": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC42": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC43": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC44": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC45": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC46": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC47": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC48": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC49": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC50": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC51": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC52": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC53": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC54": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC55": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC56": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC57": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC58": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC59": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC60": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC61": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC62": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC63": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC64": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC65": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC66": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC67": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC68": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC69": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC70": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC71": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC72": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC73": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC74": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoC75": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "O09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "O10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "O11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "O12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "O13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O35": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O36": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O37": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O38": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O39": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O40": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O41": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O42": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O43": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O44": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O45": {
+    "tyranids": 3,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O46": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O47": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O48": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O49": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O50": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O51": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O52": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O53": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O54": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O55": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O56": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O57": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O58": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O59": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O60": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O61": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O62": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O63": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O64": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O65": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "O66": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "O67": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O68": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O69": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O70": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O71": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O72": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O73": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O74": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "O75": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH01": {
+    "tyranids": 0,
+    "chaos": 3,
+    "mechanical": 0
+  },
+  "SH02": {
+    "tyranids": 0,
+    "chaos": 4,
+    "mechanical": 0
+  },
+  "SH03": {
+    "tyranids": 0,
+    "chaos": 4,
+    "mechanical": 0
+  },
+  "SH04": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SH05": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SH06": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH07": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SH08": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH09": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH10": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "SH11": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH12": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SH13": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH14": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH15": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SH16": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH21": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH22": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH25": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "SH26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH27": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SH28": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH29": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH30": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SH31": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SH32": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH33": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH34": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH35": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH36": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SH37": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH38": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH39": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH40": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH41": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SH42": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "SH43": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH44": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SH45": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "SH46": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH47": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SH48": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SH49": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH50": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH51": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "SH52": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH53": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH54": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SH55": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH56": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH57": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH58": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH59": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SH60": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH61": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH62": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH63": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SH64": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH65": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SH66": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH67": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH68": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SH69": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SH70": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SH71": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SH72": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SH73": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "SH74": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SH75": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "IM01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM41": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM42": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM43": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM44": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM45": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM46": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM47": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM48": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM49": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM50": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM51": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM52": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM53": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM54": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM55": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM56": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM57": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM58": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM59": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM60": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM61": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM62": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM63": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM64": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM65": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM66": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM67": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM68": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM69": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM70": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM71": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM72": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM73": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM74": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IM75": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCM01": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "FoCM02": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "FoCM03": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "FoCM04": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM05": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM06": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM07": {
+    "tyranids": 0,
+    "chaos": 4,
+    "mechanical": 0
+  },
+  "FoCM08": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM09": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM10": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM11": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM12": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM13": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM14": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM15": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM16": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM17": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM18": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM19": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM20": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM21": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM22": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM23": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM24": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM25": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM26": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM27": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM28": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "FoCM29": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM30": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM31": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM32": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM33": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM34": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM35": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM36": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM37": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM38": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM39": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM40": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM41": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM42": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM43": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM44": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM45": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM46": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM47": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM48": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM49": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM50": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM51": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM52": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "FoCM53": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM54": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM55": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM56": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM57": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM58": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM59": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM60": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM61": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM62": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM63": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM64": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM65": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM66": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "FoCM67": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCM68": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM69": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCM70": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM71": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCM72": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCM73": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCM74": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "FoCM75": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "OM01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "OM16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "OM26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "OM27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "OM31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM34": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "OM35": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM36": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM37": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM38": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM39": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM40": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM41": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM42": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM43": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM44": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM45": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM46": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "OM47": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM48": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM49": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM50": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM51": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM52": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM53": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM54": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM55": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM56": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM57": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM58": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM59": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM60": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OM61": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM62": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM63": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "OM64": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM65": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM66": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM67": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM68": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM69": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM70": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM71": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM72": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM73": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OM74": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OM75": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "SHM01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM41": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM42": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM43": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM44": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM45": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM46": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM47": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM48": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM49": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM50": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM51": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM52": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM53": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM54": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM55": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM56": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM57": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM58": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM59": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM60": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM61": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM62": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM63": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM64": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM65": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM66": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM67": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM68": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM69": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM70": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM71": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM72": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM73": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM74": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHM75": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IE01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "IE02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "IE04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "IE05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 11
+  },
+  "IE06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "IE08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "IE10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "IE12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "IE13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "IE14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "IE15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "IE16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "IE19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "IE20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "IE21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 11
+  },
+  "IE22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "IE27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "IE28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "IE30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "IE31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "IE32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "IE33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "IE35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "IE36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "IE38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "IE40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 12
+  },
+  "FoCE01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCE40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "OE07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE19": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE20": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE21": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE33": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE34": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE36": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OE40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHE01": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SHE02": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE03": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SHE04": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE05": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SHE06": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SHE07": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SHE08": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "SHE09": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE10": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE11": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SHE12": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SHE13": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SHE14": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE15": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SHE16": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "SHE17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHE18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHE19": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE20": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SHE21": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SHE22": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SHE23": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SHE24": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SHE25": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "SHE26": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SHE27": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE28": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE29": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SHE30": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SHE31": {
+    "tyranids": 0,
+    "chaos": 4,
+    "mechanical": 0
+  },
+  "SHE32": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "SHE33": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SHE34": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "SHE35": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE36": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "SHE37": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "SHE38": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "SHE39": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "SHE40": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "IME01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "IME40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "FoCME01": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCME02": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME03": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME04": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME05": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME06": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCME07": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCME08": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME09": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCME10": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME11": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME12": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME13": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME14": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCME15": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME16": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "FoCME17": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME18": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME19": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME20": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "FoCME21": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME22": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCME23": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME24": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "FoCME25": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCME26": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME27": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME28": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCME29": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "FoCME30": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCME31": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCME32": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "FoCME33": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME34": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "FoCME35": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME36": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME37": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "FoCME38": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "FoCME39": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "FoCME40": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "OME01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "OME09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "OME10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "OME19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "OME26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME27": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OME28": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OME29": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OME30": {
+    "tyranids": 12,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OME31": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "OME32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "OME33": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME34": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME35": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "OME36": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME37": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME38": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "OME39": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "OME40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "SHME01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME31": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME32": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME33": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME34": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME35": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME36": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME37": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME38": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME39": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "SHME40": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AMS01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AMS02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AMS03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AMS04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "AMS05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "AMS06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AMS07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AMS08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AMS09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AMS10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "AMS11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AMS12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "AMS13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "AMS14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AMS15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AMS16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "AMS17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "AMS18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AMS19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AMS20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AMS21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "AMS22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "AMS23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AMS24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AMS25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "AMS26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AMS27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "AMS28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "AMS29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AMS30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AMSC03B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AMSC13B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "AMSC25B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AME01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AME02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AME03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "AME04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "AME05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "AME06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AME07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AME08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AME09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "AME11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AME12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "AME13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AME16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "AME17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "AME18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AME19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 9
+  },
+  "AME22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "AME23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AME25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "AME27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 8
+  },
+  "AME28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "AME29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AME30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 7
+  },
+  "AMEC03B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "AMEC13B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "AMEC25B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 10
+  },
+  "TS01": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS02": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS03": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS04": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS05": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS06": {
+    "tyranids": 12,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS07": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS08": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS09": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS10": {
+    "tyranids": 12,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS11": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS12": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS13": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS14": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS15": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS16": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS17": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS18": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS19": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS20": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS21": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS22": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS23": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS24": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS25": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS26": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS27": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS28": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS29": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TS30": {
+    "tyranids": 11,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TSC03B": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TSC13B": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TSC25B": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE01": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE02": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE03": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE04": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE05": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE06": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE07": {
+    "tyranids": 5,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE08": {
+    "tyranids": 4,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE09": {
+    "tyranids": 3,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE10": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE11": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE12": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE13": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE14": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE15": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE16": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE17": {
+    "tyranids": 11,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE18": {
+    "tyranids": 3,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE19": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE20": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE21": {
+    "tyranids": 3,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE22": {
+    "tyranids": 8,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE23": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE24": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE25": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE26": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE27": {
+    "tyranids": 7,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE28": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE29": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TE30": {
+    "tyranids": 9,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TEC03B": {
+    "tyranids": 11,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TEC13B": {
+    "tyranids": 10,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TEC25B": {
+    "tyranids": 6,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "TAS07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAS09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAS10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAS11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "TAS12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAS17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "TAS18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "TAS20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAS21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 6
+  },
+  "TAS22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "TAS23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAS26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "TAS27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "TAS28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "TAS29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAS30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TASC03B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TASC13B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "TASC25B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 4
+  },
+  "TAE01": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE02": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE03": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE04": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE05": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE06": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "TAE07": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE08": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAE09": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAE10": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAE11": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 5
+  },
+  "TAE12": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE13": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE14": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE15": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE16": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "TAE17": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "TAE18": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE19": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE20": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE21": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "TAE22": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "TAE23": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE24": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE25": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE26": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE27": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 1
+  },
+  "TAE28": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAE29": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "TAE30": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "TAEC03B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 0
+  },
+  "TAEC13B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 2
+  },
+  "TAEC25B": {
+    "tyranids": 0,
+    "chaos": 0,
+    "mechanical": 3
+  },
+  "DGS01": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "DGS02": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGS03": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGS04": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGS05": {
+    "tyranids": 0,
+    "chaos": 5,
+    "mechanical": 0
+  },
+  "DGS06": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "DGS07": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGS08": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGS09": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGS10": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGS11": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGS12": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGS13": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGS14": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGS15": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGS16": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGS17": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGS18": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGS19": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "DGS20": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGS21": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGS22": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGS23": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGS24": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGS25": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGS26": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGS27": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "DGS28": {
+    "tyranids": 0,
+    "chaos": 4,
+    "mechanical": 0
+  },
+  "DGS29": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGS30": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "DGSC03B": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "DGSC13B": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGSC25B": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGE01": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGE02": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGE03": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGE04": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE05": {
+    "tyranids": 0,
+    "chaos": 6,
+    "mechanical": 0
+  },
+  "DGE06": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGE07": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGE08": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGE09": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGE10": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGE11": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE12": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGE13": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE14": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGE15": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE16": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGE17": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "DGE18": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGE19": {
+    "tyranids": 0,
+    "chaos": 8,
+    "mechanical": 0
+  },
+  "DGE20": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE21": {
+    "tyranids": 0,
+    "chaos": 12,
+    "mechanical": 0
+  },
+  "DGE22": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE23": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE24": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGE25": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGE26": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGE27": {
+    "tyranids": 0,
+    "chaos": 9,
+    "mechanical": 0
+  },
+  "DGE28": {
+    "tyranids": 0,
+    "chaos": 4,
+    "mechanical": 0
+  },
+  "DGE29": {
+    "tyranids": 0,
+    "chaos": 10,
+    "mechanical": 0
+  },
+  "DGE30": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGEC03B": {
+    "tyranids": 0,
+    "chaos": 7,
+    "mechanical": 0
+  },
+  "DGEC13B": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  },
+  "DGEC25B": {
+    "tyranids": 0,
+    "chaos": 11,
+    "mechanical": 0
+  }
+}

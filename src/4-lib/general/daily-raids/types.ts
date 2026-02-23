@@ -1,8 +1,6 @@
-import type { Campaign } from "../constants.ts";
-
 export interface IRaidLocation {
 	battleId: string;
-	campaign: Campaign;
+	campaign: string;
 	nodeNumber: number;
 	energyCost: number;
 	dailyBattleCount: number;

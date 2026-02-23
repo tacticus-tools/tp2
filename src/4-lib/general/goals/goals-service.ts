@@ -40,12 +40,12 @@ const BADGES_PER_DAY = 5;
  * Calculate estimates for a single goal.
  * Returns an IGoalEstimate with days, energy, and resource totals.
  */
-export async function calculateGoalEstimate(
+export function calculateGoalEstimate(
 	goal: CharacterRaidGoalSelect,
 	dailyEnergy: number,
 	shardsEnergy: number,
 	playerContext?: PlayerContext,
-): Promise<IGoalEstimate> {
+): IGoalEstimate {
 	const base: IGoalEstimate = {
 		goalId: goal.goalId,
 		daysTotal: 0,
@@ -73,14 +73,14 @@ export async function calculateGoalEstimate(
 	}
 }
 
-async function estimateRankGoal(
+function estimateRankGoal(
 	goal: ICharacterUpgradeRankGoal,
 	dailyEnergy: number,
 	base: IGoalEstimate,
 	ctx: PlayerContext,
-): Promise<IGoalEstimate> {
+): IGoalEstimate {
 	// Upgrade material farming estimate using real recipe data
-	const upgradeEst = await estimateUpgradeDays(
+	const upgradeEst = estimateUpgradeDays(
 		goal.unitId,
 		goal.rankStart,
 		goal.rankEnd,
@@ -114,15 +114,15 @@ async function estimateRankGoal(
 	};
 }
 
-/** Onslaught tokens refresh every 16 hours → 1.5 per day */
+/** Onslaught tokens refresh every 16 hours -> 1.5 per day */
 const ONSLAUGHT_TOKENS_PER_DAY = 1.5;
 
-async function estimateAscendGoal(
+function estimateAscendGoal(
 	goal: ICharacterAscendGoal,
 	shardsEnergy: number,
 	base: IGoalEstimate,
 	ctx: PlayerContext,
-): Promise<IGoalEstimate> {
+): IGoalEstimate {
 	const { shards, mythicShards } = getShardsNeeded(
 		goal.rarityStart,
 		goal.starsStart,
@@ -133,7 +133,7 @@ async function estimateAscendGoal(
 	);
 
 	// Campaign shard farming estimate (provides campaignShardsPerDay + hasLocations)
-	const shardEst = await estimateShardFarmingDays(
+	const shardEst = estimateShardFarmingDays(
 		shards,
 		shardsEnergy,
 		goal.campaignsUsage,
@@ -159,11 +159,6 @@ async function estimateAscendGoal(
 
 	if (regularOnslaughtActive) {
 		// Combined formula — campaign and onslaught farm regular shards in parallel.
-		// Each day: campaignRate regular shards + (available onslaught tokens) * onslaughtShardsPerToken
-		// Onslaught tokens are shared: mythic farming uses some, rest goes to regular shards.
-		// D = (regularShards + mythicTokens * onslaughtShardsPerToken)
-		//     / (campaignRate + ONSLAUGHT_TOKENS_PER_DAY * onslaughtShardsPerToken)
-		// D must be >= mythicDays (mythic must finish)
 		const totalOnslaughtRate =
 			ONSLAUGHT_TOKENS_PER_DAY * onslaughtShardsPerToken;
 		const combinedRate = campaignRate + totalOnslaughtRate;
@@ -175,14 +170,11 @@ async function estimateAscendGoal(
 		} else if (shards <= 0) {
 			combinedDays = Math.ceil(mythicDays);
 		} else {
-			// No campaign rate and no onslaught rate — shouldn't happen when active, but guard
 			combinedDays = Number.POSITIVE_INFINITY;
 		}
 
-		// Total onslaught tokens = all tokens used over combinedDays
 		oTokensTotal = Math.ceil(combinedDays * ONSLAUGHT_TOKENS_PER_DAY);
 	} else {
-		// Campaign only for regular shards + onslaught for mythic only
 		const campaignDays =
 			shards > 0 && campaignRate > 0
 				? Math.ceil(shards / campaignRate)
@@ -202,15 +194,15 @@ async function estimateAscendGoal(
 	};
 }
 
-async function estimateUnlockGoal(
+function estimateUnlockGoal(
 	goal: ICharacterUnlockGoal,
 	shardsEnergy: number,
 	base: IGoalEstimate,
 	ctx: PlayerContext,
-): Promise<IGoalEstimate> {
+): IGoalEstimate {
 	const shardsNeeded = Math.max(0, goal.shards);
 
-	const shardEst = await estimateShardFarmingDays(
+	const shardEst = estimateShardFarmingDays(
 		shardsNeeded,
 		shardsEnergy,
 		goal.campaignsUsage,
@@ -322,12 +314,12 @@ function estimateAbilitiesGoal(
  * Goals are processed sequentially in priority order with a shared mutable
  * inventory so lower-priority goals see reduced materials.
  */
-export async function calculateAllGoalEstimates(
+export function calculateAllGoalEstimates(
 	goals: CharacterRaidGoalSelect[],
 	dailyEnergy: number,
 	shardsEnergy: number,
 	playerContext?: PlayerContext,
-): Promise<IGoalEstimate[]> {
+): IGoalEstimate[] {
 	const sorted = [...goals].sort((a, b) => a.priority - b.priority);
 	const inventoryCopy = { ...(playerContext?.inventory ?? {}) };
 	const results: IGoalEstimate[] = [];
@@ -337,13 +329,7 @@ export async function calculateAllGoalEstimates(
 			inventory: inventoryCopy,
 			mutateInventory: true,
 		};
-		// biome-ignore lint/performance/noAwaitInLoops: Sequential processing — each goal consumes shared inventory
-		const est = await calculateGoalEstimate(
-			goal,
-			dailyEnergy,
-			shardsEnergy,
-			ctx,
-		);
+		const est = calculateGoalEstimate(goal, dailyEnergy, shardsEnergy, ctx);
 		results.push(est);
 	}
 	return results;

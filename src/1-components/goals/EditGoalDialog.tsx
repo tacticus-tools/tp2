@@ -32,8 +32,8 @@ import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { rarityToMaxRank } from "@/4-lib/general/rarity-data.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
-import { unitById } from "@/4-lib/general/unit-data.ts";
 import { cn } from "@/4-lib/utils.ts";
+import { unitById } from "@/5-assets/game-units/index.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 

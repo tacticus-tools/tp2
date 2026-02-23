@@ -3,15 +3,17 @@
  * active upgrade goals, producing a concrete farming plan.
  *
  * Adapted from tacticusplanner's UpgradesService:
- * - populateLocationsData: filters locations by strategy (leastEnergy → cheapest only)
+ * - populateLocationsData: filters locations by strategy (leastEnergy -> cheapest only)
  * - getEstimatesByPriority: per-goal material ordering with shared inventory
  * - getUpgradeEstimate: inner sim for energyTotal/energyLeft per material
  * - generateDailyRaidsList: outer day-by-day simulation
  * - _planRaidsForMaterial: per-material raid planning within a day
  */
 
-import type { IUpgradeLocation } from "../campaign-data.ts";
-import { getAllUpgradeLocations } from "../campaign-data.ts";
+import {
+	getAllUpgradeLocations,
+	type IUpgradeLocation,
+} from "../campaign-data.ts";
 import {
 	type CampaignEventType,
 	filterLocationsByCampaignEvent,
@@ -24,7 +26,7 @@ import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,
 } from "../goals/types.ts";
-import { getAllMaterials } from "../upgrade-data.ts";
+import { getAllMaterials, getBaseUpgradesForRankUp } from "../upgrade-data.ts";
 import type {
 	IBlockedMaterial,
 	IDailyRaid,
@@ -205,20 +207,19 @@ function planRaidsForMaterial(
  * Materials for goal #1 come first (sorted slowest-to-farm within the goal),
  * then goal #2's, etc. Each goal consumes shared inventory before the next.
  */
-async function buildEstimatesByPriority(
+function buildEstimatesByPriority(
 	upgradeRankGoals: ICharacterUpgradeRankGoal[],
 	inventory: Record<string, number>,
 	campaignProgress: Map<Campaign, number>,
 	farmStrategy: "leastEnergy" | "leastTime",
 	campaignEvent: CampaignEventType = "none",
-): Promise<{
+): {
 	allEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
 	materialUnitIds: Map<string, string[]>;
-}> {
-	const { getBaseUpgradesForRankUp } = await import("../upgrade-data.ts");
-	const allLocations = await getAllUpgradeLocations();
-	const allMaterialsData = await getAllMaterials();
+} {
+	const allLocations = getAllUpgradeLocations();
+	const allMaterialsData = getAllMaterials();
 	const inventoryCopy = { ...inventory };
 
 	const blockedMaterials: IBlockedMaterial[] = [];
@@ -227,8 +228,7 @@ async function buildEstimatesByPriority(
 	const allEstimates: IMaterialEstimate[] = [];
 
 	for (const goal of upgradeRankGoals) {
-		// biome-ignore lint/performance/noAwaitInLoops: Goals must be processed sequentially — each consumes shared inventory
-		const baseMaterials = await getBaseUpgradesForRankUp(
+		const baseMaterials = getBaseUpgradesForRankUp(
 			goal.unitId,
 			goal.rankStart,
 			goal.rankEnd,
@@ -243,7 +243,7 @@ async function buildEstimatesByPriority(
 		for (const [materialId, count] of Object.entries(baseMaterials)) {
 			if (count <= 0) continue;
 
-			const locations = allLocations.get(materialId) ?? [];
+			const locations = allLocations[materialId] ?? [];
 			const progressFiltered = filterLocationsByCampaignProgress(
 				locations,
 				campaignProgress,
@@ -254,7 +254,7 @@ async function buildEstimatesByPriority(
 			);
 			const suggested = filterLocationsByStrategy(farmable, farmStrategy);
 
-			const mat = allMaterialsData.get(materialId);
+			const mat = allMaterialsData[materialId];
 			const label = mat?.label ?? materialId;
 			const icon = mat?.icon;
 
@@ -323,28 +323,26 @@ async function buildEstimatesByPriority(
  * Build estimates using total-materials ordering.
  * All materials are pooled across goals and sorted by daysTotal DESC.
  */
-async function buildEstimatesByTotalMaterials(
+function buildEstimatesByTotalMaterials(
 	upgradeRankGoals: ICharacterUpgradeRankGoal[],
 	inventory: Record<string, number>,
 	campaignProgress: Map<Campaign, number>,
 	farmStrategy: "leastEnergy" | "leastTime",
 	campaignEvent: CampaignEventType = "none",
-): Promise<{
+): {
 	allEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
 	materialUnitIds: Map<string, string[]>;
-}> {
-	const { getBaseUpgradesForRankUp } = await import("../upgrade-data.ts");
-	const allLocations = await getAllUpgradeLocations();
-	const allMaterialsData = await getAllMaterials();
+} {
+	const allLocations = getAllUpgradeLocations();
+	const allMaterialsData = getAllMaterials();
 	const inventoryCopy = { ...inventory };
 
 	// Accumulate materials across all goals
 	const materialNeeds = new Map<string, { count: number; unitIds: string[] }>();
 
 	for (const goal of upgradeRankGoals) {
-		// biome-ignore lint/performance/noAwaitInLoops: Goals must be processed sequentially — each consumes shared inventory
-		const baseMaterials = await getBaseUpgradesForRankUp(
+		const baseMaterials = getBaseUpgradesForRankUp(
 			goal.unitId,
 			goal.rankStart,
 			goal.rankEnd,
@@ -376,7 +374,7 @@ async function buildEstimatesByTotalMaterials(
 	const allEstimates: IMaterialEstimate[] = [];
 
 	for (const [materialId, { count, unitIds }] of materialNeeds) {
-		const locations = allLocations.get(materialId) ?? [];
+		const locations = allLocations[materialId] ?? [];
 		const progressFiltered = filterLocationsByCampaignProgress(
 			locations,
 			campaignProgress,
@@ -387,7 +385,7 @@ async function buildEstimatesByTotalMaterials(
 		);
 		const suggested = filterLocationsByStrategy(farmable, farmStrategy);
 
-		const mat = allMaterialsData.get(materialId);
+		const mat = allMaterialsData[materialId];
 		const label = mat?.label ?? materialId;
 		const icon = mat?.icon;
 
@@ -438,7 +436,7 @@ async function buildEstimatesByTotalMaterials(
  * @param farmStrategy - "leastEnergy" (cheapest node only) or "leastTime" (all nodes)
  * @param farmOrder - "goalPriority" (per-goal ordering) or "totalMaterials" (pooled)
  */
-export async function generateDailyRaidsPlan(
+export function generateDailyRaidsPlan(
 	goals: CharacterRaidGoalSelect[],
 	dailyEnergy: number,
 	campaignProgress: Map<Campaign, number>,
@@ -448,7 +446,7 @@ export async function generateDailyRaidsPlan(
 	campaignEvent: CampaignEventType = "none",
 	homeScreenEvent: HomeScreenEventType = "none",
 	hseMinEnemyCount = 5,
-): Promise<IDailyRaidsPlan> {
+): IDailyRaidsPlan {
 	if (dailyEnergy <= 0) {
 		return {
 			days: [],
@@ -477,14 +475,14 @@ export async function generateDailyRaidsPlan(
 	// Build estimates based on farm order
 	const { allEstimates: rawEstimates, blockedMaterials } =
 		farmOrder === "goalPriority"
-			? await buildEstimatesByPriority(
+			? buildEstimatesByPriority(
 					upgradeRankGoals,
 					inventory,
 					campaignProgress,
 					farmStrategy,
 					campaignEvent,
 				)
-			: await buildEstimatesByTotalMaterials(
+			: buildEstimatesByTotalMaterials(
 					upgradeRankGoals,
 					inventory,
 					campaignProgress,

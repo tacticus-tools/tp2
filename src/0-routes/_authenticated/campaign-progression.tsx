@@ -92,19 +92,11 @@ function CampaignProgressionPage() {
 		const progress = getMergedProgress();
 		const inv = inventory ? buildInventoryMap(inventory.upgrades) : undefined;
 
-		void computeCampaignProgression(typedGoals, progress, inv)
-			.then((data) => {
-				if (cancelled) return;
-				setResult(data);
-			})
-			.catch(() => {
-				if (cancelled) return;
-				setResult(null);
-			})
-			.finally(() => {
-				if (cancelled) return;
-				setComputing(false);
-			});
+		const data = computeCampaignProgression(typedGoals, progress, inv);
+		if (!cancelled) {
+			setResult(data);
+			setComputing(false);
+		}
 
 		return () => {
 			cancelled = true;

@@ -1,5 +1,5 @@
+import { unitById } from "@/5-assets/game-units/index.ts";
 import { CampaignsLocationsUsage, PersonalGoalType } from "./constants.ts";
-import { unitById } from "./unit-data.ts";
 
 /**
  * Shape of a goal in a tacticusplanner export JSON.

@@ -1,4 +1,4 @@
-import { type Alliance, type Campaign, Rank, Rarity } from "./constants.ts";
+import { type Alliance, Rank, Rarity } from "./constants.ts";
 
 const rankFilenames: Record<Rank, string> = {
 	[Rank.Locked]: "stone1.png",
@@ -81,7 +81,7 @@ export function getXpBookIconUrl(rarity: "legendary" | "mythic"): string {
 	).href;
 }
 
-export function getCampaignImageUrl(campaign: Campaign): string {
+export function getCampaignImageUrl(campaign: string): string {
 	return new URL(
 		`../../5-assets/images/tacticus/campaigns/${campaign}.png`,
 		import.meta.url,

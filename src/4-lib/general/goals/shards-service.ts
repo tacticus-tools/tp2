@@ -70,14 +70,14 @@ export function getUnlockShardsNeeded(
  * Estimate days to farm shards through campaign raids.
  * Uses real campaign node data to determine energy cost and shard rates.
  */
-export async function estimateShardFarmingDays(
+export function estimateShardFarmingDays(
 	shardsNeeded: number,
 	dailyEnergy: number,
 	_campaignsUsage: CampaignsLocationsUsage,
 	unitId?: string,
 	campaignProgress: Map<Campaign, number> = new Map(),
 	campaignEvent: CampaignEventType = "none",
-): Promise<IShardsEstimate> {
+): IShardsEstimate {
 	if (shardsNeeded <= 0) {
 		return {
 			shardsNeeded: 0,
@@ -92,7 +92,7 @@ export async function estimateShardFarmingDays(
 
 	// Try to use real shard location data if unitId is provided
 	if (unitId) {
-		const allLocations = await getShardLocations(unitId);
+		const allLocations = getShardLocations(unitId);
 		const progressFiltered = filterLocationsByCampaignProgress(
 			allLocations,
 			campaignProgress,

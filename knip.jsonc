@@ -6,8 +6,10 @@
 		"src/2-integrations/convex/header-user.tsx", // wired into AppLayout soon
 		"src/5-assets/*/generate-data.ts", // build-time data pipelines, not all registered in vite.config yet
 		"src/5-assets/_template/**/*", // boilerplate template for new asset pipelines
+		"src/5-assets/campaign-battles/index.ts", // campaign battles pipeline — consumed by derived pipelines at build time
 		"src/5-assets/factions/index.ts", // factions pipeline — not yet wired into UI
 		"src/5-assets/guild-war/index.ts", // guild war pipeline — not yet wired into UI
+		"src/5-assets/materials/index.ts", // materials pipeline — consumed by derived pipelines at build time
 		"src/5-assets/le-battles/index.ts", // LE battles pipeline — not yet wired into UI
 		"src/5-assets/legacy-json/compare-with-active-pipelines.ts", // dev utility script
 		"scripts/**/*" // dev utility scripts (normalize-images, etc.)

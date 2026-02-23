@@ -10,7 +10,7 @@ import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,
 } from "../goals/types.ts";
-import { getAllMaterials } from "../upgrade-data.ts";
+import { getAllMaterials, getBaseUpgradesForRankUp } from "../upgrade-data.ts";
 import type {
 	IBattleSavings,
 	ICampaignProgressionData,
@@ -24,11 +24,11 @@ import type {
  * For each UpgradeRank goal, determines which locked campaign nodes would provide
  * the most energy savings if beaten, and identifies unfarmable materials.
  */
-export async function computeCampaignProgression(
+export function computeCampaignProgression(
 	goals: CharacterRaidGoalSelect[],
 	campaignProgress: Map<Campaign, number>,
 	inventory?: Record<string, number>,
-): Promise<ICampaignProgressionResult> {
+): ICampaignProgressionResult {
 	const upgradeRankGoals = goals.filter(
 		(g): g is ICharacterUpgradeRankGoal =>
 			g.type === PersonalGoalType.UpgradeRank && g.include,
@@ -44,15 +44,13 @@ export async function computeCampaignProgression(
 	}
 
 	// Step 1: Accumulate base materials needed across all goals
-	const { getBaseUpgradesForRankUp } = await import("../upgrade-data.ts");
 	const materialNeeds = new Map<string, { count: number; unitIds: string[] }>();
 
 	// Use a shared inventory copy so materials are subtracted across goals by priority
 	const inventoryCopy = inventory ? { ...inventory } : {};
 
 	for (const goal of upgradeRankGoals) {
-		// biome-ignore lint/performance/noAwaitInLoops: Goals must be processed sequentially — each consumes shared inventory
-		const baseMaterials = await getBaseUpgradesForRankUp(
+		const baseMaterials = getBaseUpgradesForRankUp(
 			goal.unitId,
 			goal.rankStart,
 			goal.rankEnd,
@@ -87,8 +85,8 @@ export async function computeCampaignProgression(
 	}
 
 	// Step 2: For each material, split locations into farmable vs locked
-	const allLocations = await getAllUpgradeLocations();
-	const allMaterials = await getAllMaterials();
+	const allLocations = getAllUpgradeLocations();
+	const allMaterials = getAllMaterials();
 
 	const unfarmableMaterials: IUnfarmableMaterial[] = [];
 	let currentTotalEnergy = 0;
@@ -106,7 +104,7 @@ export async function computeCampaignProgression(
 	>();
 
 	for (const [materialId, { count, unitIds }] of materialNeeds) {
-		const locations = allLocations.get(materialId) ?? [];
+		const locations = allLocations[materialId] ?? [];
 		const farmable = filterLocationsByCampaignProgress(
 			locations,
 			campaignProgress,
@@ -121,7 +119,7 @@ export async function computeCampaignProgression(
 		}
 
 		if (!canFarm) {
-			const mat = allMaterials.get(materialId);
+			const mat = allMaterials[materialId];
 			unfarmableMaterials.push({
 				materialId,
 				materialLabel: mat?.label ?? materialId,
@@ -144,13 +142,13 @@ export async function computeCampaignProgression(
 	const campaignSavingsMap = new Map<Campaign, IBattleSavings[]>();
 
 	for (const [materialId, state] of materialFarmState) {
-		const locations = allLocations.get(materialId) ?? [];
-		const mat = allMaterials.get(materialId);
+		const locations = allLocations[materialId] ?? [];
+		const mat = allMaterials[materialId];
 		const materialLabel = mat?.label ?? materialId;
 
 		// Get locked locations (not yet beaten)
 		const locked = locations.filter((loc) => {
-			const maxNode = campaignProgress.get(loc.campaign);
+			const maxNode = campaignProgress.get(loc.campaign as Campaign);
 			// If campaign not started, node is locked
 			if (maxNode === undefined) return true;
 			return loc.nodeNumber > maxNode;
@@ -177,7 +175,7 @@ export async function computeCampaignProgression(
 
 			const entry: IBattleSavings = {
 				battleId: loc.battleId,
-				campaign: loc.campaign,
+				campaign: loc.campaign as Campaign,
 				nodeNumber: loc.nodeNumber,
 				materialId,
 				materialLabel,
@@ -190,11 +188,11 @@ export async function computeCampaignProgression(
 				energyPerItem: loc.energyPerItem,
 			};
 
-			const existing = campaignSavingsMap.get(loc.campaign);
+			const existing = campaignSavingsMap.get(loc.campaign as Campaign);
 			if (existing) {
 				existing.push(entry);
 			} else {
-				campaignSavingsMap.set(loc.campaign, [entry]);
+				campaignSavingsMap.set(loc.campaign as Campaign, [entry]);
 			}
 		}
 	}

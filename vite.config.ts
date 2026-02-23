@@ -9,17 +9,22 @@ import { defineConfig } from "vite";
 import viteTsConfigPaths from "vite-tsconfig-paths";
 import { main as prepareAbilityCostData } from "./src/5-assets/ability-costs/generate-data.ts";
 import { main as prepareCampaignBattleData } from "./src/5-assets/campaign-battles/generate-data.ts";
+import { main as prepareCampaignDerivedData } from "./src/5-assets/campaign-derived/generate-data.ts";
+import { main as prepareCampaignMetadata } from "./src/5-assets/campaign-metadata/generate-data.ts";
 import { main as prepareCharacterRankUpMaterialData } from "./src/5-assets/character-rank-up-materials/generate-data.ts";
 import { main as prepareCharacterData } from "./src/5-assets/characters/generate-data.ts";
 import { main as prepareDropRateData } from "./src/5-assets/drop-rates/generate-data.ts";
 import { main as prepareEquipmentData } from "./src/5-assets/equipment/generate-data.ts";
 import { main as prepareFactionData } from "./src/5-assets/factions/generate-data.ts";
+import { main as prepareFarmingLocationData } from "./src/5-assets/farming-locations/generate-data.ts";
+import { main as prepareGameUnitData } from "./src/5-assets/game-units/generate-data.ts";
 import { main as prepareGuildWarData } from "./src/5-assets/guild-war/generate-data.ts";
 import { main as prepareLeBattleData } from "./src/5-assets/le-battles/generate-data.ts";
 import { main as prepareMaterialData } from "./src/5-assets/materials/generate-data.ts";
 import { main as prepareMowData } from "./src/5-assets/mows/generate-data.ts";
 import { main as prepareNpcData } from "./src/5-assets/npcs/generate-data.ts";
 import { main as prepareOnslaughtData } from "./src/5-assets/onslaught/generate-data.ts";
+import { main as prepareRecipeData } from "./src/5-assets/recipes/generate-data.ts";
 import { main as prepareXpLevelData } from "./src/5-assets/xp-levels/generate-data.ts";
 
 const config = defineConfig({
@@ -85,6 +90,18 @@ const config = defineConfig({
 		},
 		{ name: "prepareDropRateData", buildStart: prepareDropRateData }, // References: CampaignBattles[types]
 		{ name: "prepareLeBattleData", buildStart: prepareLeBattleData }, // References: Characters[Factions], Characters[Traits], Characters[DamageTypes], NPCs[ids]
+		// Derived pipelines (depend on raw pipelines above)
+		{ name: "prepareRecipeData", buildStart: prepareRecipeData }, // References: Materials[data]
+		{ name: "prepareGameUnitData", buildStart: prepareGameUnitData }, // References: Characters[data], Mows[data]
+		{ name: "prepareCampaignMetadata", buildStart: prepareCampaignMetadata }, // References: CampaignBattles[data]
+		{
+			name: "prepareFarmingLocationData",
+			buildStart: prepareFarmingLocationData,
+		}, // References: CampaignBattles[data], DropRates[data], Materials[data]
+		{
+			name: "prepareCampaignDerivedData",
+			buildStart: prepareCampaignDerivedData,
+		}, // References: CampaignMetadata[data], CampaignBattles[data], NPCs[data]
 	],
 });
 

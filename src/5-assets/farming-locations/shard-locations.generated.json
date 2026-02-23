@@ -1,0 +1,2392 @@
+{
+  "ultraInceptorSgt": [
+    {
+      "battleId": "I02",
+      "campaign": "Indomitus",
+      "campaignType": "SuperEarly",
+      "nodeNumber": 2,
+      "energyCost": 3,
+      "dailyBattleCount": 3,
+      "dropRate": 1,
+      "expectedShards": 25,
+      "energyPerShard": 0.12,
+      "isMythic": false
+    },
+    {
+      "battleId": "I01",
+      "campaign": "Indomitus",
+      "campaignType": "SuperEarly",
+      "nodeNumber": 1,
+      "energyCost": 3,
+      "dailyBattleCount": 3,
+      "dropRate": 1,
+      "expectedShards": 15,
+      "energyPerShard": 0.2,
+      "isMythic": false
+    },
+    {
+      "battleId": "IME16",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I24",
+      "campaign": "Indomitus",
+      "campaignType": "Early",
+      "nodeNumber": 24,
+      "energyCost": 5,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 11.682242990654206,
+      "isMythic": false
+    },
+    {
+      "battleId": "IM30",
+      "campaign": "Indomitus Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IME16",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "ultraEliminatorSgt": [
+    {
+      "battleId": "I04",
+      "campaign": "Indomitus",
+      "campaignType": "SuperEarly",
+      "nodeNumber": 4,
+      "energyCost": 3,
+      "dailyBattleCount": 3,
+      "dropRate": 1,
+      "expectedShards": 25,
+      "energyPerShard": 0.12,
+      "isMythic": false
+    },
+    {
+      "battleId": "I03",
+      "campaign": "Indomitus",
+      "campaignType": "SuperEarly",
+      "nodeNumber": 3,
+      "energyCost": 3,
+      "dailyBattleCount": 3,
+      "dropRate": 1,
+      "expectedShards": 15,
+      "energyPerShard": 0.2,
+      "isMythic": false
+    },
+    {
+      "battleId": "IME24",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I21",
+      "campaign": "Indomitus",
+      "campaignType": "Early",
+      "nodeNumber": 21,
+      "energyCost": 5,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 11.682242990654206,
+      "isMythic": false
+    },
+    {
+      "battleId": "IM45",
+      "campaign": "Indomitus Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IME24",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "necroWarden": [
+    {
+      "battleId": "IE08",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I15",
+      "campaign": "Indomitus",
+      "campaignType": "Early",
+      "nodeNumber": 15,
+      "energyCost": 5,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 11.682242990654206,
+      "isMythic": false
+    },
+    {
+      "battleId": "IE08",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "ultraTigurius": [
+    {
+      "battleId": "IME32",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I18",
+      "campaign": "Indomitus",
+      "campaignType": "Early",
+      "nodeNumber": 18,
+      "energyCost": 5,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 11.682242990654206,
+      "isMythic": false
+    },
+    {
+      "battleId": "IM60",
+      "campaign": "Indomitus Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IME32",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "ultraApothecary": [
+    {
+      "battleId": "I27",
+      "campaign": "Indomitus",
+      "campaignType": "Early",
+      "nodeNumber": 27,
+      "energyCost": 5,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 11.682242990654206,
+      "isMythic": false
+    }
+  ],
+  "adeptRetributor": [
+    {
+      "battleId": "IME08",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I29",
+      "campaign": "Indomitus",
+      "campaignType": "Early",
+      "nodeNumber": 29,
+      "energyCost": 5,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 11.682242990654206,
+      "isMythic": false
+    },
+    {
+      "battleId": "IM15",
+      "campaign": "Indomitus Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 15,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IME08",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "necroDestroyer": [
+    {
+      "battleId": "IE16",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I30",
+      "campaign": "Indomitus",
+      "campaignType": "Normal",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IE16",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "necroSpyder": [
+    {
+      "battleId": "IE24",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I45",
+      "campaign": "Indomitus",
+      "campaignType": "Normal",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IE24",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "necroPlasmancer": [
+    {
+      "battleId": "IE32",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I60",
+      "campaign": "Indomitus",
+      "campaignType": "Normal",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IE32",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "necroOverlord": [
+    {
+      "battleId": "IE40",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "I75",
+      "campaign": "Indomitus",
+      "campaignType": "Normal",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IE40",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "astraBullgryn": [
+    {
+      "battleId": "FoCE08",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoC15",
+      "campaign": "Fall of Cadia",
+      "campaignType": "Normal",
+      "nodeNumber": 15,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCE08",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "astraPrimarisPsy": [
+    {
+      "battleId": "FoCE16",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoC30",
+      "campaign": "Fall of Cadia",
+      "campaignType": "Normal",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCE16",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "astraOrdnance": [
+    {
+      "battleId": "FoCE24",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoC45",
+      "campaign": "Fall of Cadia",
+      "campaignType": "Normal",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCE24",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "adeptCelestine": [
+    {
+      "battleId": "FoCE32",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoC60",
+      "campaign": "Fall of Cadia",
+      "campaignType": "Normal",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCE32",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "astraCreed": [
+    {
+      "battleId": "FoCE40",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoC75",
+      "campaign": "Fall of Cadia",
+      "campaignType": "Normal",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCE40",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "templAggressor": [
+    {
+      "battleId": "OE08",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "O15",
+      "campaign": "Octarius",
+      "campaignType": "Normal",
+      "nodeNumber": 15,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OE08",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "templSwordBrother": [
+    {
+      "battleId": "OE16",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "O30",
+      "campaign": "Octarius",
+      "campaignType": "Normal",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OE16",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "templAncient": [
+    {
+      "battleId": "OE24",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "O45",
+      "campaign": "Octarius",
+      "campaignType": "Normal",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OE24",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "templChampion": [
+    {
+      "battleId": "OE32",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "O60",
+      "campaign": "Octarius",
+      "campaignType": "Normal",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OE32",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "templHelbrecht": [
+    {
+      "battleId": "OE40",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "O75",
+      "campaign": "Octarius",
+      "campaignType": "Normal",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OE40",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "thousTerminator": [
+    {
+      "battleId": "SHE08",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SH15",
+      "campaign": "Saim-Hann",
+      "campaignType": "Normal",
+      "nodeNumber": 15,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHE08",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "thousInfernalMaster": [
+    {
+      "battleId": "SHE16",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SH30",
+      "campaign": "Saim-Hann",
+      "campaignType": "Normal",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHE16",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "thousTzaangor": [
+    {
+      "battleId": "SHE24",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SH45",
+      "campaign": "Saim-Hann",
+      "campaignType": "Normal",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHE24",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "thousSorcerer": [
+    {
+      "battleId": "SHE32",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SH60",
+      "campaign": "Saim-Hann",
+      "campaignType": "Normal",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHE32",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "thousAhriman": [
+    {
+      "battleId": "SHE40",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SH75",
+      "campaign": "Saim-Hann",
+      "campaignType": "Normal",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHE40",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "ultraCalgar": [
+    {
+      "battleId": "IME40",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "IM75",
+      "campaign": "Indomitus Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "IME40",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "blackTerminator": [
+    {
+      "battleId": "FoCME08",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCM15",
+      "campaign": "Fall of Cadia Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 15,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCME08",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "blackPossession": [
+    {
+      "battleId": "FoCME16",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCM30",
+      "campaign": "Fall of Cadia Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCME16",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "blackObliterator": [
+    {
+      "battleId": "FoCME24",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCM45",
+      "campaign": "Fall of Cadia Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCME24",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "blackHaarken": [
+    {
+      "battleId": "FoCME32",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCM60",
+      "campaign": "Fall of Cadia Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCME32",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "blackAbaddon": [
+    {
+      "battleId": "FoCME40",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCM75",
+      "campaign": "Fall of Cadia Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "FoCME40",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "orksKillaKan": [
+    {
+      "battleId": "OME08",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "OM15",
+      "campaign": "Octarius Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 15,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OME08",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "orksBigMek": [
+    {
+      "battleId": "OME16",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "OM30",
+      "campaign": "Octarius Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OME16",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "orksRuntherd": [
+    {
+      "battleId": "OME24",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "OM45",
+      "campaign": "Octarius Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OME24",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "orksNob": [
+    {
+      "battleId": "OME32",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "OM60",
+      "campaign": "Octarius Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OME32",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "orksWarboss": [
+    {
+      "battleId": "OME40",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "OM75",
+      "campaign": "Octarius Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "OME40",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "eldarRanger": [
+    {
+      "battleId": "SHME08",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHM15",
+      "campaign": "Saim-Hann Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 15,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHME08",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 8,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "eldarAutarch": [
+    {
+      "battleId": "SHME16",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHM30",
+      "campaign": "Saim-Hann Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHME16",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 16,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "eldarFarseer": [
+    {
+      "battleId": "SHME24",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHM45",
+      "campaign": "Saim-Hann Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 45,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHME24",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 24,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "eldarJainZar": [
+    {
+      "battleId": "SHME32",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHM60",
+      "campaign": "Saim-Hann Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 60,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHME32",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 32,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "eldarMauganRa": [
+    {
+      "battleId": "SHME40",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1,
+      "expectedShards": 1,
+      "energyPerShard": 10,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHM75",
+      "campaign": "Saim-Hann Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 75,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "SHME40",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 40,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 0.079,
+      "expectedShards": 0.079,
+      "energyPerShard": 126.58227848101265,
+      "isMythic": false
+    }
+  ],
+  "admecMarshall": [
+    {
+      "battleId": "AME06",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "AMS06",
+      "campaign": "Adeptus Mechanicus Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "AME25",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 25,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "admecRuststalker": [
+    {
+      "battleId": "AME11",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "AMS11",
+      "campaign": "Adeptus Mechanicus Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "AME26",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 26,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "admecManipulus": [
+    {
+      "battleId": "AME17",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "AMS17",
+      "campaign": "Adeptus Mechanicus Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "AME27",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 27,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "admecDominus": [
+    {
+      "battleId": "AME22",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "AMS22",
+      "campaign": "Adeptus Mechanicus Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "AME28",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 28,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "admecDestroyer": [
+    {
+      "battleId": "AME24",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 24,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "AMS30",
+      "campaign": "Adeptus Mechanicus Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "AME29",
+      "campaign": "Adeptus Mechanicus Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 29,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tyranDeathleaper": [
+    {
+      "battleId": "TE06",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TS06",
+      "campaign": "Tyranids Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TE25",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 25,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tyranWingedPrime": [
+    {
+      "battleId": "TE11",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TS11",
+      "campaign": "Tyranids Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TE26",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 26,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tyranNeurothrope": [
+    {
+      "battleId": "TE17",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TS17",
+      "campaign": "Tyranids Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TE27",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 27,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tyranParasite": [
+    {
+      "battleId": "TE22",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TS22",
+      "campaign": "Tyranids Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TE28",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 28,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tyranTyrantGuard": [
+    {
+      "battleId": "TE24",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 24,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TS30",
+      "campaign": "Tyranids Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TE29",
+      "campaign": "Tyranids Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 29,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tauCrisis": [
+    {
+      "battleId": "TAE06",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAS06",
+      "campaign": "T'au Empire Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAE25",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 25,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tauMarksman": [
+    {
+      "battleId": "TAE11",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAS11",
+      "campaign": "T'au Empire Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAE26",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 26,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tauDarkstrider": [
+    {
+      "battleId": "TAE17",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAS17",
+      "campaign": "T'au Empire Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAE27",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 27,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tauShadowsun": [
+    {
+      "battleId": "TAE22",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAS22",
+      "campaign": "T'au Empire Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAE28",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 28,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "tauAunShi": [
+    {
+      "battleId": "TAE24",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 24,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAS30",
+      "campaign": "T'au Empire Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "TAE29",
+      "campaign": "T'au Empire Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 29,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "deathBlightlord": [
+    {
+      "battleId": "DGE06",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGS06",
+      "campaign": "Death Guard Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 6,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGE25",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 25,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "deathPutrifier": [
+    {
+      "battleId": "DGE11",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGS11",
+      "campaign": "Death Guard Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 11,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGE26",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 26,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "deathBlightbringer": [
+    {
+      "battleId": "DGE17",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGS17",
+      "campaign": "Death Guard Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 17,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGE27",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 27,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "deathTyphus": [
+    {
+      "battleId": "DGE22",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGS22",
+      "campaign": "Death Guard Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 22,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGE28",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 28,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ],
+  "deathRotbone": [
+    {
+      "battleId": "DGE24",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 24,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.642,
+      "expectedShards": 0.642,
+      "energyPerShard": 9.345794392523365,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGS30",
+      "campaign": "Death Guard Standard",
+      "campaignType": "Standard",
+      "nodeNumber": 30,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.428,
+      "expectedShards": 0.428,
+      "energyPerShard": 14.018691588785048,
+      "isMythic": false
+    },
+    {
+      "battleId": "DGE29",
+      "campaign": "Death Guard Extremis",
+      "campaignType": "Extremis",
+      "nodeNumber": 29,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.266,
+      "expectedShards": 0.266,
+      "energyPerShard": 22.55639097744361,
+      "isMythic": true
+    }
+  ]
+}

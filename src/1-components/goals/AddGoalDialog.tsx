@@ -41,12 +41,12 @@ import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { rarityToMaxRank } from "@/4-lib/general/rarity-data.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
+import { cn } from "@/4-lib/utils.ts";
 import {
 	allGameUnitsSorted,
-	type IGameUnit,
+	type GameUnit,
 	unitById,
-} from "@/4-lib/general/unit-data.ts";
-import { cn } from "@/4-lib/utils.ts";
+} from "@/5-assets/game-units/index.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
@@ -108,7 +108,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 	const [goalType, setGoalType] = useState<PersonalGoalType>(
 		PersonalGoalType.UpgradeRank,
 	);
-	const [selectedUnit, setSelectedUnit] = useState<IGameUnit | null>(null);
+	const [selectedUnit, setSelectedUnit] = useState<GameUnit | null>(null);
 	const [notes, setNotes] = useState("");
 	const [include, setInclude] = useState(true);
 
@@ -219,7 +219,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 		passiveEnd,
 	]);
 
-	function handleUnitSelect(unit: IGameUnit) {
+	function handleUnitSelect(unit: GameUnit) {
 		setSelectedUnit(unit);
 		setUnitSearch("");
 

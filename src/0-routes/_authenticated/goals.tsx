@@ -78,7 +78,7 @@ import type {
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { parsePlannerExport } from "@/4-lib/general/import-planner.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
-import { unitById } from "@/4-lib/general/unit-data.ts";
+import { unitById } from "@/5-assets/game-units/index.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
@@ -319,41 +319,26 @@ function GoalsPage() {
 			return;
 		}
 
-		let cancelled = false;
 		const currentToken = estimatesDepsToken;
 		const typedGoals = buildTypedGoals(goals, roster);
 		const sorted = [...typedGoals].sort((a, b) => a.priority - b.priority);
 		const inventoryCopy = { ...(playerContext.inventory ?? {}) };
 
-		void (async () => {
-			const results: IGoalEstimate[] = [];
-			for (const goal of sorted) {
-				if (cancelled) return;
-				const ctx: PlayerContext = {
-					...playerContext,
-					inventory: inventoryCopy,
-					mutateInventory: true,
-				};
-				// biome-ignore lint/performance/noAwaitInLoops: Sequential processing — each goal consumes shared inventory
-				const est = await calculateGoalEstimate(
-					goal,
-					dailyEnergy,
-					shardsEnergy,
-					ctx,
-				);
-				results.push(est);
-			}
-			if (cancelled) return;
-			const map = new Map<string, IGoalEstimate>();
-			for (const est of results) {
-				map.set(est.goalId, est);
-			}
-			setEstimatesResult({ map, token: currentToken });
-		})();
-
-		return () => {
-			cancelled = true;
-		};
+		const results: IGoalEstimate[] = [];
+		for (const goal of sorted) {
+			const ctx: PlayerContext = {
+				...playerContext,
+				inventory: inventoryCopy,
+				mutateInventory: true,
+			};
+			const est = calculateGoalEstimate(goal, dailyEnergy, shardsEnergy, ctx);
+			results.push(est);
+		}
+		const map = new Map<string, IGoalEstimate>();
+		for (const est of results) {
+			map.set(est.goalId, est);
+		}
+		setEstimatesResult({ map, token: currentToken });
 	}, [estimatesDepsToken]);
 
 	// Only use estimates if they were computed with the current deps
@@ -434,7 +419,7 @@ function GoalsPage() {
 			(playerContext.campaignProgress as Map<Campaign, number>) ?? new Map();
 		const inv = playerContext.inventory ?? {};
 
-		void generateDailyRaidsPlan(
+		const plan = generateDailyRaidsPlan(
 			typedGoals,
 			dailyEnergy,
 			progress,
@@ -444,16 +429,11 @@ function GoalsPage() {
 			playerContext.campaignEvent ?? "none",
 			homeScreenEvent,
 			hseMinEnemyCount,
-		)
-			.then((plan) => {
-				if (cancelled) return;
-				setRaidsResult({ plan, token: currentToken });
-				setComputingRaids(false);
-			})
-			.catch((err) => {
-				console.error("[DailyRaids] generation failed:", err);
-				if (!cancelled) setComputingRaids(false);
-			});
+		);
+		if (!cancelled) {
+			setRaidsResult({ plan, token: currentToken });
+			setComputingRaids(false);
+		}
 
 		return () => {
 			cancelled = true;

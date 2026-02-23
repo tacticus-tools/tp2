@@ -1,6 +1,8 @@
 import type { CharacterId } from "@/5-assets/characters/index.ts";
-import type { IUpgradeLocation } from "../campaign-data.ts";
-import { getAllUpgradeLocations } from "../campaign-data.ts";
+import {
+	getAllUpgradeLocations,
+	type IUpgradeLocation,
+} from "../campaign-data.ts";
 import {
 	type CampaignEventType,
 	filterLocationsByCampaignEvent,
@@ -23,7 +25,7 @@ export interface IUpgradeEstimate {
  * then looks up the cheapest farming locations for each material
  * to compute accurate energy and raid estimates.
  */
-export async function estimateUpgradeDays(
+export function estimateUpgradeDays(
 	unitId: CharacterId,
 	rankStart: Rank,
 	rankEnd: Rank,
@@ -34,7 +36,7 @@ export async function estimateUpgradeDays(
 	campaignProgress: Map<Campaign, number> = new Map(),
 	campaignEvent: CampaignEventType = "none",
 	mutateInventory = false,
-): Promise<IUpgradeEstimate> {
+): IUpgradeEstimate {
 	if (rankEnd <= rankStart || dailyEnergy <= 0) {
 		return { daysTotal: 0, energyTotal: 0, raidsTotal: 0 };
 	}
@@ -46,7 +48,7 @@ export async function estimateUpgradeDays(
 	}
 
 	// Get actual base materials needed for this rank-up (subtracting inventory)
-	const baseUpgrades = await getBaseUpgradesForRankUp(
+	const baseUpgrades = getBaseUpgradesForRankUp(
 		unitId,
 		rankStart,
 		rankEnd,
@@ -62,7 +64,7 @@ export async function estimateUpgradeDays(
 	}
 
 	// Get all upgrade locations indexed by material
-	const allLocations = await getAllUpgradeLocations();
+	const allLocations = getAllUpgradeLocations();
 
 	// For each material, compute energy needed using the cheapest location
 	let totalEnergy = 0;
@@ -78,7 +80,7 @@ export async function estimateUpgradeDays(
 	}> = [];
 
 	for (const [materialId, count] of Object.entries(baseUpgrades)) {
-		const rawLocations = allLocations.get(materialId);
+		const rawLocations = allLocations[materialId];
 		const progressFiltered = rawLocations
 			? filterLocationsByCampaignProgress<IUpgradeLocation>(
 					rawLocations,
