@@ -22,7 +22,9 @@
 		"check": "bun run biomePrecheck && biome check && eslint .",
 		"fix": "bun run biomePrecheck && biome check --fix && eslint --fix .",
 		"build-ci": "bun run fix && tsc --noEmit && bun run build",
-		"knip": "knip"
+		"knip": "knip",
+		"normalize-images": "bun run scripts/normalize-images.ts",
+		"normalize-images:fix": "bun run scripts/normalize-images.ts --fix"
 	},
 	"dependencies": {
 		"@auth/core": "0.41.1",
@@ -79,6 +81,7 @@
 		"eslint-plugin-testing-library": "^7.15.4",
 		"happy-dom": "^20.6.1",
 		"knip": "^5.83.1",
+		"sharp": "^0.34.5",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.55.0",
 		"vite": "^7.3.1",
