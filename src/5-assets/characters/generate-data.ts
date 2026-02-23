@@ -52,6 +52,8 @@ const RawCharacterSchema = z
 		Traits: z.array(z.string().nonempty()),
 		"Active Ability": z.array(z.string().nonempty()).min(1).optional(),
 		"Passive Ability": z.array(z.string().nonempty()).min(1).optional(),
+		"Active Ability Names": z.array(z.string().nonempty()).min(1).nullable(),
+		"Passive Ability Names": z.array(z.string().nonempty()).min(1).nullable(),
 		Number: z.int().nonnegative(),
 		Icon: z
 			.string()
@@ -98,6 +100,8 @@ const RawCharacterSchema = z
 		traits: raw.Traits,
 		activeAbility: raw["Active Ability"] ?? null,
 		passiveAbility: raw["Passive Ability"] ?? null,
+		activeAbilityName: raw["Active Ability Names"]?.[0] ?? null,
+		passiveAbilityName: raw["Passive Ability Names"]?.[0] ?? null,
 		number: raw.Number,
 		icon: raw.Icon,
 		roundIcon: raw.RoundIcon,

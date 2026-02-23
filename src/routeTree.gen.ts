@@ -12,11 +12,13 @@ import { Route as rootRouteImport } from './0-routes/__root'
 import { Route as SigninRouteImport } from './0-routes/signin'
 import { Route as AuthenticatedRouteImport } from './0-routes/_authenticated'
 import { Route as IndexRouteImport } from './0-routes/index'
+import { Route as SharedRosterRouteImport } from './0-routes/shared/roster'
 import { Route as DataOnslaughtRouteImport } from './0-routes/data/onslaught'
 import { Route as DataNpcsRouteImport } from './0-routes/data/npcs'
 import { Route as DataEquipmentRouteImport } from './0-routes/data/equipment'
 import { Route as DataCharactersRouteImport } from './0-routes/data/characters'
 import { Route as AuthenticatedSettingsRouteImport } from './0-routes/_authenticated/settings'
+import { Route as AuthenticatedRosterRouteImport } from './0-routes/_authenticated/roster'
 import { Route as AuthenticatedGoalsRouteImport } from './0-routes/_authenticated/goals'
 import { Route as AuthenticatedCampaignsRouteImport } from './0-routes/_authenticated/campaigns'
 import { Route as AuthenticatedCampaignProgressionRouteImport } from './0-routes/_authenticated/campaign-progression'
@@ -33,6 +35,11 @@ const AuthenticatedRoute = AuthenticatedRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedRosterRoute = SharedRosterRouteImport.update({
+  id: '/shared/roster',
+  path: '/shared/roster',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DataOnslaughtRoute = DataOnslaughtRouteImport.update({
@@ -60,6 +67,11 @@ const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedRosterRoute = AuthenticatedRosterRouteImport.update({
+  id: '/roster',
+  path: '/roster',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
 const AuthenticatedGoalsRoute = AuthenticatedGoalsRouteImport.update({
   id: '/goals',
   path: '/goals',
@@ -83,11 +95,13 @@ export interface FileRoutesByFullPath {
   '/campaign-progression': typeof AuthenticatedCampaignProgressionRoute
   '/campaigns': typeof AuthenticatedCampaignsRoute
   '/goals': typeof AuthenticatedGoalsRoute
+  '/roster': typeof AuthenticatedRosterRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/data/characters': typeof DataCharactersRoute
   '/data/equipment': typeof DataEquipmentRoute
   '/data/npcs': typeof DataNpcsRoute
   '/data/onslaught': typeof DataOnslaughtRoute
+  '/shared/roster': typeof SharedRosterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -95,11 +109,13 @@ export interface FileRoutesByTo {
   '/campaign-progression': typeof AuthenticatedCampaignProgressionRoute
   '/campaigns': typeof AuthenticatedCampaignsRoute
   '/goals': typeof AuthenticatedGoalsRoute
+  '/roster': typeof AuthenticatedRosterRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/data/characters': typeof DataCharactersRoute
   '/data/equipment': typeof DataEquipmentRoute
   '/data/npcs': typeof DataNpcsRoute
   '/data/onslaught': typeof DataOnslaughtRoute
+  '/shared/roster': typeof SharedRosterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -109,11 +125,13 @@ export interface FileRoutesById {
   '/_authenticated/campaign-progression': typeof AuthenticatedCampaignProgressionRoute
   '/_authenticated/campaigns': typeof AuthenticatedCampaignsRoute
   '/_authenticated/goals': typeof AuthenticatedGoalsRoute
+  '/_authenticated/roster': typeof AuthenticatedRosterRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/data/characters': typeof DataCharactersRoute
   '/data/equipment': typeof DataEquipmentRoute
   '/data/npcs': typeof DataNpcsRoute
   '/data/onslaught': typeof DataOnslaughtRoute
+  '/shared/roster': typeof SharedRosterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -123,11 +141,13 @@ export interface FileRouteTypes {
     | '/campaign-progression'
     | '/campaigns'
     | '/goals'
+    | '/roster'
     | '/settings'
     | '/data/characters'
     | '/data/equipment'
     | '/data/npcs'
     | '/data/onslaught'
+    | '/shared/roster'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -135,11 +155,13 @@ export interface FileRouteTypes {
     | '/campaign-progression'
     | '/campaigns'
     | '/goals'
+    | '/roster'
     | '/settings'
     | '/data/characters'
     | '/data/equipment'
     | '/data/npcs'
     | '/data/onslaught'
+    | '/shared/roster'
   id:
     | '__root__'
     | '/'
@@ -148,11 +170,13 @@ export interface FileRouteTypes {
     | '/_authenticated/campaign-progression'
     | '/_authenticated/campaigns'
     | '/_authenticated/goals'
+    | '/_authenticated/roster'
     | '/_authenticated/settings'
     | '/data/characters'
     | '/data/equipment'
     | '/data/npcs'
     | '/data/onslaught'
+    | '/shared/roster'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -163,6 +187,7 @@ export interface RootRouteChildren {
   DataEquipmentRoute: typeof DataEquipmentRoute
   DataNpcsRoute: typeof DataNpcsRoute
   DataOnslaughtRoute: typeof DataOnslaughtRoute
+  SharedRosterRoute: typeof SharedRosterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -186,6 +211,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared/roster': {
+      id: '/shared/roster'
+      path: '/shared/roster'
+      fullPath: '/shared/roster'
+      preLoaderRoute: typeof SharedRosterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/data/onslaught': {
@@ -223,6 +255,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/roster': {
+      id: '/_authenticated/roster'
+      path: '/roster'
+      fullPath: '/roster'
+      preLoaderRoute: typeof AuthenticatedRosterRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
     '/_authenticated/goals': {
       id: '/_authenticated/goals'
       path: '/goals'
@@ -251,6 +290,7 @@ interface AuthenticatedRouteChildren {
   AuthenticatedCampaignProgressionRoute: typeof AuthenticatedCampaignProgressionRoute
   AuthenticatedCampaignsRoute: typeof AuthenticatedCampaignsRoute
   AuthenticatedGoalsRoute: typeof AuthenticatedGoalsRoute
+  AuthenticatedRosterRoute: typeof AuthenticatedRosterRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
 }
 
@@ -258,6 +298,7 @@ const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedCampaignProgressionRoute: AuthenticatedCampaignProgressionRoute,
   AuthenticatedCampaignsRoute: AuthenticatedCampaignsRoute,
   AuthenticatedGoalsRoute: AuthenticatedGoalsRoute,
+  AuthenticatedRosterRoute: AuthenticatedRosterRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
 }
 
@@ -273,6 +314,7 @@ const rootRouteChildren: RootRouteChildren = {
   DataEquipmentRoute: DataEquipmentRoute,
   DataNpcsRoute: DataNpcsRoute,
   DataOnslaughtRoute: DataOnslaughtRoute,
+  SharedRosterRoute: SharedRosterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -10,6 +10,7 @@ import {
 	Target,
 	TrendingUp,
 	User,
+	Users2,
 	X,
 } from "lucide-react";
 import { useState } from "react";
@@ -97,6 +98,12 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 						to="/goals"
 						icon={Target}
 						label="Goals / Daily Raids"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/roster"
+						icon={Users2}
+						label="Roster"
 						onClick={onNavigate}
 					/>
 					<NavItem

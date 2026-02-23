@@ -21,4 +21,13 @@ export default defineSchema({
 		notes: v.optional(v.string()),
 		data: v.string(),
 	}).index("by_userId", ["userId"]),
+	sharedRosters: defineTable({
+		userId: v.id("users"),
+		token: v.string(),
+		roster: v.string(),
+		createdAt: v.number(),
+		updatedAt: v.number(),
+	})
+		.index("by_token", ["token"])
+		.index("by_userId", ["userId"]),
 });

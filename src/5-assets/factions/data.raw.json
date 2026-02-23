@@ -10,7 +10,7 @@
 		"alliance": "Imperial",
 		"name": "Adepta Sororitas",
 		"snowprintId": "Sisterhood",
-		"icon": "ADEPTA_SORORITAS.png",
+		"icon": "Sisterhood.png",
 		"color": "#962C38"
 	},
 	{
@@ -24,21 +24,21 @@
 		"alliance": "Imperial",
 		"name": "Astra Militarum",
 		"snowprintId": "AstraMilitarum",
-		"icon": "Astra_militarum.png",
+		"icon": "AstraMilitarum.png",
 		"color": "#717838"
 	},
 	{
 		"alliance": "Chaos",
 		"name": "Black Legion",
 		"snowprintId": "BlackLegion",
-		"icon": "Black_Legion.png",
+		"icon": "BlackLegion.png",
 		"color": "#1C0F10"
 	},
 	{
 		"alliance": "Chaos",
 		"name": "Death Guard",
 		"snowprintId": "DeathGuard",
-		"icon": "Death_Guard.png",
+		"icon": "DeathGuard.png",
 		"color": "#65540C"
 	},
 	{
@@ -52,7 +52,7 @@
 		"alliance": "Imperial",
 		"name": "Black Templars",
 		"snowprintId": "BlackTemplars",
-		"icon": "Black_Templars.png",
+		"icon": "BlackTemplars.png",
 		"color": "#929395"
 	},
 	{
@@ -66,28 +66,28 @@
 		"alliance": "Xenos",
 		"name": "T'au Empire",
 		"snowprintId": "Tau",
-		"icon": "T_Au.png",
+		"icon": "Tau.png",
 		"color": "#CE7140"
 	},
 	{
 		"alliance": "Imperial",
 		"name": "Space Wolves",
 		"snowprintId": "SpaceWolves",
-		"icon": "Space_Wolves.png",
+		"icon": "SpaceWolves.png",
 		"color": "#084A92"
 	},
 	{
 		"alliance": "Chaos",
 		"name": "Thousand Sons",
 		"snowprintId": "ThousandSons",
-		"icon": "Thousand_Sons.png",
+		"icon": "ThousandSons.png",
 		"color": "#084A92"
 	},
 	{
 		"alliance": "Imperial",
 		"name": "Dark Angels",
 		"snowprintId": "DarkAngels",
-		"icon": "Dark_Angels.png",
+		"icon": "DarkAngels.png",
 		"color": "#18542B"
 	},
 	{
@@ -108,42 +108,42 @@
 		"alliance": "Chaos",
 		"name": "World Eaters",
 		"snowprintId": "WorldEaters",
-		"icon": "worldeaters.png",
+		"icon": "WorldEaters.png",
 		"color": "#511011"
 	},
 	{
 		"alliance": "Imperial",
 		"name": "Blood Angels",
 		"snowprintId": "BloodAngels",
-		"icon": "blood_angels.png",
+		"icon": "BloodAngels.png",
 		"color": "#ac1b1a"
 	},
 	{
 		"alliance": "Xenos",
 		"name": "Genestealer Cults",
 		"snowprintId": "Genestealers",
-		"icon": "Genestealer Cults.png",
+		"icon": "Genestealers.png",
 		"color": "#CE7140"
 	},
 	{
 		"alliance": "Imperial",
 		"name": "Adeptus Custodes",
 		"snowprintId": "Custodes",
-		"icon": "Adeptus Custodes.png",
+		"icon": "Custodes.png",
 		"color": "#652129"
 	},
 	{
 		"alliance": "Chaos",
 		"name": "Emperor's Children",
 		"snowprintId": "EmperorsChildren",
-		"icon": "Emperor's Children.png",
+		"icon": "EmperorsChildren.png",
 		"color": "#874470"
 	},
 	{
 		"alliance": "Xenos",
 		"name": "Leagues of Votann",
 		"snowprintId": "LeaguesOfVotann",
-		"icon": "Leagues of Votann.png",
+		"icon": "LeaguesOfVotann.png",
 		"color": "#874470"
 	}
 ]

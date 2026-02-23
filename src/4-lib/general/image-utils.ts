@@ -20,9 +20,9 @@ const rankFilenames: Record<Rank, string> = {
 	[Rank.Diamond1]: "diamond1.png",
 	[Rank.Diamond2]: "diamond2.png",
 	[Rank.Diamond3]: "diamond3.png",
-	[Rank.Adamantine1]: "ui_icon_rank_mythical_01.png",
-	[Rank.Adamantine2]: "ui_icon_rank_mythical_02.png",
-	[Rank.Adamantine3]: "ui_icon_rank_mythical_03.png",
+	[Rank.Adamantine1]: "adamantine1.png",
+	[Rank.Adamantine2]: "adamantine2.png",
+	[Rank.Adamantine3]: "adamantine3.png",
 };
 
 const rarityFilenames: Record<Rarity, string> = {
@@ -46,6 +46,23 @@ export function getRarityImageUrl(rarity: Rarity): string {
 	const filename = rarityFilenames[rarity];
 	return new URL(
 		`../../5-assets/images/tacticus/rarity/${filename}`,
+		import.meta.url,
+	).href;
+}
+
+const rarityFrameFilenames: Partial<Record<Rarity, string>> = {
+	[Rarity.Common]: "common.png",
+	[Rarity.Uncommon]: "uncommon.png",
+	[Rarity.Rare]: "rare.png",
+	[Rarity.Epic]: "epic.png",
+	[Rarity.Legendary]: "legendary.png",
+};
+
+export function getRarityFrameUrl(rarity: Rarity): string | null {
+	const filename = rarityFrameFilenames[rarity];
+	if (!filename) return null;
+	return new URL(
+		`../../5-assets/images/tacticus/rarity_frames/${filename}`,
 		import.meta.url,
 	).href;
 }

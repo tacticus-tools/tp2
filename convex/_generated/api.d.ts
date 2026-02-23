@@ -12,6 +12,7 @@ import type * as auth from "../auth.js";
 import type * as env from "../env.js";
 import type * as goals from "../goals.js";
 import type * as http from "../http.js";
+import type * as roster from "../roster.js";
 import type * as tacticus_actions from "../tacticus/actions.js";
 import type * as tacticus_credentials from "../tacticus/credentials.js";
 import type * as tacticus_crypto from "../tacticus/crypto.js";
@@ -28,6 +29,7 @@ declare const fullApi: ApiFromModules<{
   env: typeof env;
   goals: typeof goals;
   http: typeof http;
+  roster: typeof roster;
   "tacticus/actions": typeof tacticus_actions;
   "tacticus/credentials": typeof tacticus_credentials;
   "tacticus/crypto": typeof tacticus_crypto;

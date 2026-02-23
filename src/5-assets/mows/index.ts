@@ -1,3 +1,4 @@
+import { getAbilityIconUrl } from "@/5-assets/abilities/index.ts";
 import { DATA } from "./data.generated.ts";
 
 // `import.meta.glob` is a Vite feature that allows us to import multiple files matching a pattern.
@@ -6,6 +7,11 @@ import { DATA } from "./data.generated.ts";
 // We do this instead of referencing the images using a template string because Vite needs to know about the files at build time in order to include them in the bundle and optimize them.
 const mowRoundIcons = import.meta.glob<string>(
 	`/src/5-assets/snowprint_assets/characters/ui_image_RoundPortrait_*.png`,
+	{ eager: true, import: "default" },
+);
+
+const mowPortraits = import.meta.glob<string>(
+	`/src/5-assets/snowprint_assets/characters/ui_image_portrait_*.png`,
 	{ eager: true, import: "default" },
 );
 
@@ -19,5 +25,13 @@ export const MOWS = Object.freeze(
 			mowRoundIcons[
 				`/src/5-assets/snowprint_assets/characters/${mow.roundIcon}`
 			],
+		portrait:
+			mowPortraits[`/src/5-assets/snowprint_assets/characters/${mow.icon}`],
+		activeAbilityIcon: mow.primaryAbility
+			? getAbilityIconUrl(mow.primaryAbility)
+			: undefined,
+		passiveAbilityIcon: mow.secondaryAbility
+			? getAbilityIconUrl(mow.secondaryAbility)
+			: undefined,
 	})),
 );

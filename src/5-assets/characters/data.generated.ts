@@ -28,6 +28,8 @@ export const DATA = [
       "Flame"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "BrazierOfHolyFire",
+    "passiveAbilityName": "CondemnorStake",
     "number": 9,
     "icon": "ui_image_portrait_adept_canoness_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_canoness_01.png"
@@ -60,6 +62,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "SkyStrike",
+    "passiveAbilityName": "GeminaeSuperia",
     "number": 10,
     "icon": "ui_image_portrait_adept_celestine_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_celestine_01.png"
@@ -92,6 +96,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "RitesOfRestoration",
+    "passiveAbilityName": "MedicusMinistorum",
     "number": 7,
     "icon": "ui_image_portrait_adept_hospitaller_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_hospitaller_01.png"
@@ -130,6 +136,8 @@ export const DATA = [
     "passiveAbility": [
       "Power"
     ],
+    "activeAbilityName": "SanctorumMissile",
+    "passiveAbilityName": "RighteousRepugnance",
     "number": 8,
     "icon": "ui_image_portrait_adept_morvenn_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_morvenn_01.png"
@@ -166,6 +174,8 @@ export const DATA = [
     "passiveAbility": [
       "Flame"
     ],
+    "activeAbilityName": "ArmoriumCherub",
+    "passiveAbilityName": "FireOfAbsolution",
     "number": 6,
     "icon": "ui_image_portrait_adept_retributor_01.png",
     "roundIcon": "ui_image_RoundPortrait_adept_retributor_01.png"
@@ -202,6 +212,8 @@ export const DATA = [
       "Physical"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "SentinelDirectives",
+    "passiveAbilityName": "HeavyGravCannon",
     "number": 79,
     "icon": "ui_image_portrait_admec_destroyer_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_destroyer_01.png"
@@ -236,6 +248,8 @@ export const DATA = [
       "Toxic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "RadBombardment",
+    "passiveAbilityName": "MasterAnnihilator",
     "number": 75,
     "icon": "ui_image_portrait_admec_dominus_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_dominus_01.png"
@@ -269,6 +283,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "DefendTheDivineWork",
+    "passiveAbilityName": "GalvanicField",
     "number": 76,
     "icon": "ui_image_portrait_admec_manipulus_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_manipulus_01.png"
@@ -300,6 +316,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "DoctrinaImperatives",
+    "passiveAbilityName": "ControlEdict",
     "number": 77,
     "icon": "ui_image_portrait_admec_marshall_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_marshall_01.png"
@@ -338,6 +356,8 @@ export const DATA = [
     "passiveAbility": [
       "Energy"
     ],
+    "activeAbilityName": "CordClaw",
+    "passiveAbilityName": "OptimizedGait",
     "number": 78,
     "icon": "ui_image_portrait_admec_ruststalker_01.png",
     "roundIcon": "ui_image_RoundPortrait_admec_ruststalker_01.png"
@@ -371,6 +391,8 @@ export const DATA = [
       "Blast"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "FragBomb",
+    "passiveAbilityName": "AvalancheOfMuscle",
     "number": 22,
     "icon": "ui_image_portrait_astra_bullgryn_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_bullgryn_01.png"
@@ -400,6 +422,8 @@ export const DATA = [
     "traits": [],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "SupremeCommander",
+    "passiveAbilityName": "SwornProtector",
     "number": 26,
     "icon": "ui_image_portrait_astra_creed_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_creed_01.png"
@@ -434,6 +458,8 @@ export const DATA = [
       "Power"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "LeadingTheCharge",
+    "passiveAbilityName": "ToughToKill",
     "number": 113,
     "icon": "ui_image_portrait_astra_dreir_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_dreir_01.png"
@@ -468,6 +494,8 @@ export const DATA = [
       "Blast"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "BasiliskBarrage",
+    "passiveAbilityName": "SpotterReworked",
     "number": 24,
     "icon": "ui_image_portrait_astra_ordnance_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_ordnance_01.png"
@@ -501,6 +529,8 @@ export const DATA = [
       "Psychic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "PsychicMaelstrom",
+    "passiveAbilityName": "Nightshroud",
     "number": 23,
     "icon": "ui_image_portrait_astra_psyker_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_psyker_01.png"
@@ -532,6 +562,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "SendInTheNextWave",
+    "passiveAbilityName": "SummaryExecution",
     "number": 25,
     "icon": "ui_image_portrait_astra_yarrick_01.png",
     "roundIcon": "ui_image_RoundPortrait_astra_yarrick_01.png"
@@ -567,6 +599,8 @@ export const DATA = [
       "Piercing"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "Drachnyen",
+    "passiveAbilityName": "FirstAmongTraitors",
     "number": 20,
     "icon": "ui_image_portrait_black_abaddon_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_abaddon_01.png"
@@ -602,6 +636,8 @@ export const DATA = [
       "Piercing"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "HeraldOfTheApocalypse",
+    "passiveAbilityName": "HeadClaimer",
     "number": 19,
     "icon": "ui_image_portrait_black_haarken_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_haarken_01.png"
@@ -643,6 +679,8 @@ export const DATA = [
       "HeavyRound",
       "Melta"
     ],
+    "activeAbilityName": "FrenziedFiring",
+    "passiveAbilityName": "FleshmetalGuns",
     "number": 17,
     "icon": "ui_image_portrait_black_obliterator_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_obliterator_01.png"
@@ -675,6 +713,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "Incursion",
+    "passiveAbilityName": "Possession",
     "number": 18,
     "icon": "ui_image_portrait_black_possession_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_possession_01.png"
@@ -710,6 +750,8 @@ export const DATA = [
       "Power"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "BringerOfDespair",
+    "passiveAbilityName": "HatefulAssault",
     "number": 16,
     "icon": "ui_image_portrait_black_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_black_terminator_01.png"
@@ -747,6 +789,8 @@ export const DATA = [
       "Melta"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "LightOfSanguinius",
+    "passiveAbilityName": "LordOfTheHost",
     "number": 101,
     "icon": "ui_image_portrait_blood_dante_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_dante_01.png"
@@ -782,6 +826,8 @@ export const DATA = [
     "passiveAbility": [
       "Bolter"
     ],
+    "activeAbilityName": "BlackRage",
+    "passiveAbilityName": "VisionsOfHeresy",
     "number": 89,
     "icon": "ui_image_portrait_blood_deathcompany_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_deathcompany_01.png"
@@ -818,6 +864,8 @@ export const DATA = [
       "Power"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "HammerOfWrath",
+    "passiveAbilityName": "AggressiveOnslaught",
     "number": 72,
     "icon": "ui_image_portrait_blood_intercessor_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_intercessor_01.png"
@@ -853,6 +901,8 @@ export const DATA = [
     "passiveAbility": [
       "Psychic"
     ],
+    "activeAbilityName": "TheQuickening",
+    "passiveAbilityName": "FuryOfTheAncients",
     "number": 73,
     "icon": "ui_image_portrait_blood_mephiston_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_mephiston_01.png"
@@ -885,6 +935,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "BloodChalice",
+    "passiveAbilityName": "SanguinaryPriest",
     "number": 99,
     "icon": "ui_image_portrait_blood_sanguinary_01.png",
     "roundIcon": "ui_image_RoundPortrait_blood_sanguinary_01.png"
@@ -920,6 +972,8 @@ export const DATA = [
       "Power"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "TalonsOfTheEmperor",
+    "passiveAbilityName": "DaughterOfTheAbyss",
     "number": 110,
     "icon": "ui_image_portrait_custo_atlacoya_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_atlacoya_01.png"
@@ -960,6 +1014,8 @@ export const DATA = [
       "Piercing",
       "Power"
     ],
+    "activeAbilityName": "MartialInspiration",
+    "passiveAbilityName": "LegacyOfCombat",
     "number": 107,
     "icon": "ui_image_portrait_custo_bladechampion_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_bladechampion_01.png"
@@ -996,6 +1052,8 @@ export const DATA = [
     "passiveAbility": [
       "Bolter"
     ],
+    "activeAbilityName": "VigilanceEternal",
+    "passiveAbilityName": "UnwaveringSentinel",
     "number": 118,
     "icon": "ui_image_portrait_custo_kyrus_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_kyrus_01.png"
@@ -1031,6 +1089,8 @@ export const DATA = [
       "Bolter"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "MomentShackle",
+    "passiveAbilityName": "LegendaryCommander",
     "number": 105,
     "icon": "ui_image_portrait_custo_trajann_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_trajann_01.png"
@@ -1066,6 +1126,8 @@ export const DATA = [
       "Physical"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "VexillaMagnifica",
+    "passiveAbilityName": "StandVigil",
     "number": 106,
     "icon": "ui_image_portrait_custo_vexilus_01.png",
     "roundIcon": "ui_image_RoundPortrait_custo_vexilus_01.png"
@@ -1097,6 +1159,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "ExemplarOfHate",
+    "passiveAbilityName": "FearedInterrogator",
     "number": 60,
     "icon": "ui_image_portrait_darka_asmodai_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_asmodai_01.png"
@@ -1132,6 +1196,8 @@ export const DATA = [
       "DirectDamage"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "DarkTalonStrike",
+    "passiveAbilityName": "LionHelm",
     "number": 58,
     "icon": "ui_image_portrait_darka_azrael_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_azrael_01.png"
@@ -1166,6 +1232,8 @@ export const DATA = [
       "Power"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "CalibaniteGreatsword",
+    "passiveAbilityName": "EnmityForTheUnworthy",
     "number": 104,
     "icon": "ui_image_portrait_darka_companion_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_companion_01.png"
@@ -1203,6 +1271,8 @@ export const DATA = [
     "passiveAbility": [
       "Plasma"
     ],
+    "activeAbilityName": "Supercharge",
+    "passiveAbilityName": "GrimRetribution",
     "number": 61,
     "icon": "ui_image_portrait_darka_hellblaster_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_hellblaster_01.png"
@@ -1239,6 +1309,8 @@ export const DATA = [
       "Plasma"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "PlasmaCannon",
+    "passiveAbilityName": "Deathwing",
     "number": 59,
     "icon": "ui_image_portrait_darka_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_darka_terminator_01.png"
@@ -1271,6 +1343,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "Poxwalkers",
+    "passiveAbilityName": "CursedPlagueBell",
     "number": 30,
     "icon": "ui_image_portrait_death_blightbringer_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_blightbringer_01.png"
@@ -1308,6 +1382,8 @@ export const DATA = [
     "passiveAbility": [
       "Toxic"
     ],
+    "activeAbilityName": "FlailSwing",
+    "passiveAbilityName": "HazeOfCorruption",
     "number": 29,
     "icon": "ui_image_portrait_death_blightlord_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_blightlord_01.png"
@@ -1343,6 +1419,8 @@ export const DATA = [
       "Toxic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "FoulInfusion",
+    "passiveAbilityName": "ExplosiveMaladies",
     "number": 31,
     "icon": "ui_image_portrait_death_putrifier_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_putrifier_01.png"
@@ -1376,6 +1454,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "RevitalizingMalignancy",
+    "passiveAbilityName": "TaintedNarthecium",
     "number": 32,
     "icon": "ui_image_portrait_death_rotbone_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_rotbone_01.png"
@@ -1414,6 +1494,8 @@ export const DATA = [
     "passiveAbility": [
       "DirectDamage"
     ],
+    "activeAbilityName": "PlagueWind",
+    "passiveAbilityName": "DestroyerHive",
     "number": 28,
     "icon": "ui_image_portrait_death_typhus_01.png",
     "roundIcon": "ui_image_RoundPortrait_death_typhus_01.png"
@@ -1448,6 +1530,8 @@ export const DATA = [
       "Piercing"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "Loki_SwoopingHawk",
+    "passiveAbilityName": "PathOfCommand",
     "number": 44,
     "icon": "ui_image_portrait_aelda_autarch_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_autarch_01.png"
@@ -1479,6 +1563,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "Executioner",
+    "passiveAbilityName": "Doom",
     "number": 46,
     "icon": "ui_image_portrait_aelda_farseer_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_farseer_01.png"
@@ -1512,6 +1598,8 @@ export const DATA = [
       "Piercing"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "SilentDeath",
+    "passiveAbilityName": "TerrorsLament",
     "number": 47,
     "icon": "ui_image_portrait_aelda_jainzar_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_jainzar_01.png"
@@ -1545,6 +1633,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "HarvesterOfSouls",
+    "passiveAbilityName": "InescapableAccuracy",
     "number": 45,
     "icon": "ui_image_portrait_aelda_maugan_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_maugan_01.png"
@@ -1579,6 +1669,8 @@ export const DATA = [
     "passiveAbility": [
       "Piercing"
     ],
+    "activeAbilityName": "FireAndReposition",
+    "passiveAbilityName": "WireweaveNet",
     "number": 43,
     "icon": "ui_image_portrait_aelda_ranger_01.png",
     "roundIcon": "ui_image_RoundPortrait_aelda_ranger_01.png"
@@ -1613,6 +1705,8 @@ export const DATA = [
       "Power"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "EuphoricStrikes",
+    "passiveAbilityName": "RefusalToBeOutdone",
     "number": 123,
     "icon": "ui_image_portrait_emper_exultant_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_exultant_01.png"
@@ -1647,6 +1741,8 @@ export const DATA = [
     "passiveAbility": [
       "Eviscerate"
     ],
+    "activeAbilityName": "DaemonicPatrons",
+    "passiveAbilityName": "EcstaticSlaughter",
     "number": 120,
     "icon": "ui_image_portrait_emper_blade_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_blade_01.png"
@@ -1680,6 +1776,8 @@ export const DATA = [
       "DirectDamage"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "DoomSiren",
+    "passiveAbilityName": "ObsessiveAnnunciation",
     "number": 115,
     "icon": "ui_image_portrait_emper_kakophonist_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_kakophonist_01.png"
@@ -1714,6 +1812,8 @@ export const DATA = [
       "Eviscerate"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "LashOfTorment",
+    "passiveAbilityName": "ArmourOfShriekingSouls",
     "number": 111,
     "icon": "ui_image_portrait_emper_lucius_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_lucius_01.png"
@@ -1749,6 +1849,8 @@ export const DATA = [
       "Blast"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "ExcruciatingFrequencies",
+    "passiveAbilityName": "TerrifyingCrescendo",
     "number": 112,
     "icon": "ui_image_portrait_emper_noisemarine_01.png",
     "roundIcon": "ui_image_RoundPortrait_emper_noisemarine_01.png"
@@ -1781,6 +1883,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "AberrantHypermorph",
+    "passiveAbilityName": "TwistedScience",
     "number": 96,
     "icon": "ui_image_portrait_genes_biophagus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_biophagus_01.png"
@@ -1817,6 +1921,8 @@ export const DATA = [
     "passiveAbility": [
       "Projectile"
     ],
+    "activeAbilityName": "HeroicFusillade",
+    "passiveAbilityName": "HypersensoryAbilities",
     "number": 100,
     "icon": "ui_image_portrait_genes_kelermorph_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_kelermorph_01.png"
@@ -1849,6 +1955,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "MindControl",
+    "passiveAbilityName": "SpiritualLeader",
     "number": 92,
     "icon": "ui_image_portrait_genes_magus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_magus_01.png"
@@ -1885,6 +1993,8 @@ export const DATA = [
       "Psychic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "MightFromBelow",
+    "passiveAbilityName": "CosmicHorror",
     "number": 94,
     "icon": "ui_image_portrait_genes_patriarch_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_patriarch_01.png"
@@ -1918,6 +2028,8 @@ export const DATA = [
     "passiveAbility": [
       "Blast"
     ],
+    "activeAbilityName": "CultDemagogue",
+    "passiveAbilityName": "DecoysAndMisdirection",
     "number": 95,
     "icon": "ui_image_portrait_genes_primus_01.png",
     "roundIcon": "ui_image_RoundPortrait_genes_primus_01.png"
@@ -1953,6 +2065,8 @@ export const DATA = [
       "Gauss"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "MultiThreatEliminator",
+    "passiveAbilityName": "InescapableDeath",
     "number": 12,
     "icon": "ui_image_portrait_necro_hexmark_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_hexmark_01.png"
@@ -1987,6 +2101,8 @@ export const DATA = [
     "passiveAbility": [
       "Energy"
     ],
+    "activeAbilityName": "ResurrectionOrb",
+    "passiveAbilityName": "MartialApotheosis",
     "number": 15,
     "icon": "ui_image_portrait_necro_overlord_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_overlord_01.png"
@@ -2024,6 +2140,8 @@ export const DATA = [
     "passiveAbility": [
       "DirectDamage"
     ],
+    "activeAbilityName": "HarbingerOfDestruction",
+    "passiveAbilityName": "LivingLightning",
     "number": 14,
     "icon": "ui_image_portrait_necro_plasmancer_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_plasmancer_01.png"
@@ -2059,6 +2177,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "ScarabHive",
+    "passiveAbilityName": "FabricatorClawArray",
     "number": 13,
     "icon": "ui_image_portrait_necro_spyder_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_spyder_01.png"
@@ -2091,6 +2211,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "AdaptiveStrategy",
+    "passiveAbilityName": "RelentlessMarch",
     "number": 11,
     "icon": "ui_image_portrait_necro_warden_01.png",
     "roundIcon": "ui_image_RoundPortrait_necro_warden_01.png"
@@ -2123,6 +2245,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "GrotTank",
+    "passiveAbilityName": "KustomForceField",
     "number": 39,
     "icon": "ui_image_portrait_orkss_mek_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_mek_01.png"
@@ -2159,6 +2283,8 @@ export const DATA = [
       "Projectile"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "DakkaDakkaDakka",
+    "passiveAbilityName": "PowerTrip",
     "number": 40,
     "icon": "ui_image_portrait_orkss_killakan_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_killakan_01.png"
@@ -2194,6 +2320,8 @@ export const DATA = [
       "DirectDamage"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "UnstoppableMomentumReworked",
+    "passiveAbilityName": "SmashaEad",
     "number": 41,
     "icon": "ui_image_portrait_orkss_nob_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_nob_01.png"
@@ -2228,6 +2356,8 @@ export const DATA = [
     "passiveAbility": [
       "Physical"
     ],
+    "activeAbilityName": "GetEmRuntz",
+    "passiveAbilityName": "SquigHound",
     "number": 38,
     "icon": "ui_image_portrait_orkss_runtherd_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_runtherd_01.png"
@@ -2265,6 +2395,8 @@ export const DATA = [
     "passiveAbility": [
       "Projectile"
     ],
+    "activeAbilityName": "Waaagh",
+    "passiveAbilityName": "LightImUp",
     "number": 42,
     "icon": "ui_image_portrait_orkss_warboss_01.png",
     "roundIcon": "ui_image_RoundPortrait_orkss_warboss_01.png"
@@ -2298,6 +2430,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "WarHowl",
+    "passiveAbilityName": "SagaOfTheWarriorBorn",
     "number": 57,
     "icon": "ui_image_portrait_space_ragnar_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_ragnar_01.png"
@@ -2332,6 +2466,8 @@ export const DATA = [
       "Physical"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "GrapnelLauncher",
+    "passiveAbilityName": "HuntersBeyondDeath",
     "number": 54,
     "icon": "ui_image_portrait_space_hound_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_hound_01.png"
@@ -2368,6 +2504,8 @@ export const DATA = [
       "Power"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "Foehammer",
+    "passiveAbilityName": "AnvilShield",
     "number": 55,
     "icon": "ui_image_portrait_space_arjac_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_arjac_01.png"
@@ -2403,6 +2541,8 @@ export const DATA = [
       "Psychic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "Stormcaller",
+    "passiveAbilityName": "LordOfTempests",
     "number": 56,
     "icon": "ui_image_portrait_space_njal_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_stormcaller_01.png"
@@ -2436,6 +2576,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "RitesOfMorkai",
+    "passiveAbilityName": "HealingBalms",
     "number": 124,
     "icon": "ui_image_portrait_space_wolfpriest_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_wolfpriest_01.png"
@@ -2472,6 +2614,8 @@ export const DATA = [
     "passiveAbility": [
       "Power"
     ],
+    "activeAbilityName": "GreatFrostAxe",
+    "passiveAbilityName": "SavageKiller",
     "number": 53,
     "icon": "ui_image_portrait_space_wulfen_01.png",
     "roundIcon": "ui_image_RoundPortrait_space_wulfen_01.png"
@@ -2501,6 +2645,8 @@ export const DATA = [
     "traits": [],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "InspiredToGreatness",
+    "passiveAbilityName": "SereneUnifier",
     "number": 50,
     "icon": "ui_image_portrait_tauta_aunshi_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_aunshi_01.png"
@@ -2537,6 +2683,8 @@ export const DATA = [
     "passiveAbility": [
       "Particle"
     ],
+    "activeAbilityName": "EarlyWarningOverride",
+    "passiveAbilityName": "CyclicIonBlaster",
     "number": 49,
     "icon": "ui_image_portrait_tauta_crisis_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_crisis_01.png"
@@ -2570,6 +2718,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "FightingRetreat",
+    "passiveAbilityName": "StructuralAnalyser",
     "number": 51,
     "icon": "ui_image_portrait_tauta_darkstrider_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_darkstrider_01.png"
@@ -2604,6 +2754,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "ExemplarOfTheMontka",
+    "passiveAbilityName": "WayOfTheShortBlade",
     "number": 122,
     "icon": "ui_image_portrait_tauta_farsight_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_farsight_01.png"
@@ -2638,6 +2790,8 @@ export const DATA = [
       "HeavyRound"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "SeekerMissileFrequencyLock",
+    "passiveAbilityName": "MV71SniperDroneSquad",
     "number": 48,
     "icon": "ui_image_portrait_tauta_marksman_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_marksman_01.png"
@@ -2674,6 +2828,8 @@ export const DATA = [
       "Blast"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "ExemplarOfTheKauyon",
+    "passiveAbilityName": "DefenderOfTheGreaterGood",
     "number": 52,
     "icon": "ui_image_portrait_tauta_shadowsun_01.png",
     "roundIcon": "ui_image_RoundPortrait_tauta_shadowsun_01.png"
@@ -2711,6 +2867,8 @@ export const DATA = [
     "passiveAbility": [
       "Bolter"
     ],
+    "activeAbilityName": "FragstormGrenadeLauncher",
+    "passiveAbilityName": "Boltstorm",
     "number": 34,
     "icon": "ui_image_portrait_templ_aggressor_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_aggressor_01.png"
@@ -2743,6 +2901,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "UnbreakableDuty",
+    "passiveAbilityName": "AstartesBanner",
     "number": 36,
     "icon": "ui_image_portrait_templ_ancient_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_ancient_01.png"
@@ -2778,6 +2938,8 @@ export const DATA = [
     "passiveAbility": [
       "Power"
     ],
+    "activeAbilityName": "HolyDuel",
+    "passiveAbilityName": "MartialSuperiority",
     "number": 35,
     "icon": "ui_image_portrait_templ_champion_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_champion_01.png"
@@ -2810,6 +2972,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "CrusadeOfWrath",
+    "passiveAbilityName": "DestroyTheWitch",
     "number": 37,
     "icon": "ui_image_portrait_templ_helbrecht_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_helbrecht_01.png"
@@ -2846,6 +3010,8 @@ export const DATA = [
     "passiveAbility": [
       "Power"
     ],
+    "activeAbilityName": "ThunderousAssault",
+    "passiveAbilityName": "ChampionOfTheFeast",
     "number": 33,
     "icon": "ui_image_portrait_templ_brother_01.png",
     "roundIcon": "ui_image_RoundPortrait_templ_brother_01.png"
@@ -2881,6 +3047,8 @@ export const DATA = [
       "Psychic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "Doombolt",
+    "passiveAbilityName": "PsychicStalk",
     "number": 66,
     "icon": "ui_image_portrait_thous_ahriman_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_ahriman_01.png"
@@ -2913,6 +3081,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "MasterOfTheTutelaries",
+    "passiveAbilityName": "InfernalPacts",
     "number": 64,
     "icon": "ui_image_portrait_thous_infernal_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_infernal_01.png"
@@ -2946,6 +3116,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "AttemptedPossession",
+    "passiveAbilityName": "ArcaneShield",
     "number": 65,
     "icon": "ui_image_portrait_thous_sorcerer_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_sorcerer_01.png"
@@ -2981,6 +3153,8 @@ export const DATA = [
       "HeavyRound"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "HellfyreMissileRack",
+    "passiveAbilityName": "TimeFlux",
     "number": 63,
     "icon": "ui_image_portrait_thous_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_terminator_01.png"
@@ -3015,6 +3189,8 @@ export const DATA = [
       "Psychic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "SorcerousFacade",
+    "passiveAbilityName": "RealityUnbound",
     "number": 62,
     "icon": "ui_image_portrait_thous_tzaangor_01.png",
     "roundIcon": "ui_image_RoundPortrait_thous_tzaangor_01.png"
@@ -3051,6 +3227,8 @@ export const DATA = [
       "DirectDamage"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "FearOfTheUnseen",
+    "passiveAbilityName": "FeederTendrils",
     "number": 70,
     "icon": "ui_image_portrait_tyran_deathleaper_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_deathleaper_01.png"
@@ -3088,6 +3266,8 @@ export const DATA = [
       "Psychic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "SpiritLeech",
+    "passiveAbilityName": "Neuroparasite",
     "number": 67,
     "icon": "ui_image_portrait_tyran_neurothrope_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_neurothrope_01.png"
@@ -3120,6 +3300,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "ItItches",
+    "passiveAbilityName": "BarbedOvipositor",
     "number": 74,
     "icon": "ui_image_portrait_tyran_parasite_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_parasite_01.png"
@@ -3155,6 +3337,8 @@ export const DATA = [
       "Piercing"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "CrushingClaws",
+    "passiveAbilityName": "GuardianOrganism",
     "number": 68,
     "icon": "ui_image_portrait_tyran_tyrantguard_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_tyrantguard_01.png"
@@ -3188,6 +3372,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "AlphaWarrior",
+    "passiveAbilityName": "SynapticLinchpin",
     "number": 69,
     "icon": "ui_image_portrait_tyran_wingedprime_01.png",
     "roundIcon": "ui_image_RoundPortrait_tyran_wingedprime_01.png"
@@ -3219,6 +3405,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "CombatRestoratives",
+    "passiveAbilityName": "Narthecium",
     "number": 3,
     "icon": "ui_image_portrait_ultra_apothecary_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_apothecary_01.png"
@@ -3254,6 +3442,8 @@ export const DATA = [
       "Bolter"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "GauntletsOfUltramar",
+    "passiveAbilityName": "RitesOfBattle",
     "number": 4,
     "icon": "ui_image_portrait_ultra_calgar_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_calgar_01.png"
@@ -3291,6 +3481,8 @@ export const DATA = [
     "passiveAbility": [
       "Bolter"
     ],
+    "activeAbilityName": "MortisRound",
+    "passiveAbilityName": "CamoCloak",
     "number": 1,
     "icon": "ui_image_portrait_ultra_eliminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_eliminator_01.png"
@@ -3323,6 +3515,8 @@ export const DATA = [
     ],
     "activeAbility": null,
     "passiveAbility": null,
+    "activeAbilityName": "DeathFromAbove",
+    "passiveAbilityName": "ShockAssault",
     "number": 2,
     "icon": "ui_image_portrait_ultra_inceptor_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_inceptor_01.png"
@@ -3356,6 +3550,8 @@ export const DATA = [
       "Psychic"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "StormOfWrath",
+    "passiveAbilityName": "PsychicFortress",
     "number": 0,
     "icon": "ui_image_portrait_ultra_tigurius_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_tigurius_01.png"
@@ -3391,6 +3587,8 @@ export const DATA = [
       "Chain"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "TacticalPrecision",
+    "passiveAbilityName": "FuelledByFury",
     "number": 90,
     "icon": "ui_image_portrait_ultra_titus_01.png",
     "roundIcon": "ui_image_RoundPortrait_ultra_titus_01.png"
@@ -3425,6 +3623,8 @@ export const DATA = [
       "Physical"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "GravitonRifle",
+    "passiveAbilityName": "EcogSupport",
     "number": 125,
     "icon": "ui_image_portrait_votan_ironmaster_01.png",
     "roundIcon": "ui_image_RoundPortrait_votan_ironmaster_01.png"
@@ -3459,6 +3659,8 @@ export const DATA = [
       "Plasma"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "AncestralFortune",
+    "passiveAbilityName": "GrimEfficiency",
     "number": 126,
     "icon": "ui_image_portrait_votan_uthar_01.png",
     "roundIcon": "ui_image_RoundPortrait_votan_uthar_01.png"
@@ -3496,6 +3698,8 @@ export const DATA = [
       "Eviscerate"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "OverwhelmingWrath",
+    "passiveAbilityName": "BeaconOfRage",
     "number": 82,
     "icon": "ui_image_portrait_world_eightbound_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_eightbound_01.png"
@@ -3530,6 +3734,8 @@ export const DATA = [
       "Piercing"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "MurderousSwing",
+    "passiveAbilityName": "TrophyTaker",
     "number": 103,
     "icon": "ui_image_portrait_world_executions_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_executions_01.png"
@@ -3564,6 +3770,8 @@ export const DATA = [
       "Physical"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "JakhalStimms",
+    "passiveAbilityName": "Skullsmasher",
     "number": 81,
     "icon": "ui_image_portrait_world_jakhal_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_jakhal_01.png"
@@ -3603,6 +3811,8 @@ export const DATA = [
     "passiveAbility": [
       "Eviscerate"
     ],
+    "activeAbilityName": "KillMaimBurn",
+    "passiveAbilityName": "TheBetrayer",
     "number": 83,
     "icon": "ui_image_portrait_world_kharn_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_kharn_01.png"
@@ -3640,6 +3850,8 @@ export const DATA = [
       "Chain"
     ],
     "passiveAbility": null,
+    "activeAbilityName": "BloodyFury",
+    "passiveAbilityName": "WrathfulDevotion",
     "number": 80,
     "icon": "ui_image_portrait_world_terminator_01.png",
     "roundIcon": "ui_image_RoundPortrait_world_terminator_01.png"

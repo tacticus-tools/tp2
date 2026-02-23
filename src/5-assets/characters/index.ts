@@ -1,3 +1,4 @@
+import { getAbilityIconUrl } from "@/5-assets/abilities/index.ts";
 import { DATA as DAMAGE_TYPES } from "./damage-types.generated.ts";
 import { DATA } from "./data.generated.ts";
 import { DATA as FACTION_IDS } from "./faction-ids.generated.ts";
@@ -10,6 +11,11 @@ import { DATA as CHARACTER_TRAITS } from "./traits.generated.ts";
 // We do this instead of referencing the images using a template string because Vite needs to know about the files at build time in order to include them in the bundle and optimize them.
 const characterRoundIcons = import.meta.glob<string>(
 	`/src/5-assets/snowprint_assets/characters/ui_image_RoundPortrait_*.png`,
+	{ eager: true, import: "default" },
+);
+
+const characterPortraits = import.meta.glob<string>(
+	`/src/5-assets/snowprint_assets/characters/ui_image_portrait_*.png`,
 	{ eager: true, import: "default" },
 );
 
@@ -26,6 +32,16 @@ export const CHARACTERS = Object.freeze(
 			characterRoundIcons[
 				`/src/5-assets/snowprint_assets/characters/${character.roundIcon}`
 			],
+		portrait:
+			characterPortraits[
+				`/src/5-assets/snowprint_assets/characters/${character.icon}`
+			],
+		activeAbilityIcon: character.activeAbilityName
+			? getAbilityIconUrl(character.activeAbilityName)
+			: undefined,
+		passiveAbilityIcon: character.passiveAbilityName
+			? getAbilityIconUrl(character.passiveAbilityName)
+			: undefined,
 	})),
 );
 
