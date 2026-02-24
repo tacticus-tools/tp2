@@ -50,17 +50,17 @@ export function getRarityImageUrl(rarity: Rarity): string {
 	).href;
 }
 
-const rarityFrameFilenames: Partial<Record<Rarity, string>> = {
+const rarityFrameFilenames: Record<Rarity, string> = {
 	[Rarity.Common]: "common.png",
 	[Rarity.Uncommon]: "uncommon.png",
 	[Rarity.Rare]: "rare.png",
 	[Rarity.Epic]: "epic.png",
 	[Rarity.Legendary]: "legendary.png",
+	[Rarity.Mythic]: "mythic.png",
 };
 
-export function getRarityFrameUrl(rarity: Rarity): string | null {
+export function getRarityFrameUrl(rarity: Rarity): string {
 	const filename = rarityFrameFilenames[rarity];
-	if (!filename) return null;
 	return new URL(
 		`../../5-assets/images/tacticus/rarity_frames/${filename}`,
 		import.meta.url,
