@@ -154,7 +154,11 @@ export const main = () => {
 
 	for (const node of allNodes) {
 		const config = dropRates[node.campaignType];
-		if (!config) continue;
+		if (!config) {
+			throw new Error(
+				`No drop-rate config for campaignType "${node.campaignType}" (battle "${node.id}"). Add it to drop-rates data.`,
+			);
+		}
 
 		const energyCost = node.energyCost ?? config.energyCost;
 		const dailyBattleCount = config.dailyBattleCount;
@@ -172,7 +176,7 @@ export const main = () => {
 				}
 
 				// Determine drop rate
-				let dropRate = reward.effective_rate;
+				let dropRate = reward.effective_rate ?? 0;
 				if (dropRate <= 0) {
 					const materialRarity = materials[reward.id]?.rarity;
 					if (materialRarity) {
