@@ -1,8 +1,10 @@
 import {
 	AlertTriangle,
 	Calendar,
+	Check,
 	ChevronDown,
 	Loader2,
+	type LucideIcon,
 	Swords,
 } from "lucide-react";
 import { CampaignIcon } from "@/1-components/general/CampaignIcon.tsx";
@@ -10,14 +12,27 @@ import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
 import { MaterialIcon } from "@/1-components/general/MaterialIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
-import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types.ts";
+import { Card, CardContent } from "@/1-components/ui/card.tsx";
+import type {
+	IDailyRaid,
+	IDailyRaidsPlan,
+	ITodayActivity,
+} from "@/4-lib/general/daily-raids/types.ts";
+import { cn } from "@/4-lib/utils.ts";
 
 interface DailyRaidsPlanProps {
 	plan: IDailyRaidsPlan | null;
 	computing: boolean;
+	dailyEnergy: number;
+	todayActivity: ITodayActivity;
 }
 
-export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
+export function DailyRaidsPlan({
+	plan,
+	computing,
+	dailyEnergy,
+	todayActivity,
+}: DailyRaidsPlanProps) {
 	if (computing || !plan) {
 		return (
 			<div className="flex items-center justify-center py-20">
@@ -47,7 +62,11 @@ export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
 		<div className="space-y-6">
 			{/* Summary */}
 			<div className="grid grid-cols-3 gap-3">
-				<SummaryCard label="Total Days" value={plan.totalDays.toString()} />
+				<SummaryCard
+					label="Total Days"
+					value={plan.totalDays.toString()}
+					icon={Calendar}
+				/>
 				<SummaryCard
 					label="Total Energy"
 					value={formatEnergy(plan.totalEnergy)}
@@ -56,6 +75,7 @@ export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
 				<SummaryCard
 					label="Total Raids"
 					value={plan.totalRaids.toLocaleString()}
+					icon={Swords}
 				/>
 			</div>
 
@@ -124,93 +144,77 @@ export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
 				</details>
 			)}
 
-			{/* Days */}
-			{plan.days.length > 0 && (
-				<div className="space-y-3">
-					{plan.days.map((day) => (
-						<details
-							key={day.dayNumber}
-							className="group rounded-lg border border-border/60 bg-card"
-							open={day.dayNumber === 1}
-						>
-							<summary className="flex cursor-pointer items-center gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
-								<div className="flex size-8 items-center justify-center rounded-lg bg-muted/50 text-sm font-bold text-foreground">
-									{day.dayNumber}
+			{/* Today section (Day 1) */}
+			{plan.days.length > 0 &&
+				(() => {
+					const today = plan.days[0];
+					return (
+						<div className="space-y-3">
+							{/* Today header */}
+							<div className="flex items-center gap-3">
+								<div className="flex size-8 items-center justify-center rounded-lg bg-primary/15 text-sm font-bold text-primary">
+									1
 								</div>
-								<div className="flex-1">
-									<span className="text-sm font-medium text-foreground">
-										Day {day.dayNumber}
-									</span>
-									<span className="ml-2 text-xs text-muted-foreground">
-										{day.raids.length} material
-										{day.raids.length > 1 ? "s" : ""}
-									</span>
-								</div>
-								<div className="flex items-center gap-3">
+								<span className="text-sm font-medium text-foreground">
+									Today
+								</span>
+								<div className="flex items-center gap-2">
 									<Badge variant="secondary" className="text-xs">
 										<EnergyIcon size={12} />
-										{day.energyTotal}
+										{todayActivity.energySpent}/{dailyEnergy}
 									</Badge>
 									<Badge variant="secondary" className="text-xs">
 										<Swords className="mr-1 size-3" />
-										{day.raidsTotal}
+										{todayActivity.battlesDone} battles
 									</Badge>
 								</div>
-								<ChevronDown className="size-4 text-muted-foreground transition-transform group-open:rotate-180" />
-							</summary>
-							<div className="border-t border-border/40 px-4 pt-2 pb-3">
-								<div className="space-y-3">
-									{day.raids.map((raid) => (
-										<div
-											key={`${raid.goalId}_${raid.materialId}`}
-											className="space-y-1.5 rounded-md px-2 py-1.5"
-										>
-											{/* Material header */}
-											<div className="flex items-center gap-2">
-												<MaterialIcon
-													icon={raid.materialIcon}
-													label={raid.materialLabel}
-												/>
-												<span className="text-sm font-medium text-foreground">
-													{raid.materialLabel}
-												</span>
-												<span className="text-xs text-muted-foreground tabular-nums">
-													{Math.round(raid.acquiredCount)}/{raid.requiredCount}
-												</span>
-												<div className="flex -space-x-1">
-													{raid.unitIds.map((id) => (
-														<CharacterIcon key={id} unitId={id} size={18} />
-													))}
-												</div>
-											</div>
-
-											{/* Raid locations */}
-											<div className="space-y-1 pl-7">
-												{raid.raidLocations.map((loc) => (
-													<div
-														key={loc.battleId}
-														className="flex items-center gap-2 text-xs text-muted-foreground"
-													>
-														<CampaignIcon campaign={loc.campaign} size={16} />
-														<span>
-															{loc.campaign} #{loc.nodeNumber}
-														</span>
-														<span className="tabular-nums">
-															{loc.raidsCount} raid
-															{loc.raidsCount > 1 ? "s" : ""}
-														</span>
-														<span className="flex items-center gap-0.5 tabular-nums">
-															<EnergyIcon size={10} />
-															{loc.energySpent}
-														</span>
-													</div>
-												))}
-											</div>
-										</div>
-									))}
-								</div>
 							</div>
-						</details>
+
+							{/* Material cards grid */}
+							<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+								{today.raids.map((raid) => (
+									<MaterialCard
+										key={`${raid.goalId}_${raid.materialId}`}
+										raid={raid}
+									/>
+								))}
+							</div>
+						</div>
+					);
+				})()}
+
+			{/* Upcoming section (Days 2+) */}
+			{plan.days.length > 1 && (
+				<div className="space-y-5">
+					<h3 className="text-sm font-medium text-muted-foreground">
+						Upcoming
+					</h3>
+					{plan.days.slice(1).map((day) => (
+						<div key={day.dayNumber} className="space-y-3">
+							{/* Day header */}
+							<div className="flex items-center gap-3">
+								<div className="flex size-8 items-center justify-center rounded-lg bg-muted/50 text-sm font-bold text-foreground">
+									{day.dayNumber}
+								</div>
+								<span className="text-sm font-medium text-foreground">
+									Day {day.dayNumber}
+								</span>
+								<Badge variant="secondary" className="text-xs">
+									<EnergyIcon size={12} />
+									{day.energyTotal}/{dailyEnergy}
+								</Badge>
+							</div>
+
+							{/* Material cards grid */}
+							<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+								{day.raids.map((raid) => (
+									<MaterialCard
+										key={`${raid.goalId}_${raid.materialId}`}
+										raid={raid}
+									/>
+								))}
+							</div>
+						</div>
 					))}
 				</div>
 			)}
@@ -218,18 +222,151 @@ export function DailyRaidsPlan({ plan, computing }: DailyRaidsPlanProps) {
 	);
 }
 
+function MaterialCard({ raid }: { raid: IDailyRaid }) {
+	const isComplete = raid.ownedCount >= raid.requiredCount;
+	const progress =
+		raid.requiredCount > 0
+			? Math.min(raid.ownedCount / raid.requiredCount, 1)
+			: 0;
+
+	const estimatedToday = raid.raidLocations.reduce(
+		(sum, loc) => sum + loc.farmedItems,
+		0,
+	);
+	const totalRaids = raid.raidLocations.reduce(
+		(sum, loc) => sum + loc.raidsCount,
+		0,
+	);
+	const totalEnergy = raid.raidLocations.reduce(
+		(sum, loc) => sum + loc.energySpent,
+		0,
+	);
+
+	return (
+		<Card
+			size="sm"
+			className={cn(
+				isComplete && "bg-emerald-500/5 ring-1 ring-emerald-500/30",
+			)}
+		>
+			<CardContent className="space-y-2.5">
+				{/* Header: icon + name + check + stats */}
+				<div className="flex items-start gap-2">
+					<MaterialIcon
+						icon={raid.materialIcon}
+						label={raid.materialLabel}
+						size={32}
+					/>
+					<div className="min-w-0 flex-1">
+						<div className="flex items-center gap-1.5">
+							<span className="truncate text-sm font-medium text-foreground">
+								{raid.materialLabel}
+							</span>
+							{isComplete && (
+								<Check className="size-4 shrink-0 text-emerald-400" />
+							)}
+						</div>
+						<div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+							<span className="text-xs tabular-nums">
+								<span className="text-foreground">
+									{raid.ownedCount}/{raid.requiredCount}
+								</span>
+								{estimatedToday > 0 && (
+									<>
+										<span className="text-muted-foreground"> · </span>
+										<span className="text-muted-foreground">
+											~{Math.round(estimatedToday)} est.
+										</span>
+									</>
+								)}
+							</span>
+							<div className="flex -space-x-1">
+								{raid.unitIds.map((id) => (
+									<CharacterIcon key={id} unitId={id} size={18} />
+								))}
+							</div>
+							<div className="ml-auto flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+								<span className="flex items-center gap-0.5 tabular-nums">
+									<Swords className="size-3" />
+									{totalRaids}
+								</span>
+								<span className="flex items-center gap-0.5 tabular-nums">
+									<EnergyIcon size={12} />
+									{totalEnergy}
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{/* Progress bar */}
+				<div className="h-1.5 rounded-full bg-muted">
+					<div
+						className={cn(
+							"h-full rounded-full transition-all",
+							isComplete ? "bg-emerald-500" : "bg-primary",
+						)}
+						style={{ width: `${Math.round(progress * 100)}%` }}
+					/>
+				</div>
+
+				{/* Farm locations */}
+				{raid.raidLocations.length > 0 && (
+					<div className="space-y-1">
+						{raid.raidLocations.map((loc) => {
+							const farmedToday =
+								loc.attemptsLeftToday !== undefined &&
+								loc.attemptsLeftToday === 0;
+							return (
+								<div
+									key={loc.battleId}
+									className={cn(
+										"flex items-center gap-2 text-xs text-muted-foreground",
+										farmedToday && "line-through opacity-50",
+									)}
+								>
+									{farmedToday ? (
+										<Check className="size-4 shrink-0 text-emerald-400" />
+									) : (
+										<CampaignIcon campaign={loc.campaign} size={16} />
+									)}
+									<span className="min-w-0 truncate">
+										{loc.campaign} #{loc.nodeNumber}
+									</span>
+									<span className="ml-auto flex shrink-0 items-center gap-2">
+										<span className="tabular-nums">
+											{loc.raidsCount} raid{loc.raidsCount > 1 ? "s" : ""}
+										</span>
+										<span className="flex items-center gap-0.5 tabular-nums">
+											<EnergyIcon size={10} />
+											{loc.energySpent}
+										</span>
+									</span>
+								</div>
+							);
+						})}
+					</div>
+				)}
+			</CardContent>
+		</Card>
+	);
+}
+
 function SummaryCard({
 	label,
 	value,
+	icon: Icon,
 	showEnergy = false,
 }: {
 	label: string;
 	value: string;
+	icon?: LucideIcon;
 	showEnergy?: boolean;
 }) {
 	return (
 		<div className="rounded-lg border border-border/60 bg-card p-4">
-			<p className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
+			<p className="flex items-center gap-1.5 text-xs font-medium tracking-wider text-muted-foreground uppercase">
+				{Icon && <Icon className="size-3.5" />}
 				{label}
 			</p>
 			<p className="mt-1 flex items-center gap-1.5 text-2xl font-bold text-foreground">

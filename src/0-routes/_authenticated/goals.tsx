@@ -58,7 +58,9 @@ import {
 import { detectCampaignEvent } from "@/4-lib/general/campaign-events.ts";
 import {
 	buildInventoryMap,
+	parseBattleAttempts,
 	parseCampaignProgress,
+	parseTodayActivity,
 } from "@/4-lib/general/campaign-progress.ts";
 import type { Campaign, PersonalGoalType } from "@/4-lib/general/constants.ts";
 import {
@@ -419,6 +421,8 @@ function GoalsPage() {
 			(playerContext.campaignProgress as Map<Campaign, number>) ?? new Map();
 		const inv = playerContext.inventory ?? {};
 
+		const attempts = parseBattleAttempts(campaignProgress);
+
 		const plan = generateDailyRaidsPlan(
 			typedGoals,
 			dailyEnergy,
@@ -429,6 +433,7 @@ function GoalsPage() {
 			playerContext.campaignEvent ?? "none",
 			homeScreenEvent,
 			hseMinEnemyCount,
+			attempts,
 		);
 		if (!cancelled) {
 			setRaidsResult({ plan, token: currentToken });
@@ -443,6 +448,12 @@ function GoalsPage() {
 	// Only use the plan if it was computed with the current deps
 	const raidsPlan =
 		raidsResult?.token === raidsDepsToken ? raidsResult.plan : null;
+
+	// Compute today's activity from ALL campaign nodes (plan + non-plan farming)
+	const todayActivity = useMemo(
+		() => parseTodayActivity(campaignProgress),
+		[campaignProgress],
+	);
 
 	const handleEdit = useCallback(
 		(goalId: string) => {
@@ -827,9 +838,19 @@ function GoalsPage() {
 					value={viewMode}
 					onValueChange={(val) => setViewMode(val as "goals" | "dailyRaids")}
 				>
-					<TabsList>
-						<TabsTrigger value="goals">Goals</TabsTrigger>
-						<TabsTrigger value="dailyRaids">Daily Raids</TabsTrigger>
+					<TabsList className="h-10 gap-1 rounded-xl p-1">
+						<TabsTrigger
+							value="goals"
+							className="rounded-lg px-4 py-1.5 data-active:text-emerald-400 dark:data-active:text-emerald-400"
+						>
+							Goals
+						</TabsTrigger>
+						<TabsTrigger
+							value="dailyRaids"
+							className="rounded-lg px-4 py-1.5 data-active:text-emerald-400 dark:data-active:text-emerald-400"
+						>
+							Daily Raids
+						</TabsTrigger>
 					</TabsList>
 
 					{/* Goal type filter chips — only in Goals view */}
@@ -936,7 +957,12 @@ function GoalsPage() {
 					</TabsContent>
 
 					<TabsContent value="dailyRaids">
-						<DailyRaidsPlan plan={raidsPlan} computing={computingRaids} />
+						<DailyRaidsPlan
+							plan={raidsPlan}
+							computing={computingRaids}
+							dailyEnergy={dailyEnergy}
+							todayActivity={todayActivity}
+						/>
 					</TabsContent>
 				</Tabs>
 			)}

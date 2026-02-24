@@ -8,6 +8,7 @@
  * - Campaign metadata lookups (baseName, displayType, isEvent, totalNodes)
  */
 
+import { CAMPAIGN_BATTLES } from "@/5-assets/campaign-battles/index.ts";
 import {
 	CAMPAIGN_BASE_NAMES,
 	CAMPAIGN_METADATA,
@@ -345,4 +346,33 @@ export function getUnlockedNodeCount(
 	if (!nodeNumbers) return maxNode;
 
 	return nodeNumbers.filter((n) => n <= maxNode).length;
+}
+
+// ---------------------------------------------------------------------------
+// Node energy cost lookup (sync, lazy-built from CAMPAIGN_BATTLES)
+// ---------------------------------------------------------------------------
+
+let _nodeEnergyCosts: Map<string, number> | undefined;
+
+/**
+ * Get the energy cost for a specific campaign node.
+ * Key format: "campaign:nodeNumber" (e.g. "Indomitus:5").
+ */
+export function getNodeEnergyCost(
+	campaign: string,
+	nodeNumber: number,
+): number {
+	if (!_nodeEnergyCosts) {
+		_nodeEnergyCosts = new Map();
+		const data = CAMPAIGN_BATTLES as unknown as Record<
+			string,
+			Array<{ nodeNumber: number; energyCost: number }>
+		>;
+		for (const [name, nodes] of Object.entries(data)) {
+			for (const node of nodes) {
+				_nodeEnergyCosts.set(`${name}:${node.nodeNumber}`, node.energyCost);
+			}
+		}
+	}
+	return _nodeEnergyCosts.get(`${campaign}:${nodeNumber}`) ?? 0;
 }

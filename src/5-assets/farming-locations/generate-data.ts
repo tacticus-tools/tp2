@@ -163,7 +163,33 @@ export const main = () => {
 		const energyCost = node.energyCost ?? config.energyCost;
 		const dailyBattleCount = config.dailyBattleCount;
 
-		// --- Upgrade locations (potential rewards, excluding shards and gold) ---
+		// --- Upgrade locations (guaranteed + potential rewards, excluding shards and gold) ---
+		// Collect per-material expected items from both guaranteed and potential rewards,
+		// then compute energyPerItem from the combined rate.
+		const upgradeDrops = new Map<
+			string,
+			{ guaranteedCount: number; potentialRate: number }
+		>();
+
+		if (node.rewards.guaranteed) {
+			for (const r of node.rewards.guaranteed) {
+				if (
+					!r.id ||
+					r.id.startsWith("shards_") ||
+					r.id.startsWith("mythicShards_") ||
+					r.id === "gold"
+				) {
+					continue;
+				}
+				const prev = upgradeDrops.get(r.id) ?? {
+					guaranteedCount: 0,
+					potentialRate: 0,
+				};
+				prev.guaranteedCount += (r.min + r.max) / 2;
+				upgradeDrops.set(r.id, prev);
+			}
+		}
+
 		if (node.rewards.potential) {
 			for (const reward of node.rewards.potential) {
 				if (
@@ -175,7 +201,6 @@ export const main = () => {
 					continue;
 				}
 
-				// Determine drop rate
 				let dropRate = reward.effective_rate ?? 0;
 				if (dropRate <= 0) {
 					const materialRarity = materials[reward.id]?.rarity;
@@ -189,22 +214,34 @@ export const main = () => {
 
 				if (dropRate <= 0) continue;
 
-				const location = {
-					battleId: node.id,
-					campaign: node.campaign,
-					campaignType: node.campaignType,
-					nodeNumber: node.nodeNumber,
-					energyCost,
-					dailyBattleCount,
-					dropRate,
-					energyPerItem: energyCost / dropRate,
+				const prev = upgradeDrops.get(reward.id) ?? {
+					guaranteedCount: 0,
+					potentialRate: 0,
 				};
-
-				if (!upgradeLocations[reward.id]) {
-					upgradeLocations[reward.id] = [];
-				}
-				upgradeLocations[reward.id].push(location);
+				prev.potentialRate += dropRate;
+				upgradeDrops.set(reward.id, prev);
 			}
+		}
+
+		for (const [materialId, drops] of upgradeDrops) {
+			const combinedRate = drops.guaranteedCount + drops.potentialRate;
+			if (combinedRate <= 0) continue;
+
+			const location = {
+				battleId: node.id,
+				campaign: node.campaign,
+				campaignType: node.campaignType,
+				nodeNumber: node.nodeNumber,
+				energyCost,
+				dailyBattleCount,
+				dropRate: combinedRate,
+				energyPerItem: energyCost / combinedRate,
+			};
+
+			if (!upgradeLocations[materialId]) {
+				upgradeLocations[materialId] = [];
+			}
+			upgradeLocations[materialId].push(location);
 		}
 
 		// --- Shard locations (guaranteed + potential shard rewards) ---

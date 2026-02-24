@@ -1,3 +1,10 @@
+export interface ITodayActivity {
+	/** Total energy spent today across ALL nodes (plan + non-plan) */
+	energySpent: number;
+	/** Total battles done today across ALL nodes (plan + non-plan) */
+	battlesDone: number;
+}
+
 export interface IRaidLocation {
 	battleId: string;
 	campaign: string;
@@ -8,6 +15,8 @@ export interface IRaidLocation {
 	raidsCount: number;
 	farmedItems: number;
 	energySpent: number;
+	/** Remaining daily attempts from sync data (only set on Day 1) */
+	attemptsLeftToday?: number;
 }
 
 export interface IDailyRaid {
@@ -18,6 +27,8 @@ export interface IDailyRaid {
 	requiredCount: number;
 	acquiredCount: number;
 	remainingCount: number;
+	/** Current inventory count (from sync) before any simulated farming */
+	ownedCount: number;
 	unitIds: string[];
 	raidLocations: IRaidLocation[];
 }

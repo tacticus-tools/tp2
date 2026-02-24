@@ -154,11 +154,15 @@ function computeMaterialEstimate(
 /**
  * Plan raids for a single material within a day.
  * Mirrors tacticusplanner's _planRaidsForMaterial.
+ *
+ * On Day 1, `battleAttempts` supplies actual remaining attempts from sync data.
+ * On subsequent days all locations get their full `dailyBattleCount`.
  */
 function planRaidsForMaterial(
 	material: IMaterialEstimate,
 	energyLeft: number,
 	plannedLocationIds: Set<string>,
+	battleAttempts: Map<string, number> | null,
 ): { raidLocations: IRaidLocation[]; energySpent: number } {
 	const raidLocations: IRaidLocation[] = [];
 	let totalEnergySpent = 0;
@@ -168,10 +172,31 @@ function planRaidsForMaterial(
 	);
 
 	for (const loc of availableLocations) {
-		if (energyLeft <= 0) break;
+		// On Day 1, use actual remaining attempts from sync; otherwise full daily count
+		const syncKey = `${loc.campaign}:${loc.nodeNumber}`;
+		const syncAttempts = battleAttempts?.get(syncKey);
+		const attemptsLeft = syncAttempts ?? loc.dailyBattleCount;
 
-		const attemptsLeft = loc.dailyBattleCount;
-		if (attemptsLeft <= 0) continue;
+		// Fully farmed today → include as a zero-raid entry so the UI can show it
+		if (attemptsLeft <= 0) {
+			if (syncAttempts !== undefined) {
+				raidLocations.push({
+					battleId: loc.battleId,
+					campaign: loc.campaign,
+					nodeNumber: loc.nodeNumber,
+					energyCost: loc.energyCost,
+					dailyBattleCount: loc.dailyBattleCount,
+					dropRate: loc.dropRate,
+					raidsCount: 0,
+					farmedItems: 0,
+					energySpent: 0,
+					attemptsLeftToday: 0,
+				});
+			}
+			continue;
+		}
+
+		if (energyLeft <= 0) break;
 
 		const energyForFullAttempts = attemptsLeft * loc.energyCost;
 		const energyToFarmMaterial = Math.min(material.energyLeft, energyLeft);
@@ -196,6 +221,7 @@ function planRaidsForMaterial(
 			raidsCount: battlesToRaid,
 			farmedItems: energySpentOnLocation / loc.energyPerItem,
 			energySpent: energySpentOnLocation,
+			attemptsLeftToday: syncAttempts !== undefined ? syncAttempts : undefined,
 		});
 	}
 
@@ -228,6 +254,9 @@ function buildEstimatesByPriority(
 	const allEstimates: IMaterialEstimate[] = [];
 
 	for (const goal of upgradeRankGoals) {
+		// Snapshot inventory before this goal to compute consumed amounts
+		const invBefore = { ...inventoryCopy };
+
 		const baseMaterials = getBaseUpgradesForRankUp(
 			goal.unitId,
 			goal.rankStart,
@@ -242,6 +271,11 @@ function buildEstimatesByPriority(
 
 		for (const [materialId, count] of Object.entries(baseMaterials)) {
 			if (count <= 0) continue;
+
+			// Compute how much inventory was consumed for this material
+			const consumed =
+				(invBefore[materialId] ?? 0) - (inventoryCopy[materialId] ?? 0);
+			const ownedCount = Math.max(consumed, 0);
 
 			const locations = allLocations[materialId] ?? [];
 			const progressFiltered = filterLocationsByCampaignProgress(
@@ -272,8 +306,8 @@ function buildEstimatesByPriority(
 				materialId,
 				label,
 				icon,
-				count,
-				0, // inventory already subtracted by getBaseUpgradesForRankUp
+				count + ownedCount,
+				ownedCount,
 				[goal.unitId],
 				goal.goalId,
 				suggested,
@@ -341,6 +375,9 @@ function buildEstimatesByTotalMaterials(
 	// Accumulate materials across all goals
 	const materialNeeds = new Map<string, { count: number; unitIds: string[] }>();
 
+	// Snapshot inventory before all goals to compute consumed amounts
+	const invBefore = { ...inventoryCopy };
+
 	for (const goal of upgradeRankGoals) {
 		const baseMaterials = getBaseUpgradesForRankUp(
 			goal.unitId,
@@ -374,6 +411,11 @@ function buildEstimatesByTotalMaterials(
 	const allEstimates: IMaterialEstimate[] = [];
 
 	for (const [materialId, { count, unitIds }] of materialNeeds) {
+		// Compute how much inventory was consumed for this material across all goals
+		const consumed =
+			(invBefore[materialId] ?? 0) - (inventoryCopy[materialId] ?? 0);
+		const ownedCount = Math.max(consumed, 0);
+
 		const locations = allLocations[materialId] ?? [];
 		const progressFiltered = filterLocationsByCampaignProgress(
 			locations,
@@ -395,8 +437,8 @@ function buildEstimatesByTotalMaterials(
 			materialId,
 			label,
 			icon,
-			count,
-			0,
+			count + ownedCount,
+			ownedCount,
 			unitIds,
 			"combined",
 			suggested,
@@ -435,6 +477,7 @@ function buildEstimatesByTotalMaterials(
  * @param inventory - Player's material inventory
  * @param farmStrategy - "leastEnergy" (cheapest node only) or "leastTime" (all nodes)
  * @param farmOrder - "goalPriority" (per-goal ordering) or "totalMaterials" (pooled)
+ * @param battleAttempts - Per-node remaining daily attempts from sync ("campaign:node" → attemptsLeft)
  */
 export function generateDailyRaidsPlan(
 	goals: CharacterRaidGoalSelect[],
@@ -446,6 +489,7 @@ export function generateDailyRaidsPlan(
 	campaignEvent: CampaignEventType = "none",
 	homeScreenEvent: HomeScreenEventType = "none",
 	hseMinEnemyCount = 5,
+	battleAttempts: Map<string, number> = new Map(),
 ): IDailyRaidsPlan {
 	if (dailyEnergy <= 0) {
 		return {
@@ -530,10 +574,13 @@ export function generateDailyRaidsPlan(
 				plannedLocationsPerMaterial.set(material.materialId, plannedIds);
 			}
 
+			// On Day 1 (iteration 0), use actual sync attempts; later days get full count
+			const isFirstDay = iteration === 0;
 			const { raidLocations, energySpent } = planRaidsForMaterial(
 				material,
 				energyLeft,
 				plannedIds,
+				isFirstDay && battleAttempts.size > 0 ? battleAttempts : null,
 			);
 
 			if (raidLocations.length > 0) {
@@ -547,16 +594,22 @@ export function generateDailyRaidsPlan(
 				const totalFarmed = (farmedPerEstimate.get(material) ?? 0) + dayFarmed;
 				farmedPerEstimate.set(material, totalFarmed);
 
-				const needed = material.requiredCount - material.acquiredCount;
+				const owned = material.acquiredCount;
+				const grossRequired = material.requiredCount;
 
 				dayRaids.push({
 					materialId: material.materialId,
 					materialLabel: material.materialLabel,
 					materialIcon: material.materialIcon,
 					goalId: material.goalId,
-					requiredCount: needed,
-					acquiredCount: Math.round(Math.min(totalFarmed, needed)),
-					remainingCount: Math.round(Math.max(needed - totalFarmed, 0)),
+					requiredCount: grossRequired,
+					acquiredCount: Math.round(
+						Math.min(owned + totalFarmed, grossRequired),
+					),
+					remainingCount: Math.round(
+						Math.max(grossRequired - owned - totalFarmed, 0),
+					),
+					ownedCount: owned,
 					unitIds: material.unitIds,
 					raidLocations,
 				});

@@ -43,6 +43,16 @@
       "energyPerItem": 5.720823798627002
     },
     {
+      "battleId": "OME19",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 19,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
       "battleId": "FoCM17",
       "campaign": "Fall of Cadia Mirror",
       "campaignType": "Mirror",
@@ -81,16 +91,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "OME19",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 19,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmC001": [
@@ -103,6 +103,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 5.720823798627002
+    },
+    {
+      "battleId": "IE05",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 5,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
+      "battleId": "SHME22",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
     },
     {
       "battleId": "AME07",
@@ -173,26 +193,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IE05",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 5,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
-    },
-    {
-      "battleId": "SHME22",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpU001": [
@@ -215,6 +215,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "OE34",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 34,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "FoCM14",
@@ -265,16 +275,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "OE34",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 34,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgDmgC009": [
@@ -287,6 +287,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 5.720823798627002
+    },
+    {
+      "battleId": "IME27",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 27,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
     },
     {
       "battleId": "AME02",
@@ -367,16 +377,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IME27",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 27,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpU006": [
@@ -463,6 +463,16 @@
       "energyPerItem": 7.202881152460985
     },
     {
+      "battleId": "SHE14",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 14,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
+    {
       "battleId": "FoCM11",
       "campaign": "Fall of Cadia Mirror",
       "campaignType": "Mirror",
@@ -501,16 +511,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "SHE14",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 14,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgArmU005": [
@@ -523,6 +523,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 7.002801120448179
+    },
+    {
+      "battleId": "IE33",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "FoCM10",
@@ -563,16 +573,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "IE33",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgArmC003": [
@@ -585,6 +585,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 5.720823798627002
+    },
+    {
+      "battleId": "FoCE25",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 25,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
+      "battleId": "FoCME01",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 1,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
     },
     {
       "battleId": "TE10",
@@ -675,29 +695,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCE25",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 25,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
-    },
-    {
-      "battleId": "FoCME01",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 1,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmU002": [
+    {
+      "battleId": "OE09",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "FoCM08",
       "campaign": "Fall of Cadia Mirror",
@@ -787,19 +797,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "OE09",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgArmC002": [
+    {
+      "battleId": "OME01",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 1,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "FoCM07",
       "campaign": "Fall of Cadia Mirror",
@@ -839,19 +849,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "OME01",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 1,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpC003": [
+    {
+      "battleId": "FoCME21",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "FoCM06",
       "campaign": "Fall of Cadia Mirror",
@@ -911,16 +921,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCME21",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpU003": [
@@ -958,6 +958,16 @@
     }
   ],
   "upgDmgU012": [
+    {
+      "battleId": "OE14",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 14,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "FoCM03",
       "campaign": "Fall of Cadia Mirror",
@@ -1017,19 +1027,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "OE14",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 14,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpC001": [
+    {
+      "battleId": "FoCE30",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 30,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE08",
       "campaign": "Tyranids Extremis",
@@ -1099,19 +1109,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCE30",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 30,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgC001": [
+    {
+      "battleId": "SHE28",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 28,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "FoCM01",
       "campaign": "Fall of Cadia Mirror",
@@ -1161,19 +1171,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHE28",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 28,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpC006": [
+    {
+      "battleId": "IME34",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 34,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "DGE04",
       "campaign": "Death Guard Extremis",
@@ -1253,19 +1263,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IME34",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 34,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmU001": [
+    {
+      "battleId": "IE09",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
+    {
+      "battleId": "SHME28",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 28,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM62",
       "campaign": "Indomitus Mirror",
@@ -1325,29 +1345,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "IE09",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
-    },
-    {
-      "battleId": "SHME28",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 28,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgDmgU005": [
+    {
+      "battleId": "IE03",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 3,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM67",
       "campaign": "Indomitus Mirror",
@@ -1377,16 +1387,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "IE03",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 3,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgDmgU009": [
@@ -1399,6 +1399,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "SHE01",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 1,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "IM65",
@@ -1479,19 +1489,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
+    }
+  ],
+  "upgDmgU010": [
     {
-      "battleId": "SHE01",
-      "campaign": "Saim-Hann Elite",
+      "battleId": "IE01",
+      "campaign": "Indomitus Elite",
       "campaignType": "Elite",
       "nodeNumber": 1,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
-    }
-  ],
-  "upgDmgU010": [
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
+    {
+      "battleId": "IME35",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM64",
       "campaign": "Indomitus Mirror",
@@ -1561,29 +1581,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "IE01",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 1,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
-    },
-    {
-      "battleId": "IME35",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpC014": [
+    {
+      "battleId": "SHE22",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "AME04",
       "campaign": "Adeptus Mechanicus Extremis",
@@ -1673,19 +1683,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHE22",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgC003": [
+    {
+      "battleId": "SHME27",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 27,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE02",
       "campaign": "Tyranids Extremis",
@@ -1745,19 +1755,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHME27",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 27,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgC005": [
+    {
+      "battleId": "SHE17",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 17,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "OM46",
       "campaign": "Octarius Mirror",
@@ -1797,19 +1807,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHE17",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 17,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmC004": [
+    {
+      "battleId": "FoCE12",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 12,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
+      "battleId": "SHME01",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 1,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "AME03",
       "campaign": "Adeptus Mechanicus Extremis",
@@ -1919,29 +1939,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCE12",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 12,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
-    },
-    {
-      "battleId": "SHME01",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 1,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpC002": [
+    {
+      "battleId": "IME21",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "AME08",
       "campaign": "Adeptus Mechanicus Extremis",
@@ -2011,16 +2021,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IME21",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgC004": [
@@ -2099,6 +2099,26 @@
   ],
   "upgDmgC011": [
     {
+      "battleId": "IE02",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 2,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
+      "battleId": "OME09",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
       "battleId": "OM10",
       "campaign": "Octarius Mirror",
       "campaignType": "Mirror",
@@ -2157,29 +2177,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IE02",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 2,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
-    },
-    {
-      "battleId": "OME09",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpC007": [
+    {
+      "battleId": "IE38",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 38,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "IM53",
       "campaign": "Indomitus Mirror",
@@ -2229,19 +2239,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IE38",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 38,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgU003": [
+    {
+      "battleId": "FoCE01",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 1,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM52",
       "campaign": "Indomitus Mirror",
@@ -2321,19 +2331,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "FoCE01",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 1,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgDmgC007": [
+    {
+      "battleId": "FoCME27",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 27,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TAE09",
       "campaign": "T'au Empire Extremis",
@@ -2403,19 +2413,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCME27",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 27,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgC008": [
+    {
+      "battleId": "SHME10",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE05",
       "campaign": "Tyranids Extremis",
@@ -2465,19 +2475,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHME10",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 10,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmC005": [
+    {
+      "battleId": "IME01",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 1,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE03",
       "campaign": "Tyranids Extremis",
@@ -2557,19 +2567,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IME01",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 1,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpU002": [
+    {
+      "battleId": "IE21",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM41",
       "campaign": "Indomitus Mirror",
@@ -2629,19 +2639,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "IE21",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpC008": [
+    {
+      "battleId": "FoCE20",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TAE08",
       "campaign": "T'au Empire Extremis",
@@ -2711,19 +2721,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCE20",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpU007": [
+    {
+      "battleId": "SHE05",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 5,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM46",
       "campaign": "Indomitus Mirror",
@@ -2773,16 +2783,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "SHE05",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 5,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgDmgR003": [
@@ -2805,6 +2805,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "FoCE15",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 15,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME33",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM44",
@@ -2855,29 +2875,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE15",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 15,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME33",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR011": [
+    {
+      "battleId": "IE36",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 36,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME02",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 2,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM43",
       "campaign": "Indomitus Mirror",
@@ -2897,29 +2917,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE36",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 36,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME02",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 2,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmC007": [
+    {
+      "battleId": "SHME25",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 25,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE07",
       "campaign": "Tyranids Extremis",
@@ -3009,19 +3019,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHME25",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 25,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpU009": [
+    {
+      "battleId": "FoCE05",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 5,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "SHM13",
       "campaign": "Saim-Hann Mirror",
@@ -3081,19 +3091,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "FoCE05",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 5,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgArmU007": [
+    {
+      "battleId": "FoCE09",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM40",
       "campaign": "Indomitus Mirror",
@@ -3163,19 +3173,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "FoCE09",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpC009": [
+    {
+      "battleId": "FoCE26",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE01",
       "campaign": "Tyranids Extremis",
@@ -3235,16 +3245,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCE26",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmU008": [
@@ -3257,6 +3257,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "FoCE33",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "DGS20",
@@ -3297,16 +3307,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "FoCE33",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpU008": [
@@ -3332,6 +3332,16 @@
     }
   ],
   "upgDmgR002": [
+    {
+      "battleId": "IE15",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 15,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "OM55",
       "campaign": "Octarius Mirror",
@@ -3361,16 +3371,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE15",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 15,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR002": [
@@ -3383,6 +3383,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE07",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 7,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME33",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM35",
@@ -3433,29 +3453,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE07",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 7,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME33",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgC015": [
+    {
+      "battleId": "IME09",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TAE02",
       "campaign": "T'au Empire Extremis",
@@ -3535,16 +3545,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IME09",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmE013": [
@@ -3632,6 +3632,16 @@
     }
   ],
   "upgHpC010": [
+    {
+      "battleId": "SHME21",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE04",
       "campaign": "Tyranids Extremis",
@@ -3721,19 +3731,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHME21",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgC014": [
+    {
+      "battleId": "SHME09",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TE09",
       "campaign": "Tyranids Extremis",
@@ -3823,16 +3833,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHME09",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpU015": [
@@ -3898,6 +3898,16 @@
     }
   ],
   "upgHpC015": [
+    {
+      "battleId": "OME26",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "AME01",
       "campaign": "Adeptus Mechanicus Extremis",
@@ -3967,19 +3977,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "OME26",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpC013": [
+    {
+      "battleId": "OME21",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "DGE01",
       "campaign": "Death Guard Extremis",
@@ -4049,19 +4059,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "OME21",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmC013": [
+    {
+      "battleId": "SHME12",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 12,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "DGE03",
       "campaign": "Death Guard Extremis",
@@ -4131,19 +4141,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHME12",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 12,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgC013": [
+    {
+      "battleId": "FoCE19",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 19,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "AME09",
       "campaign": "Adeptus Mechanicus Extremis",
@@ -4223,16 +4233,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCE19",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 19,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmR006": [
@@ -4255,6 +4255,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "OE35",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME33",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM12",
@@ -4315,29 +4335,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE35",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME33",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgC012": [
+    {
+      "battleId": "FoCME09",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "DGE05",
       "campaign": "Death Guard Extremis",
@@ -4407,16 +4417,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCME09",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpR018": [
@@ -4429,6 +4429,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "FoCE07",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 7,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM14",
@@ -4489,19 +4499,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE07",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 7,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgC010": [
+    {
+      "battleId": "FoCE13",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 13,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
+      "battleId": "SHME19",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 19,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "AME05",
       "campaign": "Adeptus Mechanicus Extremis",
@@ -4561,26 +4581,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "FoCE13",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 13,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
-    },
-    {
-      "battleId": "SHME19",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 19,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpR019": [
@@ -4603,6 +4603,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "OE07",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 7,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "FoCM42",
@@ -4673,19 +4683,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE07",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 7,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmU009": [
+    {
+      "battleId": "OE33",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM10",
       "campaign": "Indomitus Mirror",
@@ -4735,19 +4745,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "OE33",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpC016": [
+    {
+      "battleId": "SHE10",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
+      "battleId": "OME13",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 13,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "FoCM13",
       "campaign": "Fall of Cadia Mirror",
@@ -4797,29 +4817,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "SHE10",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 10,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
-    },
-    {
-      "battleId": "OME13",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 13,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmC012": [
+    {
+      "battleId": "OME27",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 27,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TAE03",
       "campaign": "T'au Empire Extremis",
@@ -4879,16 +4889,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "OME27",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 27,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgArmU013": [
@@ -4901,6 +4901,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "SHE33",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "OM34",
@@ -4951,16 +4961,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "SHE33",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpU013": [
@@ -5027,6 +5027,16 @@
       "energyPerItem": 7.202881152460985
     },
     {
+      "battleId": "OE21",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
+    {
       "battleId": "IM07",
       "campaign": "Indomitus Mirror",
       "campaignType": "Mirror",
@@ -5085,19 +5095,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "OE21",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpU012": [
+    {
+      "battleId": "OE05",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 5,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
+    {
+      "battleId": "IME04",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 4,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM05",
       "campaign": "Indomitus Mirror",
@@ -5157,26 +5177,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "OE05",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 5,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
-    },
-    {
-      "battleId": "IME04",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 4,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpU016": [
@@ -5189,6 +5189,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "FoCE31",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 31,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
+    {
+      "battleId": "SHE21",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "OM33",
@@ -5249,26 +5269,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "FoCE31",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 31,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
-    },
-    {
-      "battleId": "SHE21",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpU017": [
@@ -5281,6 +5281,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "FoCE21",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 21,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "FoCM34",
@@ -5351,19 +5361,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "FoCE21",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 21,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgArmC011": [
+    {
+      "battleId": "IE25",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 25,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
+      "battleId": "IME03",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 3,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "SHM09",
       "campaign": "Saim-Hann Mirror",
@@ -5393,26 +5413,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "IE25",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 25,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
-    },
-    {
-      "battleId": "IME03",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 3,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgHpC005": [
@@ -5459,6 +5459,26 @@
   ],
   "upgArmR031": [
     {
+      "battleId": "SHE25",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 25,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME23",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 23,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
       "battleId": "FoC51",
       "campaign": "Fall of Cadia",
       "campaignType": "Normal",
@@ -5477,29 +5497,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE25",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 25,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME23",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 23,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpC017": [
+    {
+      "battleId": "OME31",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 31,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
     {
       "battleId": "TAE01",
       "campaign": "T'au Empire Extremis",
@@ -5569,19 +5579,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "OME31",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 31,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgR025": [
+    {
+      "battleId": "FoCE37",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 37,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME03",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 3,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "FoCM59",
       "campaign": "Fall of Cadia Mirror",
@@ -5601,29 +5621,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
+    }
+  ],
+  "upgDmgR023": [
     {
-      "battleId": "FoCE37",
+      "battleId": "FoCE03",
       "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 37,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME03",
-      "campaign": "Fall of Cadia Mirror Elite",
       "campaignType": "Elite",
       "nodeNumber": 3,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgDmgR023": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME35",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "FoCM44",
       "campaign": "Fall of Cadia Mirror",
@@ -5643,29 +5663,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE03",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 3,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME35",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR023": [
+    {
+      "battleId": "FoCE02",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 2,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME34",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 34,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "FoCM55",
       "campaign": "Fall of Cadia Mirror",
@@ -5685,29 +5705,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE02",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 2,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME34",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 34,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR022": [
+    {
+      "battleId": "IE17",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 17,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME17",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 17,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM33",
       "campaign": "Indomitus Mirror",
@@ -5727,26 +5747,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE17",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 17,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME17",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 17,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgU014": [
@@ -5759,6 +5759,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "OE01",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 1,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "IM06",
@@ -5819,16 +5829,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "OE01",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 1,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgArmR009": [
@@ -5841,6 +5841,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "FoCE22",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME26",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "FoCM53",
@@ -5871,26 +5891,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE22",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME26",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpE017": [
@@ -5945,6 +5945,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "SHE15",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 15,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME33",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 33,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM13",
@@ -6015,26 +6035,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE15",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 15,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME33",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 33,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmU006": [
@@ -6047,6 +6047,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "SHE34",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 34,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "IM09",
@@ -6117,19 +6127,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
+    }
+  ],
+  "upgHpR005": [
     {
-      "battleId": "SHE34",
-      "campaign": "Saim-Hann Elite",
+      "battleId": "IE34",
+      "campaign": "Indomitus Elite",
       "campaignType": "Elite",
       "nodeNumber": 34,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
-    }
-  ],
-  "upgHpR005": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM20",
       "campaign": "Indomitus Mirror",
@@ -6179,19 +6189,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE34",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 34,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR023": [
+    {
+      "battleId": "FoCE04",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 4,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME36",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 36,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "FoCM65",
       "campaign": "Fall of Cadia Mirror",
@@ -6211,26 +6231,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE04",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 4,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME36",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 36,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR001": [
@@ -6243,6 +6243,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE13",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 13,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME10",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "AMS10",
@@ -6273,29 +6293,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE13",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 13,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME10",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 10,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR007": [
+    {
+      "battleId": "FoCE36",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 36,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME02",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 2,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM16",
       "campaign": "Indomitus Mirror",
@@ -6325,26 +6345,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE36",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 36,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME02",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 2,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR024": [
@@ -6357,6 +6357,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "FoCE10",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME13",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 13,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "OM67",
@@ -6387,26 +6407,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE10",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 10,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME13",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 13,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR006": [
@@ -6419,6 +6419,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "OE15",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 15,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM19",
@@ -6469,19 +6479,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE15",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 15,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR025": [
+    {
+      "battleId": "FoCE38",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 38,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME04",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 4,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "FoCM70",
       "campaign": "Fall of Cadia Mirror",
@@ -6501,29 +6521,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
+    }
+  ],
+  "upgArmR028": [
     {
-      "battleId": "FoCE38",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 38,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME04",
-      "campaign": "Fall of Cadia Mirror Elite",
+      "battleId": "SHE04",
+      "campaign": "Saim-Hann Elite",
       "campaignType": "Elite",
       "nodeNumber": 4,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgArmR028": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME36",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 36,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM31",
       "campaign": "Saim-Hann Mirror",
@@ -6553,26 +6573,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE04",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 4,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME36",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 36,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpE012": [
@@ -6765,6 +6765,16 @@
   ],
   "upgArmC006": [
     {
+      "battleId": "OME20",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.571,
+      "energyPerItem": 6.365372374283896
+    },
+    {
       "battleId": "AME10",
       "campaign": "Adeptus Mechanicus Extremis",
       "campaignType": "Extremis",
@@ -6843,19 +6853,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.874,
       "energyPerItem": 6.864988558352403
-    },
-    {
-      "battleId": "OME20",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.571,
-      "energyPerItem": 17.513134851138354
     }
   ],
   "upgDmgU019": [
+    {
+      "battleId": "FoCE14",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 14,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
     {
       "battleId": "IM37",
       "campaign": "Indomitus Mirror",
@@ -6925,16 +6935,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "FoCE14",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 14,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgDmgR007": [
@@ -6991,6 +6991,16 @@
       "energyPerItem": 7.202881152460985
     },
     {
+      "battleId": "SHE09",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 9,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
+    },
+    {
       "battleId": "FoCM35",
       "campaign": "Fall of Cadia Mirror",
       "campaignType": "Mirror",
@@ -7039,16 +7049,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.714,
       "energyPerItem": 8.403361344537815
-    },
-    {
-      "battleId": "SHE09",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 9,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgArmR015": [
@@ -7061,6 +7061,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE35",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM54",
@@ -7091,19 +7101,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE35",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR014": [
+    {
+      "battleId": "SHE07",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 7,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM23",
       "campaign": "Indomitus Mirror",
@@ -7163,19 +7173,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE07",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 7,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR026": [
+    {
+      "battleId": "OE03",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 3,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME35",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "OM53",
       "campaign": "Octarius Mirror",
@@ -7195,29 +7215,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE03",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 3,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME35",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR036": [
+    {
+      "battleId": "OE11",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 11,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME12",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 12,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "O36",
       "campaign": "Octarius",
@@ -7227,29 +7247,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE11",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 11,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME12",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 12,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR005": [
+    {
+      "battleId": "FoCE35",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM18",
       "campaign": "Indomitus Mirror",
@@ -7299,16 +7309,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE35",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR024": [
@@ -7321,6 +7321,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "FoCE17",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 17,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME20",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "FoCM64",
@@ -7351,26 +7371,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE17",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 17,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME20",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgE001": [
@@ -7417,6 +7417,26 @@
   ],
   "upgDmgR021": [
     {
+      "battleId": "OE37",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 37,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME03",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 3,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
       "battleId": "OM59",
       "campaign": "Octarius Mirror",
       "campaignType": "Mirror",
@@ -7435,26 +7455,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE37",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 37,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME03",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 3,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpE003": [
@@ -7563,6 +7563,26 @@
       "energyPerItem": 8.670520231213873
     },
     {
+      "battleId": "OE13",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 13,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME10",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
       "battleId": "TS10",
       "campaign": "Tyranids Standard",
       "campaignType": "Standard",
@@ -7581,29 +7601,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE13",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 13,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME10",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 10,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR010": [
+    {
+      "battleId": "OE02",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 2,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME34",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 34,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "OM61",
       "campaign": "Octarius Mirror",
@@ -7623,29 +7643,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
+    }
+  ],
+  "upgHpR021": [
+    {
+      "battleId": "OE36",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 36,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
-      "battleId": "OE02",
-      "campaign": "Octarius Elite",
+      "battleId": "OME02",
+      "campaign": "Octarius Mirror Elite",
       "campaignType": "Elite",
       "nodeNumber": 2,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
-    {
-      "battleId": "OME34",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 34,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgHpR021": [
     {
       "battleId": "OM63",
       "campaign": "Octarius Mirror",
@@ -7665,29 +7685,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE36",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 36,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME02",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 2,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR022": [
+    {
+      "battleId": "IE10",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME10",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM55",
       "campaign": "Indomitus Mirror",
@@ -7707,29 +7727,19 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE10",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 10,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME10",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 10,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR008": [
+    {
+      "battleId": "FoCE34",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 34,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM17",
       "campaign": "Indomitus Mirror",
@@ -7799,19 +7809,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "FoCE34",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 34,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR022": [
+    {
+      "battleId": "IE22",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME22",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "FoCM67",
       "campaign": "Fall of Cadia Mirror",
@@ -7831,29 +7851,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "IE22",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME22",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR026": [
+    {
+      "battleId": "OE04",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 4,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME36",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 36,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "OM69",
       "campaign": "Octarius Mirror",
@@ -7873,26 +7893,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE04",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 4,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME36",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 36,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR033": [
@@ -7905,6 +7905,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "OE20",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME17",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 17,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "TS16",
@@ -7925,29 +7945,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE20",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME17",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 17,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR036": [
+    {
+      "battleId": "OE18",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 18,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME19",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 19,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "O53",
       "campaign": "Octarius",
@@ -7957,29 +7977,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE18",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 18,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME19",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 19,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR021": [
+    {
+      "battleId": "OE38",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 38,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME04",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 4,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "OM66",
       "campaign": "Octarius Mirror",
@@ -7999,29 +8019,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE38",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 38,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME04",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 4,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR036": [
+    {
+      "battleId": "OE23",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 23,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME25",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 25,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "O61",
       "campaign": "Octarius",
@@ -8031,26 +8051,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE23",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 23,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME25",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 25,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpE015": [
@@ -8159,6 +8159,26 @@
   ],
   "upgArmR029": [
     {
+      "battleId": "SHE38",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 38,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME04",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 4,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
       "battleId": "SHM58",
       "campaign": "Saim-Hann Mirror",
       "campaignType": "Mirror",
@@ -8177,29 +8197,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE38",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 38,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME04",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 4,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR028": [
+    {
+      "battleId": "SHE02",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 2,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME34",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 34,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM57",
       "campaign": "Saim-Hann Mirror",
@@ -8219,29 +8239,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE02",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 2,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME34",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 34,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR032": [
+    {
+      "battleId": "OE10",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 10,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME11",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 11,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SH37",
       "campaign": "Saim-Hann",
@@ -8251,29 +8271,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
+    }
+  ],
+  "upgHpR031": [
     {
-      "battleId": "OE10",
-      "campaign": "Octarius Elite",
+      "battleId": "SHE12",
+      "campaign": "Saim-Hann Elite",
       "campaignType": "Elite",
-      "nodeNumber": 10,
+      "nodeNumber": 12,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
-      "battleId": "FoCME11",
-      "campaign": "Fall of Cadia Mirror Elite",
+      "battleId": "OME11",
+      "campaign": "Octarius Mirror Elite",
       "campaignType": "Elite",
       "nodeNumber": 11,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgHpR031": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "OM54",
       "campaign": "Octarius Mirror",
@@ -8293,29 +8313,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE12",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 12,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME11",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 11,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR029": [
+    {
+      "battleId": "SHE37",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 37,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME03",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 3,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM44",
       "campaign": "Saim-Hann Mirror",
@@ -8335,29 +8355,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
+    }
+  ],
+  "upgDmgR028": [
     {
-      "battleId": "SHE37",
+      "battleId": "SHE03",
       "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 37,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME03",
-      "campaign": "Saim-Hann Mirror Elite",
       "campaignType": "Elite",
       "nodeNumber": 3,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgDmgR028": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME35",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM43",
       "campaign": "Saim-Hann Mirror",
@@ -8377,29 +8397,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE03",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 3,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME35",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR032": [
+    {
+      "battleId": "OE17",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 17,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME18",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 18,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SH46",
       "campaign": "Saim-Hann",
@@ -8409,29 +8429,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
+    }
+  ],
+  "upgDmgR031": [
     {
-      "battleId": "OE17",
-      "campaign": "Octarius Elite",
+      "battleId": "SHE19",
+      "campaign": "Saim-Hann Elite",
       "campaignType": "Elite",
-      "nodeNumber": 17,
+      "nodeNumber": 19,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
-      "battleId": "FoCME18",
-      "campaign": "Fall of Cadia Mirror Elite",
+      "battleId": "OME18",
+      "campaign": "Octarius Mirror Elite",
       "campaignType": "Elite",
       "nodeNumber": 18,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgDmgR031": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "OM64",
       "campaign": "Octarius Mirror",
@@ -8451,29 +8471,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE19",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 19,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME18",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 18,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR032": [
+    {
+      "battleId": "OE22",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCME23",
+      "campaign": "Fall of Cadia Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 23,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SH56",
       "campaign": "Saim-Hann",
@@ -8483,29 +8503,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "OE22",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "FoCME23",
-      "campaign": "Fall of Cadia Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 23,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR029": [
+    {
+      "battleId": "SHE36",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 36,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME02",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 2,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM32",
       "campaign": "Saim-Hann Mirror",
@@ -8525,26 +8545,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE36",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 36,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME02",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 2,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmE008": [
@@ -8581,24 +8581,14 @@
   ],
   "upgHpR037": [
     {
-      "battleId": "SH63",
-      "campaign": "Saim-Hann",
-      "campaignType": "Normal",
-      "nodeNumber": 63,
-      "energyCost": 6,
-      "dailyBattleCount": 10,
-      "dropRate": 0.5,
-      "energyPerItem": 12
-    },
-    {
       "battleId": "SHE11",
       "campaign": "Saim-Hann Elite",
       "campaignType": "Elite",
       "nodeNumber": 11,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IME12",
@@ -8607,11 +8597,41 @@
       "nodeNumber": 12,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SH63",
+      "campaign": "Saim-Hann",
+      "campaignType": "Normal",
+      "nodeNumber": 63,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.5,
+      "energyPerItem": 12
     }
   ],
   "upgDmgR037": [
+    {
+      "battleId": "SHE18",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 18,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME19",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 19,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SH64",
       "campaign": "Saim-Hann",
@@ -8621,26 +8641,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.5,
       "energyPerItem": 12
-    },
-    {
-      "battleId": "SHE18",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 18,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME19",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 19,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgE010": [
@@ -8687,24 +8687,14 @@
   ],
   "upgArmR037": [
     {
-      "battleId": "SH70",
-      "campaign": "Saim-Hann",
-      "campaignType": "Normal",
-      "nodeNumber": 70,
-      "energyCost": 6,
-      "dailyBattleCount": 10,
-      "dropRate": 0.5,
-      "energyPerItem": 12
-    },
-    {
       "battleId": "SHE23",
       "campaign": "Saim-Hann Elite",
       "campaignType": "Elite",
       "nodeNumber": 23,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IME25",
@@ -8713,8 +8703,18 @@
       "nodeNumber": 25,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SH70",
+      "campaign": "Saim-Hann",
+      "campaignType": "Normal",
+      "nodeNumber": 70,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.5,
+      "energyPerItem": 12
     }
   ],
   "upgDmgR009": [
@@ -8773,24 +8773,14 @@
   ],
   "upgDmgR040": [
     {
-      "battleId": "IM32",
-      "campaign": "Indomitus Mirror",
-      "campaignType": "Mirror",
-      "nodeNumber": 32,
-      "energyCost": 6,
-      "dailyBattleCount": 10,
-      "dropRate": 0.571,
-      "energyPerItem": 10.507880910683014
-    },
-    {
       "battleId": "IE19",
       "campaign": "Indomitus Elite",
       "campaignType": "Elite",
       "nodeNumber": 19,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "SHME17",
@@ -8799,8 +8789,18 @@
       "nodeNumber": 17,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IM32",
+      "campaign": "Indomitus Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 32,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.571,
+      "energyPerItem": 10.507880910683014
     }
   ],
   "upgDmgR034": [
@@ -8813,6 +8813,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE20",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME17",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 17,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM34",
@@ -8833,29 +8853,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "IE20",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME17",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 17,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR035": [
+    {
+      "battleId": "OE12",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 12,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME11",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 11,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM36",
       "campaign": "Indomitus Mirror",
@@ -8865,26 +8885,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "OE12",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 12,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME11",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 11,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpR027": [
@@ -8897,6 +8897,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE11",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 11,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME13",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 13,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM38",
@@ -8917,26 +8937,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "IE11",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 11,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME13",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 13,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR027": [
@@ -8949,6 +8949,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE18",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 18,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME20",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "IM39",
@@ -8969,29 +8989,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
+    }
+  ],
+  "upgDmgR035": [
+    {
+      "battleId": "OE19",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 19,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
-      "battleId": "IE18",
-      "campaign": "Indomitus Elite",
+      "battleId": "IME18",
+      "campaign": "Indomitus Mirror Elite",
       "campaignType": "Elite",
       "nodeNumber": 18,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
-    {
-      "battleId": "IME20",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgDmgR035": [
     {
       "battleId": "IM48",
       "campaign": "Indomitus Mirror",
@@ -9001,29 +9021,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "OE19",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 19,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME18",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 18,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR035": [
+    {
+      "battleId": "OE25",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 25,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME23",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 23,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "IM61",
       "campaign": "Indomitus Mirror",
@@ -9033,26 +9053,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "OE25",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 25,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME23",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 23,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgU011": [
@@ -9065,6 +9065,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.833,
       "energyPerItem": 7.202881152460985
+    },
+    {
+      "battleId": "IE14",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 14,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.333,
+      "energyPerItem": 7.501875468867217
     },
     {
       "battleId": "IM63",
@@ -9105,16 +9115,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.799,
       "energyPerItem": 7.509386733416771
-    },
-    {
-      "battleId": "IE14",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 14,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.333,
-      "energyPerItem": 30.03003003003003
     }
   ],
   "upgHpL115": [
@@ -9331,24 +9331,14 @@
   ],
   "upgHpR040": [
     {
-      "battleId": "FoCM33",
-      "campaign": "Fall of Cadia Mirror",
-      "campaignType": "Mirror",
-      "nodeNumber": 33,
-      "energyCost": 6,
-      "dailyBattleCount": 10,
-      "dropRate": 0.571,
-      "energyPerItem": 10.507880910683014
-    },
-    {
       "battleId": "IE12",
       "campaign": "Indomitus Elite",
       "campaignType": "Elite",
       "nodeNumber": 12,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "OME12",
@@ -9357,8 +9347,18 @@
       "nodeNumber": 12,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "FoCM33",
+      "campaign": "Fall of Cadia Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 33,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.571,
+      "energyPerItem": 10.507880910683014
     }
   ],
   "upgArmR034": [
@@ -9371,6 +9371,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE26",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME22",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "FoCM37",
@@ -9391,26 +9411,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "IE26",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME22",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR010": [
@@ -9423,6 +9423,16 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "SHE35",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 35,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "FoCM38",
@@ -9453,19 +9463,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "SHE35",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 35,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR040": [
+    {
+      "battleId": "IE37",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 37,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME25",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 25,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "FoCM48",
       "campaign": "Fall of Cadia Mirror",
@@ -9475,26 +9495,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "IE37",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 37,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME25",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 25,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR027": [
@@ -9507,6 +9507,26 @@
       "dailyBattleCount": 10,
       "dropRate": 0.692,
       "energyPerItem": 8.670520231213873
+    },
+    {
+      "battleId": "IE23",
+      "campaign": "Indomitus Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 23,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "IME26",
+      "campaign": "Indomitus Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "FoCM50",
@@ -9527,26 +9547,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "IE23",
-      "campaign": "Indomitus Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 23,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "IME26",
-      "campaign": "Indomitus Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpL107": [
@@ -9793,6 +9793,26 @@
       "energyPerItem": 8.670520231213873
     },
     {
+      "battleId": "OE26",
+      "campaign": "Octarius Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "OME22",
+      "campaign": "Octarius Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 22,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
       "battleId": "OM56",
       "campaign": "Octarius Mirror",
       "campaignType": "Mirror",
@@ -9811,26 +9831,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "OE26",
-      "campaign": "Octarius Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "OME22",
-      "campaign": "Octarius Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 22,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpL113": [
@@ -10015,24 +10015,14 @@
   ],
   "upgHpR039": [
     {
-      "battleId": "SHM38",
-      "campaign": "Saim-Hann Mirror",
-      "campaignType": "Mirror",
-      "nodeNumber": 38,
-      "energyCost": 6,
-      "dailyBattleCount": 10,
-      "dropRate": 0.571,
-      "energyPerItem": 10.507880910683014
-    },
-    {
       "battleId": "SHE13",
       "campaign": "Saim-Hann Elite",
       "campaignType": "Elite",
       "nodeNumber": 13,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
     },
     {
       "battleId": "SHME11",
@@ -10041,11 +10031,41 @@
       "nodeNumber": 11,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHM38",
+      "campaign": "Saim-Hann Mirror",
+      "campaignType": "Mirror",
+      "nodeNumber": 38,
+      "energyCost": 6,
+      "dailyBattleCount": 10,
+      "dropRate": 0.571,
+      "energyPerItem": 10.507880910683014
     }
   ],
   "upgHpR038": [
+    {
+      "battleId": "FoCE11",
+      "campaign": "Fall of Cadia Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 11,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME13",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 13,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM40",
       "campaign": "Saim-Hann Mirror",
@@ -10055,29 +10075,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "FoCE11",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 11,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME13",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 13,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgDmgR039": [
+    {
+      "battleId": "SHE20",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME18",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 18,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM50",
       "campaign": "Saim-Hann Mirror",
@@ -10087,29 +10107,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
+    }
+  ],
+  "upgDmgR038": [
     {
-      "battleId": "SHE20",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME18",
-      "campaign": "Saim-Hann Mirror Elite",
+      "battleId": "FoCE18",
+      "campaign": "Fall of Cadia Elite",
       "campaignType": "Elite",
       "nodeNumber": 18,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgDmgR038": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME20",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 20,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM52",
       "campaign": "Saim-Hann Mirror",
@@ -10119,29 +10139,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "FoCE18",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 18,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME20",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 20,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgArmR039": [
+    {
+      "battleId": "SHE26",
+      "campaign": "Saim-Hann Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME23",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 23,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM62",
       "campaign": "Saim-Hann Mirror",
@@ -10151,29 +10171,29 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
+    }
+  ],
+  "upgArmR038": [
     {
-      "battleId": "SHE26",
-      "campaign": "Saim-Hann Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME23",
-      "campaign": "Saim-Hann Mirror Elite",
+      "battleId": "FoCE23",
+      "campaign": "Fall of Cadia Elite",
       "campaignType": "Elite",
       "nodeNumber": 23,
       "energyCost": 10,
       "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    }
-  ],
-  "upgArmR038": [
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
+    {
+      "battleId": "SHME26",
+      "campaign": "Saim-Hann Mirror Elite",
+      "campaignType": "Elite",
+      "nodeNumber": 26,
+      "energyCost": 10,
+      "dailyBattleCount": 6,
+      "dropRate": 1.153,
+      "energyPerItem": 8.673026886383347
+    },
     {
       "battleId": "SHM63",
       "campaign": "Saim-Hann Mirror",
@@ -10183,26 +10203,6 @@
       "dailyBattleCount": 10,
       "dropRate": 0.571,
       "energyPerItem": 10.507880910683014
-    },
-    {
-      "battleId": "FoCE23",
-      "campaign": "Fall of Cadia Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 23,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
-    },
-    {
-      "battleId": "SHME26",
-      "campaign": "Saim-Hann Mirror Elite",
-      "campaignType": "Elite",
-      "nodeNumber": 26,
-      "energyCost": 10,
-      "dailyBattleCount": 6,
-      "dropRate": 0.153,
-      "energyPerItem": 65.359477124183
     }
   ],
   "upgHpL118": [
