@@ -78,7 +78,8 @@ function CampaignsPage() {
 	const { mainGroups, eventGroups } = useMemo(() => {
 		const groupMap = new Map<string, CampaignGroup>();
 
-		for (const [campaign, m] of metadata) {
+		for (const [key, m] of Object.entries(metadata)) {
+			const campaign = key as Campaign;
 			if (campaign === "Onslaught") continue;
 
 			const rawProgress = persistedProgress[campaign] ?? 0;
@@ -100,8 +101,8 @@ function CampaignsPage() {
 
 		for (const group of groupMap.values()) {
 			group.entries.sort((a, b) => {
-				const aM = metadata.get(a.campaign);
-				const bM = metadata.get(b.campaign);
+				const aM = metadata[a.campaign as keyof typeof metadata];
+				const bM = metadata[b.campaign as keyof typeof metadata];
 				return (aM?.typeOrder ?? 99) - (bM?.typeOrder ?? 99);
 			});
 		}

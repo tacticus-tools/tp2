@@ -163,4 +163,16 @@ export const main = () => {
 		join(import.meta.dirname, "types.generated.ts"),
 		`export const DATA = ${JSON.stringify(campaignTypes, null, 2)} as const;\n`,
 	);
+
+	// Pre-build "campaign:nodeNumber" → energyCost lookup
+	const energyCosts: Record<string, number> = {};
+	for (const [campaign, nodes] of Object.entries(parsedData)) {
+		for (const node of nodes) {
+			energyCosts[`${campaign}:${node.nodeNumber}`] = node.energyCost;
+		}
+	}
+	fs.writeFileSync(
+		join(import.meta.dirname, "energy-costs.generated.ts"),
+		`export const DATA = ${JSON.stringify(energyCosts)} as const;\n`,
+	);
 };

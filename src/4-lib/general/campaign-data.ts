@@ -3,46 +3,24 @@
  * farming locations, and metadata.
  *
  * Provides:
- * - Campaign config lookup (energy cost, daily battle count, drop rates)
  * - Farming location lookups for upgrade materials and character shards
  * - Campaign metadata lookups (baseName, displayType, isEvent, totalNodes)
  */
 
-import { CAMPAIGN_BATTLES } from "@/5-assets/campaign-battles/index.ts";
+import { NODE_ENERGY_COSTS } from "@/5-assets/campaign-battles/index.ts";
 import {
 	CAMPAIGN_BASE_NAMES,
 	CAMPAIGN_METADATA,
-	type CampaignMetadataEntry,
 	CHALLENGE_NODES,
 	EVENT_BATTLE_MAPS,
 } from "@/5-assets/campaign-metadata/index.ts";
-import { DROP_RATES } from "@/5-assets/drop-rates/index.ts";
 import {
 	SHARD_LOCATIONS,
 	type ShardLocation,
 	UPGRADE_LOCATIONS,
 	type UpgradeLocation,
 } from "@/5-assets/farming-locations/index.ts";
-import { Campaign, type CampaignType } from "./constants.ts";
-import { rarityStringToNumber } from "./rarity-data.ts";
-
-// ---------------------------------------------------------------------------
-// Types derived from pipeline data
-// ---------------------------------------------------------------------------
-
-type ConfigEntry = (typeof DROP_RATES)[keyof typeof DROP_RATES];
-type DropRate = ConfigEntry["dropRate"];
-
-// ---------------------------------------------------------------------------
-// Processed types (public API)
-// ---------------------------------------------------------------------------
-
-export interface ICampaignConfig {
-	type: CampaignType;
-	energyCost: number;
-	dailyBattleCount: number;
-	dropRate: DropRate;
-}
+import { Campaign } from "./constants.ts";
 
 // Re-export location types from the pipeline
 export type IUpgradeLocation = UpgradeLocation;
@@ -88,72 +66,6 @@ const EVENT_CAMPAIGN_MAP: Record<
 	eventcampaign3: { standard: Campaign.TAS, extremis: Campaign.TAE },
 	eventcampaign4: { standard: Campaign.DGS, extremis: Campaign.DGE },
 };
-
-// ---------------------------------------------------------------------------
-// Campaign config lookups (sync, from pipeline data)
-// ---------------------------------------------------------------------------
-
-let _configs: Map<CampaignType, ICampaignConfig> | undefined;
-
-function getConfigs(): Map<CampaignType, ICampaignConfig> {
-	if (_configs) return _configs;
-
-	_configs = new Map<CampaignType, ICampaignConfig>();
-	for (const [key, value] of Object.entries(DROP_RATES)) {
-		_configs.set(key as CampaignType, {
-			type: key as CampaignType,
-			energyCost: value.energyCost,
-			dailyBattleCount: value.dailyBattleCount,
-			dropRate: value.dropRate,
-		});
-	}
-	return _configs;
-}
-
-/**
- * Get campaign config by campaign type.
- */
-export function getCampaignConfig(
-	type: CampaignType,
-): ICampaignConfig | undefined {
-	return getConfigs().get(type);
-}
-
-/**
- * Get all campaign configs.
- */
-export function getAllCampaignConfigs(): Map<CampaignType, ICampaignConfig> {
-	return getConfigs();
-}
-
-/**
- * Get drop rate for a material rarity from a specific campaign type config.
- */
-export function getDropRateForRarity(
-	campaignType: CampaignType,
-	rarity: string,
-): number {
-	const config = getConfigs().get(campaignType);
-	if (!config) return 0;
-
-	const rarityNum =
-		rarityStringToNumber[rarity as keyof typeof rarityStringToNumber];
-	if (rarityNum === undefined) return 0;
-
-	const keyMap: Record<number, keyof DropRate> = {
-		0: "common",
-		1: "uncommon",
-		2: "rare",
-		3: "epic",
-		4: "legendary",
-		5: "mythic",
-	};
-
-	const key = keyMap[rarityNum];
-	if (!key) return 0;
-
-	return config.dropRate[key] ?? 0;
-}
 
 // ---------------------------------------------------------------------------
 // Farming location lookups (sync, from generated pipeline data)
@@ -235,30 +147,8 @@ export function selectBestShardLocations(unitId: string): ShardLocation[] {
 // Campaign metadata — sync lookups into generated pipeline data
 // ---------------------------------------------------------------------------
 
-export function getCampaignNodeCounts(): ReadonlyMap<Campaign, number> {
-	const map = new Map<Campaign, number>();
-	for (const [campaign, meta] of Object.entries(CAMPAIGN_METADATA)) {
-		map.set(campaign as Campaign, meta.totalNodes);
-	}
-	return map;
-}
-
-let _campaignMetadataMap:
-	| ReadonlyMap<Campaign, CampaignMetadataEntry>
-	| undefined;
-
-export function getCampaignMetadata(): ReadonlyMap<
-	Campaign,
-	CampaignMetadataEntry
-> {
-	if (!_campaignMetadataMap) {
-		_campaignMetadataMap = new Map(
-			Object.entries(CAMPAIGN_METADATA).map(
-				([k, v]) => [k as Campaign, v] as const,
-			),
-		);
-	}
-	return _campaignMetadataMap;
+export function getCampaignMetadata() {
+	return CAMPAIGN_METADATA;
 }
 
 export function isEventType(type: string): boolean {
@@ -349,10 +239,8 @@ export function getUnlockedNodeCount(
 }
 
 // ---------------------------------------------------------------------------
-// Node energy cost lookup (sync, lazy-built from CAMPAIGN_BATTLES)
+// Node energy cost lookup (from build-time generated map)
 // ---------------------------------------------------------------------------
-
-let _nodeEnergyCosts: Map<string, number> | undefined;
 
 /**
  * Get the energy cost for a specific campaign node.
@@ -362,17 +250,6 @@ export function getNodeEnergyCost(
 	campaign: string,
 	nodeNumber: number,
 ): number {
-	if (!_nodeEnergyCosts) {
-		_nodeEnergyCosts = new Map();
-		const data = CAMPAIGN_BATTLES as unknown as Record<
-			string,
-			Array<{ nodeNumber: number; energyCost: number }>
-		>;
-		for (const [name, nodes] of Object.entries(data)) {
-			for (const node of nodes) {
-				_nodeEnergyCosts.set(`${name}:${node.nodeNumber}`, node.energyCost);
-			}
-		}
-	}
-	return _nodeEnergyCosts.get(`${campaign}:${nodeNumber}`) ?? 0;
+	const key = `${campaign}:${nodeNumber}`;
+	return (NODE_ENERGY_COSTS as unknown as Record<string, number>)[key] ?? 0;
 }
