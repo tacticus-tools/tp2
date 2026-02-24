@@ -1,21 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useAction, useQuery } from "convex/react";
+import { useQuery } from "convex/react";
 import {
 	AlertTriangle,
 	ChevronDown,
 	Loader2,
 	Map as MapIcon,
-	RefreshCw,
 	TrendingUp,
 	Unlock,
 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CampaignIcon } from "@/1-components/general/CampaignIcon.tsx";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
 import { MaterialIcon } from "@/1-components/general/MaterialIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
-import { Button } from "@/1-components/ui/button.tsx";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
 import {
@@ -36,13 +34,9 @@ export const Route = createFileRoute("/_authenticated/campaign-progression")({
 
 function CampaignProgressionPage() {
 	const goals = useQuery(api.goals.list);
-	const getPlayerData = useAction(api.tacticus.actions.getPlayerData);
 
 	const campaignProgressApi = usePlayerDataStore((s) => s.campaignProgress);
 	const inventory = usePlayerDataStore((s) => s.inventory);
-	const syncing = usePlayerDataStore((s) => s.syncing);
-	const setPlayerData = usePlayerDataStore((s) => s.setPlayerData);
-	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
 
 	const persistedProgress = useCampaignProgressStore((s) => s.progress);
 
@@ -103,29 +97,6 @@ function CampaignProgressionPage() {
 		};
 	}, [goals, getTypedGoals, getMergedProgress, inventory]);
 
-	const handleSync = useCallback(async () => {
-		setSyncing(true);
-		try {
-			const response = await getPlayerData();
-			if (response?.player?.units) {
-				setPlayerData(response);
-			}
-		} catch {
-			// Sync failed
-		} finally {
-			setSyncing(false);
-		}
-	}, [getPlayerData, setPlayerData, setSyncing]);
-
-	// Auto-sync on mount
-	const didAutoSync = useRef(false);
-	useEffect(() => {
-		if (!didAutoSync.current) {
-			didAutoSync.current = true;
-			void handleSync();
-		}
-	}, [handleSync]);
-
 	const isLoading = goals === undefined;
 	const upgradeRankCount =
 		goals?.filter((g) => g.type === PersonalGoalType.UpgradeRank).length ?? 0;
@@ -133,31 +104,11 @@ function CampaignProgressionPage() {
 	return (
 		<div className="space-y-6">
 			{/* Header */}
-			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-				<div>
-					<div className="flex items-center gap-2">
-						<h1 className="text-2xl font-bold tracking-tight">
-							Campaign Planner
-						</h1>
-					</div>
-					<p className="text-muted-foreground">
-						Find the next campaign nodes to beat for the biggest farming
-						benefit.
-					</p>
-				</div>
-				<div className="flex items-center gap-2">
-					<Button
-						variant="outline"
-						size="sm"
-						onClick={handleSync}
-						disabled={syncing}
-					>
-						<RefreshCw className={`size-4 ${syncing ? "animate-spin" : ""}`} />
-						<span className="hidden sm:inline">
-							{syncing ? "Syncing..." : "Sync"}
-						</span>
-					</Button>
-				</div>
+			<div>
+				<h1 className="text-2xl font-bold tracking-tight">Campaign Planner</h1>
+				<p className="text-muted-foreground">
+					Find the next campaign nodes to beat for the biggest farming benefit.
+				</p>
 			</div>
 
 			{/* Content */}

@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useAction, useMutation, useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import {
 	LayoutGrid,
 	Loader2,
 	Palette,
-	RefreshCw,
 	Settings,
 	Table,
 	Target,
@@ -195,8 +194,6 @@ function GoalsPage() {
 	const removeAllGoals = useMutation(api.goals.removeAll);
 	const updateGoal = useMutation(api.goals.update);
 	const reorderGoals = useMutation(api.goals.reorder);
-	const getPlayerData = useAction(api.tacticus.actions.getPlayerData);
-
 	const importGoals = useMutation(api.goals.importBatch);
 
 	// Shared player data store (roster, campaign progress, inventory)
@@ -205,8 +202,6 @@ function GoalsPage() {
 	const inventory = usePlayerDataStore((s) => s.inventory);
 	const syncing = usePlayerDataStore((s) => s.syncing);
 	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
-	const setPlayerData = usePlayerDataStore((s) => s.setPlayerData);
-	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
 
 	const [editingGoal, setEditingGoal] = useState<{
 		goalId: string;
@@ -522,33 +517,20 @@ function GoalsPage() {
 		[goals, reorderGoals],
 	);
 
-	const handleSync = useCallback(async () => {
-		setSyncing(true);
-		try {
-			const response = await getPlayerData();
-			if (response?.player?.units) {
-				setPlayerData(response);
-			}
-		} catch {
-			// Sync failed — user likely hasn't configured API keys in settings
-		} finally {
-			setSyncing(false);
-		}
-	}, [getPlayerData, setPlayerData, setSyncing]);
-
-	// Auto-fetch roster on mount only if store has no data.
-	// When the initial sync completes (success or failure), mark initialSyncDone
-	// so estimate/daily-raids computations can begin with real data.
-	const didAutoSync = useRef(false);
+	// Wait for initial data sync (triggered by SyncButton in header) before
+	// computing estimates/daily-raids so they use real inventory data.
+	const hasSyncStarted = useRef(lastSyncedAt !== null);
 	useEffect(() => {
-		if (!didAutoSync.current && !lastSyncedAt) {
-			didAutoSync.current = true;
-			void handleSync().finally(() => setInitialSyncDone(true));
-		} else if (!initialSyncDone && lastSyncedAt !== null) {
-			// Data already available from a previous navigation — ready immediately
+		if (initialSyncDone) return;
+		if (lastSyncedAt !== null) {
+			setInitialSyncDone(true);
+		} else if (syncing) {
+			hasSyncStarted.current = true;
+		} else if (hasSyncStarted.current) {
+			// Sync started and ended without success — proceed with empty data
 			setInitialSyncDone(true);
 		}
-	}, [handleSync, lastSyncedAt, initialSyncDone]);
+	}, [lastSyncedAt, syncing, initialSyncDone]);
 
 	const handleImport = useCallback(
 		async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -645,22 +627,6 @@ function GoalsPage() {
 				<div className="flex flex-wrap items-center gap-2">
 					{goalCount > 0 && (
 						<>
-							{/* Sync */}
-							<Button
-								variant="outline"
-								size="sm"
-								onClick={handleSync}
-								disabled={syncing}
-								title="Sync with Tacticus API"
-							>
-								<RefreshCw
-									className={`size-4 ${syncing ? "animate-spin" : ""}`}
-								/>
-								<span className="hidden sm:inline">
-									{syncing ? "Syncing..." : "Sync"}
-								</span>
-							</Button>
-
 							{/* Color mode toggle — only in Goals view */}
 							{viewMode === "goals" && (
 								<Button

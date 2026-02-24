@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useAction, useMutation } from "convex/react";
-import { RefreshCw } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useMutation } from "convex/react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
 import { RosterGrid } from "@/1-components/roster/RosterGrid.tsx";
 import { ShareRosterDialog } from "@/1-components/roster/ShareRosterDialog.tsx";
-import { Button } from "@/1-components/ui/button.tsx";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
 import type { Alliance } from "@/4-lib/general/constants.ts";
 import {
@@ -24,14 +22,9 @@ export const Route = createFileRoute("/_authenticated/roster")({
 });
 
 function RosterPage() {
-	const getPlayerData = useAction(api.tacticus.actions.getPlayerData);
 	const shareRoster = useMutation(api.roster.share);
 
 	const roster = usePlayerDataStore((s) => s.roster);
-	const syncing = usePlayerDataStore((s) => s.syncing);
-	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
-	const setPlayerData = usePlayerDataStore((s) => s.setPlayerData);
-	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
 
 	const [search, setSearch] = useState("");
 	const [allianceFilter, setAllianceFilter] = useState<Alliance | "all">("all");
@@ -39,29 +32,6 @@ function RosterPage() {
 	const [viewMode, setViewMode] = useState<"faction" | "all">("faction");
 
 	const gridRef = useRef<HTMLDivElement>(null);
-
-	const handleSync = useCallback(async () => {
-		setSyncing(true);
-		try {
-			const response = await getPlayerData();
-			if (response?.player?.units) {
-				setPlayerData(response);
-			}
-		} catch {
-			// Sync failed
-		} finally {
-			setSyncing(false);
-		}
-	}, [getPlayerData, setPlayerData, setSyncing]);
-
-	// Auto-sync on mount only if store has no data
-	const didAutoSync = useRef(false);
-	useEffect(() => {
-		if (!didAutoSync.current && !lastSyncedAt) {
-			didAutoSync.current = true;
-			void handleSync();
-		}
-	}, [handleSync, lastSyncedAt]);
 
 	const enriched = useMemo(
 		() => enrichRoster(roster, CHARACTERS, MOWS),
@@ -94,24 +64,9 @@ function RosterPage() {
 					</p>
 				</div>
 
-				<div className="flex items-center gap-2">
-					<Button
-						variant="outline"
-						size="sm"
-						onClick={handleSync}
-						disabled={syncing}
-						title="Sync with Tacticus API"
-					>
-						<RefreshCw className={`size-4 ${syncing ? "animate-spin" : ""}`} />
-						<span className="hidden sm:inline">
-							{syncing ? "Syncing..." : "Sync"}
-						</span>
-					</Button>
-
-					{roster.size > 0 && (
-						<ShareRosterDialog gridRef={gridRef} onShare={handleShare} />
-					)}
-				</div>
+				{roster.size > 0 && (
+					<ShareRosterDialog gridRef={gridRef} onShare={handleShare} />
+				)}
 			</div>
 
 			{/* Controls */}

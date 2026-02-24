@@ -14,6 +14,7 @@ import {
 	X,
 } from "lucide-react";
 import { useState } from "react";
+import { SyncButton } from "@/1-components/SyncButton.tsx";
 import { ThemeToggle } from "@/1-components/ThemeToggle.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
 import { Separator } from "@/1-components/ui/separator.tsx";
@@ -212,6 +213,7 @@ function AuthenticatedLayout() {
 
 					{/* Right side actions */}
 					<div className="flex items-center gap-2">
+						<SyncButton />
 						<ThemeToggle />
 					</div>
 				</header>

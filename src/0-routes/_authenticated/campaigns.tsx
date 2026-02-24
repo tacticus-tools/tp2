@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useAction } from "convex/react";
-import { RefreshCw } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo } from "react";
 import { CampaignProgressCard } from "@/1-components/general/CampaignProgressCard.tsx";
-import { Button } from "@/1-components/ui/button.tsx";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
 import {
@@ -13,8 +10,6 @@ import {
 	getUnlockedNodeCount,
 } from "@/4-lib/general/campaign-data.ts";
 import type { Campaign } from "@/4-lib/general/constants.ts";
-// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
-import { api } from "~/_generated/api";
 
 export const Route = createFileRoute("/_authenticated/campaigns")({
 	component: CampaignsPage,
@@ -31,13 +26,7 @@ interface CampaignGroup {
 }
 
 function CampaignsPage() {
-	const getPlayerData = useAction(api.tacticus.actions.getPlayerData);
-
 	const campaignProgress = usePlayerDataStore((s) => s.campaignProgress);
-	const syncing = usePlayerDataStore((s) => s.syncing);
-	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
-	const setPlayerData = usePlayerDataStore((s) => s.setPlayerData);
-	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
 
 	const persistedProgress = useCampaignProgressStore((s) => s.progress);
 	const mergeFromApi = useCampaignProgressStore((s) => s.mergeFromApi);
@@ -50,29 +39,6 @@ function CampaignsPage() {
 			mergeFromApi(campaignProgress);
 		}
 	}, [campaignProgress, mergeFromApi]);
-
-	const handleSync = useCallback(async () => {
-		setSyncing(true);
-		try {
-			const response = await getPlayerData();
-			if (response?.player?.units) {
-				setPlayerData(response);
-			}
-		} catch {
-			// Sync failed
-		} finally {
-			setSyncing(false);
-		}
-	}, [getPlayerData, setPlayerData, setSyncing]);
-
-	// Auto-sync on mount only if store has no data
-	const didAutoSync = useRef(false);
-	useEffect(() => {
-		if (!didAutoSync.current && !lastSyncedAt) {
-			didAutoSync.current = true;
-			void handleSync();
-		}
-	}, [handleSync, lastSyncedAt]);
 
 	// Build grouped campaign data using persisted progress
 	const { mainGroups, eventGroups } = useMemo(() => {
@@ -121,26 +87,11 @@ function CampaignsPage() {
 	return (
 		<div className="space-y-6">
 			{/* Header */}
-			<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-				<div>
-					<h1 className="text-2xl font-bold tracking-tight">Campaigns</h1>
-					<p className="text-muted-foreground">
-						Track your campaign progression across all chapters.
-					</p>
-				</div>
-
-				<Button
-					variant="outline"
-					size="sm"
-					onClick={handleSync}
-					disabled={syncing}
-					title="Sync with Tacticus API"
-				>
-					<RefreshCw className={`size-4 ${syncing ? "animate-spin" : ""}`} />
-					<span className="hidden sm:inline">
-						{syncing ? "Syncing..." : "Sync"}
-					</span>
-				</Button>
+			<div>
+				<h1 className="text-2xl font-bold tracking-tight">Campaigns</h1>
+				<p className="text-muted-foreground">
+					Track your campaign progression across all chapters.
+				</p>
 			</div>
 
 			{/* Content */}
