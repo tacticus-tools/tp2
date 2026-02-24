@@ -1,27 +1,27 @@
 {
   "ultraInceptorSgt": [
     {
-      "battleId": "I02",
-      "campaign": "Indomitus",
-      "campaignType": "SuperEarly",
-      "nodeNumber": 2,
-      "energyCost": 3,
-      "dailyBattleCount": 3,
-      "dropRate": 1,
-      "expectedShards": 25,
-      "energyPerShard": 0.12,
-      "isMythic": false
-    },
-    {
       "battleId": "I01",
       "campaign": "Indomitus",
       "campaignType": "SuperEarly",
       "nodeNumber": 1,
-      "energyCost": 3,
+      "energyCost": 0,
       "dailyBattleCount": 3,
       "dropRate": 1,
       "expectedShards": 15,
-      "energyPerShard": 0.2,
+      "energyPerShard": 0,
+      "isMythic": false
+    },
+    {
+      "battleId": "I02",
+      "campaign": "Indomitus",
+      "campaignType": "SuperEarly",
+      "nodeNumber": 2,
+      "energyCost": 0,
+      "dailyBattleCount": 3,
+      "dropRate": 1,
+      "expectedShards": 25,
+      "energyPerShard": 0,
       "isMythic": false
     },
     {
@@ -75,27 +75,27 @@
   ],
   "ultraEliminatorSgt": [
     {
-      "battleId": "I04",
-      "campaign": "Indomitus",
-      "campaignType": "SuperEarly",
-      "nodeNumber": 4,
-      "energyCost": 3,
-      "dailyBattleCount": 3,
-      "dropRate": 1,
-      "expectedShards": 25,
-      "energyPerShard": 0.12,
-      "isMythic": false
-    },
-    {
       "battleId": "I03",
       "campaign": "Indomitus",
       "campaignType": "SuperEarly",
       "nodeNumber": 3,
-      "energyCost": 3,
+      "energyCost": 0,
       "dailyBattleCount": 3,
       "dropRate": 1,
       "expectedShards": 15,
-      "energyPerShard": 0.2,
+      "energyPerShard": 0,
+      "isMythic": false
+    },
+    {
+      "battleId": "I04",
+      "campaign": "Indomitus",
+      "campaignType": "SuperEarly",
+      "nodeNumber": 4,
+      "energyCost": 0,
+      "dailyBattleCount": 3,
+      "dropRate": 1,
+      "expectedShards": 25,
+      "energyPerShard": 0,
       "isMythic": false
     },
     {

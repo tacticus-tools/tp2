@@ -156,7 +156,7 @@ export const main = () => {
 		const config = dropRates[node.campaignType];
 		if (!config) continue;
 
-		const energyCost = node.energyCost || config.energyCost;
+		const energyCost = node.energyCost ?? config.energyCost;
 		const dailyBattleCount = config.dailyBattleCount;
 
 		// --- Upgrade locations (potential rewards, excluding shards and gold) ---

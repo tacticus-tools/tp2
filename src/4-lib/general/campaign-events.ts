@@ -63,7 +63,7 @@ export function getCampaignEventGroups(): Record<
 const _allCeCampaigns = new Set(ALL_CE_CAMPAIGNS as unknown as string[]);
 
 /** Flat set of every campaign that belongs to any campaign event. */
-export function getAllCeCampaigns(): Set<string> {
+export function getAllCeCampaigns(): ReadonlySet<string> {
 	return _allCeCampaigns;
 }
 

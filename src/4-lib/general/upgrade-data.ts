@@ -21,7 +21,7 @@ import { rankToString } from "./rank-data.ts";
 // ---------------------------------------------------------------------------
 
 /**
- * Get all processed materials as a Map indexed by snowprintId.
+ * Get all processed materials as a record indexed by snowprintId.
  */
 export function getAllMaterials() {
 	return PROCESSED_MATERIALS;

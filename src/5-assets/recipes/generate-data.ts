@@ -52,7 +52,12 @@ export const main = () => {
 	> = {};
 
 	for (const [id, mat] of Object.entries(materialsData)) {
-		const rarity = RARITY_TO_NUMBER[mat.rarity] ?? 0;
+		const rarity = RARITY_TO_NUMBER[mat.rarity];
+		if (rarity === undefined) {
+			throw new Error(
+				`Unknown rarity "${mat.rarity}" for material "${id}". Add it to RARITY_TO_NUMBER.`,
+			);
+		}
 		const crafted = mat.recipe != null && mat.recipe.length > 0;
 
 		processed[id] = {
@@ -92,6 +97,12 @@ export const main = () => {
 			const result: Record<string, number> = {};
 
 			for (const ingredient of recipe) {
+				if (!processed[ingredient.id]) {
+					throw new Error(
+						`Material "${id}" references unknown ingredient "${ingredient.id}". Fix the source data.`,
+					);
+				}
+
 				const subExpanded = expanded[ingredient.id];
 				if (subExpanded === undefined) {
 					canExpand = false;
@@ -99,7 +110,7 @@ export const main = () => {
 				}
 
 				const subMat = processed[ingredient.id];
-				if (!subMat?.crafted) {
+				if (!subMat.crafted) {
 					// Base material — add directly
 					result[ingredient.id] =
 						(result[ingredient.id] ?? 0) + ingredient.count;
@@ -117,6 +128,16 @@ export const main = () => {
 				moreToExpand = true;
 			}
 		}
+	}
+
+	// Check for unresolvable recipes (likely circular dependencies)
+	const unresolved = Object.keys(processed).filter(
+		(id) => processed[id].crafted && expanded[id] === undefined,
+	);
+	if (unresolved.length > 0) {
+		throw new Error(
+			`Failed to expand recipes after ${passes} passes. Unresolved: ${unresolved.join(", ")}. Check for circular dependencies.`,
+		);
 	}
 
 	// Write outputs
