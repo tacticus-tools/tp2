@@ -101,12 +101,10 @@ function filterLocationsByStrategy(
 		const allowedTypes = rarityKey
 			? customFarmSelections[rarityKey]
 			: undefined;
-		if (allowedTypes && allowedTypes.length > 0) {
-			const filtered = locations.filter((l) =>
+		if (allowedTypes) {
+			return locations.filter((l) =>
 				allowedTypes.includes(l.campaignType as CampaignType),
 			);
-			// Fallback to all locations if no matches
-			return filtered.length > 0 ? filtered : locations;
 		}
 	}
 
