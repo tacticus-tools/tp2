@@ -239,6 +239,9 @@ function GoalsPage() {
 	const homeScreenEvent = useGoalPreferencesStore((s) => s.homeScreenEvent);
 	const hseMinEnemyCount = useGoalPreferencesStore((s) => s.hseMinEnemyCount);
 	const settingsVersion = useGoalPreferencesStore((s) => s.settingsVersion);
+	const customFarmSelections = useGoalPreferencesStore(
+		(s) => s.customFarmSelections,
+	);
 	const goalTypeFilter = useGoalPreferencesStore((s) => s.goalTypeFilter);
 	const toggleGoalTypeFilter = useGoalPreferencesStore(
 		(s) => s.toggleGoalTypeFilter,
@@ -384,6 +387,7 @@ function GoalsPage() {
 			playerContext,
 			farmStrategy,
 			farmOrder,
+			customFarmSelections,
 			roster,
 			homeScreenEvent,
 			hseMinEnemyCount,
@@ -429,6 +433,7 @@ function GoalsPage() {
 			homeScreenEvent,
 			hseMinEnemyCount,
 			attempts,
+			customFarmSelections,
 		);
 		if (!cancelled) {
 			setRaidsResult({ plan, token: currentToken });

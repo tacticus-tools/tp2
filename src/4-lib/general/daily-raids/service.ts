@@ -10,6 +10,10 @@
  * - _planRaidsForMaterial: per-material raid planning within a day
  */
 
+import type {
+	CustomFarmSelections,
+	FarmStrategy,
+} from "@/3-hooks/useGoalPreferencesStore.ts";
 import {
 	getAllUpgradeLocations,
 	type IUpgradeLocation,
@@ -21,7 +25,12 @@ import {
 	sortEstimatesForHse,
 } from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import { type Campaign, PersonalGoalType } from "../constants.ts";
+import {
+	type Campaign,
+	type CampaignType,
+	PersonalGoalType,
+	type RarityString,
+} from "../constants.ts";
 import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,
@@ -57,14 +66,26 @@ interface IMaterialEstimate {
 	isFinished: boolean;
 }
 
+const RARITY_NUM_TO_STRING: Record<number, RarityString> = {
+	0: "Common",
+	1: "Uncommon",
+	2: "Rare",
+	3: "Epic",
+	4: "Legendary",
+	5: "Mythic",
+};
+
 /**
  * Filter locations by farm strategy.
  * - leastEnergy: only keep locations with the minimum energyPerItem
- * - leastTime: keep all locations (maximum daily throughput)
+ * - allLocations: keep all locations (maximum daily throughput)
+ * - custom: filter by per-rarity campaign type selections
  */
 function filterLocationsByStrategy(
 	locations: IUpgradeLocation[],
-	farmStrategy: "leastEnergy" | "leastTime",
+	farmStrategy: FarmStrategy,
+	materialRarity?: number,
+	customFarmSelections?: CustomFarmSelections,
 ): IUpgradeLocation[] {
 	if (locations.length === 0) return locations;
 
@@ -73,7 +94,25 @@ function filterLocationsByStrategy(
 		return locations.filter((l) => l.energyPerItem === minEnergy);
 	}
 
-	// leastTime: use all locations for maximum daily throughput
+	if (
+		farmStrategy === "custom" &&
+		customFarmSelections &&
+		materialRarity !== undefined
+	) {
+		const rarityKey = RARITY_NUM_TO_STRING[materialRarity];
+		const allowedTypes = rarityKey
+			? customFarmSelections[rarityKey]
+			: undefined;
+		if (allowedTypes && allowedTypes.length > 0) {
+			const filtered = locations.filter((l) =>
+				allowedTypes.includes(l.campaignType as CampaignType),
+			);
+			// Fallback to all locations if no matches
+			return filtered.length > 0 ? filtered : locations;
+		}
+	}
+
+	// allLocations (or custom with no selections): use all locations
 	return locations;
 }
 
@@ -114,7 +153,10 @@ function computeMaterialEstimate(
 		return estimate;
 	}
 
-	// Inner simulation: how many days/energy/raids to farm leftCount items
+	// Inner simulation: how many days/energy/raids to farm leftCount items.
+	// On the last partial day, round up to the full daily allocation so the
+	// outer day-by-day sim can use all available attempts instead of capping
+	// at a tight fractional budget.
 	let energyTotal = 0;
 	let raidsTotal = 0;
 	let farmedItems = 0;
@@ -131,11 +173,10 @@ function computeMaterialEstimate(
 				farmedItems += dailyFarmedItems;
 				raidsTotal += loc.dailyBattleCount;
 			} else {
-				const energyLeftToFarm = leftToFarm * loc.energyPerItem;
-				const battlesLeftToFarm = Math.ceil(energyLeftToFarm / loc.energyCost);
-				farmedItems += leftToFarm;
-				energyTotal += battlesLeftToFarm * loc.energyCost;
-				raidsTotal += battlesLeftToFarm;
+				// Use full daily allocation so the outer sim can plan all daily attempts
+				farmedItems += dailyFarmedItems;
+				energyTotal += dailyEnergy;
+				raidsTotal += loc.dailyBattleCount;
 				break;
 			}
 		}
@@ -237,8 +278,9 @@ function buildEstimatesByPriority(
 	upgradeRankGoals: ICharacterUpgradeRankGoal[],
 	inventory: Record<string, number>,
 	campaignProgress: Map<Campaign, number>,
-	farmStrategy: "leastEnergy" | "leastTime",
+	farmStrategy: FarmStrategy,
 	campaignEvent: CampaignEventType = "none",
+	customFarmSelections?: CustomFarmSelections,
 ): {
 	allEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
@@ -286,9 +328,14 @@ function buildEstimatesByPriority(
 				progressFiltered,
 				campaignEvent,
 			);
-			const suggested = filterLocationsByStrategy(farmable, farmStrategy);
-
 			const mat = allMaterialsData[materialId];
+			const suggested = filterLocationsByStrategy(
+				farmable,
+				farmStrategy,
+				mat?.rarity,
+				customFarmSelections,
+			);
+
 			const label = mat?.label ?? materialId;
 			const icon = mat?.icon;
 
@@ -361,8 +408,9 @@ function buildEstimatesByTotalMaterials(
 	upgradeRankGoals: ICharacterUpgradeRankGoal[],
 	inventory: Record<string, number>,
 	campaignProgress: Map<Campaign, number>,
-	farmStrategy: "leastEnergy" | "leastTime",
+	farmStrategy: FarmStrategy,
 	campaignEvent: CampaignEventType = "none",
+	customFarmSelections?: CustomFarmSelections,
 ): {
 	allEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
@@ -425,9 +473,14 @@ function buildEstimatesByTotalMaterials(
 			progressFiltered,
 			campaignEvent,
 		);
-		const suggested = filterLocationsByStrategy(farmable, farmStrategy);
-
 		const mat = allMaterialsData[materialId];
+		const suggested = filterLocationsByStrategy(
+			farmable,
+			farmStrategy,
+			mat?.rarity,
+			customFarmSelections,
+		);
+
 		const label = mat?.label ?? materialId;
 		const icon = mat?.icon;
 
@@ -475,21 +528,23 @@ function buildEstimatesByTotalMaterials(
  * @param dailyEnergy - Energy budget per day
  * @param campaignProgress - Player's campaign progress for location filtering
  * @param inventory - Player's material inventory
- * @param farmStrategy - "leastEnergy" (cheapest node only) or "leastTime" (all nodes)
+ * @param farmStrategy - "leastEnergy" (cheapest node only), "allLocations" (all nodes), or "custom" (per-rarity selections)
  * @param farmOrder - "goalPriority" (per-goal ordering) or "totalMaterials" (pooled)
  * @param battleAttempts - Per-node remaining daily attempts from sync ("campaign:node" → attemptsLeft)
+ * @param customFarmSelections - Per-rarity campaign type selections (used when farmStrategy is "custom")
  */
 export function generateDailyRaidsPlan(
 	goals: CharacterRaidGoalSelect[],
 	dailyEnergy: number,
 	campaignProgress: Map<Campaign, number>,
 	inventory: Record<string, number> = {},
-	farmStrategy: "leastEnergy" | "leastTime" = "leastEnergy",
+	farmStrategy: FarmStrategy = "leastEnergy",
 	farmOrder: "goalPriority" | "totalMaterials" = "goalPriority",
 	campaignEvent: CampaignEventType = "none",
 	homeScreenEvent: HomeScreenEventType = "none",
 	hseMinEnemyCount = 5,
 	battleAttempts: Map<string, number> = new Map(),
+	customFarmSelections?: CustomFarmSelections,
 ): IDailyRaidsPlan {
 	if (dailyEnergy <= 0) {
 		return {
@@ -525,6 +580,7 @@ export function generateDailyRaidsPlan(
 					campaignProgress,
 					farmStrategy,
 					campaignEvent,
+					customFarmSelections,
 				)
 			: buildEstimatesByTotalMaterials(
 					upgradeRankGoals,
@@ -532,6 +588,7 @@ export function generateDailyRaidsPlan(
 					campaignProgress,
 					farmStrategy,
 					campaignEvent,
+					customFarmSelections,
 				);
 
 	// Reorder estimates so HSE-eligible materials come first
@@ -639,7 +696,7 @@ export function generateDailyRaidsPlan(
 		iteration++;
 		// Remove materials whose energyLeft is less than their cheapest location
 		upgradesToFarm = upgradesToFarm.filter(
-			(x) => x.energyLeft > Math.min(...x.locations.map((l) => l.energyCost)),
+			(x) => x.energyLeft >= Math.min(...x.locations.map((l) => l.energyCost)),
 		);
 		if (iteration > 1000) break;
 	}
