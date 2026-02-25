@@ -148,6 +148,8 @@ export function DailyRaidsPlan({
 			{plan.days.length > 0 &&
 				(() => {
 					const today = plan.days[0];
+					const remaining = today.raids.filter((raid) => !isDoneForToday(raid));
+					const done = today.raids.filter(isDoneForToday);
 					return (
 						<div className="space-y-3">
 							{/* Today header */}
@@ -171,14 +173,39 @@ export function DailyRaidsPlan({
 							</div>
 
 							{/* Material cards grid */}
-							<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-								{today.raids.map((raid) => (
-									<MaterialCard
-										key={`${raid.goalId}_${raid.materialId}`}
-										raid={raid}
-									/>
-								))}
-							</div>
+							{remaining.length > 0 && (
+								<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+									{remaining.map((raid) => (
+										<MaterialCard
+											key={`${raid.goalId}_${raid.materialId}`}
+											raid={raid}
+										/>
+									))}
+								</div>
+							)}
+
+							{/* Completed cards collapsible */}
+							{done.length > 0 && (
+								<details className="group rounded-lg border border-emerald-500/30 bg-emerald-500/5">
+									<summary className="flex cursor-pointer items-center gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
+										<Check className="size-5 shrink-0 text-emerald-400" />
+										<span className="flex-1 text-sm font-medium text-emerald-400">
+											{done.length} completed
+										</span>
+										<ChevronDown className="size-4 text-muted-foreground transition-transform group-open:rotate-180" />
+									</summary>
+									<div className="border-t border-emerald-500/20 px-4 pt-2 pb-3">
+										<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+											{done.map((raid) => (
+												<MaterialCard
+													key={`${raid.goalId}_${raid.materialId}`}
+													raid={raid}
+												/>
+											))}
+										</div>
+									</div>
+								</details>
+							)}
 						</div>
 					);
 				})()}
@@ -201,7 +228,7 @@ export function DailyRaidsPlan({
 								</span>
 								<Badge variant="secondary" className="text-xs">
 									<EnergyIcon size={12} />
-									{day.energyTotal}/{dailyEnergy}
+									{day.energyTotal}
 								</Badge>
 							</div>
 
@@ -219,6 +246,17 @@ export function DailyRaidsPlan({
 				</div>
 			)}
 		</div>
+	);
+}
+
+function isDoneForToday(raid: IDailyRaid): boolean {
+	if (raid.ownedCount >= raid.requiredCount) return true;
+	return (
+		raid.raidLocations.length > 0 &&
+		raid.raidLocations.every(
+			(loc) =>
+				loc.attemptsLeftToday !== undefined && loc.attemptsLeftToday === 0,
+		)
 	);
 }
 
