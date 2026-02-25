@@ -279,6 +279,7 @@ function buildEstimatesByPriority(
 	customFarmSelections?: CustomFarmSelections,
 ): {
 	allEstimates: IMaterialEstimate[];
+	finishedEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
 	materialUnitIds: Map<string, string[]>;
 } {
@@ -290,6 +291,7 @@ function buildEstimatesByPriority(
 	const blockedSet = new Set<string>();
 	const materialUnitIds = new Map<string, string[]>();
 	const allEstimates: IMaterialEstimate[] = [];
+	const finishedEstimates: IMaterialEstimate[] = [];
 
 	for (const goal of upgradeRankGoals) {
 		// Snapshot inventory before this goal to compute consumed amounts
@@ -380,7 +382,9 @@ function buildEstimatesByPriority(
 				continue;
 			}
 
-			if (!estimate.isFinished) {
+			if (estimate.isFinished) {
+				finishedEstimates.push(estimate);
+			} else {
 				goalEstimates.push(estimate);
 			}
 		}
@@ -393,7 +397,7 @@ function buildEstimatesByPriority(
 		allEstimates.push(...goalEstimates);
 	}
 
-	return { allEstimates, blockedMaterials, materialUnitIds };
+	return { allEstimates, finishedEstimates, blockedMaterials, materialUnitIds };
 }
 
 /**
@@ -409,6 +413,7 @@ function buildEstimatesByTotalMaterials(
 	customFarmSelections?: CustomFarmSelections,
 ): {
 	allEstimates: IMaterialEstimate[];
+	finishedEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
 	materialUnitIds: Map<string, string[]>;
 } {
@@ -453,6 +458,7 @@ function buildEstimatesByTotalMaterials(
 	const blockedMaterials: IBlockedMaterial[] = [];
 	const materialUnitIds = new Map<string, string[]>();
 	const allEstimates: IMaterialEstimate[] = [];
+	const finishedEstimates: IMaterialEstimate[] = [];
 
 	for (const [materialId, { count, unitIds }] of materialNeeds) {
 		// Compute how much inventory was consumed for this material across all goals
@@ -504,7 +510,9 @@ function buildEstimatesByTotalMaterials(
 			continue;
 		}
 
-		if (!estimate.isFinished) {
+		if (estimate.isFinished) {
+			finishedEstimates.push(estimate);
+		} else {
 			allEstimates.push(estimate);
 		}
 	}
@@ -514,7 +522,7 @@ function buildEstimatesByTotalMaterials(
 		(a, b) => b.daysTotal - a.daysTotal || b.energyTotal - a.energyTotal,
 	);
 
-	return { allEstimates, blockedMaterials, materialUnitIds };
+	return { allEstimates, finishedEstimates, blockedMaterials, materialUnitIds };
 }
 
 /**
@@ -568,24 +576,27 @@ export function generateDailyRaidsPlan(
 	}
 
 	// Build estimates based on farm order
-	const { allEstimates: rawEstimates, blockedMaterials } =
-		farmOrder === "goalPriority"
-			? buildEstimatesByPriority(
-					upgradeRankGoals,
-					inventory,
-					campaignProgress,
-					farmStrategy,
-					campaignEvent,
-					customFarmSelections,
-				)
-			: buildEstimatesByTotalMaterials(
-					upgradeRankGoals,
-					inventory,
-					campaignProgress,
-					farmStrategy,
-					campaignEvent,
-					customFarmSelections,
-				);
+	const {
+		allEstimates: rawEstimates,
+		finishedEstimates,
+		blockedMaterials,
+	} = farmOrder === "goalPriority"
+		? buildEstimatesByPriority(
+				upgradeRankGoals,
+				inventory,
+				campaignProgress,
+				farmStrategy,
+				campaignEvent,
+				customFarmSelections,
+			)
+		: buildEstimatesByTotalMaterials(
+				upgradeRankGoals,
+				inventory,
+				campaignProgress,
+				farmStrategy,
+				campaignEvent,
+				customFarmSelections,
+			);
 
 	// Reorder estimates so HSE-eligible materials come first
 	const allEstimates = sortEstimatesForHse(
@@ -695,6 +706,33 @@ export function generateDailyRaidsPlan(
 			(x) => x.energyLeft >= Math.min(...x.locations.map((l) => l.energyCost)),
 		);
 		if (iteration > 1000) break;
+	}
+
+	// Inject fully-completed materials into Day 1 so the UI can show them as done
+	if (finishedEstimates.length > 0) {
+		const finishedRaids: IDailyRaid[] = finishedEstimates.map((est) => ({
+			materialId: est.materialId,
+			materialLabel: est.materialLabel,
+			materialIcon: est.materialIcon,
+			goalId: est.goalId,
+			requiredCount: est.requiredCount,
+			acquiredCount: est.acquiredCount,
+			remainingCount: 0,
+			ownedCount: est.acquiredCount,
+			unitIds: est.unitIds,
+			raidLocations: [],
+		}));
+
+		if (days.length > 0) {
+			days[0].raids.push(...finishedRaids);
+		} else {
+			days.push({
+				dayNumber: 1,
+				raids: finishedRaids,
+				raidsTotal: 0,
+				energyTotal: 0,
+			});
+		}
 	}
 
 	const totalEnergy = days.reduce((sum, d) => sum + d.energyTotal, 0);
