@@ -1,3 +1,20 @@
+import type { CampaignType, RarityString } from "../constants.ts";
+
+export type FarmStrategy = "leastEnergy" | "allLocations" | "custom";
+
+export type CustomFarmSelections = Partial<
+	Record<RarityString, CampaignType[]>
+>;
+
+export const DEFAULT_CUSTOM_FARM_SELECTIONS: CustomFarmSelections = {
+	Mythic: ["Extremis"],
+	Legendary: ["Elite", "Extremis", "Mirror", "Standard"],
+	Epic: ["Elite", "Extremis", "Mirror", "Standard"],
+	Rare: ["Elite", "Extremis", "Mirror", "Standard"],
+	Uncommon: ["Elite", "Extremis", "Early", "Mirror", "Standard"],
+	Common: ["Elite", "Extremis", "Mirror", "Standard"],
+};
+
 export interface ITodayActivity {
 	/** Total energy spent today across ALL nodes (plan + non-plan) */
 	energySpent: number;

@@ -10,10 +10,6 @@
  * - _planRaidsForMaterial: per-material raid planning within a day
  */
 
-import type {
-	CustomFarmSelections,
-	FarmStrategy,
-} from "@/3-hooks/useGoalPreferencesStore.ts";
 import {
 	getAllUpgradeLocations,
 	type IUpgradeLocation,
@@ -37,6 +33,8 @@ import type {
 } from "../goals/types.ts";
 import { getAllMaterials, getBaseUpgradesForRankUp } from "../upgrade-data.ts";
 import type {
+	CustomFarmSelections,
+	FarmStrategy,
 	IBlockedMaterial,
 	IDailyRaid,
 	IDailyRaidsDay,

@@ -2,26 +2,14 @@ import { useEffect, useState } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { HomeScreenEventType } from "@/4-lib/general/campaign-events.ts";
-import type {
-	CampaignType,
-	PersonalGoalType,
-	RarityString,
-} from "@/4-lib/general/constants.ts";
+import type { PersonalGoalType } from "@/4-lib/general/constants.ts";
+import {
+	type CustomFarmSelections,
+	DEFAULT_CUSTOM_FARM_SELECTIONS,
+	type FarmStrategy,
+} from "@/4-lib/general/daily-raids/types.ts";
 
-export type FarmStrategy = "leastEnergy" | "allLocations" | "custom";
-
-export type CustomFarmSelections = Partial<
-	Record<RarityString, CampaignType[]>
->;
-
-export const DEFAULT_CUSTOM_FARM_SELECTIONS: CustomFarmSelections = {
-	Mythic: ["Extremis"],
-	Legendary: ["Elite", "Extremis", "Mirror", "Standard"],
-	Epic: ["Elite", "Extremis", "Mirror", "Standard"],
-	Rare: ["Elite", "Extremis", "Mirror", "Standard"],
-	Uncommon: ["Elite", "Extremis", "Early", "Mirror", "Standard"],
-	Common: ["Elite", "Extremis", "Mirror", "Standard"],
-};
+export type { CustomFarmSelections, FarmStrategy };
 
 interface GoalPreferencesState {
 	dailyEnergy: number;

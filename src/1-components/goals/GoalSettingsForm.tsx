@@ -326,6 +326,7 @@ function CustomFarmSelectionsGrid({
 												type="checkbox"
 												checked={checked}
 												onChange={() => onToggle(rarity, row.type)}
+												aria-label={`${row.label} for ${rarity}`}
 												className="size-3.5 cursor-pointer accent-emerald-500"
 											/>
 										</td>
