@@ -1,17 +1,30 @@
 import type { FactionData } from "@/5-assets/factions/index.ts";
-import type { Alliance, Rank, Rarity, RarityStars } from "./constants.ts";
-import { RarityStars as RS } from "./constants.ts";
-import type { RosterUnit } from "./roster-utils.ts";
+import type { Alliance, RarityStars } from "./constants.ts";
+import { Rank, Rarity, RarityStars as RS } from "./constants.ts";
+import { calculateCharacterPower, calculateMowPower } from "./power.ts";
+import type { RosterEquipment, RosterUnit } from "./roster-utils.ts";
+
+const RARITY_STRING_MAP: Record<string, Rarity> = {
+	Common: Rarity.Common,
+	Uncommon: Rarity.Uncommon,
+	Rare: Rarity.Rare,
+	Epic: Rarity.Epic,
+	Legendary: Rarity.Legendary,
+	Mythic: Rarity.Mythic,
+};
 
 interface UnitMetadata {
 	id: string;
 	name: string;
 	factionId: string;
 	alliance: string;
+	initialRarity: string;
 	roundIcon: string | undefined;
 	portrait: string | undefined;
 	activeAbilityIcon: string | undefined;
 	passiveAbilityIcon: string | undefined;
+	/** Equipment slot type prefixes, e.g. ["I_Crit", "I_Block", "I_Booster_Block"] */
+	equipmentSlots?: readonly [string, string, string];
 }
 
 export interface EnrichedRosterUnit {
@@ -29,19 +42,55 @@ export interface EnrichedRosterUnit {
 	abilities: [number, number];
 	level: number;
 	shards: number;
+	power: number;
+	/** Equipment slot type prefixes for this character (undefined for MoWs) */
+	equipmentSlots: readonly [string, string, string] | undefined;
+	equipment: RosterEquipment[];
 	isMow: boolean;
+	isLocked: boolean;
+}
+
+export interface EnrichRosterOptions {
+	/** Include unowned characters as locked entries (default: false) */
+	includeUnowned?: boolean;
 }
 
 export function enrichRoster(
 	roster: Map<string, RosterUnit>,
 	characters: readonly UnitMetadata[],
 	mows: readonly UnitMetadata[],
+	options?: EnrichRosterOptions,
 ): EnrichedRosterUnit[] {
 	const units: EnrichedRosterUnit[] = [];
 
 	for (const char of characters) {
 		const ru = roster.get(char.id);
-		if (!ru) continue;
+		if (!ru) {
+			if (options?.includeUnowned) {
+				units.push({
+					id: char.id,
+					name: char.name,
+					factionId: char.factionId,
+					alliance: char.alliance as Alliance,
+					roundIcon: char.roundIcon,
+					portrait: char.portrait,
+					activeAbilityIcon: char.activeAbilityIcon,
+					passiveAbilityIcon: char.passiveAbilityIcon,
+					rank: Rank.Locked,
+					rarity: RARITY_STRING_MAP[char.initialRarity] ?? Rarity.Common,
+					stars: RS.None,
+					abilities: [0, 0],
+					level: 0,
+					shards: 0,
+					power: 0,
+					equipmentSlots: char.equipmentSlots,
+					equipment: [],
+					isMow: false,
+					isLocked: true,
+				});
+			}
+			continue;
+		}
 		units.push({
 			id: char.id,
 			name: char.name,
@@ -57,7 +106,18 @@ export function enrichRoster(
 			abilities: ru.abilities,
 			level: ru.level,
 			shards: ru.shards,
+			power: calculateCharacterPower(
+				ru.rank,
+				ru.rarity,
+				ru.stars,
+				ru.abilities[0],
+				ru.abilities[1],
+				ru.upgradeCount ?? 0,
+			),
+			equipmentSlots: char.equipmentSlots,
+			equipment: ru.equipment,
 			isMow: false,
+			isLocked: false,
 		});
 	}
 
@@ -79,23 +139,42 @@ export function enrichRoster(
 			abilities: ru.abilities,
 			level: ru.level,
 			shards: ru.shards,
+			power: calculateMowPower(
+				ru.rarity,
+				ru.stars,
+				ru.abilities[0],
+				ru.abilities[1],
+			),
+			equipmentSlots: undefined,
+			equipment: ru.equipment,
 			isMow: true,
+			isLocked: false,
 		});
 	}
 
 	return units;
 }
 
-export type RosterSortKey = "rank" | "rarity" | "name" | "faction" | "level";
+export type RosterSortKey =
+	| "rank"
+	| "rarity"
+	| "name"
+	| "faction"
+	| "level"
+	| "power";
 
 function compareUnits(
 	a: EnrichedRosterUnit,
 	b: EnrichedRosterUnit,
 	sortBy: RosterSortKey,
 ): number {
-	// MoWs always sort after characters
+	// MoWs always sort after all characters (including locked ones)
 	const mowDiff = Number(a.isMow) - Number(b.isMow);
 	if (mowDiff !== 0) return mowDiff;
+
+	// Locked units sort after owned (within characters)
+	const lockedDiff = Number(a.isLocked) - Number(b.isLocked);
+	if (lockedDiff !== 0) return lockedDiff;
 
 	switch (sortBy) {
 		case "rank":
@@ -112,6 +191,8 @@ function compareUnits(
 			);
 		case "level":
 			return b.level - a.level || a.name.localeCompare(b.name);
+		case "power":
+			return b.power - a.power || a.name.localeCompare(b.name);
 	}
 }
 

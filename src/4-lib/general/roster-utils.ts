@@ -43,6 +43,13 @@ export function convertApiRank(apiRank: number): Rank {
 	return rank as Rank;
 }
 
+export interface RosterEquipment {
+	id: string;
+	level: number;
+	rarity: string;
+	slotId: string;
+}
+
 /** Roster unit info extracted from the Tacticus API */
 export interface RosterUnit {
 	rank: Rank;
@@ -53,6 +60,9 @@ export interface RosterUnit {
 	mythicShards: number;
 	level: number;
 	xp: number;
+	/** Number of applied rank upgrades (0–6) */
+	upgradeCount: number;
+	equipment: RosterEquipment[];
 }
 
 /**
@@ -71,6 +81,13 @@ export function buildRosterMap(units: TacticusUnit[]): Map<string, RosterUnit> {
 			mythicShards: u.mythicShards,
 			level: u.xpLevel,
 			xp: u.xp,
+			upgradeCount: u.upgrades.filter((v) => v !== 0).length,
+			equipment: u.items.map((item) => ({
+				id: item.id,
+				level: item.level,
+				rarity: item.rarity,
+				slotId: item.slotId,
+			})),
 		});
 	}
 	return map;

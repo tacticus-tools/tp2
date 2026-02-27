@@ -1,5 +1,5 @@
-import { toPng } from "html-to-image";
-import { Check, Copy, Download, Share2 } from "lucide-react";
+import { toJpeg } from "html-to-image";
+import { Check, Copy, Download, Loader2, Share2 } from "lucide-react";
 import { useCallback, useState } from "react";
 import {
 	AlertDialog,
@@ -22,17 +22,28 @@ export function ShareRosterDialog({
 	gridRef,
 	onShare,
 }: ShareRosterDialogProps) {
+	const [downloading, setDownloading] = useState(false);
 	const [copying, setCopying] = useState(false);
 	const [copied, setCopied] = useState(false);
 
-	const handleDownloadPng = useCallback(async () => {
+	const handleDownloadImage = useCallback(async () => {
 		const node = gridRef.current;
 		if (!node) return;
-		const dataUrl = await toPng(node, { backgroundColor: "#0a0a0a" });
-		const link = document.createElement("a");
-		link.download = "tacticus-roster.png";
-		link.href = dataUrl;
-		link.click();
+		setDownloading(true);
+		try {
+			const dataUrl = await toJpeg(node, {
+				backgroundColor: "#0a0a0a",
+				quality: 0.85,
+				pixelRatio: 1,
+				cacheBust: false,
+			});
+			const link = document.createElement("a");
+			link.download = "tacticus-roster.jpg";
+			link.href = dataUrl;
+			link.click();
+		} finally {
+			setDownloading(false);
+		}
 	}, [gridRef]);
 
 	const handleCopyLink = useCallback(async () => {
@@ -61,17 +72,22 @@ export function ShareRosterDialog({
 				<AlertDialogHeader>
 					<AlertDialogTitle>Share Roster</AlertDialogTitle>
 					<AlertDialogDescription>
-						Download your roster as a PNG image or share it via a public link.
+						Download your roster as an image or share it via a public link.
 					</AlertDialogDescription>
 				</AlertDialogHeader>
 				<div className="flex flex-col gap-2">
 					<Button
 						variant="outline"
-						onClick={handleDownloadPng}
+						onClick={handleDownloadImage}
+						disabled={downloading}
 						className="justify-start"
 					>
-						<Download className="size-4" />
-						Download PNG
+						{downloading ? (
+							<Loader2 className="size-4 animate-spin" />
+						) : (
+							<Download className="size-4" />
+						)}
+						{downloading ? "Generating image..." : "Download Image"}
 					</Button>
 					<Button
 						variant="outline"

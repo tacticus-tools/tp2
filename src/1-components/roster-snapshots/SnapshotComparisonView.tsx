@@ -245,7 +245,7 @@ function UnitDiffCard({
 							/>
 						)}
 						{displayUnit && !meta?.isMow && (
-							<div className="absolute -right-1 -bottom-1 z-2">
+							<div className="absolute -bottom-1 -left-1 z-2">
 								<RankIcon rank={displayUnit.rank as Rank} size={16} />
 							</div>
 						)}

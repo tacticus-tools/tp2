@@ -110,3 +110,12 @@ export function getBadgeImageUrl(alliance: Alliance, rarity: Rarity): string {
 		import.meta.url,
 	).href;
 }
+
+export function getStarIconUrl(
+	type: "gold" | "red" | "blue" | "mythic-wings",
+): string {
+	return new URL(
+		`../../5-assets/images/tacticus/icons/star-${type}.png`,
+		import.meta.url,
+	).href;
+}

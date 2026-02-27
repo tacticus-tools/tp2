@@ -42,6 +42,11 @@ export const CHARACTERS = Object.freeze(
 		passiveAbilityIcon: character.passiveAbilityName
 			? getAbilityIconUrl(character.passiveAbilityName)
 			: undefined,
+		equipmentSlots: [
+			character.equipment1,
+			character.equipment2,
+			character.equipment3,
+		] as const,
 	})),
 );
 

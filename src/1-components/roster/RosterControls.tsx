@@ -69,6 +69,7 @@ export function RosterControls({
 					<SelectItem value="name">Sort: Name</SelectItem>
 					<SelectItem value="faction">Sort: Faction</SelectItem>
 					<SelectItem value="level">Sort: Level</SelectItem>
+					<SelectItem value="power">Sort: Power</SelectItem>
 				</SelectContent>
 			</Select>
 

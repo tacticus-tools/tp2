@@ -34,7 +34,7 @@ function RosterPage() {
 	const gridRef = useRef<HTMLDivElement>(null);
 
 	const enriched = useMemo(
-		() => enrichRoster(roster, CHARACTERS, MOWS),
+		() => enrichRoster(roster, CHARACTERS, MOWS, { includeUnowned: true }),
 		[roster],
 	);
 
@@ -79,7 +79,7 @@ function RosterPage() {
 				onSortChange={setSortBy}
 				viewMode={viewMode}
 				onViewModeChange={setViewMode}
-				unitCount={filtered.length}
+				unitCount={filtered.filter((u) => !u.isLocked).length}
 			/>
 
 			{/* Grid */}

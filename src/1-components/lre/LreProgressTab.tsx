@@ -161,42 +161,6 @@ export function LreProgressTab({
 		[apiLockedReqs],
 	);
 
-	const toggleAllBattle = useCallback(
-		(battleIndex: number) => {
-			const battle = trackProgress?.battles.find(
-				(bp) => bp.battleIndex === battleIndex,
-			);
-			if (!battle) return;
-
-			// Only toggle non-API-locked requirements
-			const editableReqs = battle.requirements.filter(
-				(r) => !apiLockedReqs.has(`${String(battleIndex)}:${r.id}`),
-			);
-			if (editableReqs.length === 0) return;
-
-			const allCleared = editableReqs.every(
-				(r) => r.status === REQUIREMENT_STATUS.Cleared,
-			);
-			const newStatus = allCleared
-				? REQUIREMENT_STATUS.NotCleared
-				: REQUIREMENT_STATUS.Cleared;
-
-			updateTrackBattle(battleIndex, (bp) => ({
-				...bp,
-				requirements: bp.requirements.map((r) => {
-					if (apiLockedReqs.has(`${String(battleIndex)}:${r.id}`)) return r;
-					return {
-						...r,
-						status: newStatus,
-						killScore: undefined,
-						highScore: undefined,
-					};
-				}),
-			}));
-		},
-		[trackProgress, updateTrackBattle, apiLockedReqs],
-	);
-
 	// Build objective label map
 	const objectiveLabels = useMemo(() => {
 		const map = new Map<string, string>();
@@ -323,14 +287,11 @@ export function LreProgressTab({
 										className={`border-b border-border/30 last:border-0 ${isBattleSynced ? "bg-emerald-500/5" : ""}`}
 									>
 										<td className="w-0 py-1 text-center">
-											<button
-												type="button"
-												onClick={() => toggleAllBattle(battle.battleIndex)}
-												className={`rounded-sm px-1.5 py-1 text-sm font-medium ${isBattleSynced ? "text-emerald-400" : "hover:bg-muted/50"}`}
-												title="Toggle all editable"
+											<span
+												className={`px-1.5 py-1 text-sm font-medium ${isBattleSynced ? "text-emerald-400" : ""}`}
 											>
 												{battle.battleIndex + 1}
-											</button>
+											</span>
 										</td>
 										{battle.requirements.map((req, i) => {
 											const locked = isReqLocked(battle.battleIndex, req.id);

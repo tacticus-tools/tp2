@@ -42,10 +42,15 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 	shellComponent: RootDocument,
 });
 
+/** Inline script that applies the dark class before first paint to prevent FOUC */
+const themeScript = `(function(){try{var d=document.documentElement,s=JSON.parse(localStorage.getItem("user-preferences-storage")),t=s&&s.state&&s.state.theme;if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches))d.classList.add("dark")}catch(e){}})()`;
+
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
 			<head>
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: static inline script to prevent dark-mode FOUC */}
+				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
 				<HeadContent />
 			</head>
 			<body>

@@ -102,7 +102,19 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 					<NavItem
 						to="/goals"
 						icon={Target}
-						label="Goals / Daily Raids"
+						label="Goals & Daily Raids"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/campaign-progression"
+						icon={TrendingUp}
+						label="Raid Optimizer"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/lre"
+						icon={Star}
+						label="Legendary Release Events"
 						onClick={onNavigate}
 					/>
 					<NavItem
@@ -112,9 +124,9 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 						onClick={onNavigate}
 					/>
 					<NavItem
-						to="/lre"
-						icon={Star}
-						label="Legendary Release Events"
+						to="/campaigns"
+						icon={MapIcon}
+						label="Campaigns"
 						onClick={onNavigate}
 					/>
 					<NavItem
@@ -133,18 +145,6 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 						to="/gw-offense"
 						icon={Shield}
 						label="GW Offense"
-						onClick={onNavigate}
-					/>
-					<NavItem
-						to="/campaigns"
-						icon={MapIcon}
-						label="Campaigns"
-						onClick={onNavigate}
-					/>
-					<NavItem
-						to="/campaign-progression"
-						icon={TrendingUp}
-						label="Planner"
 						onClick={onNavigate}
 					/>
 					<NavItem
