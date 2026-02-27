@@ -58,6 +58,56 @@ export function getRankUpgrades(
 }
 
 /**
+ * Recursively consume a material from inventory or expand its recipe.
+ * Checks inventory at every level of the crafting tree before expanding further.
+ */
+function consumeOrExpand(
+	materialId: string,
+	count: number,
+	inventoryCopy: Record<string, number>,
+	upgradesRarity: Rarity[],
+	baseUpgradesTotal: Record<string, number>,
+): void {
+	// 1. Try to consume from inventory
+	const owned = inventoryCopy[materialId] ?? 0;
+	if (owned >= count) {
+		inventoryCopy[materialId] = owned - count;
+		return;
+	}
+	let remaining = count;
+	if (owned > 0) {
+		remaining -= owned;
+		inventoryCopy[materialId] = 0;
+	}
+
+	// 2. If crafted, walk the recipe tree
+	const mat = PROCESSED_MATERIALS[materialId];
+	if (mat?.crafted && mat.recipe) {
+		for (const ingredient of mat.recipe) {
+			consumeOrExpand(
+				ingredient.id,
+				ingredient.count * remaining,
+				inventoryCopy,
+				upgradesRarity,
+				baseUpgradesTotal,
+			);
+		}
+		return;
+	}
+
+	// 3. Base material — add to farming needs (apply rarity filter)
+	if (
+		upgradesRarity.length > 0 &&
+		mat &&
+		!upgradesRarity.includes(mat.rarity as Rarity)
+	) {
+		return;
+	}
+	baseUpgradesTotal[materialId] =
+		(baseUpgradesTotal[materialId] ?? 0) + remaining;
+}
+
+/**
  * Get all base materials needed for a character's rank-up from rankStart to rankEnd.
  * Expands craftable materials into base materials and sums across all rank transitions.
  *
@@ -101,61 +151,14 @@ export function getBaseUpgradesForRankUp(
 		}
 
 		for (const upgradeId of upgrades) {
-			const mat = PROCESSED_MATERIALS[upgradeId];
-			if (!mat) continue;
-
-			if (mat.crafted) {
-				// Get expanded recipe and apply inventory
-				const expanded = EXPANDED_RECIPES[upgradeId] as
-					| Record<string, number>
-					| undefined;
-				if (expanded) {
-					// Check if we have the crafted material in inventory
-					const owned = inventoryCopy[upgradeId] ?? 0;
-					if (owned > 0) {
-						inventoryCopy[upgradeId] = owned - 1;
-						continue;
-					}
-					for (const [baseId, count] of Object.entries(expanded)) {
-						const baseMat = PROCESSED_MATERIALS[baseId];
-						if (
-							upgradesRarity.length > 0 &&
-							baseMat &&
-							!upgradesRarity.includes(baseMat.rarity as Rarity)
-						) {
-							continue;
-						}
-
-						// Subtract inventory
-						const ownedBase = inventoryCopy[baseId] ?? 0;
-						const needed = count;
-						if (ownedBase >= needed) {
-							inventoryCopy[baseId] = ownedBase - needed;
-						} else {
-							const remaining = needed - ownedBase;
-							inventoryCopy[baseId] = 0;
-							baseUpgradesTotal[baseId] =
-								(baseUpgradesTotal[baseId] ?? 0) + remaining;
-						}
-					}
-				}
-			} else {
-				// Base material
-				if (
-					upgradesRarity.length > 0 &&
-					!upgradesRarity.includes(mat.rarity as Rarity)
-				) {
-					continue;
-				}
-
-				const owned = inventoryCopy[upgradeId] ?? 0;
-				if (owned > 0) {
-					inventoryCopy[upgradeId] = owned - 1;
-				} else {
-					baseUpgradesTotal[upgradeId] =
-						(baseUpgradesTotal[upgradeId] ?? 0) + 1;
-				}
-			}
+			if (!PROCESSED_MATERIALS[upgradeId]) continue;
+			consumeOrExpand(
+				upgradeId,
+				1,
+				inventoryCopy,
+				upgradesRarity,
+				baseUpgradesTotal,
+			);
 		}
 	}
 

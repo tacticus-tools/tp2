@@ -2,11 +2,15 @@ import { useAuthActions } from "@convex-dev/auth/react";
 import { Link, Outlet } from "@tanstack/react-router";
 import { useConvexAuth } from "convex/react";
 import {
+	Camera,
 	Home,
 	LogOut,
 	Map as MapIcon,
 	Menu,
 	Settings,
+	Shield,
+	Star,
+	Swords,
 	Target,
 	TrendingUp,
 	User,
@@ -105,6 +109,30 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 						to="/roster"
 						icon={Users2}
 						label="Roster"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/lre"
+						icon={Star}
+						label="Legendary Release Events"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/roster-snapshots"
+						icon={Camera}
+						label="Roster Snapshots"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/teams"
+						icon={Swords}
+						label="Teams"
+						onClick={onNavigate}
+					/>
+					<NavItem
+						to="/gw-offense"
+						icon={Shield}
+						label="GW Offense"
 						onClick={onNavigate}
 					/>
 					<NavItem
