@@ -38,9 +38,9 @@ function buildEquipmentSlots(
 	return unit.equipmentSlots
 		.map((slotType, i) => {
 			const equip = unit.equipment.find(
-				(e) => e.id.startsWith(slotType) && !matched.has(e.id),
+				(e) => e.id.startsWith(slotType) && !matched.has(`${e.slotId}:${e.id}`),
 			);
-			if (equip) matched.add(equip.id);
+			if (equip) matched.add(`${equip.slotId}:${equip.id}`);
 			return { key: `${slotType}-${i}`, slotType, equip };
 		})
 		.sort(
@@ -186,7 +186,7 @@ export function UnitCard({ unit }: UnitCardProps) {
 												width={20}
 												height={20}
 												loading="lazy"
-												className="absolute inset-0 z-1 size-full scale-85 object-contain"
+												className="absolute inset-0 z-1 size-full scale-[0.85] object-contain"
 											/>
 										) : (
 											<div className="absolute inset-0 z-1 rounded-sm bg-muted" />

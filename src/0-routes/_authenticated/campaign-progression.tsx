@@ -105,7 +105,7 @@ function CampaignProgressionPage() {
 		<div className="space-y-6">
 			{/* Header */}
 			<div>
-				<h1 className="text-2xl font-bold tracking-tight">Campaign Planner</h1>
+				<h1 className="text-2xl font-bold tracking-tight">Goal Optimizer</h1>
 				<p className="text-muted-foreground">
 					Find the next campaign nodes to beat for the biggest farming benefit.
 				</p>

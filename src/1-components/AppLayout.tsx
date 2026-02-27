@@ -108,7 +108,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 					<NavItem
 						to="/campaign-progression"
 						icon={TrendingUp}
-						label="Raid Optimizer"
+						label="Goal Optimizer"
 						onClick={onNavigate}
 					/>
 					<NavItem
