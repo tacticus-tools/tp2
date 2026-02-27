@@ -12,7 +12,7 @@ interface Team {
 	_id: string;
 	name: string;
 	characterIds: string[];
-	mowIds: string[];
+	mowIds?: string[];
 }
 
 interface GwDeployDialogProps {
@@ -55,17 +55,18 @@ export function GwDeployDialog({
 							>
 								<div className="min-w-0 flex-1">
 									<p className="text-sm font-medium">{team.name}</p>
-									{(team.characterIds.length > 0 || team.mowIds.length > 0) && (
+									{(team.characterIds.length > 0 ||
+										(team.mowIds?.length ?? 0) > 0) && (
 										<div className="mt-1 flex items-center gap-1">
 											{team.characterIds.map((id) => (
 												<CharacterIcon key={id} unitId={id} size={24} />
 											))}
-											{team.mowIds.length > 0 && (
+											{(team.mowIds?.length ?? 0) > 0 && (
 												<>
 													{team.characterIds.length > 0 && (
 														<div className="mx-0.5 h-5 w-px bg-border/50" />
 													)}
-													{team.mowIds.map((id) => (
+													{team.mowIds?.map((id) => (
 														<CharacterIcon key={id} unitId={id} size={24} />
 													))}
 												</>
@@ -74,7 +75,7 @@ export function GwDeployDialog({
 									)}
 								</div>
 								<Badge variant="secondary" className="text-[10px]">
-									{team.characterIds.length + team.mowIds.length}
+									{team.characterIds.length + (team.mowIds?.length ?? 0)}
 								</Badge>
 							</button>
 						))}

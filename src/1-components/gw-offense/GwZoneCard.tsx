@@ -8,7 +8,6 @@ import type { DeepReadonly } from "@/types.ts";
 
 interface GwZoneCardProps {
 	section: DeepReadonly<GuildWarSection>;
-	sectionIndex: number;
 	rarityCap: string;
 	deployment: GwDeployment | undefined;
 	teamName: string | undefined;

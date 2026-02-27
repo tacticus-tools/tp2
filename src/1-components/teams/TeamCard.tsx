@@ -57,10 +57,22 @@ export function TeamCard({
 					)}
 				</div>
 				<div className="flex gap-1">
-					<Button variant="ghost" size="icon-sm" onClick={onEdit}>
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						onClick={onEdit}
+						aria-label={`Edit team ${name}`}
+						title="Edit team"
+					>
 						<Pencil className="size-4" />
 					</Button>
-					<Button variant="ghost" size="icon-sm" onClick={onDelete}>
+					<Button
+						variant="ghost"
+						size="icon-sm"
+						onClick={onDelete}
+						aria-label={`Delete team ${name}`}
+						title="Delete team"
+					>
 						<Trash2 className="size-4" />
 					</Button>
 				</div>

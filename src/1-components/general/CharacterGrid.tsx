@@ -105,6 +105,8 @@ export function CharacterGrid({
 							type="button"
 							disabled={disabled}
 							onClick={() => onToggle(char.id)}
+							aria-pressed={isSelected}
+							aria-label={char.name}
 							className={cn(
 								"relative flex flex-col items-center gap-0.5 rounded-lg border p-1.5 text-center transition-colors",
 								isSelected

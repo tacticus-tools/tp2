@@ -48,6 +48,7 @@ export function LreTeamsTab({
 	onUpdateTeam: (
 		teamId: Id<"lreTeams">,
 		data: {
+			trackId?: string;
 			name?: string;
 			characterIds?: string[];
 			restrictionIds?: string[];
@@ -84,6 +85,7 @@ export function LreTeamsTab({
 		}) => {
 			if (editingTeam) {
 				onUpdateTeam(editingTeam._id, {
+					trackId: data.trackId,
 					name: data.name,
 					characterIds: data.characterIds,
 					restrictionIds: data.restrictionIds,
@@ -213,6 +215,8 @@ export function LreTeamsTab({
 										variant="ghost"
 										size="icon-sm"
 										onClick={() => handleEdit(team)}
+										aria-label={`Edit team ${team.name}`}
+										title="Edit team"
 									>
 										<Pencil className="size-4" />
 									</Button>
@@ -220,6 +224,8 @@ export function LreTeamsTab({
 										variant="ghost"
 										size="icon-sm"
 										onClick={() => onRemoveTeam(team._id)}
+										aria-label={`Remove team ${team.name}`}
+										title="Remove team"
 									>
 										<Trash2 className="size-4" />
 									</Button>

@@ -158,25 +158,25 @@ function UnchangedList({
 		() => new Set(diffs.map((d) => d.unitId)),
 		[diffs],
 	);
-	const unchangedIds = useMemo(() => {
+	const unchangedUnits = useMemo(() => {
 		const allIds = new Set([
 			...Object.keys(left.units),
 			...Object.keys(right.units),
 		]);
 		return [...allIds]
 			.filter((id) => !changedIds.has(id))
-			.map((id) => metaByUnitId.get(id)?.name ?? id)
-			.sort((a, b) => a.localeCompare(b));
+			.map((id) => ({ id, name: metaByUnitId.get(id)?.name ?? id }))
+			.sort((a, b) => a.name.localeCompare(b.name));
 	}, [left, right, changedIds]);
 
 	return (
 		<div className="mt-2 flex flex-wrap gap-1.5">
-			{unchangedIds.map((name) => (
+			{unchangedUnits.map((unit) => (
 				<span
-					key={name}
+					key={unit.id}
 					className="rounded-md bg-muted/50 px-2 py-0.5 text-xs text-muted-foreground"
 				>
-					{name}
+					{unit.name}
 				</span>
 			))}
 		</div>

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
 import { Loader2, Shield } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { GwDeployDialog } from "@/1-components/gw-offense/GwDeployDialog.tsx";
 import { GwZoneCard } from "@/1-components/gw-offense/GwZoneCard.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
@@ -38,6 +38,13 @@ function GwOffensePage() {
 	const setExpandedSectionIndex = useGwOffenseStore(
 		(s) => s.setExpandedSectionIndex,
 	);
+
+	// Sync BF level from persisted data on load
+	useEffect(() => {
+		if (doc?.bfLevel != null) {
+			setSelectedBfLevel(doc.bfLevel);
+		}
+	}, [doc?.bfLevel, setSelectedBfLevel]);
 
 	const [deployDialogSectionIndex, setDeployDialogSectionIndex] = useState<
 		number | null
@@ -85,9 +92,10 @@ function GwOffensePage() {
 			await saveGw({
 				bfLevel: selectedBfLevel,
 				deployments: JSON.stringify(newDeployments),
+				notes: plan.notes,
 			});
 		},
-		[plan.deployments, selectedBfLevel, saveGw],
+		[plan.deployments, plan.notes, selectedBfLevel, saveGw],
 	);
 
 	const handleRemove = useCallback(
@@ -98,9 +106,10 @@ function GwOffensePage() {
 			await saveGw({
 				bfLevel: selectedBfLevel,
 				deployments: JSON.stringify(newDeployments),
+				notes: plan.notes,
 			});
 		},
-		[plan.deployments, selectedBfLevel, saveGw],
+		[plan.deployments, plan.notes, selectedBfLevel, saveGw],
 	);
 
 	const handleBfLevelChange = useCallback(
@@ -110,9 +119,10 @@ function GwOffensePage() {
 			await saveGw({
 				bfLevel,
 				deployments: JSON.stringify(plan.deployments),
+				notes: plan.notes,
 			});
 		},
-		[setSelectedBfLevel, saveGw, plan.deployments],
+		[setSelectedBfLevel, saveGw, plan.deployments, plan.notes],
 	);
 
 	if (doc === undefined || teams === undefined) {
@@ -183,7 +193,6 @@ function GwOffensePage() {
 						<GwZoneCard
 							key={section.id}
 							section={section}
-							sectionIndex={globalIndex}
 							rarityCap={getSectionRarityCap(
 								GUILD_WAR,
 								section,

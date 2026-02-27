@@ -93,6 +93,7 @@ export const addTeam = mutation({
 export const updateTeam = mutation({
 	args: {
 		teamId: v.id("lreTeams"),
+		trackId: v.optional(v.string()),
 		name: v.optional(v.string()),
 		characterIds: v.optional(v.array(v.string())),
 		restrictionIds: v.optional(v.array(v.string())),

@@ -68,7 +68,7 @@ function UpgradesPage() {
 						setSearch("");
 					}}
 				>
-					<SelectTrigger className="w-52">
+					<SelectTrigger className="w-52" aria-label="Select character">
 						<SelectValue placeholder="Select character" />
 					</SelectTrigger>
 					<SelectContent>

@@ -128,6 +128,13 @@ export function LreTeamDialog({
 		return new Set(filtered.map((c) => c.id));
 	}, [leTrack, objectives, restrictionIds]);
 
+	// Prune selected characters that are no longer allowed when restrictions/track change
+	useEffect(() => {
+		setCharacterIds((prev) =>
+			prev.filter((id) => (allowedCharacterIds as Set<string>).has(id)),
+		);
+	}, [allowedCharacterIds]);
+
 	const handleToggleCharacter = useCallback((charId: string) => {
 		setCharacterIds((prev) =>
 			prev.includes(charId)
@@ -208,7 +215,10 @@ export function LreTeamDialog({
 										onClick={() => handleToggleRestriction(obj.key)}
 										className="flex cursor-pointer items-center gap-2"
 									>
-										<Checkbox checked={restrictionIds.includes(obj.key)} />
+										<Checkbox
+											checked={restrictionIds.includes(obj.key)}
+											tabIndex={-1}
+										/>
 										<LreObjectiveIcon requirementId={obj.key} size={24} />
 										<span className="text-sm text-muted-foreground">
 											+{obj.points}

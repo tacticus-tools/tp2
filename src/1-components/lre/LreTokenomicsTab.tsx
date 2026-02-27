@@ -44,6 +44,11 @@ interface ConvexTeam {
 	notes?: string;
 }
 
+const VALID_TRACK_IDS = new Set<string>(["alpha", "beta", "gamma"]);
+function isTrackId(value: string): value is TrackId {
+	return VALID_TRACK_IDS.has(value);
+}
+
 export function LreTokenomicsTab({
 	event,
 	teams,
@@ -62,14 +67,16 @@ export function LreTokenomicsTab({
 	// Convert Convex teams to LreTeamData
 	const teamData: LreTeamData[] = useMemo(
 		() =>
-			teams.map((t) => ({
-				name: t.name,
-				trackId: t.trackId as TrackId,
-				characterIds: t.characterIds,
-				restrictionIds: t.restrictionIds ?? [],
-				expectedBattleClears: t.expectedBattleClears,
-				notes: t.notes,
-			})),
+			teams
+				.filter((t) => isTrackId(t.trackId))
+				.map((t) => ({
+					name: t.name,
+					trackId: t.trackId as TrackId,
+					characterIds: t.characterIds,
+					restrictionIds: t.restrictionIds ?? [],
+					expectedBattleClears: t.expectedBattleClears,
+					notes: t.notes,
+				})),
 		[teams],
 	);
 

@@ -1,4 +1,4 @@
-import { useCallback, useId, useState } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 import { CharacterGrid } from "@/1-components/general/CharacterGrid.tsx";
 import { MowGrid } from "@/1-components/general/MowGrid.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
@@ -62,6 +62,31 @@ export function TeamDialog({
 		},
 	);
 	const [notes, setNotes] = useState(initialNotes);
+
+	// Reset form state when dialog opens with new initial values
+	useEffect(() => {
+		if (open) {
+			setName(initialName);
+			setCharacterIds(initialCharacterIds);
+			setMowIds(initialMowIds);
+			setModes(
+				initialModes ?? {
+					[GameMode.GwOffense]: false,
+					[GameMode.GwDefense]: false,
+					[GameMode.Raid]: false,
+					[GameMode.Ta]: false,
+				},
+			);
+			setNotes(initialNotes);
+		}
+	}, [
+		open,
+		initialName,
+		initialCharacterIds,
+		initialMowIds,
+		initialModes,
+		initialNotes,
+	]);
 
 	const handleToggle = useCallback((charId: string) => {
 		setCharacterIds((prev) =>

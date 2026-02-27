@@ -71,11 +71,12 @@ export function parsePlan(
 	notes: string | undefined,
 ): GwOffensePlan {
 	const level = bfLevel ?? 1;
-	if (!deploymentsJson) return createEmptyPlan(level);
+	if (!deploymentsJson) return { ...createEmptyPlan(level), notes };
 	try {
-		const deployments = JSON.parse(deploymentsJson) as GwDeployment[];
-		return { bfLevel: level, deployments, notes };
+		const parsed: unknown = JSON.parse(deploymentsJson);
+		if (!Array.isArray(parsed)) return { ...createEmptyPlan(level), notes };
+		return { bfLevel: level, deployments: parsed as GwDeployment[], notes };
 	} catch {
-		return createEmptyPlan(level);
+		return { ...createEmptyPlan(level), notes };
 	}
 }

@@ -190,7 +190,15 @@ function LrePage() {
 		let savedParsed: LreProgressData | null = null;
 		if (savedProgress?.data) {
 			try {
-				savedParsed = JSON.parse(savedProgress.data) as LreProgressData;
+				const parsed: unknown = JSON.parse(savedProgress.data);
+				if (
+					parsed != null &&
+					typeof parsed === "object" &&
+					"tracksProgress" in parsed &&
+					Array.isArray((parsed as LreProgressData).tracksProgress)
+				) {
+					savedParsed = parsed as LreProgressData;
+				}
 			} catch {
 				// ignore
 			}
@@ -251,6 +259,7 @@ function LrePage() {
 		(
 			teamId: Id<"lreTeams">,
 			data: {
+				trackId?: string;
 				name?: string;
 				characterIds?: string[];
 				restrictionIds?: string[];
