@@ -42,6 +42,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_24",
           "power": 1011,
           "waves": [
             {
@@ -90,6 +91,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_28",
           "power": 3010,
           "waves": [
             {
@@ -139,6 +141,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_08",
           "power": 7814,
           "waves": [
             {
@@ -185,6 +188,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_27",
           "power": 19602,
           "waves": [
             {
@@ -234,6 +238,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_26",
           "power": 39515,
           "waves": [
             {
@@ -280,6 +285,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_06",
           "power": 73803,
           "waves": [
             {
@@ -329,6 +335,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_04",
           "power": 129818,
           "waves": [
             {
@@ -375,6 +382,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_28",
           "power": 212385,
           "waves": [
             {
@@ -421,6 +429,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_02",
           "power": 340139,
           "waves": [
             {
@@ -467,6 +476,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_08",
           "power": 492975,
           "waves": [
             {
@@ -515,6 +525,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_27",
           "power": 770235,
           "waves": [
             {
@@ -562,6 +573,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_24",
           "power": 1021281,
           "waves": [
             {
@@ -616,6 +628,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_04",
           "power": 1487530,
           "waves": [
             {
@@ -664,6 +677,7 @@
           "acingPoints": 27
         },
         {
+          "mapId": "LE1_02",
           "power": 2492078,
           "waves": [
             {
@@ -748,6 +762,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_tyranids_02",
           "power": 1009,
           "waves": [
             {
@@ -794,6 +809,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_07",
           "power": 3034,
           "waves": [
             {
@@ -840,6 +856,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_10",
           "power": 8003,
           "waves": [
             {
@@ -887,6 +904,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_09",
           "power": 20376,
           "waves": [
             {
@@ -935,6 +953,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_06",
           "power": 40091,
           "waves": [
             {
@@ -981,6 +1000,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_03",
           "power": 75349,
           "waves": [
             {
@@ -1029,6 +1049,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_08",
           "power": 137273,
           "waves": [
             {
@@ -1079,6 +1100,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_01",
           "power": 227399,
           "waves": [
             {
@@ -1128,6 +1150,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_02",
           "power": 350756,
           "waves": [
             {
@@ -1178,6 +1201,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_10",
           "power": 503393,
           "waves": [
             {
@@ -1229,6 +1253,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_06",
           "power": 763896,
           "waves": [
             {
@@ -1280,6 +1305,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_09",
           "power": 1015115,
           "waves": [
             {
@@ -1330,6 +1356,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_08",
           "power": 1518145,
           "waves": [
             {
@@ -1377,6 +1404,7 @@
           "acingPoints": 35
         },
         {
+          "mapId": "LE2_tyranids_01",
           "power": 2518739,
           "waves": [
             {
@@ -1463,6 +1491,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_05",
           "power": 1044,
           "waves": [
             {
@@ -1507,6 +1536,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_06",
           "power": 2964,
           "waves": [
             {
@@ -1553,6 +1583,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_17",
           "power": 8012,
           "waves": [
             {
@@ -1602,6 +1633,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_21",
           "power": 20519,
           "waves": [
             {
@@ -1651,6 +1683,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_09",
           "power": 40173,
           "waves": [
             {
@@ -1698,6 +1731,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_05",
           "power": 75890,
           "waves": [
             {
@@ -1745,6 +1779,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_22",
           "power": 134505,
           "waves": [
             {
@@ -1795,6 +1830,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_07",
           "power": 226400,
           "waves": [
             {
@@ -1843,6 +1879,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_06",
           "power": 350947,
           "waves": [
             {
@@ -1894,6 +1931,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_09",
           "power": 502194,
           "waves": [
             {
@@ -1944,6 +1982,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_21",
           "power": 749316,
           "waves": [
             {
@@ -1995,6 +2034,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_05",
           "power": 1006838,
           "waves": [
             {
@@ -2048,6 +2088,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_17",
           "power": 1544760,
           "waves": [
             {
@@ -2097,6 +2138,7 @@
           "acingPoints": 39
         },
         {
+          "mapId": "LE3_22",
           "power": 2523702,
           "waves": [
             {
@@ -2193,6 +2235,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_05",
           "power": 898,
           "waves": [
             {
@@ -2237,6 +2280,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_29",
           "power": 2720,
           "waves": [
             {
@@ -2281,6 +2325,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_02",
           "power": 7723,
           "waves": [
             {
@@ -2328,6 +2373,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_30",
           "power": 19992,
           "waves": [
             {
@@ -2375,6 +2421,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_27",
           "power": 38135,
           "waves": [
             {
@@ -2422,6 +2469,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_04",
           "power": 74814,
           "waves": [
             {
@@ -2469,6 +2517,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_19",
           "power": 121220,
           "waves": [
             {
@@ -2515,6 +2564,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_06",
           "power": 209644,
           "waves": [
             {
@@ -2563,6 +2613,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_29",
           "power": 328955,
           "waves": [
             {
@@ -2610,6 +2661,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_27",
           "power": 497504,
           "waves": [
             {
@@ -2658,6 +2710,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_04",
           "power": 738336,
           "waves": [
             {
@@ -2707,6 +2760,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_30",
           "power": 1003484,
           "waves": [
             {
@@ -2761,6 +2815,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_02",
           "power": 1477377,
           "waves": [
             {
@@ -2808,6 +2863,7 @@
           "acingPoints": 31
         },
         {
+          "mapId": "LE1_06",
           "power": 2484823,
           "waves": [
             {
@@ -2896,6 +2952,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_10",
           "power": 1364,
           "waves": [
             {
@@ -2941,6 +2998,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_03",
           "power": 4413,
           "waves": [
             {
@@ -2986,6 +3044,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_06",
           "power": 12566,
           "waves": [
             {
@@ -3031,6 +3090,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_15",
           "power": 31765,
           "waves": [
             {
@@ -3077,6 +3137,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_11",
           "power": 71483,
           "waves": [
             {
@@ -3124,6 +3185,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_08",
           "power": 152248,
           "waves": [
             {
@@ -3172,6 +3234,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_12",
           "power": 210894,
           "waves": [
             {
@@ -3219,6 +3282,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_16",
           "power": 309326,
           "waves": [
             {
@@ -3268,6 +3332,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_03",
           "power": 554147,
           "waves": [
             {
@@ -3316,6 +3381,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_10",
           "power": 850286,
           "waves": [
             {
@@ -3363,6 +3429,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_15",
           "power": 967051,
           "waves": [
             {
@@ -3415,6 +3482,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_11",
           "power": 1539137,
           "waves": [
             {
@@ -3466,6 +3534,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_08",
           "power": 2027468,
           "waves": [
             {
@@ -3512,6 +3581,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE2_16",
           "power": 3237332,
           "waves": [
             {
@@ -3604,6 +3674,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_11",
           "power": 1023,
           "waves": [
             {
@@ -3646,6 +3717,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_23",
           "power": 3083,
           "waves": [
             {
@@ -3691,6 +3763,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_20",
           "power": 8070,
           "waves": [
             {
@@ -3738,6 +3811,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_24",
           "power": 20311,
           "waves": [
             {
@@ -3787,6 +3861,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_21",
           "power": 40679,
           "waves": [
             {
@@ -3833,6 +3908,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_01",
           "power": 74682,
           "waves": [
             {
@@ -3879,6 +3955,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_13",
           "power": 136947,
           "waves": [
             {
@@ -3924,6 +4001,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_22",
           "power": 224287,
           "waves": [
             {
@@ -3973,6 +4051,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_24",
           "power": 350250,
           "waves": [
             {
@@ -4020,6 +4099,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_20",
           "power": 498387,
           "waves": [
             {
@@ -4069,6 +4149,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_23",
           "power": 751897,
           "waves": [
             {
@@ -4122,6 +4203,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_13",
           "power": 1012854,
           "waves": [
             {
@@ -4176,6 +4258,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_01",
           "power": 1498685,
           "waves": [
             {
@@ -4222,6 +4305,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE3_21",
           "power": 2520503,
           "waves": [
             {
@@ -4306,6 +4390,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_24",
           "power": 1039,
           "waves": [
             {
@@ -4350,6 +4435,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_13",
           "power": 3027,
           "waves": [
             {
@@ -4395,6 +4481,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_14",
           "power": 8046,
           "waves": [
             {
@@ -4440,6 +4527,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_28",
           "power": 20016,
           "waves": [
             {
@@ -4487,6 +4575,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_12",
           "power": 40119,
           "waves": [
             {
@@ -4535,6 +4624,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_15",
           "power": 77589,
           "waves": [
             {
@@ -4582,6 +4672,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_25",
           "power": 138717,
           "waves": [
             {
@@ -4631,6 +4722,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_16",
           "power": 225695,
           "waves": [
             {
@@ -4678,6 +4770,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_13",
           "power": 355614,
           "waves": [
             {
@@ -4726,6 +4819,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_14",
           "power": 509731,
           "waves": [
             {
@@ -4775,6 +4869,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_28",
           "power": 790851,
           "waves": [
             {
@@ -4823,6 +4918,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_15",
           "power": 1024218,
           "waves": [
             {
@@ -4876,6 +4972,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_16",
           "power": 1568789,
           "waves": [
             {
@@ -4923,6 +5020,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_25",
           "power": 2572003,
           "waves": [
             {
@@ -4972,6 +5070,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_12",
           "power": 5038967,
           "waves": [
             {
@@ -5019,6 +5118,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_13",
           "power": 9869152,
           "waves": [
             {
@@ -5066,6 +5166,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_16",
           "power": 15098467,
           "waves": [
             {
@@ -5114,6 +5215,7 @@
           "acingPoints": 36
         },
         {
+          "mapId": "LE1_28",
           "power": 20552487,
           "waves": [
             {
@@ -5203,6 +5305,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_07",
           "power": 996,
           "waves": [
             {
@@ -5246,6 +5349,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_12",
           "power": 3025,
           "waves": [
             {
@@ -5291,6 +5395,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_02",
           "power": 8075,
           "waves": [
             {
@@ -5337,6 +5442,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_09",
           "power": 20157,
           "waves": [
             {
@@ -5385,6 +5491,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_04",
           "power": 40518,
           "waves": [
             {
@@ -5433,6 +5540,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_14",
           "power": 75209,
           "waves": [
             {
@@ -5483,6 +5591,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_11",
           "power": 136897,
           "waves": [
             {
@@ -5531,6 +5640,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_15",
           "power": 229042,
           "waves": [
             {
@@ -5577,6 +5687,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_12",
           "power": 353886,
           "waves": [
             {
@@ -5626,6 +5737,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_09",
           "power": 501448,
           "waves": [
             {
@@ -5675,6 +5787,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_04",
           "power": 753147,
           "waves": [
             {
@@ -5727,6 +5840,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_14",
           "power": 1027845,
           "waves": [
             {
@@ -5779,6 +5893,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_11",
           "power": 1534260,
           "waves": [
             {
@@ -5826,6 +5941,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_15",
           "power": 2557114,
           "waves": [
             {
@@ -5876,6 +5992,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_02",
           "power": 5003467,
           "waves": [
             {
@@ -5922,6 +6039,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_07",
           "power": 10006286,
           "waves": [
             {
@@ -5970,6 +6088,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_12",
           "power": 15000030,
           "waves": [
             {
@@ -6015,6 +6134,7 @@
           "acingPoints": 47
         },
         {
+          "mapId": "LE2_04",
           "power": 19445038,
           "waves": [
             {
@@ -6103,6 +6223,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_03",
           "power": 1432,
           "waves": [
             {
@@ -6147,6 +6268,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_deathguard_04",
           "power": 5992,
           "waves": [
             {
@@ -6193,6 +6315,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_05",
           "power": 13955,
           "waves": [
             {
@@ -6240,6 +6363,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_deathguard_12",
           "power": 34669,
           "waves": [
             {
@@ -6286,6 +6410,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_22",
           "power": 57374,
           "waves": [
             {
@@ -6334,6 +6459,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_17",
           "power": 135453,
           "waves": [
             {
@@ -6383,6 +6509,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_deathguard_10",
           "power": 174405,
           "waves": [
             {
@@ -6432,6 +6559,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_13",
           "power": 319173,
           "waves": [
             {
@@ -6483,6 +6611,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_05",
           "power": 604714,
           "waves": [
             {
@@ -6530,6 +6659,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_03",
           "power": 875343,
           "waves": [
             {
@@ -6578,6 +6708,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_deathguard_04",
           "power": 1322323,
           "waves": [
             {
@@ -6629,6 +6760,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_22",
           "power": 1642121,
           "waves": [
             {
@@ -6682,6 +6814,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_17",
           "power": 2847932,
           "waves": [
             {
@@ -6731,6 +6864,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_13",
           "power": 3885819,
           "waves": [
             {
@@ -6781,6 +6915,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_deathguard_12",
           "power": 6075502,
           "waves": [
             {
@@ -6828,6 +6963,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_03",
           "power": 11620169,
           "waves": [
             {
@@ -6875,6 +7011,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_deathguard_10",
           "power": 17897712,
           "waves": [
             {
@@ -6924,6 +7061,7 @@
           "acingPoints": 25
         },
         {
+          "mapId": "LE3_22",
           "power": 24590344,
           "waves": [
             {
@@ -7019,6 +7157,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_01",
           "power": 1023,
           "waves": [
             {
@@ -7061,6 +7200,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_03",
           "power": 3116,
           "waves": [
             {
@@ -7105,6 +7245,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_06",
           "power": 8149,
           "waves": [
             {
@@ -7150,6 +7291,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_07",
           "power": 20630,
           "waves": [
             {
@@ -7195,6 +7337,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_18",
           "power": 40655,
           "waves": [
             {
@@ -7240,6 +7383,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_17",
           "power": 76607,
           "waves": [
             {
@@ -7289,6 +7433,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_08",
           "power": 137825,
           "waves": [
             {
@@ -7336,6 +7481,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_05",
           "power": 224863,
           "waves": [
             {
@@ -7385,6 +7531,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_01",
           "power": 349698,
           "waves": [
             {
@@ -7435,6 +7582,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_03",
           "power": 511041,
           "waves": [
             {
@@ -7484,6 +7632,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_06",
           "power": 761566,
           "waves": [
             {
@@ -7533,6 +7682,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_07",
           "power": 1029685,
           "waves": [
             {
@@ -7584,6 +7734,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_18",
           "power": 1520132,
           "waves": [
             {
@@ -7635,6 +7786,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_17",
           "power": 2639835,
           "waves": [
             {
@@ -7683,6 +7835,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_06",
           "power": 5113155,
           "waves": [
             {
@@ -7731,6 +7884,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_07",
           "power": 10386441,
           "waves": [
             {
@@ -7778,6 +7932,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_18",
           "power": 15084797,
           "waves": [
             {
@@ -7827,6 +7982,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_17",
           "power": 20119276,
           "waves": [
             {
@@ -7914,6 +8070,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_15",
           "power": 2031,
           "waves": [
             {
@@ -7959,6 +8116,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_05",
           "power": 5492,
           "waves": [
             {
@@ -8005,6 +8163,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_16",
           "power": 11539,
           "waves": [
             {
@@ -8053,6 +8212,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_03",
           "power": 38883,
           "waves": [
             {
@@ -8101,6 +8261,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_10",
           "power": 61840,
           "waves": [
             {
@@ -8149,6 +8310,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_12",
           "power": 108110,
           "waves": [
             {
@@ -8199,6 +8361,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_04",
           "power": 201187,
           "waves": [
             {
@@ -8247,6 +8410,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_13",
           "power": 327820,
           "waves": [
             {
@@ -8296,6 +8460,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_15",
           "power": 563939,
           "waves": [
             {
@@ -8347,6 +8512,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_05",
           "power": 767874,
           "waves": [
             {
@@ -8395,6 +8561,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_16",
           "power": 1000538,
           "waves": [
             {
@@ -8445,6 +8612,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_03",
           "power": 1242128,
           "waves": [
             {
@@ -8498,6 +8666,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_10",
           "power": 2005892,
           "waves": [
             {
@@ -8548,6 +8717,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_12",
           "power": 3543565,
           "waves": [
             {
@@ -8600,6 +8770,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_16",
           "power": 6958938,
           "waves": [
             {
@@ -8648,6 +8819,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_03",
           "power": 11987162,
           "waves": [
             {
@@ -8696,6 +8868,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_10",
           "power": 16501887,
           "waves": [
             {
@@ -8743,6 +8916,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_12",
           "power": 22183873,
           "waves": [
             {
@@ -8834,6 +9008,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_03",
           "power": 987,
           "waves": [
             {
@@ -8878,6 +9053,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_02",
           "power": 2636,
           "waves": [
             {
@@ -8924,6 +9100,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_01",
           "power": 7756,
           "waves": [
             {
@@ -8975,6 +9152,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_15",
           "power": 19870,
           "waves": [
             {
@@ -9024,6 +9202,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_09",
           "power": 38887,
           "waves": [
             {
@@ -9073,6 +9252,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_13",
           "power": 74362,
           "waves": [
             {
@@ -9122,6 +9302,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_11",
           "power": 133615,
           "waves": [
             {
@@ -9170,6 +9351,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_05",
           "power": 221062,
           "waves": [
             {
@@ -9218,6 +9400,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_03",
           "power": 347445,
           "waves": [
             {
@@ -9266,6 +9449,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_02",
           "power": 492699,
           "waves": [
             {
@@ -9315,6 +9499,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_01",
           "power": 735007,
           "waves": [
             {
@@ -9367,6 +9552,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_15",
           "power": 984962,
           "waves": [
             {
@@ -9419,6 +9605,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_09",
           "power": 1569129,
           "waves": [
             {
@@ -9468,6 +9655,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_05",
           "power": 2688284,
           "waves": [
             {
@@ -9516,6 +9704,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_01",
           "power": 5066028,
           "waves": [
             {
@@ -9565,6 +9754,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_15",
           "power": 10018469,
           "waves": [
             {
@@ -9617,6 +9807,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_09",
           "power": 15223011,
           "waves": [
             {
@@ -9667,6 +9858,7 @@
           "acingPoints": 28
         },
         {
+          "mapId": "LE3_05",
           "power": 20658722,
           "waves": [
             {
@@ -9760,6 +9952,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_24",
           "power": 1008,
           "waves": [
             {
@@ -9804,6 +9997,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_30",
           "power": 3094,
           "waves": [
             {
@@ -9846,6 +10040,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_25",
           "power": 8207,
           "waves": [
             {
@@ -9891,6 +10086,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_04",
           "power": 20732,
           "waves": [
             {
@@ -9939,6 +10135,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_09",
           "power": 39978,
           "waves": [
             {
@@ -9985,6 +10182,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_05",
           "power": 73809,
           "waves": [
             {
@@ -10034,6 +10232,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_08",
           "power": 136801,
           "waves": [
             {
@@ -10081,6 +10280,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_26",
           "power": 229417,
           "waves": [
             {
@@ -10127,6 +10327,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_30",
           "power": 352062,
           "waves": [
             {
@@ -10174,6 +10375,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_24",
           "power": 498898,
           "waves": [
             {
@@ -10222,6 +10424,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_25",
           "power": 754694,
           "waves": [
             {
@@ -10269,6 +10472,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_04",
           "power": 1054050,
           "waves": [
             {
@@ -10318,6 +10522,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_09",
           "power": 1505498,
           "waves": [
             {
@@ -10364,6 +10569,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_05",
           "power": 2531949,
           "waves": [
             {
@@ -10412,6 +10618,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_08",
           "power": 5070277,
           "waves": [
             {
@@ -10459,6 +10666,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_26",
           "power": 9963520,
           "waves": [
             {
@@ -10507,6 +10715,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_30",
           "power": 14985850,
           "waves": [
             {
@@ -10557,6 +10766,7 @@
           "acingPoints": 37
         },
         {
+          "mapId": "LE1_25",
           "power": 20689105,
           "waves": [
             {
@@ -10647,6 +10857,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_12",
           "power": 873,
           "waves": [
             {
@@ -10693,6 +10904,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_04",
           "power": 2960,
           "waves": [
             {
@@ -10740,6 +10952,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_02",
           "power": 7665,
           "waves": [
             {
@@ -10786,6 +10999,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_10",
           "power": 19035,
           "waves": [
             {
@@ -10836,6 +11050,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_05",
           "power": 37197,
           "waves": [
             {
@@ -10887,6 +11102,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_08",
           "power": 70976,
           "waves": [
             {
@@ -10940,6 +11156,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_13",
           "power": 124725,
           "waves": [
             {
@@ -10988,6 +11205,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_07",
           "power": 214546,
           "waves": [
             {
@@ -11039,6 +11257,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_02",
           "power": 343711,
           "waves": [
             {
@@ -11088,6 +11307,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_04",
           "power": 481473,
           "waves": [
             {
@@ -11141,6 +11361,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_13",
           "power": 731224,
           "waves": [
             {
@@ -11193,6 +11414,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_10",
           "power": 1017084,
           "waves": [
             {
@@ -11247,6 +11469,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_05",
           "power": 1450749,
           "waves": [
             {
@@ -11300,6 +11523,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_12",
           "power": 2547395,
           "waves": [
             {
@@ -11352,6 +11576,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_07",
           "power": 4937298,
           "waves": [
             {
@@ -11400,6 +11625,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_02",
           "power": 10146357,
           "waves": [
             {
@@ -11446,6 +11672,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_04",
           "power": 15371646,
           "waves": [
             {
@@ -11492,6 +11719,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_08",
           "power": 21299782,
           "waves": [
             {
@@ -11580,6 +11808,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_18",
           "power": 1042,
           "waves": [
             {
@@ -11623,6 +11852,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_21",
           "power": 2996,
           "waves": [
             {
@@ -11669,6 +11899,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_17",
           "power": 8108,
           "waves": [
             {
@@ -11716,6 +11947,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_07",
           "power": 20133,
           "waves": [
             {
@@ -11763,6 +11995,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_12",
           "power": 37856,
           "waves": [
             {
@@ -11814,6 +12047,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_06",
           "power": 74726,
           "waves": [
             {
@@ -11865,6 +12099,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_08",
           "power": 135639,
           "waves": [
             {
@@ -11915,6 +12150,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_14",
           "power": 228269,
           "waves": [
             {
@@ -11967,6 +12203,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_18",
           "power": 350393,
           "waves": [
             {
@@ -12016,6 +12253,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_21",
           "power": 507277,
           "waves": [
             {
@@ -12063,6 +12301,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_17",
           "power": 759368,
           "waves": [
             {
@@ -12113,6 +12352,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_07",
           "power": 1012693,
           "waves": [
             {
@@ -12163,6 +12403,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_12",
           "power": 1510614,
           "waves": [
             {
@@ -12215,6 +12456,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_06",
           "power": 2590028,
           "waves": [
             {
@@ -12267,6 +12509,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_08",
           "power": 5045214,
           "waves": [
             {
@@ -12312,6 +12555,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_14",
           "power": 9993006,
           "waves": [
             {
@@ -12360,6 +12604,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_18",
           "power": 15364826,
           "waves": [
             {
@@ -12409,6 +12654,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_17",
           "power": 20778976,
           "waves": [
             {
@@ -12500,6 +12746,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_19",
           "power": 1026,
           "waves": [
             {
@@ -12543,6 +12790,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_26",
           "power": 3031,
           "waves": [
             {
@@ -12588,6 +12836,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_24",
           "power": 8035,
           "waves": [
             {
@@ -12633,6 +12882,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_03",
           "power": 20225,
           "waves": [
             {
@@ -12681,6 +12931,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_04",
           "power": 40356,
           "waves": [
             {
@@ -12728,6 +12979,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_02",
           "power": 75181,
           "waves": [
             {
@@ -12778,6 +13030,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_01",
           "power": 136613,
           "waves": [
             {
@@ -12827,6 +13080,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_05",
           "power": 226666,
           "waves": [
             {
@@ -12876,6 +13130,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_24",
           "power": 334726,
           "waves": [
             {
@@ -12923,6 +13178,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_03",
           "power": 525281,
           "waves": [
             {
@@ -12974,6 +13230,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_04",
           "power": 755305,
           "waves": [
             {
@@ -13027,6 +13284,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_02",
           "power": 1010428,
           "waves": [
             {
@@ -13080,6 +13338,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_01",
           "power": 1502146,
           "waves": [
             {
@@ -13132,6 +13391,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_05",
           "power": 2571291,
           "waves": [
             {
@@ -13181,6 +13441,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_19",
           "power": 5009272,
           "waves": [
             {
@@ -13230,6 +13491,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE1_26",
           "power": 10245118,
           "waves": [
             {
@@ -13280,6 +13542,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_03",
           "power": 14995556,
           "waves": [
             {
@@ -13330,6 +13593,7 @@
           "acingPoints": 40
         },
         {
+          "mapId": "LE4_02",
           "power": 20346948,
           "waves": [
             {
@@ -13417,6 +13681,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_tyranids_03",
           "power": 1008,
           "waves": [
             {
@@ -13462,6 +13727,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_02",
           "power": 3094,
           "waves": [
             {
@@ -13508,6 +13774,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_09",
           "power": 8084,
           "waves": [
             {
@@ -13559,6 +13826,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_12",
           "power": 20305,
           "waves": [
             {
@@ -13609,6 +13877,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_01",
           "power": 40492,
           "waves": [
             {
@@ -13659,6 +13928,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_05",
           "power": 75030,
           "waves": [
             {
@@ -13706,6 +13976,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_07",
           "power": 135661,
           "waves": [
             {
@@ -13756,6 +14027,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_10",
           "power": 227094,
           "waves": [
             {
@@ -13808,6 +14080,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_12",
           "power": 352306,
           "waves": [
             {
@@ -13858,6 +14131,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_01",
           "power": 528061,
           "waves": [
             {
@@ -13908,6 +14182,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_09",
           "power": 752250,
           "waves": [
             {
@@ -13958,6 +14233,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_02",
           "power": 1022643,
           "waves": [
             {
@@ -14011,6 +14287,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_07",
           "power": 1591426,
           "waves": [
             {
@@ -14060,6 +14337,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_10",
           "power": 2721985,
           "waves": [
             {
@@ -14110,6 +14388,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_03",
           "power": 4998847,
           "waves": [
             {
@@ -14158,6 +14437,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_05",
           "power": 10066796,
           "waves": [
             {
@@ -14206,6 +14486,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_09",
           "power": 15153526,
           "waves": [
             {
@@ -14253,6 +14534,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_tyranids_01",
           "power": 20136514,
           "waves": [
             {
@@ -14344,6 +14626,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_22",
           "power": 1029,
           "waves": [
             {
@@ -14388,6 +14671,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_20",
           "power": 2970,
           "waves": [
             {
@@ -14434,6 +14718,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_18",
           "power": 7581,
           "waves": [
             {
@@ -14483,6 +14768,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_05",
           "power": 18959,
           "waves": [
             {
@@ -14533,6 +14819,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_23",
           "power": 39762,
           "waves": [
             {
@@ -14584,6 +14871,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_08",
           "power": 72932,
           "waves": [
             {
@@ -14636,6 +14924,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_24",
           "power": 134867,
           "waves": [
             {
@@ -14686,6 +14975,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_19",
           "power": 218749,
           "waves": [
             {
@@ -14735,6 +15025,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_20",
           "power": 346176,
           "waves": [
             {
@@ -14784,6 +15075,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_22",
           "power": 522822,
           "waves": [
             {
@@ -14834,6 +15126,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_18",
           "power": 734964,
           "waves": [
             {
@@ -14889,6 +15182,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_24",
           "power": 1010692,
           "waves": [
             {
@@ -14941,6 +15235,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_08",
           "power": 1568465,
           "waves": [
             {
@@ -14992,6 +15287,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_05",
           "power": 2751244,
           "waves": [
             {
@@ -15042,6 +15338,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_19",
           "power": 5146014,
           "waves": [
             {
@@ -15091,6 +15388,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_23",
           "power": 10115278,
           "waves": [
             {
@@ -15138,6 +15436,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_20",
           "power": 15248249,
           "waves": [
             {
@@ -15185,6 +15484,7 @@
           "acingPoints": 32
         },
         {
+          "mapId": "LE3_22",
           "power": 20017855,
           "waves": [
             {
@@ -15279,6 +15579,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_29",
           "power": 1054,
           "waves": [
             {
@@ -15321,6 +15622,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_28",
           "power": 3084,
           "waves": [
             {
@@ -15366,6 +15668,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_27",
           "power": 7968,
           "waves": [
             {
@@ -15411,6 +15714,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_25",
           "power": 20334,
           "waves": [
             {
@@ -15457,6 +15761,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_04",
           "power": 40149,
           "waves": [
             {
@@ -15505,6 +15810,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_02",
           "power": 74828,
           "waves": [
             {
@@ -15556,6 +15862,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_08",
           "power": 135131,
           "waves": [
             {
@@ -15605,6 +15912,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_06",
           "power": 225871,
           "waves": [
             {
@@ -15656,6 +15964,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_29",
           "power": 352020,
           "waves": [
             {
@@ -15702,6 +16011,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_28",
           "power": 508886,
           "waves": [
             {
@@ -15752,6 +16062,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_27",
           "power": 756971,
           "waves": [
             {
@@ -15801,6 +16112,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_25",
           "power": 1005016,
           "waves": [
             {
@@ -15850,6 +16162,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_04",
           "power": 1516447,
           "waves": [
             {
@@ -15901,6 +16214,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_02",
           "power": 2521939,
           "waves": [
             {
@@ -15948,6 +16262,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_08",
           "power": 5075419,
           "waves": [
             {
@@ -15994,6 +16309,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_06",
           "power": 10090977,
           "waves": [
             {
@@ -16042,6 +16358,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_29",
           "power": 15516639,
           "waves": [
             {
@@ -16089,6 +16406,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE1_28",
           "power": 20441378,
           "waves": [
             {
@@ -16178,6 +16496,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_03",
           "power": 1083,
           "waves": [
             {
@@ -16222,6 +16541,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_06",
           "power": 2996,
           "waves": [
             {
@@ -16265,6 +16585,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_13",
           "power": 8312,
           "waves": [
             {
@@ -16313,6 +16634,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_05",
           "power": 20758,
           "waves": [
             {
@@ -16360,6 +16682,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_16",
           "power": 41112,
           "waves": [
             {
@@ -16408,6 +16731,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_15",
           "power": 80521,
           "waves": [
             {
@@ -16460,6 +16784,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_14",
           "power": 142368,
           "waves": [
             {
@@ -16510,6 +16835,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_12",
           "power": 237951,
           "waves": [
             {
@@ -16561,6 +16887,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_03",
           "power": 368179,
           "waves": [
             {
@@ -16612,6 +16939,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_06",
           "power": 530563,
           "waves": [
             {
@@ -16666,6 +16994,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_13",
           "power": 817410,
           "waves": [
             {
@@ -16719,6 +17048,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_05",
           "power": 1031858,
           "waves": [
             {
@@ -16774,6 +17104,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_16",
           "power": 1537869,
           "waves": [
             {
@@ -16827,6 +17158,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_15",
           "power": 2689848,
           "waves": [
             {
@@ -16876,6 +17208,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_14",
           "power": 5286317,
           "waves": [
             {
@@ -16926,6 +17259,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_12",
           "power": 10320383,
           "waves": [
             {
@@ -16976,6 +17310,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_13",
           "power": 16010457,
           "waves": [
             {
@@ -17025,6 +17360,7 @@
           "acingPoints": 26
         },
         {
+          "mapId": "LE2_16",
           "power": 21679263,
           "waves": [
             {
@@ -17117,6 +17453,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_23",
           "power": 1066,
           "waves": [
             {
@@ -17162,6 +17499,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_04",
           "power": 3020,
           "waves": [
             {
@@ -17208,6 +17546,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_24",
           "power": 8076,
           "waves": [
             {
@@ -17259,6 +17598,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_14",
           "power": 20120,
           "waves": [
             {
@@ -17306,6 +17646,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_07",
           "power": 40275,
           "waves": [
             {
@@ -17355,6 +17696,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_16",
           "power": 75306,
           "waves": [
             {
@@ -17406,6 +17748,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_21",
           "power": 136363,
           "waves": [
             {
@@ -17455,6 +17798,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_10",
           "power": 225262,
           "waves": [
             {
@@ -17504,6 +17848,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_23",
           "power": 351227,
           "waves": [
             {
@@ -17553,6 +17898,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_04",
           "power": 503223,
           "waves": [
             {
@@ -17604,6 +17950,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_24",
           "power": 753881,
           "waves": [
             {
@@ -17656,6 +18003,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_14",
           "power": 1005857,
           "waves": [
             {
@@ -17708,6 +18056,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_07",
           "power": 1507753,
           "waves": [
             {
@@ -17757,6 +18106,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_16",
           "power": 2500029,
           "waves": [
             {
@@ -17804,6 +18154,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_21",
           "power": 5026318,
           "waves": [
             {
@@ -17853,6 +18204,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_10",
           "power": 10130208,
           "waves": [
             {
@@ -17900,6 +18252,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_04",
           "power": 15189450,
           "waves": [
             {
@@ -17948,6 +18301,7 @@
           "acingPoints": 17
         },
         {
+          "mapId": "LE3_24",
           "power": 20508042,
           "waves": [
             {
@@ -18040,6 +18394,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE1_23",
           "power": 1018,
           "waves": [
             {
@@ -18083,6 +18438,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_17",
           "power": 3055,
           "waves": [
             {
@@ -18127,6 +18483,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_01",
           "power": 8199,
           "waves": [
             {
@@ -18175,6 +18532,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_08",
           "power": 20703,
           "waves": [
             {
@@ -18224,6 +18582,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_07",
           "power": 40586,
           "waves": [
             {
@@ -18276,6 +18635,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_09",
           "power": 75787,
           "waves": [
             {
@@ -18329,6 +18689,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_03",
           "power": 134603,
           "waves": [
             {
@@ -18382,6 +18743,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_18",
           "power": 225385,
           "waves": [
             {
@@ -18433,6 +18795,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_17",
           "power": 353225,
           "waves": [
             {
@@ -18487,6 +18850,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_07",
           "power": 525412,
           "waves": [
             {
@@ -18543,6 +18907,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_18",
           "power": 752714,
           "waves": [
             {
@@ -18600,6 +18965,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_23",
           "power": 1000704,
           "waves": [
             {
@@ -18660,6 +19026,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_09",
           "power": 1502765,
           "waves": [
             {
@@ -18719,6 +19086,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_08",
           "power": 2514057,
           "waves": [
             {
@@ -18775,6 +19143,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_01",
           "power": 5001164,
           "waves": [
             {
@@ -18834,6 +19203,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_03",
           "power": 9997521,
           "waves": [
             {
@@ -18883,6 +19253,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_07",
           "power": 15008553,
           "waves": [
             {
@@ -18940,6 +19311,7 @@
           "acingPoints": 30
         },
         {
+          "mapId": "LE1_18",
           "power": 19994528,
           "waves": [
             {
@@ -19043,6 +19415,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE2_02",
           "power": 1080,
           "waves": [
             {
@@ -19085,6 +19458,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_10",
           "power": 3069,
           "waves": [
             {
@@ -19130,6 +19504,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_07",
           "power": 8008,
           "waves": [
             {
@@ -19175,6 +19550,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_08",
           "power": 20300,
           "waves": [
             {
@@ -19223,6 +19599,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_04",
           "power": 40724,
           "waves": [
             {
@@ -19271,6 +19648,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_02",
           "power": 75237,
           "waves": [
             {
@@ -19322,6 +19700,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_03",
           "power": 140654,
           "waves": [
             {
@@ -19373,6 +19752,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_01",
           "power": 225377,
           "waves": [
             {
@@ -19426,6 +19806,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_07",
           "power": 349010,
           "waves": [
             {
@@ -19479,6 +19860,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_10",
           "power": 525933,
           "waves": [
             {
@@ -19535,6 +19917,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_08",
           "power": 751522,
           "waves": [
             {
@@ -19593,6 +19976,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_04",
           "power": 1003294,
           "waves": [
             {
@@ -19647,6 +20031,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_02",
           "power": 1500704,
           "waves": [
             {
@@ -19699,6 +20084,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_01",
           "power": 2503856,
           "waves": [
             {
@@ -19760,6 +20146,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_03",
           "power": 5022990,
           "waves": [
             {
@@ -19812,6 +20199,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE5_02",
           "power": 9998361,
           "waves": [
             {
@@ -19869,6 +20257,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_08",
           "power": 15056154,
           "waves": [
             {
@@ -19920,6 +20309,7 @@
           "acingPoints": 34
         },
         {
+          "mapId": "LE2_02",
           "power": 20058952,
           "waves": [
             {
@@ -20014,6 +20404,7 @@
       ],
       "battles": [
         {
+          "mapId": "LE3_deathguard_01",
           "power": 802,
           "waves": [
             {
@@ -20058,6 +20449,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_09",
           "power": 2408,
           "waves": [
             {
@@ -20103,6 +20495,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_08",
           "power": 6415,
           "waves": [
             {
@@ -20148,6 +20541,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_11",
           "power": 16484,
           "waves": [
             {
@@ -20196,6 +20590,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_05",
           "power": 32004,
           "waves": [
             {
@@ -20243,6 +20638,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_04",
           "power": 61637,
           "waves": [
             {
@@ -20292,6 +20688,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_02",
           "power": 108300,
           "waves": [
             {
@@ -20342,6 +20739,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_12",
           "power": 180907,
           "waves": [
             {
@@ -20390,6 +20788,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_09",
           "power": 286785,
           "waves": [
             {
@@ -20439,6 +20838,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_08",
           "power": 421230,
           "waves": [
             {
@@ -20490,6 +20890,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_01",
           "power": 611043,
           "waves": [
             {
@@ -20538,6 +20939,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_02",
           "power": 801884,
           "waves": [
             {
@@ -20587,6 +20989,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_11",
           "power": 1209858,
           "waves": [
             {
@@ -20639,6 +21042,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_04",
           "power": 2007437,
           "waves": [
             {
@@ -20691,6 +21095,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_12",
           "power": 4005920,
           "waves": [
             {
@@ -20741,6 +21146,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_05",
           "power": 8027309,
           "waves": [
             {
@@ -20797,6 +21203,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_04",
           "power": 12008418,
           "waves": [
             {
@@ -20852,6 +21259,7 @@
           "acingPoints": 43
         },
         {
+          "mapId": "LE3_deathguard_08",
           "power": 16007387,
           "waves": [
             {

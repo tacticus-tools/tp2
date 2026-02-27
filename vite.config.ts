@@ -20,6 +20,7 @@ import { main as prepareFarmingLocationData } from "./src/5-assets/farming-locat
 import { main as prepareGameUnitData } from "./src/5-assets/game-units/generate-data.ts";
 import { main as prepareGuildWarData } from "./src/5-assets/guild-war/generate-data.ts";
 import { main as prepareLeBattleData } from "./src/5-assets/le-battles/generate-data.ts";
+import { main as prepareLreData } from "./src/5-assets/lre/generate-data.ts";
 import { main as prepareMaterialData } from "./src/5-assets/materials/generate-data.ts";
 import { main as prepareMowData } from "./src/5-assets/mows/generate-data.ts";
 import { main as prepareNpcData } from "./src/5-assets/npcs/generate-data.ts";
@@ -90,6 +91,7 @@ const config = defineConfig({
 		},
 		{ name: "prepareDropRateData", buildStart: prepareDropRateData }, // References: CampaignBattles[types]
 		{ name: "prepareLeBattleData", buildStart: prepareLeBattleData }, // References: Characters[Factions], Characters[Traits], Characters[DamageTypes], NPCs[ids]
+		{ name: "prepareLreData", buildStart: prepareLreData }, // References: Characters[ids]
 		// Derived pipelines (depend on raw pipelines above)
 		{ name: "prepareRecipeData", buildStart: prepareRecipeData }, // References: Materials[data]
 		{ name: "prepareGameUnitData", buildStart: prepareGameUnitData }, // References: Characters[data], Mows[data]

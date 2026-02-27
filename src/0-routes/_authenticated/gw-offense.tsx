@@ -1,0 +1,248 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useMutation, useQuery } from "convex/react";
+import { Loader2, Shield } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
+import { GwDeployDialog } from "@/1-components/gw-offense/GwDeployDialog.tsx";
+import { GwZoneCard } from "@/1-components/gw-offense/GwZoneCard.tsx";
+import { Badge } from "@/1-components/ui/badge.tsx";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/1-components/ui/select.tsx";
+import { useGwOffenseStore } from "@/3-hooks/useGwOffenseStore.ts";
+import {
+	computeWarScore,
+	type GwDeployment,
+	getSectionRarityCap,
+	parsePlan,
+} from "@/4-lib/general/gw-offense/gw-offense-service.ts";
+import { GUILD_WAR } from "@/5-assets/guild-war/index.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
+import { api } from "~/_generated/api";
+
+export const Route = createFileRoute("/_authenticated/gw-offense")({
+	component: GwOffensePage,
+});
+
+function GwOffensePage() {
+	const doc = useQuery(api.gwOffense.get);
+	const saveGw = useMutation(api.gwOffense.save);
+	const teams = useQuery(api.teams.list);
+
+	const selectedBfLevel = useGwOffenseStore((s) => s.selectedBfLevel);
+	const setSelectedBfLevel = useGwOffenseStore((s) => s.setSelectedBfLevel);
+	const expandedSectionIndex = useGwOffenseStore((s) => s.expandedSectionIndex);
+	const setExpandedSectionIndex = useGwOffenseStore(
+		(s) => s.setExpandedSectionIndex,
+	);
+
+	const [deployDialogSectionIndex, setDeployDialogSectionIndex] = useState<
+		number | null
+	>(null);
+
+	const plan = useMemo(
+		() => parsePlan(doc?.bfLevel, doc?.deployments, doc?.notes),
+		[doc?.bfLevel, doc?.deployments, doc?.notes],
+	);
+
+	const teamMap = useMemo(() => {
+		if (!teams)
+			return new Map<
+				string,
+				{ name: string; characterIds: string[]; mowIds: string[] }
+			>();
+		return new Map(
+			teams.map((t) => [
+				t._id,
+				{
+					name: t.name,
+					characterIds: t.characterIds,
+					mowIds: t.mowIds ?? [],
+				},
+			]),
+		);
+	}, [teams]);
+
+	const deployedTeamIds = useMemo(
+		() => new Set(plan.deployments.map((d) => d.teamId)),
+		[plan.deployments],
+	);
+
+	const warScore = useMemo(
+		() => computeWarScore(GUILD_WAR, plan.deployments),
+		[plan.deployments],
+	);
+
+	const handleDeploy = useCallback(
+		async (sectionIndex: number, teamId: string) => {
+			const newDeployments: GwDeployment[] = [
+				...plan.deployments.filter((d) => d.sectionIndex !== sectionIndex),
+				{ sectionIndex, teamId },
+			];
+			await saveGw({
+				bfLevel: selectedBfLevel,
+				deployments: JSON.stringify(newDeployments),
+			});
+		},
+		[plan.deployments, selectedBfLevel, saveGw],
+	);
+
+	const handleRemove = useCallback(
+		async (sectionIndex: number) => {
+			const newDeployments = plan.deployments.filter(
+				(d) => d.sectionIndex !== sectionIndex,
+			);
+			await saveGw({
+				bfLevel: selectedBfLevel,
+				deployments: JSON.stringify(newDeployments),
+			});
+		},
+		[plan.deployments, selectedBfLevel, saveGw],
+	);
+
+	const handleBfLevelChange = useCallback(
+		async (level: string) => {
+			const bfLevel = Number(level);
+			setSelectedBfLevel(bfLevel);
+			await saveGw({
+				bfLevel,
+				deployments: JSON.stringify(plan.deployments),
+			});
+		},
+		[setSelectedBfLevel, saveGw, plan.deployments],
+	);
+
+	if (doc === undefined || teams === undefined) {
+		return (
+			<div className="flex items-center justify-center py-20">
+				<Loader2 className="size-8 animate-spin text-muted-foreground" />
+			</div>
+		);
+	}
+
+	const activeSections = GUILD_WAR.sections.filter((s) => !s.inactive);
+
+	return (
+		<div className="space-y-6">
+			{/* Header */}
+			<div>
+				<div className="flex items-center gap-2">
+					<h1 className="text-2xl font-bold tracking-tight">GW Offense</h1>
+					{plan.deployments.length > 0 && (
+						<Badge variant="secondary">
+							{plan.deployments.length} deployed
+						</Badge>
+					)}
+				</div>
+				<p className="text-muted-foreground">
+					Plan your Guild War attack deployments.
+				</p>
+			</div>
+
+			{/* BF Level + War Score */}
+			<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+				<div className="flex items-center gap-3">
+					<span className="text-sm font-medium">Battlefield Level</span>
+					<Select
+						value={String(selectedBfLevel)}
+						onValueChange={handleBfLevelChange}
+					>
+						<SelectTrigger className="w-24">
+							<SelectValue />
+						</SelectTrigger>
+						<SelectContent>
+							{GUILD_WAR.bfLevels.map((level) => (
+								<SelectItem key={level} value={String(level)}>
+									BF {level}
+								</SelectItem>
+							))}
+						</SelectContent>
+					</Select>
+				</div>
+				<div className="text-sm text-muted-foreground">
+					War Score:{" "}
+					<span className="font-medium text-foreground">
+						{warScore.toLocaleString()}
+					</span>
+				</div>
+			</div>
+
+			{/* Zone cards */}
+			<div className="space-y-2">
+				{activeSections.map((section) => {
+					const globalIndex = GUILD_WAR.sections.indexOf(section);
+					const deployment = plan.deployments.find(
+						(d) => d.sectionIndex === globalIndex,
+					);
+					const team = deployment ? teamMap.get(deployment.teamId) : undefined;
+
+					return (
+						<GwZoneCard
+							key={section.id}
+							section={section}
+							sectionIndex={globalIndex}
+							rarityCap={getSectionRarityCap(
+								GUILD_WAR,
+								section,
+								selectedBfLevel,
+							)}
+							deployment={deployment}
+							teamName={team?.name}
+							teamCharacterIds={team?.characterIds ?? []}
+							teamMowIds={team?.mowIds ?? []}
+							isExpanded={expandedSectionIndex === globalIndex}
+							onToggleExpand={() =>
+								setExpandedSectionIndex(
+									expandedSectionIndex === globalIndex ? null : globalIndex,
+								)
+							}
+							onDeploy={() => setDeployDialogSectionIndex(globalIndex)}
+							onRemove={() => handleRemove(globalIndex)}
+						/>
+					);
+				})}
+			</div>
+
+			{/* Empty state */}
+			{activeSections.length === 0 && (
+				<div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border/60 py-16">
+					<div className="mb-4 flex size-16 items-center justify-center rounded-2xl bg-muted/50">
+						<Shield className="size-8 text-muted-foreground" />
+					</div>
+					<h3 className="mb-1 text-lg font-medium text-foreground">
+						No zones available
+					</h3>
+				</div>
+			)}
+
+			{/* Deploy dialog */}
+			{deployDialogSectionIndex !== null && (
+				<GwDeployDialog
+					open={true}
+					onOpenChange={(open) => {
+						if (!open) setDeployDialogSectionIndex(null);
+					}}
+					sectionName={
+						GUILD_WAR.sections[deployDialogSectionIndex]?.name ?? "Zone"
+					}
+					teams={
+						teams?.map((t) => ({
+							_id: t._id,
+							name: t.name,
+							characterIds: t.characterIds,
+							mowIds: t.mowIds ?? [],
+						})) ?? []
+					}
+					deployedTeamIds={deployedTeamIds}
+					onSelect={(teamId) => {
+						handleDeploy(deployDialogSectionIndex, teamId);
+						setDeployDialogSectionIndex(null);
+					}}
+				/>
+			)}
+		</div>
+	);
+}

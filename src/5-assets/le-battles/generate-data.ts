@@ -168,8 +168,7 @@ const BattleSchema = z
 	})
 	.transform((data) => ({
 		...data,
-		// Drop fields that we don't currently use in the app to cut down on the size of the generated JSON. We can always add them back later if we need them.
-		mapId: undefined,
+		// Drop tier since we don't use it. Keep mapId for battle map images.
 		tier: undefined,
 	}));
 
@@ -243,10 +242,10 @@ const TrackSchema = z
 		// 2. Since the acing objective is always the first objective, we can pull out the points value and put it directly on the battle.
 		// 3. Since the objectives (other than acing) don't change across battles, drop them down to the track level to avoid repetition.
 		// 4. Since the battles are in order, drop the battle number and we'll just rely on the array index
-		// 5. Drop the mapId and tier since we don't currently use them in the app.
+		// 5. Drop tier since we don't use it. Keep mapId for battle map images.
 		const { disallowedFactions, objectives } = data.battles[0];
 		const transformedBattles = data.battles.map(
-			({ disallowedFactions, objectives, mapId, tier, number, ...rest }) => ({
+			({ disallowedFactions, objectives, tier, number, ...rest }) => ({
 				...rest,
 				acingPoints: objectives[0].points,
 			}),

@@ -11,12 +11,16 @@
 import type * as auth from "../auth.js";
 import type * as env from "../env.js";
 import type * as goals from "../goals.js";
+import type * as gwOffense from "../gwOffense.js";
 import type * as http from "../http.js";
+import type * as lre from "../lre.js";
 import type * as roster from "../roster.js";
+import type * as rosterSnapshots from "../rosterSnapshots.js";
 import type * as tacticus_actions from "../tacticus/actions.js";
 import type * as tacticus_credentials from "../tacticus/credentials.js";
 import type * as tacticus_crypto from "../tacticus/crypto.js";
 import type * as tacticus_types from "../tacticus/types.js";
+import type * as teams from "../teams.js";
 
 import type {
   ApiFromModules,
@@ -28,12 +32,16 @@ declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   env: typeof env;
   goals: typeof goals;
+  gwOffense: typeof gwOffense;
   http: typeof http;
+  lre: typeof lre;
   roster: typeof roster;
+  rosterSnapshots: typeof rosterSnapshots;
   "tacticus/actions": typeof tacticus_actions;
   "tacticus/credentials": typeof tacticus_credentials;
   "tacticus/crypto": typeof tacticus_crypto;
   "tacticus/types": typeof tacticus_types;
+  teams: typeof teams;
 }>;
 
 /**
