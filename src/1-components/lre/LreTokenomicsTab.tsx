@@ -115,7 +115,7 @@ export function LreTokenomicsTab({
 
 	const lastDisplay = displays[displays.length - 1];
 
-	if (teams.length === 0) {
+	if (teamData.length === 0) {
 		return (
 			<div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border/60 py-12">
 				<p className="text-sm text-muted-foreground">

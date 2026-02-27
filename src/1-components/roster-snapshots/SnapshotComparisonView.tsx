@@ -218,7 +218,7 @@ function UnitDiffCard({
 			<div className="flex gap-3">
 				{/* Portrait */}
 				<div className="shrink-0">
-					<div className="relative" style={{ width: 48, height: 64 }}>
+					<div className="relative h-16 w-12">
 						{meta?.portrait && !imgFailed ? (
 							// biome-ignore lint/a11y/noNoninteractiveElementInteractions: fallback handler
 							<img
@@ -231,10 +231,7 @@ function UnitDiffCard({
 								onError={() => setImgFailed(true)}
 							/>
 						) : (
-							<div
-								className="absolute top-[2px] left-[2px] flex items-center justify-center bg-muted text-sm font-semibold text-muted-foreground"
-								style={{ width: 44, height: 60 }}
-							>
+							<div className="absolute top-[2px] left-[2px] flex h-[60px] w-11 items-center justify-center bg-muted text-sm font-semibold text-muted-foreground">
 								{(name[0] ?? "?").toUpperCase()}
 							</div>
 						)}
@@ -417,6 +414,7 @@ function FieldDiffRow({
 				<span>{rarityLabel(before)}</span>
 				<ArrowRight className="size-3 shrink-0 text-muted-foreground" />
 				<span className={deltaColor}>{rarityLabel(after)}</span>
+				<DeltaBadge delta={delta} />
 			</div>
 		);
 	}

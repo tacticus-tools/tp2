@@ -38,6 +38,7 @@ export function GwZoneCard({
 			<button
 				type="button"
 				onClick={onToggleExpand}
+				aria-expanded={isExpanded}
 				className="flex w-full items-center justify-between p-3 text-left"
 			>
 				<div className="flex items-center gap-2">
@@ -91,7 +92,13 @@ export function GwZoneCard({
 									</div>
 								)}
 							</div>
-							<Button variant="ghost" size="icon-sm" onClick={onRemove}>
+							<Button
+								variant="ghost"
+								size="icon-sm"
+								onClick={onRemove}
+								aria-label="Remove deployment"
+								title="Remove deployment"
+							>
 								<X className="size-4" />
 							</Button>
 						</div>

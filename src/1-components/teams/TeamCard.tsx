@@ -81,7 +81,7 @@ export function TeamCard({
 			{characterIds.length > 0 || (mowIds && mowIds.length > 0) ? (
 				<div className="flex flex-wrap items-center gap-1.5">
 					{characterIds.map((id) => (
-						<CharacterIcon key={id} unitId={id} size={36} />
+						<CharacterIcon key={`char-${id}`} unitId={id} size={36} />
 					))}
 					{mowIds && mowIds.length > 0 && (
 						<>
@@ -89,7 +89,7 @@ export function TeamCard({
 								<div className="mx-1 h-8 w-px bg-border/50" />
 							)}
 							{mowIds.map((id) => (
-								<CharacterIcon key={id} unitId={id} size={36} />
+								<CharacterIcon key={`mow-${id}`} unitId={id} size={36} />
 							))}
 						</>
 					)}
@@ -98,7 +98,11 @@ export function TeamCard({
 				<p className="text-sm text-muted-foreground">No characters assigned</p>
 			)}
 
-			{notes && <p className="mt-2 text-xs text-muted-foreground">{notes}</p>}
+			{notes && (
+				<p className="mt-2 line-clamp-3 text-xs text-muted-foreground">
+					{notes}
+				</p>
+			)}
 		</div>
 	);
 }
