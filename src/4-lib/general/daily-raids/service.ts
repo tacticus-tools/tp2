@@ -10,6 +10,7 @@
  * - _planRaidsForMaterial: per-material raid planning within a day
  */
 
+import { PersonalGoalType } from "#common/goal-type.ts";
 import type { Rarity } from "#common/rarity.ts";
 import {
 	getAllUpgradeLocations,
@@ -22,11 +23,7 @@ import {
 	sortEstimatesForHse,
 } from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import {
-	type Campaign,
-	type CampaignType,
-	PersonalGoalType,
-} from "../constants.ts";
+import type { Campaign, CampaignType } from "../constants.ts";
 import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,

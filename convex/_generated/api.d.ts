@@ -14,6 +14,7 @@ import type * as goals from "../goals.js";
 import type * as gwOffense from "../gwOffense.js";
 import type * as http from "../http.js";
 import type * as lre from "../lre.js";
+import type * as migrations_migrateGoalTypes from "../migrations/migrateGoalTypes.js";
 import type * as roster from "../roster.js";
 import type * as rosterSnapshots from "../rosterSnapshots.js";
 import type * as tacticus_actions from "../tacticus/actions.js";
@@ -35,6 +36,7 @@ declare const fullApi: ApiFromModules<{
   gwOffense: typeof gwOffense;
   http: typeof http;
   lre: typeof lre;
+  "migrations/migrateGoalTypes": typeof migrations_migrateGoalTypes;
   roster: typeof roster;
   rosterSnapshots: typeof rosterSnapshots;
   "tacticus/actions": typeof tacticus_actions;

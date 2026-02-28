@@ -6,16 +6,15 @@ import {
 	Trash2,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import z from "zod";
-import { RaritySchema } from "#common/rarity.ts";
+import type { PersonalGoalType } from "#common/goal-type.ts";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
-import type { PersonalGoalType } from "@/4-lib/general/constants.ts";
 import type { IGoalEstimate } from "@/4-lib/general/goals/types.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
+import { GoalDataSchema } from "@/4-lib/general/schemas.ts";
 import { cn } from "@/4-lib/utils.ts";
 
 type SortKey = "priority" | "unitName" | "type" | "days" | "energy" | "date";
@@ -119,7 +118,7 @@ export function GoalsTable({
 				case "unitName":
 					return a.unitName.localeCompare(b.unitName) * dir;
 				case "type":
-					return (a.type - b.type) * dir;
+					return a.type.localeCompare(b.type) * dir;
 				case "days":
 					return (
 						((a.estimate?.daysTotal ?? 0) - (b.estimate?.daysTotal ?? 0)) * dir
@@ -219,13 +218,8 @@ export function GoalsTable({
 											{goalTypeLabels[row.type]}
 										</Badge>
 										{(() => {
-											const parsed = JSON.parse(row.data) as Record<
-												string,
-												unknown
-											>;
-											const rarities = z
-												.array(RaritySchema)
-												.safeParse(parsed.upgradesRarity).data;
+											const parsed = GoalDataSchema.parse(JSON.parse(row.data));
+											const rarities = parsed.upgradesRarity;
 											if (!rarities?.length) return null;
 											return rarities.map((rarity) => (
 												<RarityIcon key={rarity} rarity={rarity} size={14} />
@@ -271,6 +265,7 @@ export function GoalsTable({
 											onClick={() => onMoveUp(row.goalId)}
 											disabled={isFirst(row.goalId)}
 											title="Move up"
+											aria-label="Move up"
 										>
 											<ChevronUp className="size-3.5" />
 										</Button>
@@ -280,6 +275,7 @@ export function GoalsTable({
 											onClick={() => onMoveDown(row.goalId)}
 											disabled={isLast(row.goalId)}
 											title="Move down"
+											aria-label="Move down"
 										>
 											<ChevronDown className="size-3.5" />
 										</Button>
@@ -288,6 +284,7 @@ export function GoalsTable({
 											size="icon-sm"
 											onClick={() => onEdit(row.goalId)}
 											title="Edit"
+											aria-label="Edit"
 										>
 											<Pencil className="size-3.5" />
 										</Button>
@@ -296,6 +293,7 @@ export function GoalsTable({
 											size="icon-sm"
 											onClick={() => onDelete(row.goalId)}
 											title="Delete"
+											aria-label="Delete"
 											className="text-destructive hover:text-destructive"
 										>
 											<Trash2 className="size-3.5" />

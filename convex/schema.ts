@@ -13,7 +13,7 @@ export default defineSchema({
 	goals: defineTable({
 		userId: v.id("users"),
 		goalId: v.string(),
-		type: v.number(),
+		type: v.union(v.number(), v.string()),
 		unitId: v.string(),
 		unitName: v.string(),
 		priority: v.number(),

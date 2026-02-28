@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import type { PersonalGoalType } from "#common/goal-type.ts";
+import { NUMERIC_TO_GOAL_TYPE } from "#common/goal-type.ts";
 import type { HomeScreenEventType } from "@/4-lib/general/campaign-events.ts";
-import type { PersonalGoalType } from "@/4-lib/general/constants.ts";
 import {
 	type CustomFarmSelections,
 	DEFAULT_CUSTOM_FARM_SELECTIONS,
@@ -119,6 +120,17 @@ export const useGoalPreferencesStore = create<GoalPreferencesState>()(
 					("leastTime" as string)
 				) {
 					(merged as GoalPreferencesState).farmStrategy = "leastEnergy";
+				}
+				// Migrate legacy numeric goalTypeFilter values to strings
+				const filter = (merged as GoalPreferencesState).goalTypeFilter;
+				if (Array.isArray(filter)) {
+					(merged as GoalPreferencesState).goalTypeFilter = filter
+						.map((v) =>
+							typeof v === "number"
+								? (NUMERIC_TO_GOAL_TYPE[v] as PersonalGoalType | undefined)
+								: v,
+						)
+						.filter((v): v is PersonalGoalType => v != null);
 				}
 				return merged as GoalPreferencesState;
 			},

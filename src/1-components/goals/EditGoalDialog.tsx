@@ -1,7 +1,7 @@
 import { useMutation } from "convex/react";
 import { Loader2 } from "lucide-react";
 import { useEffect, useId, useMemo, useState } from "react";
-import z from "zod";
+import { PersonalGoalType } from "#common/goal-type.ts";
 import { RARITIES, type Rarity, RaritySchema } from "#common/rarity.ts";
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import {
@@ -24,15 +24,12 @@ import {
 	SelectValue,
 } from "@/1-components/ui/select.tsx";
 import { Textarea } from "@/1-components/ui/textarea.tsx";
-import {
-	PersonalGoalType,
-	Rank,
-	RarityStars,
-} from "@/4-lib/general/constants.ts";
+import { Rank, RarityStars } from "@/4-lib/general/constants.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { rarityToMaxRank } from "@/4-lib/general/rarity-data.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
+import { GoalFormSchema } from "@/4-lib/general/schemas.ts";
 import { cn } from "@/4-lib/utils.ts";
 import { unitById } from "@/5-assets/game-units/index.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
@@ -79,19 +76,6 @@ interface EditGoalDialogProps {
 	roster: Map<string, RosterUnit>;
 }
 
-const GoalSchema = z.object({
-	rankStart: z.int().optional().default(1),
-	rankEnd: z.int().optional().default(13),
-	primaryEnd: z.int().optional().default(1),
-	secondaryEnd: z.int().optional().default(1),
-	activeEnd: z.number().optional().default(1),
-	passiveEnd: z.number().optional().default(1),
-	upgradesRarity: z.array(RaritySchema).optional().default([]),
-	onslaughtShards: z.number().optional().default(0),
-	rarityEnd: RaritySchema.optional().default("Legendary"),
-	starsEnd: z.nativeEnum(RarityStars).optional().default(RarityStars.None),
-});
-
 export function EditGoalDialog({
 	open,
 	onOpenChange,
@@ -104,7 +88,7 @@ export function EditGoalDialog({
 	const [notes, setNotes] = useState(goal.notes ?? "");
 
 	// Parse data fields
-	const parsed = GoalSchema.parse(JSON.parse(goal.data));
+	const parsed = GoalFormSchema.parse(JSON.parse(goal.data));
 	const [rankStart, setRankStart] = useState(parsed.rankStart);
 	const [rankEnd, setRankEnd] = useState(parsed.rankEnd);
 	const [primaryEnd, setPrimaryEnd] = useState(parsed.primaryEnd);
@@ -182,17 +166,17 @@ export function EditGoalDialog({
 	useEffect(() => {
 		setInclude(goal.include);
 		setNotes(goal.notes ?? "");
-		const p = JSON.parse(goal.data) as Record<string, unknown>;
-		setRankStart((p.rankStart as number) ?? 1);
-		setRankEnd((p.rankEnd as number) ?? 13);
-		setPrimaryEnd((p.primaryEnd as number) ?? 1);
-		setSecondaryEnd((p.secondaryEnd as number) ?? 1);
-		setActiveEnd((p.activeEnd as number) ?? 1);
-		setPassiveEnd((p.passiveEnd as number) ?? 1);
-		setUpgradesRarity((p.upgradesRarity as Rarity[]) ?? []);
-		setOnslaughtShards((p.onslaughtShards as number) ?? 0);
-		setRarityEnd((p.rarityEnd as Rarity) ?? "Legendary");
-		setStarsEnd((p.starsEnd as RarityStars) ?? RarityStars.None);
+		const p = GoalFormSchema.parse(JSON.parse(goal.data));
+		setRankStart(p.rankStart);
+		setRankEnd(p.rankEnd);
+		setPrimaryEnd(p.primaryEnd);
+		setSecondaryEnd(p.secondaryEnd);
+		setActiveEnd(p.activeEnd);
+		setPassiveEnd(p.passiveEnd);
+		setUpgradesRarity(p.upgradesRarity);
+		setOnslaughtShards(p.onslaughtShards);
+		setRarityEnd(p.rarityEnd);
+		setStarsEnd(p.starsEnd);
 		setOverrideMode(false);
 	}, [goal]);
 

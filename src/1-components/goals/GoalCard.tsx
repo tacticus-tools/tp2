@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import type { Alliance } from "#common/alliance.ts";
+import { PersonalGoalType } from "#common/goal-type.ts";
 import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
@@ -24,7 +25,6 @@ import type {
 	IXpBookCoverage,
 } from "@/4-lib/general/badge-inventory.ts";
 import {
-	PersonalGoalType,
 	type Rank,
 	RarityStars,
 	type RarityStars as RarityStarsType,
@@ -562,6 +562,7 @@ export function GoalCard({
 							onClick={() => onMoveUp(goalId)}
 							disabled={isFirst}
 							title="Move up"
+							aria-label="Move up"
 						>
 							<ChevronUp className="size-4" />
 						</Button>
@@ -571,6 +572,7 @@ export function GoalCard({
 							onClick={() => onMoveDown(goalId)}
 							disabled={isLast}
 							title="Move down"
+							aria-label="Move down"
 						>
 							<ChevronDown className="size-4" />
 						</Button>
@@ -579,6 +581,7 @@ export function GoalCard({
 							size="icon-sm"
 							onClick={() => onEdit(goalId)}
 							title="Edit goal"
+							aria-label="Edit goal"
 						>
 							<Pencil className="size-3.5" />
 						</Button>
@@ -587,6 +590,7 @@ export function GoalCard({
 							size="icon-sm"
 							onClick={() => onDelete(goalId)}
 							title="Delete goal"
+							aria-label="Delete goal"
 							className="text-destructive hover:text-destructive"
 						>
 							<Trash2 className="size-3.5" />

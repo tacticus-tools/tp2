@@ -1,12 +1,9 @@
 import type { Alliance } from "#common/alliance.ts";
+import type { CampaignsLocationsUsage } from "#common/campaigns-locations-usage.ts";
+import { PersonalGoalType } from "#common/goal-type.ts";
 import type { Rarity } from "#common/rarity.ts";
 import type { CharacterId } from "@/5-assets/characters/index.ts";
-import {
-	type CampaignsLocationsUsage,
-	PersonalGoalType,
-	type Rank,
-	type RarityStars,
-} from "../constants.ts";
+import type { Rank, RarityStars } from "../constants.ts";
 import type { IAbilitiesMaterialsTotal } from "./abilities-service.ts";
 import type { IMowMaterialsTotal } from "./mow-service.ts";
 

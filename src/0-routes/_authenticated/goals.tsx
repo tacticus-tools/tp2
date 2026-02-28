@@ -12,6 +12,11 @@ import {
 	X,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CampaignsLocationsUsage } from "#common/campaigns-locations-usage.ts";
+import {
+	PersonalGoalType as GoalType,
+	type PersonalGoalType,
+} from "#common/goal-type.ts";
 import { AddGoalDialog } from "@/1-components/goals/AddGoalDialog.tsx";
 import { DailyRaidsPlan } from "@/1-components/goals/DailyRaidsPlan.tsx";
 import { EditGoalDialog } from "@/1-components/goals/EditGoalDialog.tsx";
@@ -61,11 +66,7 @@ import {
 	parseCampaignProgress,
 	parseTodayActivity,
 } from "@/4-lib/general/campaign-progress.ts";
-import type { Campaign, PersonalGoalType } from "@/4-lib/general/constants.ts";
-import {
-	CampaignsLocationsUsage,
-	PersonalGoalType as GoalType,
-} from "@/4-lib/general/constants.ts";
+import type { Campaign } from "@/4-lib/general/constants.ts";
 import { generateDailyRaidsPlan } from "@/4-lib/general/daily-raids/service.ts";
 import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types.ts";
 import {
@@ -79,6 +80,7 @@ import type {
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { parsePlannerExport } from "@/4-lib/general/import-planner.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
+import { GoalDataSchema } from "@/4-lib/general/schemas.ts";
 import { unitById } from "@/5-assets/game-units/index.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
@@ -123,19 +125,19 @@ function buildTypedGoals(
 		priority: number;
 		include: boolean;
 		notes?: string;
-		type: number;
+		type: string;
 		data: string;
 	}[],
 	roster: Map<string, RosterUnit> | null,
 ): CharacterRaidGoalSelect[] {
 	return goals.map((goal) => {
-		const parsed = JSON.parse(goal.data) as Record<string, unknown>;
+		const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
 
 		// Sync UpgradeRank starting state from roster
 		if (goal.type === GoalType.UpgradeRank && roster) {
 			const rosterUnit = roster.get(goal.unitId);
 			if (rosterUnit) {
-				const storedRankStart = parsed.rankStart as number;
+				const storedRankStart = parsed.rankStart ?? 0;
 				if (rosterUnit.rank > storedRankStart) {
 					parsed.rankStart = rosterUnit.rank;
 				}
@@ -175,6 +177,7 @@ function buildTypedGoals(
 		const unitData = unitById.get(goal.unitId);
 
 		return {
+			...parsed,
 			priority: goal.priority,
 			include: goal.include,
 			goalId: goal.goalId,
@@ -183,7 +186,6 @@ function buildTypedGoals(
 			unitAlliance: unitData?.alliance ?? ("Imperial" as const),
 			notes: goal.notes ?? "",
 			type: goal.type,
-			...parsed,
 		} as CharacterRaidGoalSelect;
 	});
 }
@@ -491,7 +493,7 @@ function GoalsPage() {
 		async (goalId: string, enabled: boolean) => {
 			const goal = goals?.find((g) => g.goalId === goalId);
 			if (!goal) return;
-			const parsed = JSON.parse(goal.data) as Record<string, unknown>;
+			const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
 			parsed.onslaughtShards = enabled ? 1 : 0;
 			await updateGoal({ goalId, data: JSON.stringify(parsed) });
 		},
@@ -576,8 +578,12 @@ function GoalsPage() {
 		[importGoals],
 	);
 
-	function parseGoalData(data: string, type: number, unitId: string): GoalData {
-		const parsed = JSON.parse(data) as Record<string, unknown>;
+	function buildGoalCardData(
+		data: string,
+		type: string,
+		unitId: string,
+	): GoalData {
+		const parsed = GoalDataSchema.parse(JSON.parse(data));
 		if (roster) {
 			const rosterUnit = roster.get(unitId);
 			if (rosterUnit) {
@@ -590,22 +596,20 @@ function GoalsPage() {
 					parsed.passiveStart = rosterUnit.abilities[1];
 				}
 				if (type === GoalType.UpgradeRank) {
-					const storedRankStart = parsed.rankStart as number;
+					const storedRankStart = parsed.rankStart ?? 0;
 					if (rosterUnit.rank > storedRankStart) {
 						parsed.rankStart = rosterUnit.rank;
 					}
 				}
 			}
 		}
-		return { type, ...parsed } as GoalData;
+		return { ...parsed, type } as GoalData;
 	}
 
 	// Apply goal type filter for display (doesn't affect estimates or daily raids)
 	const filteredGoals = useMemo(() => {
 		if (!goals || goalTypeFilter.length === 0) return goals;
-		return goals.filter((g) =>
-			goalTypeFilter.includes(g.type as PersonalGoalType),
-		);
+		return goals.filter((g) => goalTypeFilter.includes(g.type as GoalType));
 	}, [goals, goalTypeFilter]);
 
 	const goalIds = goals?.map((g) => g.goalId) ?? [];
@@ -639,6 +643,7 @@ function GoalsPage() {
 									size="sm"
 									onClick={() => setColorMode((colorMode + 1) % 3)}
 									title={`Color: ${COLOR_MODE_LABELS[colorMode]}`}
+									aria-label={`Color: ${COLOR_MODE_LABELS[colorMode]}`}
 								>
 									<Palette className="size-4" />
 									<span className="hidden sm:inline">
@@ -654,6 +659,7 @@ function GoalsPage() {
 									size="sm"
 									onClick={() => setTableView(!tableView)}
 									title={tableView ? "Card view" : "Table view"}
+									aria-label={tableView ? "Card view" : "Table view"}
 									className="hidden md:inline-flex"
 								>
 									{tableView ? (
@@ -667,7 +673,12 @@ function GoalsPage() {
 							{/* Settings popover */}
 							<Popover>
 								<PopoverTrigger asChild>
-									<Button variant="outline" size="sm" title="Raid settings">
+									<Button
+										variant="outline"
+										size="sm"
+										title="Raid settings"
+										aria-label="Raid settings"
+									>
 										<Settings className="size-4" />
 										<span className="hidden sm:inline">Settings</span>
 									</Button>
@@ -696,7 +707,12 @@ function GoalsPage() {
 					/>
 					<AlertDialog>
 						<AlertDialogTrigger asChild>
-							<Button variant="outline" size="sm" disabled={importing}>
+							<Button
+								variant="outline"
+								size="sm"
+								disabled={importing}
+								aria-label={importing ? "Importing..." : "Import"}
+							>
 								<Upload className="size-4" />
 								<span className="hidden sm:inline">
 									{importing ? "Importing..." : "Import"}
@@ -727,7 +743,7 @@ function GoalsPage() {
 					{goalCount > 0 && (
 						<AlertDialog>
 							<AlertDialogTrigger asChild>
-								<Button variant="outline" size="sm">
+								<Button variant="outline" size="sm" aria-label="Delete All">
 									<Trash2 className="size-4" />
 									<span className="hidden sm:inline">Delete All</span>
 								</Button>
@@ -829,13 +845,13 @@ function GoalsPage() {
 						<div className="mt-3 flex flex-wrap items-center gap-1.5">
 							{(Object.entries(goalTypeLabels) as [string, string][]).map(
 								([typeVal, label]) => {
-									const typeNum = Number(typeVal) as PersonalGoalType;
-									const active = goalTypeFilter.includes(typeNum);
+									const goalTypeVal = typeVal as PersonalGoalType;
+									const active = goalTypeFilter.includes(goalTypeVal);
 									return (
 										<button
 											key={typeVal}
 											type="button"
-											onClick={() => toggleGoalTypeFilter(typeNum)}
+											onClick={() => toggleGoalTypeFilter(goalTypeVal)}
 											className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
 												active
 													? "border-emerald-500/50 bg-emerald-500/15 text-emerald-400"
@@ -853,6 +869,7 @@ function GoalsPage() {
 									onClick={clearGoalTypeFilter}
 									className="inline-flex items-center rounded-full border border-border bg-muted/30 p-1 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
 									title="Clear filters"
+									aria-label="Clear filters"
 								>
 									<X className="size-3" />
 								</button>
@@ -865,7 +882,7 @@ function GoalsPage() {
 							<GoalsTable
 								rows={(filteredGoals ?? []).map((goal) => ({
 									goalId: goal.goalId,
-									type: goal.type as PersonalGoalType,
+									type: goal.type as GoalType,
 									unitId: goal.unitId,
 									unitName: goal.unitName,
 									priority: goal.priority,
@@ -884,22 +901,25 @@ function GoalsPage() {
 						) : (
 							<div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
 								{(filteredGoals ?? []).map((goal, index) => {
-									const parsedData = JSON.parse(goal.data) as Record<
-										string,
-										unknown
-									>;
-									const isAscend = goal.type === (GoalType.Ascend as number);
+									const parsedData = GoalDataSchema.parse(
+										JSON.parse(goal.data),
+									);
+									const isAscend = goal.type === GoalType.Ascend;
 									return (
 										<GoalCard
 											key={goal.goalId}
 											goalId={goal.goalId}
-											type={goal.type as PersonalGoalType}
+											type={goal.type as GoalType}
 											unitId={goal.unitId}
 											unitName={goal.unitName}
 											priority={goal.priority}
 											include={goal.include}
 											notes={goal.notes}
-											data={parseGoalData(goal.data, goal.type, goal.unitId)}
+											data={buildGoalCardData(
+												goal.data,
+												goal.type,
+												goal.unitId,
+											)}
 											estimate={activeEstimates.get(goal.goalId)}
 											badgeCoverage={badgeCoverageMap.get(goal.goalId)}
 											xpBookCoverage={xpBookCoverageMap.get(goal.goalId)}
@@ -911,7 +931,7 @@ function GoalsPage() {
 											isLast={index === (filteredGoals ?? []).length - 1}
 											onslaughtActive={
 												isAscend
-													? ((parsedData.onslaughtShards as number) ?? 0) > 0
+													? (parsedData.onslaughtShards ?? 0) > 0
 													: undefined
 											}
 											onEdit={handleEdit}

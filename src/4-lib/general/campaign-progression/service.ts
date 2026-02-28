@@ -3,9 +3,10 @@
  * for the biggest farming benefit based on current goals and campaign progress.
  */
 
+import { PersonalGoalType } from "#common/goal-type.ts";
 import { getAllUpgradeLocations } from "../campaign-data.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import { type Campaign, PersonalGoalType } from "../constants.ts";
+import type { Campaign } from "../constants.ts";
 import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,

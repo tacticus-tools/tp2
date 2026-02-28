@@ -1,6 +1,6 @@
+import { PersonalGoalType } from "#common/goal-type.ts";
 import type { CampaignEventType } from "../campaign-events.ts";
 import type { Campaign } from "../constants.ts";
-import { PersonalGoalType } from "../constants.ts";
 import { getCombinedAbilitiesMaterials } from "./abilities-service.ts";
 import { getCombinedMowMaterials } from "./mow-service.ts";
 import { estimateShardFarmingDays, getShardsNeeded } from "./shards-service.ts";

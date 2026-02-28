@@ -1,53 +1,36 @@
+import type z from "zod";
+import {
+	CampaignsLocationsUsage,
+	NUMERIC_TO_CAMPAIGNS_USAGE,
+} from "#common/campaigns-locations-usage.ts";
+import {
+	type GoalType,
+	NUMERIC_TO_GOAL_TYPE,
+	PersonalGoalType,
+} from "#common/goal-type.ts";
+import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { unitById } from "@/5-assets/game-units/index.ts";
-import { CampaignsLocationsUsage, PersonalGoalType } from "./constants.ts";
+import { PlannerExportSchema, type PlannerGoalSchema } from "./schemas.ts";
 
-/**
- * Shape of a goal in a tacticusplanner export JSON.
- */
-interface PlannerGoal {
-	id: string;
-	type: number;
-	priority: number;
-	dailyRaids: boolean;
-	character: string;
-	notes?: string;
+type PlannerGoal = z.infer<typeof PlannerGoalSchema>;
 
-	// UpgradeRank (type 1)
-	startingRank?: number;
-	targetRank?: number;
-	currentRank?: number;
-
-	// Ascend (type 2)
-	targetRarity?: number;
-	targetStars?: number;
-	shardsPerToken?: number;
-	mythicShardsPerToken?: number;
-
-	// Unlock (type 3)
-	campaignsUsage?: number;
-
-	// CharacterAbilities (type 5)
-	firstAbilityLevel?: number;
-	secondAbilityLevel?: number;
-
-	// MoW (type 4)
-	primaryStart?: number;
-	primaryEnd?: number;
-	secondaryStart?: number;
-	secondaryEnd?: number;
-
-	// Material rarity filter (UpgradeRank & MoW)
-	upgradesRarity?: number[];
+/** Convert a numeric rarity index to its string equivalent */
+function toRarity(numericRarity: number | undefined): Rarity | undefined {
+	if (numericRarity == null) return undefined;
+	return RARITIES[numericRarity];
 }
 
-interface PlannerExport {
-	schemaVersion?: number;
-	goals?: PlannerGoal[];
+/** Convert a numeric rarity array to string equivalents */
+function toRarityArray(arr: number[] | undefined): Rarity[] | undefined {
+	if (!arr || arr.length === 0) return undefined;
+	return arr
+		.map((n) => RARITIES[n])
+		.filter((r): r is Rarity => r !== undefined);
 }
 
 export interface ImportedGoal {
 	goalId: string;
-	type: number;
+	type: string;
 	unitId: string;
 	unitName: string;
 	priority: number;
@@ -65,16 +48,21 @@ export interface ImportResult {
  * Parse a tacticusplanner export JSON and convert goals to our format.
  */
 export function parsePlannerExport(raw: string): ImportResult {
-	let parsed: PlannerExport;
+	let jsonParsed: unknown;
 	try {
-		parsed = JSON.parse(raw) as PlannerExport;
+		jsonParsed = JSON.parse(raw);
 	} catch {
 		return { goals: [], skipped: ["Invalid export JSON"] };
 	}
+	const result = PlannerExportSchema.safeParse(jsonParsed);
+	if (!result.success) {
+		return { goals: [], skipped: ["Invalid export JSON"] };
+	}
+	const parsed = result.data;
 	const goals: ImportedGoal[] = [];
 	const skipped: string[] = [];
 
-	if (!parsed.goals || !Array.isArray(parsed.goals)) {
+	if (!parsed.goals) {
 		return { goals, skipped };
 	}
 
@@ -102,7 +90,15 @@ export function parsePlannerExport(raw: string): ImportResult {
 	return { goals, skipped };
 }
 
+/** Convert a numeric planner goal type to our string GoalType */
+function toGoalType(numericType: number): GoalType | undefined {
+	return NUMERIC_TO_GOAL_TYPE[numericType];
+}
+
 function convertGoal(pg: PlannerGoal, unitName: string): ImportedGoal | null {
+	const goalType = toGoalType(pg.type);
+	if (!goalType) return null;
+
 	const base = {
 		goalId: pg.id,
 		unitId: pg.character,
@@ -112,21 +108,18 @@ function convertGoal(pg: PlannerGoal, unitName: string): ImportedGoal | null {
 		notes: pg.notes?.trim() || undefined,
 	};
 
-	switch (pg.type) {
+	switch (goalType) {
 		case PersonalGoalType.UpgradeRank: {
 			const rankStart = pg.currentRank ?? pg.startingRank ?? 1;
 			const rankEnd = pg.targetRank ?? rankStart;
 			return {
 				...base,
-				type: pg.type,
+				type: goalType,
 				data: JSON.stringify({
-					type: pg.type,
+					type: goalType,
 					rankStart,
 					rankEnd,
-					upgradesRarity:
-						pg.upgradesRarity && pg.upgradesRarity.length > 0
-							? pg.upgradesRarity
-							: undefined,
+					upgradesRarity: toRarityArray(pg.upgradesRarity),
 				}),
 			};
 		}
@@ -134,10 +127,10 @@ function convertGoal(pg: PlannerGoal, unitName: string): ImportedGoal | null {
 		case PersonalGoalType.Ascend: {
 			return {
 				...base,
-				type: pg.type,
+				type: goalType,
 				data: JSON.stringify({
-					type: pg.type,
-					rarityEnd: pg.targetRarity,
+					type: goalType,
+					rarityEnd: toRarity(pg.targetRarity),
 					starsEnd: pg.targetStars,
 					onslaughtShards: pg.shardsPerToken ?? 0,
 					onslaughtMythicShards: pg.mythicShardsPerToken ?? 0,
@@ -147,12 +140,17 @@ function convertGoal(pg: PlannerGoal, unitName: string): ImportedGoal | null {
 		}
 
 		case PersonalGoalType.Unlock: {
+			const campaignsUsage =
+				pg.campaignsUsage != null
+					? (NUMERIC_TO_CAMPAIGNS_USAGE[pg.campaignsUsage] ??
+						CampaignsLocationsUsage.LeastEnergy)
+					: CampaignsLocationsUsage.LeastEnergy;
 			return {
 				...base,
-				type: pg.type,
+				type: goalType,
 				data: JSON.stringify({
-					type: pg.type,
-					campaignsUsage: pg.campaignsUsage ?? 2,
+					type: goalType,
+					campaignsUsage,
 				}),
 			};
 		}
@@ -160,17 +158,14 @@ function convertGoal(pg: PlannerGoal, unitName: string): ImportedGoal | null {
 		case PersonalGoalType.MowAbilities: {
 			return {
 				...base,
-				type: pg.type,
+				type: goalType,
 				data: JSON.stringify({
-					type: pg.type,
+					type: goalType,
 					primaryStart: pg.primaryStart ?? 0,
 					primaryEnd: pg.primaryEnd ?? 1,
 					secondaryStart: pg.secondaryStart ?? 0,
 					secondaryEnd: pg.secondaryEnd ?? 1,
-					upgradesRarity:
-						pg.upgradesRarity && pg.upgradesRarity.length > 0
-							? pg.upgradesRarity
-							: undefined,
+					upgradesRarity: toRarityArray(pg.upgradesRarity),
 				}),
 			};
 		}
@@ -178,9 +173,9 @@ function convertGoal(pg: PlannerGoal, unitName: string): ImportedGoal | null {
 		case PersonalGoalType.CharacterAbilities: {
 			return {
 				...base,
-				type: pg.type,
+				type: goalType,
 				data: JSON.stringify({
-					type: pg.type,
+					type: goalType,
 					activeStart: 0,
 					activeEnd: pg.firstAbilityLevel ?? 1,
 					passiveStart: 0,

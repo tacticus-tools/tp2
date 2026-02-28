@@ -1,3 +1,4 @@
+import type { CampaignsLocationsUsage } from "#common/campaigns-locations-usage.ts";
 import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { getShardLocations } from "../campaign-data.ts";
 import {
@@ -5,11 +6,7 @@ import {
 	filterLocationsByCampaignEvent,
 } from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import type {
-	Campaign,
-	CampaignsLocationsUsage,
-	RarityStars,
-} from "../constants.ts";
+import type { Campaign, RarityStars } from "../constants.ts";
 import { charsProgression, charsUnlockShards } from "../rarity-data.ts";
 
 export interface IShardsEstimate {

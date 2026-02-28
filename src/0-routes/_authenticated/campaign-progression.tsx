@@ -9,6 +9,7 @@ import {
 	Unlock,
 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { PersonalGoalType } from "#common/goal-type.ts";
 import { CampaignIcon } from "@/1-components/general/CampaignIcon.tsx";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
@@ -23,8 +24,8 @@ import {
 import { computeCampaignProgression } from "@/4-lib/general/campaign-progression/service.ts";
 import type { ICampaignProgressionResult } from "@/4-lib/general/campaign-progression/types.ts";
 import type { Campaign } from "@/4-lib/general/constants.ts";
-import { PersonalGoalType } from "@/4-lib/general/constants.ts";
 import type { CharacterRaidGoalSelect } from "@/4-lib/general/goals/types.ts";
+import { GoalDataSchema } from "@/4-lib/general/schemas.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
@@ -60,8 +61,9 @@ function CampaignProgressionPage() {
 	const getTypedGoals = useCallback((): CharacterRaidGoalSelect[] => {
 		if (!goals) return [];
 		return goals.map((goal) => {
-			const parsed = JSON.parse(goal.data) as Record<string, unknown>;
+			const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
 			return {
+				...parsed,
 				priority: goal.priority,
 				include: goal.include,
 				goalId: goal.goalId,
@@ -70,7 +72,6 @@ function CampaignProgressionPage() {
 				unitAlliance: "Imperial" as const,
 				notes: goal.notes ?? "",
 				type: goal.type,
-				...parsed,
 			} as CharacterRaidGoalSelect;
 		});
 	}, [goals]);

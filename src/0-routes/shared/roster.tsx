@@ -2,6 +2,7 @@ import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useQuery } from "convex/react";
 import { Loader2 } from "lucide-react";
 import { useMemo, useState } from "react";
+import z from "zod";
 import type { Alliance } from "#common/alliance.ts";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
 import { RosterGrid } from "@/1-components/roster/RosterGrid.tsx";
@@ -11,6 +12,7 @@ import {
 	type RosterSortKey,
 } from "@/4-lib/general/roster-display.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
+import { RosterUnitSchema } from "@/4-lib/general/schemas.ts";
 import { CHARACTERS } from "@/5-assets/characters/index.ts";
 import { FACTIONS } from "@/5-assets/factions/index.ts";
 import { MOWS } from "@/5-assets/mows/index.ts";
@@ -25,7 +27,7 @@ export const Route = createFileRoute("/shared/roster")({
 });
 
 function deserializeRoster(json: string): Map<string, RosterUnit> {
-	const obj = JSON.parse(json) as Record<string, RosterUnit>;
+	const obj = z.record(z.string(), RosterUnitSchema).parse(JSON.parse(json));
 	const map = new Map<string, RosterUnit>();
 	for (const [id, unit] of Object.entries(obj)) {
 		map.set(id, unit);

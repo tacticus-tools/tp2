@@ -36,6 +36,7 @@ import {
 } from "@/4-lib/general/roster-snapshots/snapshot-service.ts";
 import type { RosterSnapshotsState } from "@/4-lib/general/roster-snapshots/snapshot-types.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
+import { RosterSnapshotsStateSchema } from "@/4-lib/general/schemas.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
 import { api } from "~/_generated/api";
 
@@ -46,7 +47,7 @@ export const Route = createFileRoute("/_authenticated/roster-snapshots")({
 function parseState(data: string | null | undefined): RosterSnapshotsState {
 	if (!data) return createEmptyState();
 	try {
-		return JSON.parse(data) as RosterSnapshotsState;
+		return RosterSnapshotsStateSchema.parse(JSON.parse(data));
 	} catch {
 		return createEmptyState();
 	}

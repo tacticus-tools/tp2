@@ -43,24 +43,6 @@ export const RarityStars = {
 } as const;
 export type RarityStars = (typeof RarityStars)[keyof typeof RarityStars];
 
-export const PersonalGoalType = {
-	UpgradeRank: 1,
-	Ascend: 2,
-	Unlock: 3,
-	MowAbilities: 4,
-	CharacterAbilities: 5,
-} as const;
-export type PersonalGoalType =
-	(typeof PersonalGoalType)[keyof typeof PersonalGoalType];
-
-export const CampaignsLocationsUsage = {
-	None: 0,
-	BestTime: 1,
-	LeastEnergy: 2,
-} as const;
-export type CampaignsLocationsUsage =
-	(typeof CampaignsLocationsUsage)[keyof typeof CampaignsLocationsUsage];
-
 export const Campaign = {
 	I: "Indomitus",
 	IE: "Indomitus Elite",

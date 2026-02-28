@@ -3,6 +3,15 @@ import { getAuthUserId } from "@convex-dev/auth/server";
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server.js";
 
+/** Maps old numeric goal type values to new string values */
+const NUMERIC_TO_GOAL_TYPE: Record<number, string> = {
+	1: "UpgradeRank",
+	2: "Ascend",
+	3: "Unlock",
+	4: "MowAbilities",
+	5: "CharacterAbilities",
+};
+
 export const list = query({
 	args: {},
 	handler: async (ctx) => {
@@ -14,14 +23,23 @@ export const list = query({
 			.withIndex("by_userId", (q) => q.eq("userId", userId))
 			.collect();
 
-		return goals.sort((a, b) => a.priority - b.priority);
+		// Normalize numeric type values to strings for clients
+		return goals
+			.map((goal) => ({
+				...goal,
+				type:
+					typeof goal.type === "number"
+						? (NUMERIC_TO_GOAL_TYPE[goal.type] ?? String(goal.type))
+						: goal.type,
+			}))
+			.sort((a, b) => a.priority - b.priority);
 	},
 });
 
 export const add = mutation({
 	args: {
 		goalId: v.string(),
-		type: v.number(),
+		type: v.string(),
 		unitId: v.string(),
 		unitName: v.string(),
 		priority: v.number(),
@@ -58,7 +76,7 @@ export const add = mutation({
 export const update = mutation({
 	args: {
 		goalId: v.string(),
-		type: v.optional(v.number()),
+		type: v.optional(v.string()),
 		unitId: v.optional(v.string()),
 		unitName: v.optional(v.string()),
 		priority: v.optional(v.number()),
@@ -142,7 +160,7 @@ export const importBatch = mutation({
 		goals: v.array(
 			v.object({
 				goalId: v.string(),
-				type: v.number(),
+				type: v.string(),
 				unitId: v.string(),
 				unitName: v.string(),
 				priority: v.number(),

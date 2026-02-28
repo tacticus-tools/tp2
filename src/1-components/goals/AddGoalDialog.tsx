@@ -8,6 +8,8 @@ import {
 	useRef,
 	useState,
 } from "react";
+import { CampaignsLocationsUsage } from "#common/campaigns-locations-usage.ts";
+import { PersonalGoalType } from "#common/goal-type.ts";
 import { RARITIES, type Rarity, RaritySchema } from "#common/rarity.ts";
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import {
@@ -31,12 +33,7 @@ import {
 	SelectValue,
 } from "@/1-components/ui/select.tsx";
 import { Textarea } from "@/1-components/ui/textarea.tsx";
-import {
-	CampaignsLocationsUsage,
-	PersonalGoalType,
-	Rank,
-	RarityStars,
-} from "@/4-lib/general/constants.ts";
+import { Rank, RarityStars } from "@/4-lib/general/constants.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { rarityToMaxRank } from "@/4-lib/general/rarity-data.ts";
@@ -371,9 +368,9 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 					<div className="space-y-2">
 						<Label>Goal Type</Label>
 						<Select
-							value={String(goalType)}
+							value={goalType}
 							onValueChange={(v) => {
-								const newType = Number(v) as PersonalGoalType;
+								const newType = v as PersonalGoalType;
 								setGoalType(newType);
 								// Clear unit when switching between MoW and character goal types
 								setSelectedUnit(null);
