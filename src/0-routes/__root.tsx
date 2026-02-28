@@ -47,7 +47,7 @@ const themeScript = `(function(){try{var d=document.documentElement,s=JSON.parse
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: static inline script to prevent dark-mode FOUC */}
 				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
