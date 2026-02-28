@@ -216,9 +216,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 			// Auto-set ascend target rarity to next rarity up
 			if (goalType === PersonalGoalType.Ascend) {
 				setRarityEnd(
-					rosterUnit.rarity === "Mythic"
-						? RARITIES[RARITIES.indexOf(rosterUnit.rarity) + 1]
-						: "Mythic",
+					RARITIES[RARITIES.indexOf(rosterUnit.rarity) + 1] ?? RARITIES.at(-1),
 				);
 				setStarsEnd(RarityStars.None);
 			}
