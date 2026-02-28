@@ -1,35 +1,36 @@
+import type { Rarity } from "#common/rarity.ts";
 import type { TacticusUnit } from "~/tacticus/types.ts";
-import { Rank, Rarity, RarityStars } from "./constants.ts";
+import { Rank, RarityStars } from "./constants.ts";
 
 /**
  * Convert Tacticus API progressionIndex → [Rarity, RarityStars].
  * Thresholds: 0=Common, 3=Uncommon, 6=Rare, 9=Epic, 12=Legendary, 16=Mythic
  */
-export function convertProgressionIndex(idx: number): [Rarity, RarityStars] {
-	const thresholds: [number, Rarity, RarityStars][] = [
-		[16, Rarity.Mythic, RarityStars.OneBlueStar],
-		[15, Rarity.Legendary, RarityStars.OneBlueStar],
-		[14, Rarity.Legendary, RarityStars.RedFiveStars],
-		[13, Rarity.Legendary, RarityStars.RedFourStars],
-		[12, Rarity.Legendary, RarityStars.RedThreeStars],
-		[11, Rarity.Epic, RarityStars.RedThreeStars],
-		[10, Rarity.Epic, RarityStars.RedTwoStars],
-		[9, Rarity.Epic, RarityStars.RedOneStar],
-		[8, Rarity.Rare, RarityStars.RedOneStar],
-		[7, Rarity.Rare, RarityStars.FiveStars],
-		[6, Rarity.Rare, RarityStars.FourStars],
-		[5, Rarity.Uncommon, RarityStars.FourStars],
-		[4, Rarity.Uncommon, RarityStars.ThreeStars],
-		[3, Rarity.Uncommon, RarityStars.TwoStars],
-		[2, Rarity.Common, RarityStars.TwoStars],
-		[1, Rarity.Common, RarityStars.OneStar],
-		[0, Rarity.Common, RarityStars.None],
-	];
+const THRESHOLDS: [number, Rarity, RarityStars][] = [
+	[16, "Mythic", RarityStars.OneBlueStar],
+	[15, "Legendary", RarityStars.OneBlueStar],
+	[14, "Legendary", RarityStars.RedFiveStars],
+	[13, "Legendary", RarityStars.RedFourStars],
+	[12, "Legendary", RarityStars.RedThreeStars],
+	[11, "Epic", RarityStars.RedThreeStars],
+	[10, "Epic", RarityStars.RedTwoStars],
+	[9, "Epic", RarityStars.RedOneStar],
+	[8, "Rare", RarityStars.RedOneStar],
+	[7, "Rare", RarityStars.FiveStars],
+	[6, "Rare", RarityStars.FourStars],
+	[5, "Uncommon", RarityStars.FourStars],
+	[4, "Uncommon", RarityStars.ThreeStars],
+	[3, "Uncommon", RarityStars.TwoStars],
+	[2, "Common", RarityStars.TwoStars],
+	[1, "Common", RarityStars.OneStar],
+	[0, "Common", RarityStars.None],
+] as const;
 
-	for (const [threshold, rarity, stars] of thresholds) {
-		if (idx >= threshold) return [rarity, stars];
+export function convertProgressionIndex(idx: number) {
+	for (const [threshold, rarity, stars] of THRESHOLDS) {
+		if (idx >= threshold) return { rarity, stars };
 	}
-	return [Rarity.Common, RarityStars.None];
+	return { rarity: "Common", stars: RarityStars.None } as const;
 }
 
 /**
@@ -46,7 +47,7 @@ export function convertApiRank(apiRank: number): Rank {
 export interface RosterEquipment {
 	id: string;
 	level: number;
-	rarity: string;
+	rarity: Rarity;
 	slotId: string;
 }
 
@@ -71,7 +72,7 @@ export interface RosterUnit {
 export function buildRosterMap(units: TacticusUnit[]): Map<string, RosterUnit> {
 	const map = new Map<string, RosterUnit>();
 	for (const u of units) {
-		const [rarity, stars] = convertProgressionIndex(u.progressionIndex);
+		const { rarity, stars } = convertProgressionIndex(u.progressionIndex);
 		map.set(u.id, {
 			rank: convertApiRank(u.rank),
 			rarity,

@@ -1,3 +1,4 @@
+import type { Rarity } from "#common/rarity.ts";
 import type { CharacterId } from "@/5-assets/characters/index.ts";
 import {
 	getAllUpgradeLocations,
@@ -8,7 +9,7 @@ import {
 	filterLocationsByCampaignEvent,
 } from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import type { Campaign, Rank, Rarity } from "../constants.ts";
+import type { Campaign, Rank } from "../constants.ts";
 import { rankToLevel } from "../rank-data.ts";
 import { getBaseUpgradesForRankUp } from "../upgrade-data.ts";
 

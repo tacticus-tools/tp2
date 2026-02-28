@@ -1,8 +1,9 @@
+import type { Rarity } from "#common/rarity.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
 
 export interface SnapshotUnit {
 	rank: number;
-	rarity: number;
+	rarity: Rarity;
 	stars: number;
 	abilities: [number, number];
 	shards: number;

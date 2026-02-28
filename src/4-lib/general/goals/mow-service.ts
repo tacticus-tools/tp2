@@ -1,4 +1,4 @@
-import type { Rarity } from "../constants.ts";
+import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { getRarityFromLevel } from "../rarity-data.ts";
 
 export interface IMowMaterialsTotal {
@@ -175,7 +175,7 @@ const MOW_GOLD_PER_LEVEL: Record<number, number> = {
 };
 
 function createEmptyRarityRecord(): Record<Rarity, number> {
-	return { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+	return { Common: 0, Uncommon: 0, Rare: 0, Epic: 0, Legendary: 0, Mythic: 0 };
 }
 
 /**
@@ -230,7 +230,7 @@ export function getCombinedMowMaterials(
 	const badges = createEmptyRarityRecord();
 	const forgeBadges = createEmptyRarityRecord();
 
-	for (const rarity of [0, 1, 2, 3, 4, 5] as Rarity[]) {
+	for (const rarity of RARITIES) {
 		badges[rarity] = primary.badges[rarity] + secondary.badges[rarity];
 		forgeBadges[rarity] =
 			primary.forgeBadges[rarity] + secondary.forgeBadges[rarity];

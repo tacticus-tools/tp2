@@ -1,6 +1,8 @@
 import { useMutation } from "convex/react";
 import { Loader2 } from "lucide-react";
 import { useEffect, useId, useMemo, useState } from "react";
+import z from "zod";
+import { RARITIES, type Rarity, RaritySchema } from "#common/rarity.ts";
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import {
 	AlertDialog,
@@ -25,7 +27,6 @@ import { Textarea } from "@/1-components/ui/textarea.tsx";
 import {
 	PersonalGoalType,
 	Rank,
-	Rarity,
 	RarityStars,
 } from "@/4-lib/general/constants.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
@@ -41,24 +42,6 @@ import { api } from "~/_generated/api";
 const allSelectableRanks = Object.entries(rankToString).filter(
 	([key]) => Number(key) > 0,
 );
-
-const allRarities = [
-	Rarity.Common,
-	Rarity.Uncommon,
-	Rarity.Rare,
-	Rarity.Epic,
-	Rarity.Legendary,
-	Rarity.Mythic,
-];
-
-const rarityLabels: Record<Rarity, string> = {
-	[Rarity.Common]: "Common",
-	[Rarity.Uncommon]: "Uncommon",
-	[Rarity.Rare]: "Rare",
-	[Rarity.Epic]: "Epic",
-	[Rarity.Legendary]: "Legendary",
-	[Rarity.Mythic]: "Mythic",
-};
 
 const starsOptions = [
 	{ value: RarityStars.None, label: "No stars" },
@@ -96,6 +79,19 @@ interface EditGoalDialogProps {
 	roster: Map<string, RosterUnit>;
 }
 
+const GoalSchema = z.object({
+	rankStart: z.int().optional().default(1),
+	rankEnd: z.int().optional().default(13),
+	primaryEnd: z.int().optional().default(1),
+	secondaryEnd: z.int().optional().default(1),
+	activeEnd: z.number().optional().default(1),
+	passiveEnd: z.number().optional().default(1),
+	upgradesRarity: z.array(RaritySchema).optional().default([]),
+	onslaughtShards: z.number().optional().default(0),
+	rarityEnd: RaritySchema.optional().default("Legendary"),
+	starsEnd: z.nativeEnum(RarityStars).optional().default(RarityStars.None),
+});
+
 export function EditGoalDialog({
 	open,
 	onOpenChange,
@@ -108,37 +104,19 @@ export function EditGoalDialog({
 	const [notes, setNotes] = useState(goal.notes ?? "");
 
 	// Parse data fields
-	const parsed = JSON.parse(goal.data) as Record<string, unknown>;
-	const [rankStart, setRankStart] = useState<number>(
-		(parsed.rankStart as number) ?? 1,
+	const parsed = GoalSchema.parse(JSON.parse(goal.data));
+	const [rankStart, setRankStart] = useState(parsed.rankStart);
+	const [rankEnd, setRankEnd] = useState(parsed.rankEnd);
+	const [primaryEnd, setPrimaryEnd] = useState(parsed.primaryEnd);
+	const [secondaryEnd, setSecondaryEnd] = useState(parsed.secondaryEnd);
+	const [activeEnd, setActiveEnd] = useState(parsed.activeEnd);
+	const [passiveEnd, setPassiveEnd] = useState(parsed.passiveEnd);
+	const [upgradesRarity, setUpgradesRarity] = useState(parsed.upgradesRarity);
+	const [onslaughtShards, setOnslaughtShards] = useState(
+		parsed.onslaughtShards,
 	);
-	const [rankEnd, setRankEnd] = useState<number>(
-		(parsed.rankEnd as number) ?? 13,
-	);
-	const [primaryEnd, setPrimaryEnd] = useState<number>(
-		(parsed.primaryEnd as number) ?? 1,
-	);
-	const [secondaryEnd, setSecondaryEnd] = useState<number>(
-		(parsed.secondaryEnd as number) ?? 1,
-	);
-	const [activeEnd, setActiveEnd] = useState<number>(
-		(parsed.activeEnd as number) ?? 1,
-	);
-	const [passiveEnd, setPassiveEnd] = useState<number>(
-		(parsed.passiveEnd as number) ?? 1,
-	);
-	const [upgradesRarity, setUpgradesRarity] = useState<Rarity[]>(
-		(parsed.upgradesRarity as Rarity[]) ?? [],
-	);
-	const [onslaughtShards, setOnslaughtShards] = useState<number>(
-		(parsed.onslaughtShards as number) ?? 0,
-	);
-	const [rarityEnd, setRarityEnd] = useState<Rarity>(
-		(parsed.rarityEnd as Rarity) ?? Rarity.Legendary,
-	);
-	const [starsEnd, setStarsEnd] = useState<RarityStars>(
-		(parsed.starsEnd as RarityStars) ?? RarityStars.None,
-	);
+	const [rarityEnd, setRarityEnd] = useState(parsed.rarityEnd);
+	const [starsEnd, setStarsEnd] = useState(parsed.starsEnd);
 
 	// Override toggle
 	const [overrideMode, setOverrideMode] = useState(false);
@@ -154,7 +132,7 @@ export function EditGoalDialog({
 		const unit = unitById.get(goal.unitId);
 		const rarity = rosterUnit
 			? rosterUnit.rarity
-			: (unit?.initialRarity ?? Rarity.Common);
+			: (unit?.initialRarity ?? "Common");
 		return rarityToMaxRank[rarity];
 	}, [goal.unitId, roster, hasRoster]);
 
@@ -213,7 +191,7 @@ export function EditGoalDialog({
 		setPassiveEnd((p.passiveEnd as number) ?? 1);
 		setUpgradesRarity((p.upgradesRarity as Rarity[]) ?? []);
 		setOnslaughtShards((p.onslaughtShards as number) ?? 0);
-		setRarityEnd((p.rarityEnd as Rarity) ?? Rarity.Legendary);
+		setRarityEnd((p.rarityEnd as Rarity) ?? "Legendary");
 		setStarsEnd((p.starsEnd as RarityStars) ?? RarityStars.None);
 		setOverrideMode(false);
 	}, [goal]);
@@ -422,7 +400,7 @@ export function EditGoalDialog({
 								<span className="text-muted-foreground">(optional)</span>
 							</Label>
 							<div className="flex flex-wrap gap-2">
-								{allRarities.map((rarity) => {
+								{RARITIES.map((rarity) => {
 									const checked = upgradesRarity.includes(rarity);
 									return (
 										<label
@@ -441,7 +419,7 @@ export function EditGoalDialog({
 												className="sr-only"
 											/>
 											<RarityIcon rarity={rarity} size={16} />
-											{rarityLabels[rarity]}
+											{rarity}
 										</label>
 									);
 								})}
@@ -456,18 +434,18 @@ export function EditGoalDialog({
 								<div className="space-y-2">
 									<Label>Target Rarity</Label>
 									<Select
-										value={String(rarityEnd)}
-										onValueChange={(v) => setRarityEnd(Number(v) as Rarity)}
+										value={rarityEnd}
+										onValueChange={(v) => setRarityEnd(RaritySchema.parse(v))}
 									>
 										<SelectTrigger className="w-full">
 											<SelectValue />
 										</SelectTrigger>
 										<SelectContent>
-											{allRarities.map((rarity) => (
+											{RARITIES.map((rarity) => (
 												<SelectItem key={rarity} value={String(rarity)}>
 													<span className="flex items-center gap-1.5">
 														<RarityIcon rarity={rarity} size={16} />
-														{rarityLabels[rarity]}
+														{rarity}
 													</span>
 												</SelectItem>
 											))}

@@ -10,6 +10,7 @@
  * - _planRaidsForMaterial: per-material raid planning within a day
  */
 
+import type { Rarity } from "#common/rarity.ts";
 import {
 	getAllUpgradeLocations,
 	type IUpgradeLocation,
@@ -25,7 +26,6 @@ import {
 	type Campaign,
 	type CampaignType,
 	PersonalGoalType,
-	type RarityString,
 } from "../constants.ts";
 import type {
 	CharacterRaidGoalSelect,
@@ -64,15 +64,6 @@ interface IMaterialEstimate {
 	isFinished: boolean;
 }
 
-const RARITY_NUM_TO_STRING: Record<number, RarityString> = {
-	0: "Common",
-	1: "Uncommon",
-	2: "Rare",
-	3: "Epic",
-	4: "Legendary",
-	5: "Mythic",
-};
-
 /**
  * Filter locations by farm strategy.
  * - leastEnergy: only keep locations with the minimum energyPerItem
@@ -82,7 +73,7 @@ const RARITY_NUM_TO_STRING: Record<number, RarityString> = {
 function filterLocationsByStrategy(
 	locations: IUpgradeLocation[],
 	farmStrategy: FarmStrategy,
-	materialRarity?: number,
+	materialRarity?: Rarity,
 	customFarmSelections?: CustomFarmSelections,
 ): IUpgradeLocation[] {
 	if (locations.length === 0) return locations;
@@ -97,10 +88,7 @@ function filterLocationsByStrategy(
 		customFarmSelections &&
 		materialRarity !== undefined
 	) {
-		const rarityKey = RARITY_NUM_TO_STRING[materialRarity];
-		const allowedTypes = rarityKey
-			? customFarmSelections[rarityKey]
-			: undefined;
+		const allowedTypes = customFarmSelections[materialRarity];
 		if (allowedTypes) {
 			return locations.filter((l) =>
 				allowedTypes.includes(l.campaignType as CampaignType),

@@ -1,10 +1,9 @@
-import type { CampaignType, RarityString } from "../constants.ts";
+import type { Rarity } from "#common/rarity.ts";
+import type { CampaignType } from "../constants.ts";
 
 export type FarmStrategy = "leastEnergy" | "allLocations" | "custom";
 
-export type CustomFarmSelections = Partial<
-	Record<RarityString, CampaignType[]>
->;
+export type CustomFarmSelections = Partial<Record<Rarity, CampaignType[]>>;
 
 export const DEFAULT_CUSTOM_FARM_SELECTIONS: CustomFarmSelections = {
 	Mythic: ["Extremis"],

@@ -2,7 +2,7 @@
   "upgArmC001": {
     "id": "upgArmC001",
     "label": "Purity Seal",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC001.png",
     "crafted": false,
@@ -11,7 +11,7 @@
   "upgArmC002": {
     "id": "upgArmC002",
     "label": "Fine Purity Seal",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC002.png",
     "crafted": false,
@@ -20,7 +20,7 @@
   "upgArmC003": {
     "id": "upgArmC003",
     "label": "Pile of Salvage",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC003.png",
     "crafted": false,
@@ -29,7 +29,7 @@
   "upgArmC004": {
     "id": "upgArmC004",
     "label": "Adamantium Ore",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC004.png",
     "crafted": false,
@@ -38,7 +38,7 @@
   "upgArmC005": {
     "id": "upgArmC005",
     "label": "Sophisticated Material",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC005.png",
     "crafted": false,
@@ -47,7 +47,7 @@
   "upgArmC006": {
     "id": "upgArmC006",
     "label": "Rebreather",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC006.png",
     "crafted": false,
@@ -56,7 +56,7 @@
   "upgArmC007": {
     "id": "upgArmC007",
     "label": "Mutation: Tough Skin",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC007.png",
     "crafted": false,
@@ -65,7 +65,7 @@
   "upgArmC011": {
     "id": "upgArmC011",
     "label": "Filaments",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC011.png",
     "crafted": false,
@@ -74,7 +74,7 @@
   "upgArmC012": {
     "id": "upgArmC012",
     "label": "Metal Joints",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC012.png",
     "crafted": false,
@@ -83,7 +83,7 @@
   "upgArmC013": {
     "id": "upgArmC013",
     "label": "Armor Trim",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmC013.png",
     "crafted": false,
@@ -92,7 +92,7 @@
   "upgArmCS": {
     "id": "upgArmCS",
     "label": "Coming soon",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmCS.png",
     "crafted": false,
@@ -101,7 +101,7 @@
   "upgArmE001C": {
     "id": "upgArmE001C",
     "label": "Grand Purity Seal",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE001C.png",
     "crafted": true,
@@ -123,7 +123,7 @@
   "upgArmE002C": {
     "id": "upgArmE002C",
     "label": "Adamantium Sheet",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE002C.png",
     "crafted": true,
@@ -145,7 +145,7 @@
   "upgArmE003C": {
     "id": "upgArmE003C",
     "label": "Sophisticated Material Sheet",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE003C.png",
     "crafted": true,
@@ -167,7 +167,7 @@
   "upgArmE004C": {
     "id": "upgArmE004C",
     "label": "Ceramite Sheet",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE004C.png",
     "crafted": true,
@@ -189,7 +189,7 @@
   "upgArmE005C": {
     "id": "upgArmE005C",
     "label": "Mutation: Metallic Skin",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE005C.png",
     "crafted": true,
@@ -211,7 +211,7 @@
   "upgArmE006C": {
     "id": "upgArmE006C",
     "label": "Ancient Tasset Plate",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE006C.png",
     "crafted": true,
@@ -233,7 +233,7 @@
   "upgArmE007C": {
     "id": "upgArmE007C",
     "label": "Death Shroud",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE007C.png",
     "crafted": true,
@@ -247,7 +247,7 @@
   "upgArmE008": {
     "id": "upgArmE008",
     "label": "Hypermaterial Shifter",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE008.png",
     "crafted": false,
@@ -256,7 +256,7 @@
   "upgArmE009": {
     "id": "upgArmE009",
     "label": "Revered Talisman",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE009.png",
     "crafted": false,
@@ -265,7 +265,7 @@
   "upgArmE010": {
     "id": "upgArmE010",
     "label": "Unyielding Rivets",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE010.png",
     "crafted": false,
@@ -274,7 +274,7 @@
   "upgArmE011C": {
     "id": "upgArmE011C",
     "label": "Decorated Cloak",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE011C.png",
     "crafted": true,
@@ -296,7 +296,7 @@
   "upgArmE012C": {
     "id": "upgArmE012C",
     "label": "Sturdy Segments",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE012C.png",
     "crafted": true,
@@ -318,7 +318,7 @@
   "upgArmE013": {
     "id": "upgArmE013",
     "label": "Duplicate Organ",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE013.png",
     "crafted": false,
@@ -327,7 +327,7 @@
   "upgArmE014C": {
     "id": "upgArmE014C",
     "label": "Advanced Mesh Weave Garment",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE014C.png",
     "crafted": true,
@@ -349,7 +349,7 @@
   "upgArmE021C": {
     "id": "upgArmE021C",
     "label": "Crusader's Tabard",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE021C.png",
     "crafted": true,
@@ -363,7 +363,7 @@
   "upgArmE022C": {
     "id": "upgArmE022C",
     "label": "Sanctified Corset Armor",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE022C.png",
     "crafted": true,
@@ -377,7 +377,7 @@
   "upgArmE023C": {
     "id": "upgArmE023C",
     "label": "Daemonic Armor Trim",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE023C.png",
     "crafted": true,
@@ -391,7 +391,7 @@
   "upgArmE025C": {
     "id": "upgArmE025C",
     "label": "High-grade Flak Plates",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE025C.png",
     "crafted": true,
@@ -405,7 +405,7 @@
   "upgArmE026C": {
     "id": "upgArmE026C",
     "label": "Ded 'ard Plate",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE026C.png",
     "crafted": true,
@@ -419,7 +419,7 @@
   "upgArmE027C": {
     "id": "upgArmE027C",
     "label": "Advanced Drone Controller",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE027C.png",
     "crafted": true,
@@ -433,7 +433,7 @@
   "upgArmE028C": {
     "id": "upgArmE028C",
     "label": "Filigrane Wraithbone Plate",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE028C.png",
     "crafted": true,
@@ -447,7 +447,7 @@
   "upgArmE029C": {
     "id": "upgArmE029C",
     "label": "Cabalistic Implements",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE029C.png",
     "crafted": true,
@@ -461,7 +461,7 @@
   "upgArmE031C": {
     "id": "upgArmE031C",
     "label": "Ice Troll Hide",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE031C.png",
     "crafted": true,
@@ -475,7 +475,7 @@
   "upgArmE032C": {
     "id": "upgArmE032C",
     "label": "Calibanite Hood",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE032C.png",
     "crafted": true,
@@ -489,7 +489,7 @@
   "upgArmE033C": {
     "id": "upgArmE033C",
     "label": "Adaptive Chitin Carapace",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE033C.png",
     "crafted": true,
@@ -503,7 +503,7 @@
   "upgArmE034C": {
     "id": "upgArmE034C",
     "label": "Enhanced Cogwheel Crest",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE034C.png",
     "crafted": true,
@@ -517,7 +517,7 @@
   "upgArmE035C": {
     "id": "upgArmE035C",
     "label": "Artisan of War Plating",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE035C.png",
     "crafted": true,
@@ -531,7 +531,7 @@
   "upgArmE036C": {
     "id": "upgArmE036C",
     "label": "Industrial Protection Suit",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE036C.png",
     "crafted": true,
@@ -545,7 +545,7 @@
   "upgArmE037C": {
     "id": "upgArmE037C",
     "label": "Auramite Wing Embellishment",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE037C.png",
     "crafted": true,
@@ -559,7 +559,7 @@
   "upgArmE038C": {
     "id": "upgArmE038C",
     "label": "Blessed Cadaere Renissum",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE038C.png",
     "crafted": true,
@@ -573,7 +573,7 @@
   "upgArmE039C": {
     "id": "upgArmE039C",
     "label": "Lavish Helmet Spike",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE039C.png",
     "crafted": true,
@@ -587,7 +587,7 @@
   "upgArmE040C": {
     "id": "upgArmE040C",
     "label": "_upgArmE040C",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmE040C.png",
     "crafted": true,
@@ -601,7 +601,7 @@
   "upgArmECS": {
     "id": "upgArmECS",
     "label": "Coming soon",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmECS.png",
     "crafted": false,
@@ -610,7 +610,7 @@
   "upgArmL001": {
     "id": "upgArmL001",
     "label": "Purity Seal of the Primarch",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL001.png",
     "crafted": false,
@@ -619,7 +619,7 @@
   "upgArmL002C": {
     "id": "upgArmL002C",
     "label": "Adamantium Plates",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL002C.png",
     "crafted": true,
@@ -637,7 +637,7 @@
   "upgArmL003C": {
     "id": "upgArmL003C",
     "label": "Sophisticated Material Plates",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL003C.png",
     "crafted": true,
@@ -655,7 +655,7 @@
   "upgArmL004C": {
     "id": "upgArmL004C",
     "label": "Ceramite Plates",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL004C.png",
     "crafted": true,
@@ -673,7 +673,7 @@
   "upgArmL005C": {
     "id": "upgArmL005C",
     "label": "Mutation: Impervious Skin",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL005C.png",
     "crafted": true,
@@ -691,7 +691,7 @@
   "upgArmL006C": {
     "id": "upgArmL006C",
     "label": "Grand Tasset Plate",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL006C.png",
     "crafted": true,
@@ -709,7 +709,7 @@
   "upgArmL007C": {
     "id": "upgArmL007C",
     "label": "Immaterial Shroud",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL007C.png",
     "crafted": true,
@@ -727,7 +727,7 @@
   "upgArmL008C": {
     "id": "upgArmL008C",
     "label": "Sturdy Plates",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL008C.png",
     "crafted": true,
@@ -745,7 +745,7 @@
   "upgArmL009C": {
     "id": "upgArmL009C",
     "label": "Mysterious Device",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL009C.png",
     "crafted": true,
@@ -763,7 +763,7 @@
   "upgArmL010C": {
     "id": "upgArmL010C",
     "label": "Seal of the Emperor's Protection",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL010C.png",
     "crafted": true,
@@ -781,7 +781,7 @@
   "upgArmL011C": {
     "id": "upgArmL011C",
     "label": "Divine Cloak",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL011C.png",
     "crafted": true,
@@ -799,7 +799,7 @@
   "upgArmL021C": {
     "id": "upgArmL021C",
     "label": "Tabard of Righteous Wrath",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL021C.png",
     "crafted": true,
@@ -817,7 +817,7 @@
   "upgArmL022C": {
     "id": "upgArmL022C",
     "label": "Holy Corset Armor",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL022C.png",
     "crafted": true,
@@ -835,7 +835,7 @@
   "upgArmL023C": {
     "id": "upgArmL023C",
     "label": "Infernal Armor Trim",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL023C.png",
     "crafted": true,
@@ -853,7 +853,7 @@
   "upgArmL025C": {
     "id": "upgArmL025C",
     "label": "Artificer Flak Plates",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL025C.png",
     "crafted": true,
@@ -871,7 +871,7 @@
   "upgArmL026C": {
     "id": "upgArmL026C",
     "label": "Ded Shiny 'ard Plate",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL026C.png",
     "crafted": true,
@@ -889,7 +889,7 @@
   "upgArmL027C": {
     "id": "upgArmL027C",
     "label": "Sentry AI Drone Controller",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL027C.png",
     "crafted": true,
@@ -907,7 +907,7 @@
   "upgArmL028C": {
     "id": "upgArmL028C",
     "label": "Soul-Bonded Wraithbone Plate",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL028C.png",
     "crafted": true,
@@ -925,7 +925,7 @@
   "upgArmL029C": {
     "id": "upgArmL029C",
     "label": "Great Cult Implements",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL029C.png",
     "crafted": true,
@@ -943,7 +943,7 @@
   "upgArmL031C": {
     "id": "upgArmL031C",
     "label": "Ice Wyrm Hide",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL031C.png",
     "crafted": true,
@@ -961,7 +961,7 @@
   "upgArmL032C": {
     "id": "upgArmL032C",
     "label": "Inner Circle Hood",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL032C.png",
     "crafted": true,
@@ -979,7 +979,7 @@
   "upgArmL033C": {
     "id": "upgArmL033C",
     "label": "Hyper-Adaptive Chitin Carapace",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL033C.png",
     "crafted": true,
@@ -997,7 +997,7 @@
   "upgArmL034C": {
     "id": "upgArmL034C",
     "label": "Artificer Cogwheel Crest",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL034C.png",
     "crafted": true,
@@ -1015,7 +1015,7 @@
   "upgArmL035C": {
     "id": "upgArmL035C",
     "label": "Angelic Plating",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL035C.png",
     "crafted": true,
@@ -1033,7 +1033,7 @@
   "upgArmL036C": {
     "id": "upgArmL036C",
     "label": "Industrial Carapace",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL036C.png",
     "crafted": true,
@@ -1051,7 +1051,7 @@
   "upgArmL037C": {
     "id": "upgArmL037C",
     "label": "Auramite Wing Adornment",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL037C.png",
     "crafted": true,
@@ -1069,7 +1069,7 @@
   "upgArmL038C": {
     "id": "upgArmL038C",
     "label": "Exalted Cadaere Renissum",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL038C.png",
     "crafted": true,
@@ -1087,7 +1087,7 @@
   "upgArmL039C": {
     "id": "upgArmL039C",
     "label": "Lavish Helmet Plume",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL039C.png",
     "crafted": true,
@@ -1105,7 +1105,7 @@
   "upgArmL040C": {
     "id": "upgArmL040C",
     "label": "Forge Wrought Plating",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL040C.png",
     "crafted": true,
@@ -1123,7 +1123,7 @@
   "upgArmL120C": {
     "id": "upgArmL120C",
     "label": "Adamantine Mantle",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL120C.png",
     "crafted": true,
@@ -1145,7 +1145,7 @@
   "upgArmL121C": {
     "id": "upgArmL121C",
     "label": "Octarian Crusade Seal",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL121C.png",
     "crafted": true,
@@ -1167,7 +1167,7 @@
   "upgArmL122C": {
     "id": "upgArmL122C",
     "label": "Sabbat-Pattern Visor",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL122C.png",
     "crafted": true,
@@ -1189,7 +1189,7 @@
   "upgArmL123C": {
     "id": "upgArmL123C",
     "label": "Black Rune",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL123C.png",
     "crafted": true,
@@ -1211,7 +1211,7 @@
   "upgArmL124C": {
     "id": "upgArmL124C",
     "label": "Cloud of Flies",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL124C.png",
     "crafted": true,
@@ -1233,7 +1233,7 @@
   "upgArmL125C": {
     "id": "upgArmL125C",
     "label": "Bastion Honour",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL125C.png",
     "crafted": true,
@@ -1255,7 +1255,7 @@
   "upgArmL126C": {
     "id": "upgArmL126C",
     "label": "Bosspole",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL126C.png",
     "crafted": true,
@@ -1277,7 +1277,7 @@
   "upgArmL127C": {
     "id": "upgArmL127C",
     "label": "Iridium Plating",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL127C.png",
     "crafted": true,
@@ -1299,7 +1299,7 @@
   "upgArmL128C": {
     "id": "upgArmL128C",
     "label": "Scriptures of Fortune",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL128C.png",
     "crafted": true,
@@ -1321,7 +1321,7 @@
   "upgArmL129C": {
     "id": "upgArmL129C",
     "label": "Warpweave Robe",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL129C.png",
     "crafted": true,
@@ -1343,7 +1343,7 @@
   "upgArmL130C": {
     "id": "upgArmL130C",
     "label": "Transdimensional Sanctum",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL130C.png",
     "crafted": true,
@@ -1365,7 +1365,7 @@
   "upgArmL131C": {
     "id": "upgArmL131C",
     "label": "Runic Tasset Plate",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL131C.png",
     "crafted": true,
@@ -1387,7 +1387,7 @@
   "upgArmL132C": {
     "id": "upgArmL132C",
     "label": "Shroud of Heroes",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL132C.png",
     "crafted": true,
@@ -1409,7 +1409,7 @@
   "upgArmL133C": {
     "id": "upgArmL133C",
     "label": "Symbiotic Carapace",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL133C.png",
     "crafted": true,
@@ -1431,7 +1431,7 @@
   "upgArmL134C": {
     "id": "upgArmL134C",
     "label": "Kataphron Armour",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL134C.png",
     "crafted": true,
@@ -1453,7 +1453,7 @@
   "upgArmL135C": {
     "id": "upgArmL135C",
     "label": "Visage of Death",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL135C.png",
     "crafted": true,
@@ -1475,7 +1475,7 @@
   "upgArmL136C": {
     "id": "upgArmL136C",
     "label": "Gene-sire's Reliquant",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL136C.png",
     "crafted": true,
@@ -1497,7 +1497,7 @@
   "upgArmL137C": {
     "id": "upgArmL137C",
     "label": "Adamantine Thread Cloak",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL137C.png",
     "crafted": true,
@@ -1519,7 +1519,7 @@
   "upgArmL138C": {
     "id": "upgArmL138C",
     "label": "Collar of Khorne",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL138C.png",
     "crafted": true,
@@ -1541,7 +1541,7 @@
   "upgArmL139C": {
     "id": "upgArmL139C",
     "label": "Abhorrent Plating",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL139C.png",
     "crafted": true,
@@ -1563,7 +1563,7 @@
   "upgArmL140C": {
     "id": "upgArmL140C",
     "label": "RAM Shield Technology",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL140C.png",
     "crafted": true,
@@ -1585,7 +1585,7 @@
   "upgArmL202": {
     "id": "upgArmL202",
     "label": "Psyk-Conductive Material",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL202.png",
     "crafted": false,
@@ -1594,7 +1594,7 @@
   "upgArmL203": {
     "id": "upgArmL203",
     "label": "Archeotech Remnant",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL203.png",
     "crafted": false,
@@ -1603,7 +1603,7 @@
   "upgArmL204": {
     "id": "upgArmL204",
     "label": "Ancient Alloy",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL204.png",
     "crafted": false,
@@ -1612,7 +1612,7 @@
   "upgArmL211C": {
     "id": "upgArmL211C",
     "label": "Monstrous Defences",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL211C.png",
     "crafted": true,
@@ -1634,7 +1634,7 @@
   "upgArmL212C": {
     "id": "upgArmL212C",
     "label": "Preternatural Defences",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL212C.png",
     "crafted": true,
@@ -1656,7 +1656,7 @@
   "upgArmL213C": {
     "id": "upgArmL213C",
     "label": "Superaugmented Defences",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL213C.png",
     "crafted": true,
@@ -1678,7 +1678,7 @@
   "upgArmL214C": {
     "id": "upgArmL214C",
     "label": "Technocrafted Defences",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmL214C.png",
     "crafted": true,
@@ -1700,7 +1700,7 @@
   "upgArmM211C": {
     "id": "upgArmM211C",
     "label": "Seal of Indomitability",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM211C.png",
     "crafted": true,
@@ -1722,7 +1722,7 @@
   "upgArmM212C": {
     "id": "upgArmM212C",
     "label": "Mutation: Impenetrable Skin",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM212C.png",
     "crafted": true,
@@ -1744,7 +1744,7 @@
   "upgArmM213C": {
     "id": "upgArmM213C",
     "label": "Magnificient Garment",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM213C.png",
     "crafted": true,
@@ -1766,7 +1766,7 @@
   "upgArmM214C": {
     "id": "upgArmM214C",
     "label": "Warforged Safeguard",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmM214C.png",
     "crafted": true,
@@ -1788,7 +1788,7 @@
   "upgArmR001C": {
     "id": "upgArmR001C",
     "label": "Blessed Purity Seal",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR001C.png",
     "crafted": true,
@@ -1810,7 +1810,7 @@
   "upgArmR002C": {
     "id": "upgArmR002C",
     "label": "Sophisticated Material Bar",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR002C.png",
     "crafted": true,
@@ -1828,7 +1828,7 @@
   "upgArmR003C": {
     "id": "upgArmR003C",
     "label": "Ceramite Bar",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR003C.png",
     "crafted": true,
@@ -1846,7 +1846,7 @@
   "upgArmR004C": {
     "id": "upgArmR004C",
     "label": "Mutation: Warped Skin",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR004C.png",
     "crafted": true,
@@ -1868,7 +1868,7 @@
   "upgArmR005": {
     "id": "upgArmR005",
     "label": "Artificer Tasset Plate",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR005.png",
     "crafted": false,
@@ -1877,7 +1877,7 @@
   "upgArmR006": {
     "id": "upgArmR006",
     "label": "Crate of Salvage",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR006.png",
     "crafted": false,
@@ -1886,7 +1886,7 @@
   "upgArmR007C": {
     "id": "upgArmR007C",
     "label": "Adamantium Bar",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR007C.png",
     "crafted": true,
@@ -1904,7 +1904,7 @@
   "upgArmR008C": {
     "id": "upgArmR008C",
     "label": "Sturdy Parts",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR008C.png",
     "crafted": true,
@@ -1922,7 +1922,7 @@
   "upgArmR009": {
     "id": "upgArmR009",
     "label": "Unnatural Vapour Dispenser",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR009.png",
     "crafted": false,
@@ -1931,7 +1931,7 @@
   "upgArmR010": {
     "id": "upgArmR010",
     "label": "Valuable Fabric",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR010.png",
     "crafted": false,
@@ -1940,7 +1940,7 @@
   "upgArmR012C": {
     "id": "upgArmR012C",
     "label": "Impressive Armor Trim",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR012C.png",
     "crafted": true,
@@ -1962,7 +1962,7 @@
   "upgArmR013C": {
     "id": "upgArmR013C",
     "label": "Fine Cloak",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR013C.png",
     "crafted": true,
@@ -1984,7 +1984,7 @@
   "upgArmR014C": {
     "id": "upgArmR014C",
     "label": "Mesh Weave Garment",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR014C.png",
     "crafted": true,
@@ -2006,7 +2006,7 @@
   "upgArmR015": {
     "id": "upgArmR015",
     "label": "Subdermal Plating",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR015.png",
     "crafted": false,
@@ -2015,7 +2015,7 @@
   "upgArmR021": {
     "id": "upgArmR021",
     "label": "Blessed Tabard",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR021.png",
     "crafted": false,
@@ -2024,7 +2024,7 @@
   "upgArmR022": {
     "id": "upgArmR022",
     "label": "Blessed Corset Armor",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR022.png",
     "crafted": false,
@@ -2033,7 +2033,7 @@
   "upgArmR023": {
     "id": "upgArmR023",
     "label": "Blasphemous Armor Trim",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR023.png",
     "crafted": false,
@@ -2042,7 +2042,7 @@
   "upgArmR025": {
     "id": "upgArmR025",
     "label": "Flak Plates",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR025.png",
     "crafted": false,
@@ -2051,7 +2051,7 @@
   "upgArmR026": {
     "id": "upgArmR026",
     "label": "'ard Plate",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR026.png",
     "crafted": false,
@@ -2060,7 +2060,7 @@
   "upgArmR027": {
     "id": "upgArmR027",
     "label": "Drone Controller",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR027.png",
     "crafted": false,
@@ -2069,7 +2069,7 @@
   "upgArmR028": {
     "id": "upgArmR028",
     "label": "Wraithbone Plate",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR028.png",
     "crafted": false,
@@ -2078,7 +2078,7 @@
   "upgArmR029": {
     "id": "upgArmR029",
     "label": "Ritual Implements",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR029.png",
     "crafted": false,
@@ -2087,7 +2087,7 @@
   "upgArmR031": {
     "id": "upgArmR031",
     "label": "Beast Hide",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR031.png",
     "crafted": false,
@@ -2096,7 +2096,7 @@
   "upgArmR032": {
     "id": "upgArmR032",
     "label": "Dark Hood",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR032.png",
     "crafted": false,
@@ -2105,7 +2105,7 @@
   "upgArmR033": {
     "id": "upgArmR033",
     "label": "Reinforced Chitin",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR033.png",
     "crafted": false,
@@ -2114,7 +2114,7 @@
   "upgArmR034": {
     "id": "upgArmR034",
     "label": "Cogwheel Crest",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR034.png",
     "crafted": false,
@@ -2123,7 +2123,7 @@
   "upgArmR035": {
     "id": "upgArmR035",
     "label": "Artisan Plating",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR035.png",
     "crafted": false,
@@ -2132,7 +2132,7 @@
   "upgArmR036": {
     "id": "upgArmR036",
     "label": "Industrial Padding",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR036.png",
     "crafted": false,
@@ -2141,7 +2141,7 @@
   "upgArmR037": {
     "id": "upgArmR037",
     "label": "Auramite Wing",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR037.png",
     "crafted": false,
@@ -2150,7 +2150,7 @@
   "upgArmR038": {
     "id": "upgArmR038",
     "label": "Cadaere Renissum",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR038.png",
     "crafted": false,
@@ -2159,7 +2159,7 @@
   "upgArmR039": {
     "id": "upgArmR039",
     "label": "Lavish Helmet Crest",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR039.png",
     "crafted": false,
@@ -2168,7 +2168,7 @@
   "upgArmR040": {
     "id": "upgArmR040",
     "label": "Void Armour Plating",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmR040.png",
     "crafted": false,
@@ -2177,7 +2177,7 @@
   "upgArmRCS": {
     "id": "upgArmRCS",
     "label": "Coming soon",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmRCS.png",
     "crafted": false,
@@ -2186,7 +2186,7 @@
   "upgArmU001": {
     "id": "upgArmU001",
     "label": "Oath Seal",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU001.png",
     "crafted": false,
@@ -2195,7 +2195,7 @@
   "upgArmU002": {
     "id": "upgArmU002",
     "label": "Box of Salvage",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU002.png",
     "crafted": false,
@@ -2204,7 +2204,7 @@
   "upgArmU003C": {
     "id": "upgArmU003C",
     "label": "Adamantium Lump",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU003C.png",
     "crafted": true,
@@ -2218,7 +2218,7 @@
   "upgArmU004C": {
     "id": "upgArmU004C",
     "label": "Sophisticated Material Ingot",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU004C.png",
     "crafted": true,
@@ -2232,7 +2232,7 @@
   "upgArmU005": {
     "id": "upgArmU005",
     "label": "Ceramite Lump",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU005.png",
     "crafted": false,
@@ -2241,7 +2241,7 @@
   "upgArmU006": {
     "id": "upgArmU006",
     "label": "Advanced Filaments",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU006.png",
     "crafted": false,
@@ -2250,7 +2250,7 @@
   "upgArmU007": {
     "id": "upgArmU007",
     "label": "Mutation: Scaly Skin",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU007.png",
     "crafted": false,
@@ -2259,7 +2259,7 @@
   "upgArmU008": {
     "id": "upgArmU008",
     "label": "Advanced Rebreather",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU008.png",
     "crafted": false,
@@ -2268,7 +2268,7 @@
   "upgArmU009": {
     "id": "upgArmU009",
     "label": "Blessed Tasset Plate",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU009.png",
     "crafted": false,
@@ -2277,7 +2277,7 @@
   "upgArmU010C": {
     "id": "upgArmU010C",
     "label": "Blessed Ceramite",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU010C.png",
     "crafted": true,
@@ -2291,7 +2291,7 @@
   "upgArmU012": {
     "id": "upgArmU012",
     "label": "Reinforced Scale-Plates",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU012.png",
     "crafted": false,
@@ -2300,7 +2300,7 @@
   "upgArmU012C": {
     "id": "upgArmU012C",
     "label": "Sturdy Pieces",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU012C.png",
     "crafted": true,
@@ -2314,7 +2314,7 @@
   "upgArmU013": {
     "id": "upgArmU013",
     "label": "Cloak",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU013.png",
     "crafted": false,
@@ -2323,7 +2323,7 @@
   "upgArmU014": {
     "id": "upgArmU014",
     "label": "Mesh Weave",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Armour",
     "iconFilename": "ui_icon_upgrade_upgArmU014.png",
     "crafted": false,
@@ -2332,7 +2332,7 @@
   "upgDmgC001": {
     "id": "upgDmgC001",
     "label": "Round of Ammo",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC001.png",
     "crafted": false,
@@ -2341,7 +2341,7 @@
   "upgDmgC002": {
     "id": "upgDmgC002",
     "label": "Frag Grenade",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC002.png",
     "crafted": false,
@@ -2350,7 +2350,7 @@
   "upgDmgC003": {
     "id": "upgDmgC003",
     "label": "Canister of Chemicals",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC003.png",
     "crafted": false,
@@ -2359,7 +2359,7 @@
   "upgDmgC004": {
     "id": "upgDmgC004",
     "label": "Can of Promethium",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC004.png",
     "crafted": false,
@@ -2368,7 +2368,7 @@
   "upgDmgC005": {
     "id": "upgDmgC005",
     "label": "Ballistics Data",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC005.png",
     "crafted": false,
@@ -2377,7 +2377,7 @@
   "upgDmgC006": {
     "id": "upgDmgC006",
     "label": "Lesser Reliquary of Vengeance",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC006.png",
     "crafted": false,
@@ -2386,7 +2386,7 @@
   "upgDmgC007": {
     "id": "upgDmgC007",
     "label": "Single Power Pack",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC007.png",
     "crafted": false,
@@ -2395,7 +2395,7 @@
   "upgDmgC008": {
     "id": "upgDmgC008",
     "label": "Otherworldly Energy",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC008.png",
     "crafted": false,
@@ -2404,7 +2404,7 @@
   "upgDmgC009": {
     "id": "upgDmgC009",
     "label": "Basic Auxiliary Core",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC009.png",
     "crafted": false,
@@ -2413,7 +2413,7 @@
   "upgDmgC010": {
     "id": "upgDmgC010",
     "label": "Auspex",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC010.png",
     "crafted": false,
@@ -2422,7 +2422,7 @@
   "upgDmgC011": {
     "id": "upgDmgC011",
     "label": "Weapon Anointment Oils",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC011.png",
     "crafted": false,
@@ -2431,7 +2431,7 @@
   "upgDmgC012": {
     "id": "upgDmgC012",
     "label": "Weapon parts",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC012.png",
     "crafted": false,
@@ -2440,7 +2440,7 @@
   "upgDmgC013": {
     "id": "upgDmgC013",
     "label": "Vox-Caster",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC013.png",
     "crafted": false,
@@ -2449,7 +2449,7 @@
   "upgDmgC014": {
     "id": "upgDmgC014",
     "label": "Nasty Spikes",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC014.png",
     "crafted": false,
@@ -2458,7 +2458,7 @@
   "upgDmgC015": {
     "id": "upgDmgC015",
     "label": "Targeting Link",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgC015.png",
     "crafted": false,
@@ -2467,7 +2467,7 @@
   "upgDmgCS": {
     "id": "upgDmgCS",
     "label": "Coming soon",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgCS.png",
     "crafted": false,
@@ -2476,7 +2476,7 @@
   "upgDmgE001": {
     "id": "upgDmgE001",
     "label": "Special Issue Ammo",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE001.png",
     "crafted": false,
@@ -2485,7 +2485,7 @@
   "upgDmgE002C": {
     "id": "upgDmgE002C",
     "label": "Belt of Krak Grenades",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE002C.png",
     "crafted": true,
@@ -2507,7 +2507,7 @@
   "upgDmgE003": {
     "id": "upgDmgE003",
     "label": "Blessed Promethium Canister",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE003.png",
     "crafted": false,
@@ -2516,7 +2516,7 @@
   "upgDmgE004": {
     "id": "upgDmgE004",
     "label": "Bionic Neural Pathways",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE004.png",
     "crafted": false,
@@ -2525,7 +2525,7 @@
   "upgDmgE005": {
     "id": "upgDmgE005",
     "label": "Greater Reliquary of Vengeance",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE005.png",
     "crafted": false,
@@ -2534,7 +2534,7 @@
   "upgDmgE006C": {
     "id": "upgDmgE006C",
     "label": "Anointed Micro-Generator",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE006C.png",
     "crafted": true,
@@ -2556,7 +2556,7 @@
   "upgDmgE007C": {
     "id": "upgDmgE007C",
     "label": "Plasma Cell Crate",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE007C.png",
     "crafted": true,
@@ -2578,7 +2578,7 @@
   "upgDmgE008C": {
     "id": "upgDmgE008C",
     "label": "Anointed Auxiliary Core",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE008C.png",
     "crafted": true,
@@ -2600,7 +2600,7 @@
   "upgDmgE009C": {
     "id": "upgDmgE009C",
     "label": "Refined Combat Stimms",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE009C.png",
     "crafted": true,
@@ -2622,7 +2622,7 @@
   "upgDmgE010": {
     "id": "upgDmgE010",
     "label": "Warp Locus",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE010.png",
     "crafted": false,
@@ -2631,7 +2631,7 @@
   "upgDmgE011": {
     "id": "upgDmgE011",
     "label": "Elaborate Hilt",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE011.png",
     "crafted": false,
@@ -2640,7 +2640,7 @@
   "upgDmgE021C": {
     "id": "upgDmgE021C",
     "label": "Chain of Righteous Zeal",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE021C.png",
     "crafted": true,
@@ -2654,7 +2654,7 @@
   "upgDmgE022C": {
     "id": "upgDmgE022C",
     "label": "Hymn of Sacrifice",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE022C.png",
     "crafted": true,
@@ -2668,7 +2668,7 @@
   "upgDmgE023C": {
     "id": "upgDmgE023C",
     "label": "Icon of Daemonic Vengeance",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE023C.png",
     "crafted": true,
@@ -2682,7 +2682,7 @@
   "upgDmgE024C": {
     "id": "upgDmgE024C",
     "label": "Sigil of Inevitable Decay",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE024C.png",
     "crafted": true,
@@ -2696,7 +2696,7 @@
   "upgDmgE025C": {
     "id": "upgDmgE025C",
     "label": "Veteran's Entrenching Tool",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE025C.png",
     "crafted": true,
@@ -2710,7 +2710,7 @@
   "upgDmgE026C": {
     "id": "upgDmgE026C",
     "label": "Brutal Iron Jaw",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE026C.png",
     "crafted": true,
@@ -2724,7 +2724,7 @@
   "upgDmgE027C": {
     "id": "upgDmgE027C",
     "label": "Advanced Sensor Suite",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE027C.png",
     "crafted": true,
@@ -2738,7 +2738,7 @@
   "upgDmgE028C": {
     "id": "upgDmgE028C",
     "label": "Filigrane Psytronome",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE028C.png",
     "crafted": true,
@@ -2752,7 +2752,7 @@
   "upgDmgE029C": {
     "id": "upgDmgE029C",
     "label": "Ensorcelled Infusion",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE029C.png",
     "crafted": true,
@@ -2766,7 +2766,7 @@
   "upgDmgE031C": {
     "id": "upgDmgE031C",
     "label": "Thunderwolf Tooth Necklace",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE031C.png",
     "crafted": true,
@@ -2780,7 +2780,7 @@
   "upgDmgE032C": {
     "id": "upgDmgE032C",
     "label": "Bolts of Judgement",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE032C.png",
     "crafted": true,
@@ -2794,7 +2794,7 @@
   "upgDmgE033C": {
     "id": "upgDmgE033C",
     "label": "Adaptive Toxin Sacs",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE033C.png",
     "crafted": true,
@@ -2808,7 +2808,7 @@
   "upgDmgE034C": {
     "id": "upgDmgE034C",
     "label": "Enhanced Motive Force Capacitator",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE034C.png",
     "crafted": true,
@@ -2822,7 +2822,7 @@
   "upgDmgE035C": {
     "id": "upgDmgE035C",
     "label": "Quake Bolts",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE035C.png",
     "crafted": true,
@@ -2836,7 +2836,7 @@
   "upgDmgE036C": {
     "id": "upgDmgE036C",
     "label": "Proclamation Caster",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE036C.png",
     "crafted": true,
@@ -2850,7 +2850,7 @@
   "upgDmgE037C": {
     "id": "upgDmgE037C",
     "label": "Embellished Bolt Feeder",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE037C.png",
     "crafted": true,
@@ -2864,7 +2864,7 @@
   "upgDmgE038C": {
     "id": "upgDmgE038C",
     "label": "Blessed Chainaxe Teeth",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE038C.png",
     "crafted": true,
@@ -2878,7 +2878,7 @@
   "upgDmgE039C": {
     "id": "upgDmgE039C",
     "label": "Sonic Greave Amplifier",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE039C.png",
     "crafted": true,
@@ -2892,7 +2892,7 @@
   "upgDmgE040C": {
     "id": "upgDmgE040C",
     "label": "ECog Scanner",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgE040C.png",
     "crafted": true,
@@ -2906,7 +2906,7 @@
   "upgDmgECS": {
     "id": "upgDmgECS",
     "label": "Coming soon",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgECS.png",
     "crafted": false,
@@ -2915,7 +2915,7 @@
   "upgDmgL001": {
     "id": "upgDmgL001",
     "label": "Master-crafted Ammo",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL001.png",
     "crafted": false,
@@ -2924,7 +2924,7 @@
   "upgDmgL002C": {
     "id": "upgDmgL002C",
     "label": "Blessed Promethium Tank",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL002C.png",
     "crafted": true,
@@ -2946,7 +2946,7 @@
   "upgDmgL003": {
     "id": "upgDmgL003",
     "label": "Archeotech Bionics",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL003.png",
     "crafted": false,
@@ -2955,7 +2955,7 @@
   "upgDmgL004C": {
     "id": "upgDmgL004C",
     "label": "Legendary Reliquary of Vengeance",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL004C.png",
     "crafted": true,
@@ -2977,7 +2977,7 @@
   "upgDmgL005C": {
     "id": "upgDmgL005C",
     "label": "Optimal Micro-Generator",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL005C.png",
     "crafted": true,
@@ -2995,7 +2995,7 @@
   "upgDmgL006C": {
     "id": "upgDmgL006C",
     "label": "Optimal Auxiliary Core",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL006C.png",
     "crafted": true,
@@ -3013,7 +3013,7 @@
   "upgDmgL007C": {
     "id": "upgDmgL007C",
     "label": "Autoloader",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL007C.png",
     "crafted": true,
@@ -3035,7 +3035,7 @@
   "upgDmgL008C": {
     "id": "upgDmgL008C",
     "label": "Powered Blade",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL008C.png",
     "crafted": true,
@@ -3057,7 +3057,7 @@
   "upgDmgL009C": {
     "id": "upgDmgL009C",
     "label": "Hyperstim",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL009C.png",
     "crafted": true,
@@ -3079,7 +3079,7 @@
   "upgDmgL010C": {
     "id": "upgDmgL010C",
     "label": "Psychic Focus",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL010C.png",
     "crafted": true,
@@ -3101,7 +3101,7 @@
   "upgDmgL012C": {
     "id": "upgDmgL012C",
     "label": "Plasma Coil",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL012C.png",
     "crafted": true,
@@ -3119,7 +3119,7 @@
   "upgDmgL015C": {
     "id": "upgDmgL015C",
     "label": "Digital Weapons",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL015C.png",
     "crafted": true,
@@ -3137,7 +3137,7 @@
   "upgDmgL016C": {
     "id": "upgDmgL016C",
     "label": "Imposing Horns",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL016C.png",
     "crafted": true,
@@ -3155,7 +3155,7 @@
   "upgDmgL017C": {
     "id": "upgDmgL017C",
     "label": "Overcapacitator",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL017C.png",
     "crafted": true,
@@ -3173,7 +3173,7 @@
   "upgDmgL021C": {
     "id": "upgDmgL021C",
     "label": "Chain of Zealous Wrath",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL021C.png",
     "crafted": true,
@@ -3191,7 +3191,7 @@
   "upgDmgL022C": {
     "id": "upgDmgL022C",
     "label": "Hymn of the Divine",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL022C.png",
     "crafted": true,
@@ -3209,7 +3209,7 @@
   "upgDmgL023C": {
     "id": "upgDmgL023C",
     "label": "Icon of Infernal Vengeance",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL023C.png",
     "crafted": true,
@@ -3227,7 +3227,7 @@
   "upgDmgL024C": {
     "id": "upgDmgL024C",
     "label": "Sigil of Eternal Decay",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL024C.png",
     "crafted": true,
@@ -3245,7 +3245,7 @@
   "upgDmgL025C": {
     "id": "upgDmgL025C",
     "label": "Heirloom Entrenching Tool",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL025C.png",
     "crafted": true,
@@ -3263,7 +3263,7 @@
   "upgDmgL026C": {
     "id": "upgDmgL026C",
     "label": "Ded Brutal Iron Jaw",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL026C.png",
     "crafted": true,
@@ -3281,7 +3281,7 @@
   "upgDmgL027C": {
     "id": "upgDmgL027C",
     "label": "Multi-Spectrum Sensor Suite",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL027C.png",
     "crafted": true,
@@ -3299,7 +3299,7 @@
   "upgDmgL028C": {
     "id": "upgDmgL028C",
     "label": "Soul-Bonded Psytronome",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL028C.png",
     "crafted": true,
@@ -3317,7 +3317,7 @@
   "upgDmgL029C": {
     "id": "upgDmgL029C",
     "label": "Warpflame Infusion",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL029C.png",
     "crafted": true,
@@ -3335,7 +3335,7 @@
   "upgDmgL030C": {
     "id": "upgDmgL030C",
     "label": "Extermination Protocols",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL030C.png",
     "crafted": true,
@@ -3353,7 +3353,7 @@
   "upgDmgL031C": {
     "id": "upgDmgL031C",
     "label": "Kraken Tooth Necklace",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL031C.png",
     "crafted": true,
@@ -3371,7 +3371,7 @@
   "upgDmgL032C": {
     "id": "upgDmgL032C",
     "label": "Bolts of Furious Vengeance",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL032C.png",
     "crafted": true,
@@ -3389,7 +3389,7 @@
   "upgDmgL033C": {
     "id": "upgDmgL033C",
     "label": "Hyper-Adaptive Toxin Sacs",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL033C.png",
     "crafted": true,
@@ -3407,7 +3407,7 @@
   "upgDmgL034C": {
     "id": "upgDmgL034C",
     "label": "Optimal Motive Force Capacitator",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL034C.png",
     "crafted": true,
@@ -3425,7 +3425,7 @@
   "upgDmgL035C": {
     "id": "upgDmgL035C",
     "label": "Decimator Bolts",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL035C.png",
     "crafted": true,
@@ -3443,7 +3443,7 @@
   "upgDmgL036C": {
     "id": "upgDmgL036C",
     "label": "Proclamation Hailer",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL036C.png",
     "crafted": true,
@@ -3461,7 +3461,7 @@
   "upgDmgL037C": {
     "id": "upgDmgL037C",
     "label": "Adorned Bolt Feeder",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL037C.png",
     "crafted": true,
@@ -3479,7 +3479,7 @@
   "upgDmgL038C": {
     "id": "upgDmgL038C",
     "label": "Exalted Chainaxe Teeth",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL038C.png",
     "crafted": true,
@@ -3497,7 +3497,7 @@
   "upgDmgL039C": {
     "id": "upgDmgL039C",
     "label": "Siren Amplifier",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL039C.png",
     "crafted": true,
@@ -3515,7 +3515,7 @@
   "upgDmgL040C": {
     "id": "upgDmgL040C",
     "label": "Panspectral Scanner",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL040C.png",
     "crafted": true,
@@ -3533,7 +3533,7 @@
   "upgDmgL120C": {
     "id": "upgDmgL120C",
     "label": "Hellfury Bolts",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL120C.png",
     "crafted": true,
@@ -3555,7 +3555,7 @@
   "upgDmgL121C": {
     "id": "upgDmgL121C",
     "label": "Witchseeker Bolts",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL121C.png",
     "crafted": true,
@@ -3577,7 +3577,7 @@
   "upgDmgL122C": {
     "id": "upgDmgL122C",
     "label": "Blessed Bolts",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL122C.png",
     "crafted": true,
@@ -3599,7 +3599,7 @@
   "upgDmgL123C": {
     "id": "upgDmgL123C",
     "label": "Daemon Shells",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL123C.png",
     "crafted": true,
@@ -3621,7 +3621,7 @@
   "upgDmgL124C": {
     "id": "upgDmgL124C",
     "label": "Virulent Rounds",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL124C.png",
     "crafted": true,
@@ -3643,7 +3643,7 @@
   "upgDmgL125C": {
     "id": "upgDmgL125C",
     "label": "Medallion Resolute",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL125C.png",
     "crafted": true,
@@ -3665,7 +3665,7 @@
   "upgDmgL126C": {
     "id": "upgDmgL126C",
     "label": "Snazzy Dakka",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL126C.png",
     "crafted": true,
@@ -3687,7 +3687,7 @@
   "upgDmgL127C": {
     "id": "upgDmgL127C",
     "label": "Target Lock",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL127C.png",
     "crafted": true,
@@ -3709,7 +3709,7 @@
   "upgDmgL128C": {
     "id": "upgDmgL128C",
     "label": "Scriptures of Battle",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL128C.png",
     "crafted": true,
@@ -3731,7 +3731,7 @@
   "upgDmgL129C": {
     "id": "upgDmgL129C",
     "label": "Boonstone",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL129C.png",
     "crafted": true,
@@ -3753,7 +3753,7 @@
   "upgDmgL130C": {
     "id": "upgDmgL130C",
     "label": "Molecular Vaporiser",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL130C.png",
     "crafted": true,
@@ -3775,7 +3775,7 @@
   "upgDmgL131C": {
     "id": "upgDmgL131C",
     "label": "Frostblade",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL131C.png",
     "crafted": true,
@@ -3797,7 +3797,7 @@
   "upgDmgL132C": {
     "id": "upgDmgL132C",
     "label": "Arbiter's Gaze",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL132C.png",
     "crafted": true,
@@ -3819,7 +3819,7 @@
   "upgDmgL133C": {
     "id": "upgDmgL133C",
     "label": "Implant Attack",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL133C.png",
     "crafted": true,
@@ -3841,7 +3841,7 @@
   "upgDmgL134C": {
     "id": "upgDmgL134C",
     "label": "Prehensile Dataspike",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL134C.png",
     "crafted": true,
@@ -3863,7 +3863,7 @@
   "upgDmgL135C": {
     "id": "upgDmgL135C",
     "label": "Archangel's Shard",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL135C.png",
     "crafted": true,
@@ -3885,7 +3885,7 @@
   "upgDmgL136C": {
     "id": "upgDmgL136C",
     "label": "Gene-twisted Muscle",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL136C.png",
     "crafted": true,
@@ -3907,7 +3907,7 @@
   "upgDmgL137C": {
     "id": "upgDmgL137C",
     "label": "Panoptispex",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL137C.png",
     "crafted": true,
@@ -3929,7 +3929,7 @@
   "upgDmgL138C": {
     "id": "upgDmgL138C",
     "label": "Butcher's Nails",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL138C.png",
     "crafted": true,
@@ -3951,7 +3951,7 @@
   "upgDmgL139C": {
     "id": "upgDmgL139C",
     "label": "Amplified Senses",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL139C.png",
     "crafted": true,
@@ -3973,7 +3973,7 @@
   "upgDmgL140C": {
     "id": "upgDmgL140C",
     "label": "Experimental Kin Technology",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL140C.png",
     "crafted": true,
@@ -3995,7 +3995,7 @@
   "upgDmgL202": {
     "id": "upgDmgL202",
     "label": "Psychic Force Conduit",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL202.png",
     "crafted": false,
@@ -4004,7 +4004,7 @@
   "upgDmgL204": {
     "id": "upgDmgL204",
     "label": "Ancient Power Cell",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL204.png",
     "crafted": false,
@@ -4013,7 +4013,7 @@
   "upgDmgL211C": {
     "id": "upgDmgL211C",
     "label": "Monstrous Strength",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL211C.png",
     "crafted": true,
@@ -4035,7 +4035,7 @@
   "upgDmgL212C": {
     "id": "upgDmgL212C",
     "label": "Preternatural Strength",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL212C.png",
     "crafted": true,
@@ -4057,7 +4057,7 @@
   "upgDmgL213C": {
     "id": "upgDmgL213C",
     "label": "Superaugmented Strength",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL213C.png",
     "crafted": true,
@@ -4079,7 +4079,7 @@
   "upgDmgL214C": {
     "id": "upgDmgL214C",
     "label": "Technocrafted Strength",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgL214C.png",
     "crafted": true,
@@ -4101,7 +4101,7 @@
   "upgDmgM211C": {
     "id": "upgDmgM211C",
     "label": "Arcane Substances",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM211C.png",
     "crafted": true,
@@ -4123,7 +4123,7 @@
   "upgDmgM212C": {
     "id": "upgDmgM212C",
     "label": "Sundering Talons",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM212C.png",
     "crafted": true,
@@ -4145,7 +4145,7 @@
   "upgDmgM213C": {
     "id": "upgDmgM213C",
     "label": "Ancient Weapon Augmentation",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM213C.png",
     "crafted": true,
@@ -4167,7 +4167,7 @@
   "upgDmgM214C": {
     "id": "upgDmgM214C",
     "label": "Ancient Power Source",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgM214C.png",
     "crafted": true,
@@ -4189,7 +4189,7 @@
   "upgDmgR001C": {
     "id": "upgDmgR001C",
     "label": "Box of Ammo",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR001C.png",
     "crafted": true,
@@ -4207,7 +4207,7 @@
   "upgDmgR002": {
     "id": "upgDmgR002",
     "label": "Krak Grenade",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR002.png",
     "crafted": false,
@@ -4216,7 +4216,7 @@
   "upgDmgR003": {
     "id": "upgDmgR003",
     "label": "Tank of Promethium",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR003.png",
     "crafted": false,
@@ -4225,7 +4225,7 @@
   "upgDmgR004C": {
     "id": "upgDmgR004C",
     "label": "Plasma Cell Bundle",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR004C.png",
     "crafted": true,
@@ -4243,7 +4243,7 @@
   "upgDmgR005": {
     "id": "upgDmgR005",
     "label": "Classified Data-slate",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR005.png",
     "crafted": false,
@@ -4252,7 +4252,7 @@
   "upgDmgR006": {
     "id": "upgDmgR006",
     "label": "Bionic Eye",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR006.png",
     "crafted": false,
@@ -4261,7 +4261,7 @@
   "upgDmgR007": {
     "id": "upgDmgR007",
     "label": "Bladesman's Honour",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR007.png",
     "crafted": false,
@@ -4270,7 +4270,7 @@
   "upgDmgR008C": {
     "id": "upgDmgR008C",
     "label": "High-capacity Power Pack",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR008C.png",
     "crafted": true,
@@ -4288,7 +4288,7 @@
   "upgDmgR009": {
     "id": "upgDmgR009",
     "label": "Viridian Energy Tesseract",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR009.png",
     "crafted": false,
@@ -4297,7 +4297,7 @@
   "upgDmgR010C": {
     "id": "upgDmgR010C",
     "label": "Powerful Micro-Generator",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR010C.png",
     "crafted": true,
@@ -4319,7 +4319,7 @@
   "upgDmgR011C": {
     "id": "upgDmgR011C",
     "label": "Powerful Auxiliary Core",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR011C.png",
     "crafted": true,
@@ -4341,7 +4341,7 @@
   "upgDmgR012C": {
     "id": "upgDmgR012C",
     "label": "Advanced Combat Stimms",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR012C.png",
     "crafted": true,
@@ -4359,7 +4359,7 @@
   "upgDmgR015C": {
     "id": "upgDmgR015C",
     "label": "Sanctified Weapon Oils",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR015C.png",
     "crafted": true,
@@ -4377,7 +4377,7 @@
   "upgDmgR016C": {
     "id": "upgDmgR016C",
     "label": "Murderous Spikes",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR016C.png",
     "crafted": true,
@@ -4395,7 +4395,7 @@
   "upgDmgR017C": {
     "id": "upgDmgR017C",
     "label": "Ratiocination Targeting",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR017C.png",
     "crafted": true,
@@ -4413,7 +4413,7 @@
   "upgDmgR021": {
     "id": "upgDmgR021",
     "label": "Chain of Zeal",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR021.png",
     "crafted": false,
@@ -4422,7 +4422,7 @@
   "upgDmgR022": {
     "id": "upgDmgR022",
     "label": "Hymn of Martyrs",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR022.png",
     "crafted": false,
@@ -4431,7 +4431,7 @@
   "upgDmgR023": {
     "id": "upgDmgR023",
     "label": "Icon of Vengeance",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR023.png",
     "crafted": false,
@@ -4440,7 +4440,7 @@
   "upgDmgR024": {
     "id": "upgDmgR024",
     "label": "Sigil of Decay",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR024.png",
     "crafted": false,
@@ -4449,7 +4449,7 @@
   "upgDmgR025": {
     "id": "upgDmgR025",
     "label": "Entrenching Tool",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR025.png",
     "crafted": false,
@@ -4458,7 +4458,7 @@
   "upgDmgR026": {
     "id": "upgDmgR026",
     "label": "Iron Jaw",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR026.png",
     "crafted": false,
@@ -4467,7 +4467,7 @@
   "upgDmgR027": {
     "id": "upgDmgR027",
     "label": "Sensor Suite",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR027.png",
     "crafted": false,
@@ -4476,7 +4476,7 @@
   "upgDmgR028": {
     "id": "upgDmgR028",
     "label": "Psytronome",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR028.png",
     "crafted": false,
@@ -4485,7 +4485,7 @@
   "upgDmgR029": {
     "id": "upgDmgR029",
     "label": "Inferno Bolts",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR029.png",
     "crafted": false,
@@ -4494,7 +4494,7 @@
   "upgDmgR031": {
     "id": "upgDmgR031",
     "label": "Wolf Tooth Necklace",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR031.png",
     "crafted": false,
@@ -4503,7 +4503,7 @@
   "upgDmgR032": {
     "id": "upgDmgR032",
     "label": "Chapter Pendant",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR032.png",
     "crafted": false,
@@ -4512,7 +4512,7 @@
   "upgDmgR033": {
     "id": "upgDmgR033",
     "label": "Toxin Sacs",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR033.png",
     "crafted": false,
@@ -4521,7 +4521,7 @@
   "upgDmgR034": {
     "id": "upgDmgR034",
     "label": "Motive Force Capacitator",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR034.png",
     "crafted": false,
@@ -4530,7 +4530,7 @@
   "upgDmgR035": {
     "id": "upgDmgR035",
     "label": "Blood Shard Bolt",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR035.png",
     "crafted": false,
@@ -4539,7 +4539,7 @@
   "upgDmgR036": {
     "id": "upgDmgR036",
     "label": "Proclamation Receiver",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR036.png",
     "crafted": false,
@@ -4548,7 +4548,7 @@
   "upgDmgR037": {
     "id": "upgDmgR037",
     "label": "Integrated Bolt Feeder",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR037.png",
     "crafted": false,
@@ -4557,7 +4557,7 @@
   "upgDmgR038": {
     "id": "upgDmgR038",
     "label": "Chainaxe Teeth",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR038.png",
     "crafted": false,
@@ -4566,7 +4566,7 @@
   "upgDmgR039": {
     "id": "upgDmgR039",
     "label": "Vox Grill Amplifier",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR039.png",
     "crafted": false,
@@ -4575,7 +4575,7 @@
   "upgDmgR040": {
     "id": "upgDmgR040",
     "label": "Personel Scanner",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR040.png",
     "crafted": false,
@@ -4584,7 +4584,7 @@
   "upgDmgR13C": {
     "id": "upgDmgR13C",
     "label": "Prey-Sight",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR13C.png",
     "crafted": true,
@@ -4606,7 +4606,7 @@
   "upgDmgR14C": {
     "id": "upgDmgR14C",
     "label": "Supernatural Sight",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgR14C.png",
     "crafted": true,
@@ -4628,7 +4628,7 @@
   "upgDmgRCS": {
     "id": "upgDmgRCS",
     "label": "Coming soon",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgRCS.png",
     "crafted": false,
@@ -4637,7 +4637,7 @@
   "upgDmgU001C": {
     "id": "upgDmgU001C",
     "label": "Magazine",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU001C.png",
     "crafted": true,
@@ -4651,7 +4651,7 @@
   "upgDmgU002C": {
     "id": "upgDmgU002C",
     "label": "Belt of Frag Grenades",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU002C.png",
     "crafted": true,
@@ -4665,7 +4665,7 @@
   "upgDmgU003": {
     "id": "upgDmgU003",
     "label": "Barrel of Promethium",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU003.png",
     "crafted": false,
@@ -4674,7 +4674,7 @@
   "upgDmgU004": {
     "id": "upgDmgU004",
     "label": "Attack Vector Data-slate",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU004.png",
     "crafted": false,
@@ -4683,7 +4683,7 @@
   "upgDmgU005": {
     "id": "upgDmgU005",
     "label": "Reliquary of Vengeance",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU005.png",
     "crafted": false,
@@ -4692,7 +4692,7 @@
   "upgDmgU006": {
     "id": "upgDmgU006",
     "label": "Marksman's Honour",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU006.png",
     "crafted": false,
@@ -4701,7 +4701,7 @@
   "upgDmgU007C": {
     "id": "upgDmgU007C",
     "label": "Power Pack Bundle",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU007C.png",
     "crafted": true,
@@ -4715,7 +4715,7 @@
   "upgDmgU008C": {
     "id": "upgDmgU008C",
     "label": "Otherworldly Energy Reservoir",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU008C.png",
     "crafted": true,
@@ -4729,7 +4729,7 @@
   "upgDmgU009": {
     "id": "upgDmgU009",
     "label": "Plasma Cell",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU009.png",
     "crafted": false,
@@ -4738,7 +4738,7 @@
   "upgDmgU010": {
     "id": "upgDmgU010",
     "label": "Fine Micro-Generator",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU010.png",
     "crafted": false,
@@ -4747,7 +4747,7 @@
   "upgDmgU011": {
     "id": "upgDmgU011",
     "label": "Divinator Class Auspex",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU011.png",
     "crafted": false,
@@ -4756,7 +4756,7 @@
   "upgDmgU012": {
     "id": "upgDmgU012",
     "label": "Locator Beacon",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU012.png",
     "crafted": false,
@@ -4765,7 +4765,7 @@
   "upgDmgU013C": {
     "id": "upgDmgU013C",
     "label": "Fine Auxiliary Core",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU013C.png",
     "crafted": true,
@@ -4779,7 +4779,7 @@
   "upgDmgU014": {
     "id": "upgDmgU014",
     "label": "Combat Stimms",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU014.png",
     "crafted": false,
@@ -4788,7 +4788,7 @@
   "upgDmgU015C": {
     "id": "upgDmgU015C",
     "label": "Blessed Weapon Oils",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU015C.png",
     "crafted": true,
@@ -4806,7 +4806,7 @@
   "upgDmgU016C": {
     "id": "upgDmgU016C",
     "label": "Razor-sharp Spikes",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU016C.png",
     "crafted": true,
@@ -4824,7 +4824,7 @@
   "upgDmgU017C": {
     "id": "upgDmgU017C",
     "label": "Targeting Matrix",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU017C.png",
     "crafted": true,
@@ -4842,7 +4842,7 @@
   "upgDmgU018C": {
     "id": "upgDmgU018C",
     "label": "Adamantium Blades",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU018C.png",
     "crafted": true,
@@ -4860,7 +4860,7 @@
   "upgDmgU019": {
     "id": "upgDmgU019",
     "label": "Slicing Claws",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Damage",
     "iconFilename": "ui_icon_upgrade_upgDmgU019.png",
     "crafted": false,
@@ -4869,7 +4869,7 @@
   "upgHpC001": {
     "id": "upgHpC001",
     "label": "Field Ration",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC001.png",
     "crafted": false,
@@ -4878,7 +4878,7 @@
   "upgHpC002": {
     "id": "upgHpC002",
     "label": "Minor Bionic Enhancement",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC002.png",
     "crafted": false,
@@ -4887,7 +4887,7 @@
   "upgHpC003": {
     "id": "upgHpC003",
     "label": "Lesser Reliquary of Protection",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC003.png",
     "crafted": false,
@@ -4896,7 +4896,7 @@
   "upgHpC004": {
     "id": "upgHpC004",
     "label": "The Iron Phoenix",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC004.png",
     "crafted": false,
@@ -4905,7 +4905,7 @@
   "upgHpC005": {
     "id": "upgHpC005",
     "label": "The Silver Aquila",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC005.png",
     "crafted": false,
@@ -4914,7 +4914,7 @@
   "upgHpC006": {
     "id": "upgHpC006",
     "label": "Standard-Issue Tourniquet",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC006.png",
     "crafted": false,
@@ -4923,7 +4923,7 @@
   "upgHpC007": {
     "id": "upgHpC007",
     "label": "Healing Ointment",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC007.png",
     "crafted": false,
@@ -4932,7 +4932,7 @@
   "upgHpC008": {
     "id": "upgHpC008",
     "label": "Thick Skin",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC008.png",
     "crafted": false,
@@ -4941,7 +4941,7 @@
   "upgHpC009": {
     "id": "upgHpC009",
     "label": "Nano Swarm",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC009.png",
     "crafted": false,
@@ -4950,7 +4950,7 @@
   "upgHpC010": {
     "id": "upgHpC010",
     "label": "Mutation: Warped Muscles",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC010.png",
     "crafted": false,
@@ -4959,7 +4959,7 @@
   "upgHpC013": {
     "id": "upgHpC013",
     "label": "Chip Damage",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC013.png",
     "crafted": false,
@@ -4968,7 +4968,7 @@
   "upgHpC014": {
     "id": "upgHpC014",
     "label": "Wires",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC014.png",
     "crafted": false,
@@ -4977,7 +4977,7 @@
   "upgHpC015": {
     "id": "upgHpC015",
     "label": "Ropes and Chains",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC015.png",
     "crafted": false,
@@ -4986,7 +4986,7 @@
   "upgHpC016": {
     "id": "upgHpC016",
     "label": "Scrolls",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC016.png",
     "crafted": false,
@@ -4995,7 +4995,7 @@
   "upgHpC017": {
     "id": "upgHpC017",
     "label": "Mission Assignment",
-    "rarity": 0,
+    "rarity": "Common",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpC017.png",
     "crafted": false,
@@ -5004,7 +5004,7 @@
   "upgHpCS": {
     "id": "upgHpCS",
     "label": "Coming soon",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpCS.png",
     "crafted": false,
@@ -5013,7 +5013,7 @@
   "upgHpE001C": {
     "id": "upgHpE001C",
     "label": "Advanced Bionics",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE001C.png",
     "crafted": true,
@@ -5035,7 +5035,7 @@
   "upgHpE002C": {
     "id": "upgHpE002C",
     "label": "Greater Reliquary of Protection",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE002C.png",
     "crafted": true,
@@ -5057,7 +5057,7 @@
   "upgHpE003": {
     "id": "upgHpE003",
     "label": "Terminator Honours",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE003.png",
     "crafted": false,
@@ -5066,7 +5066,7 @@
   "upgHpE004C": {
     "id": "upgHpE004C",
     "label": "Necrodermis Nano Scarab Swarm",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE004C.png",
     "crafted": true,
@@ -5088,7 +5088,7 @@
   "upgHpE005C": {
     "id": "upgHpE005C",
     "label": "Nob Teef",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE005C.png",
     "crafted": true,
@@ -5102,7 +5102,7 @@
   "upgHpE006C": {
     "id": "upgHpE006C",
     "label": "Exquisite Medical Supplies",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE006C.png",
     "crafted": true,
@@ -5124,7 +5124,7 @@
   "upgHpE007C": {
     "id": "upgHpE007C",
     "label": "Grand Helmet Trophy",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE007C.png",
     "crafted": true,
@@ -5146,7 +5146,7 @@
   "upgHpE008C": {
     "id": "upgHpE008C",
     "label": "Mutation: Regenerative Blood",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE008C.png",
     "crafted": true,
@@ -5168,7 +5168,7 @@
   "upgHpE009C": {
     "id": "upgHpE009C",
     "label": "Resurrection Protocols",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE009C.png",
     "crafted": true,
@@ -5182,7 +5182,7 @@
   "upgHpE011C": {
     "id": "upgHpE011C",
     "label": "Royal Phylactery",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE011C.png",
     "crafted": true,
@@ -5196,7 +5196,7 @@
   "upgHpE012": {
     "id": "upgHpE012",
     "label": "Golden Ornamental Skull",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE012.png",
     "crafted": false,
@@ -5205,7 +5205,7 @@
   "upgHpE013C": {
     "id": "upgHpE013C",
     "label": "Exospine",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE013C.png",
     "crafted": true,
@@ -5227,7 +5227,7 @@
   "upgHpE014C": {
     "id": "upgHpE014C",
     "label": "Ominous Xenos Glyphs",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE014C.png",
     "crafted": true,
@@ -5249,7 +5249,7 @@
   "upgHpE015": {
     "id": "upgHpE015",
     "label": "Weathering",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE015.png",
     "crafted": false,
@@ -5258,7 +5258,7 @@
   "upgHpE017": {
     "id": "upgHpE017",
     "label": "Secret Agenda",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE017.png",
     "crafted": false,
@@ -5267,7 +5267,7 @@
   "upgHpE021C": {
     "id": "upgHpE021C",
     "label": "Lights of Purgation",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE021C.png",
     "crafted": true,
@@ -5281,7 +5281,7 @@
   "upgHpE022C": {
     "id": "upgHpE022C",
     "label": "Roses of Sacrifice",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE022C.png",
     "crafted": true,
@@ -5295,7 +5295,7 @@
   "upgHpE023C": {
     "id": "upgHpE023C",
     "label": "Warp Touched Eye of Horus",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE023C.png",
     "crafted": true,
@@ -5309,7 +5309,7 @@
   "upgHpE024C": {
     "id": "upgHpE024C",
     "label": "Death Bell",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE024C.png",
     "crafted": true,
@@ -5323,7 +5323,7 @@
   "upgHpE025C": {
     "id": "upgHpE025C",
     "label": "Epaulettes",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE025C.png",
     "crafted": true,
@@ -5337,7 +5337,7 @@
   "upgHpE027C": {
     "id": "upgHpE027C",
     "label": "Advanced Stimm Injector",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE027C.png",
     "crafted": true,
@@ -5351,7 +5351,7 @@
   "upgHpE028C": {
     "id": "upgHpE028C",
     "label": "Spirit Stone",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE028C.png",
     "crafted": true,
@@ -5365,7 +5365,7 @@
   "upgHpE029C": {
     "id": "upgHpE029C",
     "label": "Malefic Scroll",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE029C.png",
     "crafted": true,
@@ -5379,7 +5379,7 @@
   "upgHpE031C": {
     "id": "upgHpE031C",
     "label": "Runic Talisman",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE031C.png",
     "crafted": true,
@@ -5393,7 +5393,7 @@
   "upgHpE032C": {
     "id": "upgHpE032C",
     "label": "Key of Knowledge",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE032C.png",
     "crafted": true,
@@ -5407,7 +5407,7 @@
   "upgHpE033C": {
     "id": "upgHpE033C",
     "label": "Adaptive Adrenal Glands",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE033C.png",
     "crafted": true,
@@ -5421,7 +5421,7 @@
   "upgHpE034C": {
     "id": "upgHpE034C",
     "label": "Servo-Arc Claw",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE034C.png",
     "crafted": true,
@@ -5435,7 +5435,7 @@
   "upgHpE035C": {
     "id": "upgHpE035C",
     "label": "Bloodstone Pendant",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE035C.png",
     "crafted": true,
@@ -5449,7 +5449,7 @@
   "upgHpE036C": {
     "id": "upgHpE036C",
     "label": "Wyrm-form Icon",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE036C.png",
     "crafted": true,
@@ -5463,7 +5463,7 @@
   "upgHpE037C": {
     "id": "upgHpE037C",
     "label": "Flawless Gem Embellishment",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE037C.png",
     "crafted": true,
@@ -5477,7 +5477,7 @@
   "upgHpE038C": {
     "id": "upgHpE038C",
     "label": "Blessed Brazen Jaws",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE038C.png",
     "crafted": true,
@@ -5491,7 +5491,7 @@
   "upgHpE039C": {
     "id": "upgHpE039C",
     "label": "Outrageous Adornment",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE039C.png",
     "crafted": true,
@@ -5505,7 +5505,7 @@
   "upgHpE040C": {
     "id": "upgHpE040C",
     "label": "Champion Wavefield Crest",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpE040C.png",
     "crafted": true,
@@ -5519,7 +5519,7 @@
   "upgHpECS": {
     "id": "upgHpECS",
     "label": "Coming soon",
-    "rarity": 3,
+    "rarity": "Epic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpECS.png",
     "crafted": false,
@@ -5528,7 +5528,7 @@
   "upgHpL001C": {
     "id": "upgHpL001C",
     "label": "Optimal Bionic Enhancement",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL001C.png",
     "crafted": true,
@@ -5550,7 +5550,7 @@
   "upgHpL002C": {
     "id": "upgHpL002C",
     "label": "Legendary Reliquary of Protection",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL002C.png",
     "crafted": true,
@@ -5572,7 +5572,7 @@
   "upgHpL005C": {
     "id": "upgHpL005C",
     "label": "Ancient Nano Scarab Swarm",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL005C.png",
     "crafted": true,
@@ -5590,7 +5590,7 @@
   "upgHpL006C": {
     "id": "upgHpL006C",
     "label": "Shiny Boss Teef",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL006C.png",
     "crafted": true,
@@ -5608,7 +5608,7 @@
   "upgHpL007C": {
     "id": "upgHpL007C",
     "label": "Protocol of the Eternal Guardian",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL007C.png",
     "crafted": true,
@@ -5626,7 +5626,7 @@
   "upgHpL008C": {
     "id": "upgHpL008C",
     "label": "Phylacterine Hive",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL008C.png",
     "crafted": true,
@@ -5648,7 +5648,7 @@
   "upgHpL009C": {
     "id": "upgHpL009C",
     "label": "Grandiose Skull Ornament",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL009C.png",
     "crafted": true,
@@ -5670,7 +5670,7 @@
   "upgHpL010": {
     "id": "upgHpL010",
     "label": "Engrammatic Entangler",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL010.png",
     "crafted": false,
@@ -5679,7 +5679,7 @@
   "upgHpL011C": {
     "id": "upgHpL011C",
     "label": "Tome of Arcane Knowledge",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL011C.png",
     "crafted": true,
@@ -5701,7 +5701,7 @@
   "upgHpL012C": {
     "id": "upgHpL012C",
     "label": "Mutation: Otherworldly Power",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL012C.png",
     "crafted": true,
@@ -5723,7 +5723,7 @@
   "upgHpL013C": {
     "id": "upgHpL013C",
     "label": "Advanced Exospine",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL013C.png",
     "crafted": true,
@@ -5745,7 +5745,7 @@
   "upgHpL014C": {
     "id": "upgHpL014C",
     "label": "Portentous Xenos Glyphs",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL014C.png",
     "crafted": true,
@@ -5767,7 +5767,7 @@
   "upgHpL017C": {
     "id": "upgHpL017C",
     "label": "Grand Strategy",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL017C.png",
     "crafted": true,
@@ -5789,7 +5789,7 @@
   "upgHpL021C": {
     "id": "upgHpL021C",
     "label": "Candelabrum of Burning Wrath",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL021C.png",
     "crafted": true,
@@ -5807,7 +5807,7 @@
   "upgHpL022C": {
     "id": "upgHpL022C",
     "label": "Roses of the Divine",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL022C.png",
     "crafted": true,
@@ -5825,7 +5825,7 @@
   "upgHpL023C": {
     "id": "upgHpL023C",
     "label": "Infernal Eye of Horus",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL023C.png",
     "crafted": true,
@@ -5843,7 +5843,7 @@
   "upgHpL024C": {
     "id": "upgHpL024C",
     "label": "Bell of Despair",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL024C.png",
     "crafted": true,
@@ -5861,7 +5861,7 @@
   "upgHpL025C": {
     "id": "upgHpL025C",
     "label": "Epaulettes of Renown",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL025C.png",
     "crafted": true,
@@ -5879,7 +5879,7 @@
   "upgHpL027C": {
     "id": "upgHpL027C",
     "label": "Auto-Reactive Stimm Injector",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL027C.png",
     "crafted": true,
@@ -5897,7 +5897,7 @@
   "upgHpL028C": {
     "id": "upgHpL028C",
     "label": "Resplendent Spirit Stone",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL028C.png",
     "crafted": true,
@@ -5915,7 +5915,7 @@
   "upgHpL029C": {
     "id": "upgHpL029C",
     "label": "Athenaean Scroll",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL029C.png",
     "crafted": true,
@@ -5933,7 +5933,7 @@
   "upgHpL031C": {
     "id": "upgHpL031C",
     "label": "Talisman of Storms",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL031C.png",
     "crafted": true,
@@ -5951,7 +5951,7 @@
   "upgHpL032C": {
     "id": "upgHpL032C",
     "label": "Key of Achrabael",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL032C.png",
     "crafted": true,
@@ -5969,7 +5969,7 @@
   "upgHpL033C": {
     "id": "upgHpL033C",
     "label": "Hyper-Adaptive Adrenal Glands",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL033C.png",
     "crafted": true,
@@ -5987,7 +5987,7 @@
   "upgHpL034C": {
     "id": "upgHpL034C",
     "label": "Mechadendrite Hive",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL034C.png",
     "crafted": true,
@@ -6005,7 +6005,7 @@
   "upgHpL035C": {
     "id": "upgHpL035C",
     "label": "Bloodstone Icon",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL035C.png",
     "crafted": true,
@@ -6023,7 +6023,7 @@
   "upgHpL036C": {
     "id": "upgHpL036C",
     "label": "Wyrm-form Banner",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL036C.png",
     "crafted": true,
@@ -6041,7 +6041,7 @@
   "upgHpL037C": {
     "id": "upgHpL037C",
     "label": "Flawless Gem Adornment",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL037C.png",
     "crafted": true,
@@ -6059,7 +6059,7 @@
   "upgHpL038C": {
     "id": "upgHpL038C",
     "label": "Exalted Brazen Jaws",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL038C.png",
     "crafted": true,
@@ -6077,7 +6077,7 @@
   "upgHpL039C": {
     "id": "upgHpL039C",
     "label": "Outrageous Grimace",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL039C.png",
     "crafted": true,
@@ -6095,7 +6095,7 @@
   "upgHpL040C": {
     "id": "upgHpL040C",
     "label": "Ancestor Ward Crest",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL040C.png",
     "crafted": true,
@@ -6113,7 +6113,7 @@
   "upgHpL099": {
     "id": "upgHpL099",
     "label": "Cyberstimm Infusion",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL099.png",
     "crafted": false,
@@ -6122,7 +6122,7 @@
   "upgHpL100": {
     "id": "upgHpL100",
     "label": "Codex Astartes Page",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL100.png",
     "crafted": false,
@@ -6131,7 +6131,7 @@
   "upgHpL101": {
     "id": "upgHpL101",
     "label": "Bones of the Paragons",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL101.png",
     "crafted": false,
@@ -6140,7 +6140,7 @@
   "upgHpL102": {
     "id": "upgHpL102",
     "label": "Holy Chaplet",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL102.png",
     "crafted": false,
@@ -6149,7 +6149,7 @@
   "upgHpL103": {
     "id": "upgHpL103",
     "label": "Boon of the Dark Gods",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL103.png",
     "crafted": false,
@@ -6158,7 +6158,7 @@
   "upgHpL104": {
     "id": "upgHpL104",
     "label": "Boon of Nurgle",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL104.png",
     "crafted": false,
@@ -6167,7 +6167,7 @@
   "upgHpL105": {
     "id": "upgHpL105",
     "label": "Honourifica Imperialis",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL105.png",
     "crafted": false,
@@ -6176,7 +6176,7 @@
   "upgHpL106": {
     "id": "upgHpL106",
     "label": "Kustom Gubbinz",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL106.png",
     "crafted": false,
@@ -6185,7 +6185,7 @@
   "upgHpL107": {
     "id": "upgHpL107",
     "label": "Engram Neurochip",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL107.png",
     "crafted": false,
@@ -6194,7 +6194,7 @@
   "upgHpL108": {
     "id": "upgHpL108",
     "label": "Runes of Fate",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL108.png",
     "crafted": false,
@@ -6203,7 +6203,7 @@
   "upgHpL109": {
     "id": "upgHpL109",
     "label": "Boon of Tzeentch",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL109.png",
     "crafted": false,
@@ -6212,7 +6212,7 @@
   "upgHpL111": {
     "id": "upgHpL111",
     "label": "Mjød",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL111.png",
     "crafted": false,
@@ -6221,7 +6221,7 @@
   "upgHpL112": {
     "id": "upgHpL112",
     "label": "Stone Guardian Fragment",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL112.png",
     "crafted": false,
@@ -6230,7 +6230,7 @@
   "upgHpL113": {
     "id": "upgHpL113",
     "label": "Synaptic Augmentation",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL113.png",
     "crafted": false,
@@ -6239,7 +6239,7 @@
   "upgHpL114": {
     "id": "upgHpL114",
     "label": "Blessed Cogitator",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL114.png",
     "crafted": false,
@@ -6248,7 +6248,7 @@
   "upgHpL115": {
     "id": "upgHpL115",
     "label": "Blood Vial",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL115.png",
     "crafted": false,
@@ -6257,7 +6257,7 @@
   "upgHpL116": {
     "id": "upgHpL116",
     "label": "Gifts of the Star Children",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL116.png",
     "crafted": false,
@@ -6266,7 +6266,7 @@
   "upgHpL117": {
     "id": "upgHpL117",
     "label": "Arcane Genetic Alchemy",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL117.png",
     "crafted": false,
@@ -6275,7 +6275,7 @@
   "upgHpL118": {
     "id": "upgHpL118",
     "label": "Boon of Khorne",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL118.png",
     "crafted": false,
@@ -6284,7 +6284,7 @@
   "upgHpL119": {
     "id": "upgHpL119",
     "label": "Boon of Slaanesh",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL119.png",
     "crafted": false,
@@ -6293,7 +6293,7 @@
   "upgHpL120C": {
     "id": "upgHpL120C",
     "label": "Codex Astartes",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL120C.png",
     "crafted": true,
@@ -6315,7 +6315,7 @@
   "upgHpL121C": {
     "id": "upgHpL121C",
     "label": "Tännhauser's Bones",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL121C.png",
     "crafted": true,
@@ -6337,7 +6337,7 @@
   "upgHpL122C": {
     "id": "upgHpL122C",
     "label": "Simulacrum Sanctorum",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL122C.png",
     "crafted": true,
@@ -6359,7 +6359,7 @@
   "upgHpL123C": {
     "id": "upgHpL123C",
     "label": "Mark of Chaos Undivided",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL123C.png",
     "crafted": true,
@@ -6381,7 +6381,7 @@
   "upgHpL124C": {
     "id": "upgHpL124C",
     "label": "Mark of Nurgle",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL124C.png",
     "crafted": true,
@@ -6403,7 +6403,7 @@
   "upgHpL125C": {
     "id": "upgHpL125C",
     "label": "Sash of Honors",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL125C.png",
     "crafted": true,
@@ -6425,7 +6425,7 @@
   "upgHpL126C": {
     "id": "upgHpL126C",
     "label": "Cybork Body Parts",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL126C.png",
     "crafted": true,
@@ -6447,7 +6447,7 @@
   "upgHpL127C": {
     "id": "upgHpL127C",
     "label": "Ta'lissera Bond",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL127C.png",
     "crafted": true,
@@ -6469,7 +6469,7 @@
   "upgHpL128C": {
     "id": "upgHpL128C",
     "label": "Scriptures of Fate",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL128C.png",
     "crafted": true,
@@ -6491,7 +6491,7 @@
   "upgHpL129C": {
     "id": "upgHpL129C",
     "label": "Mark of Tzeentch",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL129C.png",
     "crafted": true,
@@ -6513,7 +6513,7 @@
   "upgHpL131C": {
     "id": "upgHpL131C",
     "label": "Personal Saga",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL131C.png",
     "crafted": true,
@@ -6535,7 +6535,7 @@
   "upgHpL132C": {
     "id": "upgHpL132C",
     "label": "Perfidious Relic of the Unforgiven",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL132C.png",
     "crafted": true,
@@ -6557,7 +6557,7 @@
   "upgHpL133C": {
     "id": "upgHpL133C",
     "label": "Hypermetabolic Acceleration",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL133C.png",
     "crafted": true,
@@ -6579,7 +6579,7 @@
   "upgHpL134C": {
     "id": "upgHpL134C",
     "label": "Sanctus Canister",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL134C.png",
     "crafted": true,
@@ -6601,7 +6601,7 @@
   "upgHpL135C": {
     "id": "upgHpL135C",
     "label": "Icon of the Angel",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL135C.png",
     "crafted": true,
@@ -6623,7 +6623,7 @@
   "upgHpL136C": {
     "id": "upgHpL136C",
     "label": "Biomorph Adaption",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL136C.png",
     "crafted": true,
@@ -6645,7 +6645,7 @@
   "upgHpL137C": {
     "id": "upgHpL137C",
     "label": "Defensor Refractor Generator",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL137C.png",
     "crafted": true,
@@ -6667,7 +6667,7 @@
   "upgHpL138C": {
     "id": "upgHpL138C",
     "label": "Mark of Khorne",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL138C.png",
     "crafted": true,
@@ -6689,7 +6689,7 @@
   "upgHpL139C": {
     "id": "upgHpL139C",
     "label": "Mark of Slaanesh",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL139C.png",
     "crafted": true,
@@ -6711,7 +6711,7 @@
   "upgHpL140C": {
     "id": "upgHpL140C",
     "label": "Foregewrought Maintainers Kit",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL140C.png",
     "crafted": true,
@@ -6733,7 +6733,7 @@
   "upgHpL211C": {
     "id": "upgHpL211C",
     "label": "Monstrous Constitution",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL211C.png",
     "crafted": true,
@@ -6755,7 +6755,7 @@
   "upgHpL212C": {
     "id": "upgHpL212C",
     "label": "Preternatural Constitution",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL212C.png",
     "crafted": true,
@@ -6777,7 +6777,7 @@
   "upgHpL213C": {
     "id": "upgHpL213C",
     "label": "Superaugmented Constitution",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL213C.png",
     "crafted": true,
@@ -6799,7 +6799,7 @@
   "upgHpL214C": {
     "id": "upgHpL214C",
     "label": "Technocrafted Constitution",
-    "rarity": 4,
+    "rarity": "Legendary",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpL214C.png",
     "crafted": true,
@@ -6821,7 +6821,7 @@
   "upgHpM001": {
     "id": "upgHpM001",
     "label": "Imperial Aquila",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM001.png",
     "crafted": false,
@@ -6830,7 +6830,7 @@
   "upgHpM002": {
     "id": "upgHpM002",
     "label": "Mutant Form",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM002.png",
     "crafted": false,
@@ -6839,7 +6839,7 @@
   "upgHpM003": {
     "id": "upgHpM003",
     "label": "Ancient Inscription",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM003.png",
     "crafted": false,
@@ -6848,7 +6848,7 @@
   "upgHpM004": {
     "id": "upgHpM004",
     "label": "Venerable Battle Mark",
-    "rarity": 5,
+    "rarity": "Mythic",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpM004.png",
     "crafted": false,
@@ -6857,7 +6857,7 @@
   "upgHpR001": {
     "id": "upgHpR001",
     "label": "Repair Tool",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR001.png",
     "crafted": false,
@@ -6866,7 +6866,7 @@
   "upgHpR002": {
     "id": "upgHpR002",
     "label": "Metal Decorative Skull",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR002.png",
     "crafted": false,
@@ -6875,7 +6875,7 @@
   "upgHpR003C": {
     "id": "upgHpR003C",
     "label": "Box of Rations",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR003C.png",
     "crafted": true,
@@ -6893,7 +6893,7 @@
   "upgHpR004C": {
     "id": "upgHpR004C",
     "label": "Refined Bionics",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR004C.png",
     "crafted": true,
@@ -6911,7 +6911,7 @@
   "upgHpR005": {
     "id": "upgHpR005",
     "label": "The Phoenix Ascendant",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR005.png",
     "crafted": false,
@@ -6920,7 +6920,7 @@
   "upgHpR006C": {
     "id": "upgHpR006C",
     "label": "Medical Supply Crate",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR006C.png",
     "crafted": true,
@@ -6938,7 +6938,7 @@
   "upgHpR007": {
     "id": "upgHpR007",
     "label": "Zeidos Ribbon",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR007.png",
     "crafted": false,
@@ -6947,7 +6947,7 @@
   "upgHpR008": {
     "id": "upgHpR008",
     "label": "Mutation: Warped Heart",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR008.png",
     "crafted": false,
@@ -6956,7 +6956,7 @@
   "upgHpR009C": {
     "id": "upgHpR009C",
     "label": "Otherworldly Nano Swarm",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR009C.png",
     "crafted": true,
@@ -6974,7 +6974,7 @@
   "upgHpR010": {
     "id": "upgHpR010",
     "label": "Bad Moon Teef",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR010.png",
     "crafted": false,
@@ -6983,7 +6983,7 @@
   "upgHpR011": {
     "id": "upgHpR011",
     "label": "Reconstitution Protocols",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR011.png",
     "crafted": false,
@@ -6992,7 +6992,7 @@
   "upgHpR012C": {
     "id": "upgHpR012C",
     "label": "Electromantic Cable Bundle",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR012C.png",
     "crafted": true,
@@ -7010,7 +7010,7 @@
   "upgHpR013C": {
     "id": "upgHpR013C",
     "label": "Utilitarian Belt",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR013C.png",
     "crafted": true,
@@ -7028,7 +7028,7 @@
   "upgHpR014": {
     "id": "upgHpR014",
     "label": "Ancient Runes",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR014.png",
     "crafted": false,
@@ -7037,7 +7037,7 @@
   "upgHpR015C": {
     "id": "upgHpR015C",
     "label": "Grand Skull Trophy",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR015C.png",
     "crafted": true,
@@ -7059,7 +7059,7 @@
   "upgHpR016C": {
     "id": "upgHpR016C",
     "label": "Grandiloquent Litanical",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR016C.png",
     "crafted": true,
@@ -7081,7 +7081,7 @@
   "upgHpR017C": {
     "id": "upgHpR017C",
     "label": "Battle Plan",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR017C.png",
     "crafted": true,
@@ -7099,7 +7099,7 @@
   "upgHpR018": {
     "id": "upgHpR018",
     "label": "Kill Count",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR018.png",
     "crafted": false,
@@ -7108,7 +7108,7 @@
   "upgHpR019": {
     "id": "upgHpR019",
     "label": "Battle Scar",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR019.png",
     "crafted": false,
@@ -7117,7 +7117,7 @@
   "upgHpR020C": {
     "id": "upgHpR020C",
     "label": "Sanctified Reliquary of Protection",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR020C.png",
     "crafted": true,
@@ -7135,7 +7135,7 @@
   "upgHpR021": {
     "id": "upgHpR021",
     "label": "Righteous Candle",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR021.png",
     "crafted": false,
@@ -7144,7 +7144,7 @@
   "upgHpR022": {
     "id": "upgHpR022",
     "label": "Rose of Martyrs",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR022.png",
     "crafted": false,
@@ -7153,7 +7153,7 @@
   "upgHpR023": {
     "id": "upgHpR023",
     "label": "Eye of Horus",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR023.png",
     "crafted": false,
@@ -7162,7 +7162,7 @@
   "upgHpR024": {
     "id": "upgHpR024",
     "label": "Plague Bell",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR024.png",
     "crafted": false,
@@ -7171,7 +7171,7 @@
   "upgHpR027": {
     "id": "upgHpR027",
     "label": "Stimm Injector",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR027.png",
     "crafted": false,
@@ -7180,7 +7180,7 @@
   "upgHpR028": {
     "id": "upgHpR028",
     "label": "Waystone",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR028.png",
     "crafted": false,
@@ -7189,7 +7189,7 @@
   "upgHpR029": {
     "id": "upgHpR029",
     "label": "Tainted Text",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR029.png",
     "crafted": false,
@@ -7198,7 +7198,7 @@
   "upgHpR031": {
     "id": "upgHpR031",
     "label": "Wolf Tail Talisman",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR031.png",
     "crafted": false,
@@ -7207,7 +7207,7 @@
   "upgHpR032": {
     "id": "upgHpR032",
     "label": "Key of Ignorance",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR032.png",
     "crafted": false,
@@ -7216,7 +7216,7 @@
   "upgHpR033": {
     "id": "upgHpR033",
     "label": "Adrenal Glands",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR033.png",
     "crafted": false,
@@ -7225,7 +7225,7 @@
   "upgHpR035": {
     "id": "upgHpR035",
     "label": "Bloodstone Tear",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR035.png",
     "crafted": false,
@@ -7234,7 +7234,7 @@
   "upgHpR036": {
     "id": "upgHpR036",
     "label": "Wyrm-form Sigil",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR036.png",
     "crafted": false,
@@ -7243,7 +7243,7 @@
   "upgHpR037": {
     "id": "upgHpR037",
     "label": "Flawless Terran Gem",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR037.png",
     "crafted": false,
@@ -7252,7 +7252,7 @@
   "upgHpR038": {
     "id": "upgHpR038",
     "label": "Brazen Jaws",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR038.png",
     "crafted": false,
@@ -7261,7 +7261,7 @@
   "upgHpR039": {
     "id": "upgHpR039",
     "label": "Outrageous Padding",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR039.png",
     "crafted": false,
@@ -7270,7 +7270,7 @@
   "upgHpR040": {
     "id": "upgHpR040",
     "label": "Kindred Wavefield Crest",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpR040.png",
     "crafted": false,
@@ -7279,7 +7279,7 @@
   "upgHpRCS": {
     "id": "upgHpRCS",
     "label": "Coming soon",
-    "rarity": 2,
+    "rarity": "Rare",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpRCS.png",
     "crafted": false,
@@ -7288,7 +7288,7 @@
   "upgHpU001": {
     "id": "upgHpU001",
     "label": "Enriched Rations",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU001.png",
     "crafted": false,
@@ -7297,7 +7297,7 @@
   "upgHpU002": {
     "id": "upgHpU002",
     "label": "Reliquary of Protection",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU002.png",
     "crafted": false,
@@ -7306,7 +7306,7 @@
   "upgHpU003": {
     "id": "upgHpU003",
     "label": "The Silver Scope",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU003.png",
     "crafted": false,
@@ -7315,7 +7315,7 @@
   "upgHpU004C": {
     "id": "upgHpU004C",
     "label": "Bionic Enhancement",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU004C.png",
     "crafted": true,
@@ -7329,7 +7329,7 @@
   "upgHpU005C": {
     "id": "upgHpU005C",
     "label": "First Aid Kit",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU005C.png",
     "crafted": true,
@@ -7343,7 +7343,7 @@
   "upgHpU006": {
     "id": "upgHpU006",
     "label": "The Gold Phoenix",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU006.png",
     "crafted": false,
@@ -7352,7 +7352,7 @@
   "upgHpU007": {
     "id": "upgHpU007",
     "label": "Purifier",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU007.png",
     "crafted": false,
@@ -7361,7 +7361,7 @@
   "upgHpU008": {
     "id": "upgHpU008",
     "label": "The Silver Eagle with Swords",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU008.png",
     "crafted": false,
@@ -7370,7 +7370,7 @@
   "upgHpU009": {
     "id": "upgHpU009",
     "label": "Mutation: Warped Lungs",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU009.png",
     "crafted": false,
@@ -7379,7 +7379,7 @@
   "upgHpU010C": {
     "id": "upgHpU010C",
     "label": "Regenerating Nano Swarm",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU010C.png",
     "crafted": true,
@@ -7393,7 +7393,7 @@
   "upgHpU012": {
     "id": "upgHpU012",
     "label": "Helmet Trophy",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU012.png",
     "crafted": false,
@@ -7402,7 +7402,7 @@
   "upgHpU013": {
     "id": "upgHpU013",
     "label": "Artificial Vertebrae",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU013.png",
     "crafted": false,
@@ -7411,7 +7411,7 @@
   "upgHpU014": {
     "id": "upgHpU014",
     "label": "Reinforced Cables",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU014.png",
     "crafted": false,
@@ -7420,7 +7420,7 @@
   "upgHpU015": {
     "id": "upgHpU015",
     "label": "Satchel",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU015.png",
     "crafted": false,
@@ -7429,7 +7429,7 @@
   "upgHpU016": {
     "id": "upgHpU016",
     "label": "Writings",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU016.png",
     "crafted": false,
@@ -7438,7 +7438,7 @@
   "upgHpU017": {
     "id": "upgHpU017",
     "label": "Mission Objective",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU017.png",
     "crafted": false,
@@ -7447,7 +7447,7 @@
   "upgHpU018C": {
     "id": "upgHpU018C",
     "label": "Holster and Pockets",
-    "rarity": 1,
+    "rarity": "Uncommon",
     "stat": "Health",
     "iconFilename": "ui_icon_upgrade_upgHpU018C.png",
     "crafted": true,

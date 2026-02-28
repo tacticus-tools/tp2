@@ -1,4 +1,5 @@
-import { Rank, Rarity } from "./constants.ts";
+import type { Rarity } from "#common/rarity.ts";
+import { Rank } from "./constants.ts";
 
 export const rankToString: Record<Rank, string> = {
 	[Rank.Locked]: "",
@@ -51,27 +52,27 @@ export const rankToLevel: Record<number, number> = {
 	[Rank.Adamantine3]: 65,
 };
 
-export const rankToRarity: Record<number, Rarity> = {
-	[Rank.Locked]: 0,
-	[Rank.Stone1]: Rarity.Common,
-	[Rank.Stone2]: Rarity.Common,
-	[Rank.Stone3]: Rarity.Common,
-	[Rank.Iron1]: Rarity.Common,
-	[Rank.Iron2]: Rarity.Uncommon,
-	[Rank.Iron3]: Rarity.Uncommon,
-	[Rank.Bronze1]: Rarity.Uncommon,
-	[Rank.Bronze2]: Rarity.Rare,
-	[Rank.Bronze3]: Rarity.Rare,
-	[Rank.Silver1]: Rarity.Rare,
-	[Rank.Silver2]: Rarity.Epic,
-	[Rank.Silver3]: Rarity.Epic,
-	[Rank.Gold1]: Rarity.Epic,
-	[Rank.Gold2]: Rarity.Legendary,
-	[Rank.Gold3]: Rarity.Legendary,
-	[Rank.Diamond1]: Rarity.Legendary,
-	[Rank.Diamond2]: Rarity.Legendary,
-	[Rank.Diamond3]: Rarity.Legendary,
-	[Rank.Adamantine1]: Rarity.Mythic,
-	[Rank.Adamantine2]: Rarity.Mythic,
-	[Rank.Adamantine3]: Rarity.Mythic,
+export const rankToRarity: Record<number, Rarity | "Locked"> = {
+	[Rank.Locked]: "Locked",
+	[Rank.Stone1]: "Common",
+	[Rank.Stone2]: "Common",
+	[Rank.Stone3]: "Common",
+	[Rank.Iron1]: "Common",
+	[Rank.Iron2]: "Uncommon",
+	[Rank.Iron3]: "Uncommon",
+	[Rank.Bronze1]: "Uncommon",
+	[Rank.Bronze2]: "Rare",
+	[Rank.Bronze3]: "Rare",
+	[Rank.Silver1]: "Rare",
+	[Rank.Silver2]: "Epic",
+	[Rank.Silver3]: "Epic",
+	[Rank.Gold1]: "Epic",
+	[Rank.Gold2]: "Legendary",
+	[Rank.Gold3]: "Legendary",
+	[Rank.Diamond1]: "Legendary",
+	[Rank.Diamond2]: "Legendary",
+	[Rank.Diamond3]: "Legendary",
+	[Rank.Adamantine1]: "Mythic",
+	[Rank.Adamantine2]: "Mythic",
+	[Rank.Adamantine3]: "Mythic",
 };

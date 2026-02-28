@@ -1,5 +1,6 @@
 import { Zap } from "lucide-react";
 import { useCallback, useId } from "react";
+import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { Input } from "@/1-components/ui/input.tsx";
 import { Label } from "@/1-components/ui/label.tsx";
 import {
@@ -22,7 +23,7 @@ import {
 	CAMPAIGN_EVENT_LABELS,
 	HSE_LABELS,
 } from "@/4-lib/general/campaign-events.ts";
-import type { CampaignType, RarityString } from "@/4-lib/general/constants.ts";
+import type { CampaignType } from "@/4-lib/general/constants.ts";
 
 interface GoalSettingsFormProps {
 	detectedCampaignEvent: CampaignEventType;
@@ -35,15 +36,6 @@ const CAMPAIGN_TYPE_ROWS: { type: CampaignType; label: string }[] = [
 	{ type: "Standard", label: "Standard CE" },
 	{ type: "Mirror", label: "Mirror" },
 	{ type: "Normal", label: "Normal" },
-];
-
-const RARITY_COLUMNS: RarityString[] = [
-	"Mythic",
-	"Legendary",
-	"Epic",
-	"Rare",
-	"Uncommon",
-	"Common",
 ];
 
 const ENERGY_PRESETS = [
@@ -81,7 +73,7 @@ export function GoalSettingsForm({
 	} = useGoalPreferencesStore();
 
 	const toggleCustomSelection = useCallback(
-		(rarity: RarityString, campaignType: CampaignType) => {
+		(rarity: Rarity, campaignType: CampaignType) => {
 			const current = customFarmSelections[rarity] ?? [];
 			const next = current.includes(campaignType)
 				? current.filter((t) => t !== campaignType)
@@ -289,7 +281,7 @@ function CustomFarmSelectionsGrid({
 	onToggle,
 }: {
 	selections: CustomFarmSelections;
-	onToggle: (rarity: RarityString, campaignType: CampaignType) => void;
+	onToggle: (rarity: Rarity, campaignType: CampaignType) => void;
 }) {
 	return (
 		<div className="space-y-2">
@@ -299,7 +291,7 @@ function CustomFarmSelectionsGrid({
 					<thead>
 						<tr className="border-b border-border bg-muted/30">
 							<th className="px-2 py-1.5 text-left font-medium text-muted-foreground" />
-							{RARITY_COLUMNS.map((rarity) => (
+							{RARITIES.map((rarity) => (
 								<th
 									key={rarity}
 									className="px-1 py-1.5 text-center font-medium text-muted-foreground"
@@ -318,10 +310,10 @@ function CustomFarmSelectionsGrid({
 								<td className="px-2 py-1 whitespace-nowrap text-muted-foreground">
 									{row.label}
 								</td>
-								{RARITY_COLUMNS.map((rarity) => {
+								{RARITIES.map((rarity) => {
 									const checked = (selections[rarity] ?? []).includes(row.type);
 									return (
-										<td key={rarity} className="px-1 py-1 text-center">
+										<td key={rarity} className="p-1 text-center">
 											<input
 												type="checkbox"
 												checked={checked}

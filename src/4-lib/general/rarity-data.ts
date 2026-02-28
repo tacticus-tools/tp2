@@ -1,57 +1,49 @@
-import { Rank, Rarity, RarityStars, RarityString } from "./constants.ts";
+import { RARITIES, type Rarity } from "#common/rarity.ts";
+import { Rank, RarityStars } from "./constants.ts";
 
 export const rarityToStars: Record<Rarity, RarityStars> = {
-	[Rarity.Common]: RarityStars.None,
-	[Rarity.Uncommon]: RarityStars.TwoStars,
-	[Rarity.Rare]: RarityStars.FourStars,
-	[Rarity.Epic]: RarityStars.RedOneStar,
-	[Rarity.Legendary]: RarityStars.RedThreeStars,
-	[Rarity.Mythic]: RarityStars.OneBlueStar,
+	Common: RarityStars.None,
+	Uncommon: RarityStars.TwoStars,
+	Rare: RarityStars.FourStars,
+	Epic: RarityStars.RedOneStar,
+	Legendary: RarityStars.RedThreeStars,
+	Mythic: RarityStars.OneBlueStar,
 };
 
 export const rarityToMaxStars: Record<Rarity, RarityStars> = {
-	[Rarity.Common]: RarityStars.TwoStars,
-	[Rarity.Uncommon]: RarityStars.FourStars,
-	[Rarity.Rare]: RarityStars.RedOneStar,
-	[Rarity.Epic]: RarityStars.RedThreeStars,
-	[Rarity.Legendary]: RarityStars.OneBlueStar,
-	[Rarity.Mythic]: RarityStars.MythicWings,
+	Common: RarityStars.TwoStars,
+	Uncommon: RarityStars.FourStars,
+	Rare: RarityStars.RedOneStar,
+	Epic: RarityStars.RedThreeStars,
+	Legendary: RarityStars.OneBlueStar,
+	Mythic: RarityStars.MythicWings,
 };
 
 export const rarityToMaxRank: Record<Rarity, Rank> = {
-	[Rarity.Common]: Rank.Iron1,
-	[Rarity.Uncommon]: Rank.Bronze1,
-	[Rarity.Rare]: Rank.Silver1,
-	[Rarity.Epic]: Rank.Gold1,
-	[Rarity.Legendary]: Rank.Diamond3,
-	[Rarity.Mythic]: Rank.Adamantine1,
+	Common: Rank.Iron1,
+	Uncommon: Rank.Bronze1,
+	Rare: Rank.Silver1,
+	Epic: Rank.Gold1,
+	Legendary: Rank.Diamond3,
+	Mythic: Rank.Adamantine1,
 };
 
-export const rarityStringToNumber: Record<RarityString, Rarity> = {
-	[RarityString.Common]: Rarity.Common,
-	[RarityString.Uncommon]: Rarity.Uncommon,
-	[RarityString.Rare]: Rarity.Rare,
-	[RarityString.Epic]: Rarity.Epic,
-	[RarityString.Legendary]: Rarity.Legendary,
-	[RarityString.Mythic]: Rarity.Mythic,
-};
-
-export function getRarityFromLevel(level: number): Rarity {
-	if (level <= 8) return Rarity.Common;
-	if (level <= 17) return Rarity.Uncommon;
-	if (level <= 26) return Rarity.Rare;
-	if (level <= 35) return Rarity.Epic;
-	if (level <= 50) return Rarity.Legendary;
-	return Rarity.Mythic;
+export function getRarityFromLevel(level: number) {
+	if (level <= 8) return "Common";
+	if (level <= 17) return "Uncommon";
+	if (level <= 26) return "Rare";
+	if (level <= 35) return "Epic";
+	if (level <= 50) return "Legendary";
+	return "Mythic";
 }
 
 export const charsUnlockShards: Record<Rarity, number> = {
-	[Rarity.Common]: 40,
-	[Rarity.Uncommon]: 80,
-	[Rarity.Rare]: 130,
-	[Rarity.Epic]: 250,
-	[Rarity.Legendary]: 500,
-	[Rarity.Mythic]: 1400,
+	Common: 40,
+	Uncommon: 80,
+	Rare: 130,
+	Epic: 250,
+	Legendary: 500,
+	Mythic: 1400,
 };
 
 export interface ICharProgression {
@@ -66,73 +58,72 @@ export interface ICharProgression {
  * Each entry describes the cost (shards, mythicShards, orbs) to reach that star level.
  */
 export const charsProgression: Record<number, ICharProgression> = {
-	[Rarity.Common + RarityStars.None]: { shards: 0 },
-	[Rarity.Common + RarityStars.OneStar]: { shards: 10 },
-	[Rarity.Common + RarityStars.TwoStars]: { shards: 15 },
-	[Rarity.Uncommon + RarityStars.TwoStars]: {
+	[RARITIES.indexOf("Common") + RarityStars.None]: { shards: 0 },
+	[RARITIES.indexOf("Common") + RarityStars.OneStar]: { shards: 10 },
+	[RARITIES.indexOf("Common") + RarityStars.TwoStars]: { shards: 15 },
+	[RARITIES.indexOf("Uncommon") + RarityStars.TwoStars]: {
 		shards: 15,
 		orbs: 10,
-		rarity: Rarity.Uncommon,
+		rarity: "Uncommon",
 	},
-
-	[Rarity.Uncommon + RarityStars.ThreeStars]: { shards: 15 },
-	[Rarity.Uncommon + RarityStars.FourStars]: { shards: 15 },
-	[Rarity.Rare + RarityStars.FourStars]: {
+	[RARITIES.indexOf("Uncommon") + RarityStars.ThreeStars]: { shards: 15 },
+	[RARITIES.indexOf("Uncommon") + RarityStars.FourStars]: { shards: 15 },
+	[RARITIES.indexOf("Rare") + RarityStars.FourStars]: {
 		shards: 20,
 		orbs: 10,
-		rarity: Rarity.Rare,
+		rarity: "Rare",
 	},
 
-	[Rarity.Rare + RarityStars.FiveStars]: { shards: 30 },
-	[Rarity.Rare + RarityStars.RedOneStar]: { shards: 40 },
-	[Rarity.Epic + RarityStars.RedOneStar]: {
+	[RARITIES.indexOf("Rare") + RarityStars.FiveStars]: { shards: 30 },
+	[RARITIES.indexOf("Rare") + RarityStars.RedOneStar]: { shards: 40 },
+	[RARITIES.indexOf("Epic") + RarityStars.RedOneStar]: {
 		shards: 50,
 		orbs: 10,
-		rarity: Rarity.Epic,
+		rarity: "Epic",
 	},
 
-	[Rarity.Epic + RarityStars.RedTwoStars]: { shards: 65 },
-	[Rarity.Epic + RarityStars.RedThreeStars]: { shards: 85 },
-	[Rarity.Legendary + RarityStars.RedThreeStars]: {
+	[RARITIES.indexOf("Epic") + RarityStars.RedTwoStars]: { shards: 65 },
+	[RARITIES.indexOf("Epic") + RarityStars.RedThreeStars]: { shards: 85 },
+	[RARITIES.indexOf("Legendary") + RarityStars.RedThreeStars]: {
 		shards: 100,
 		orbs: 10,
-		rarity: Rarity.Legendary,
+		rarity: "Legendary",
 	},
 
-	[Rarity.Legendary + RarityStars.RedFourStars]: {
+	[RARITIES.indexOf("Legendary") + RarityStars.RedFourStars]: {
 		shards: 150,
 		orbs: 10,
-		rarity: Rarity.Legendary,
+		rarity: "Legendary",
 	},
-	[Rarity.Legendary + RarityStars.RedFiveStars]: {
+	[RARITIES.indexOf("Legendary") + RarityStars.RedFiveStars]: {
 		shards: 250,
 		orbs: 15,
-		rarity: Rarity.Legendary,
+		rarity: "Legendary",
 	},
-	[Rarity.Legendary + RarityStars.OneBlueStar]: {
+	[RARITIES.indexOf("Legendary") + RarityStars.OneBlueStar]: {
 		shards: 500,
 		orbs: 20,
-		rarity: Rarity.Legendary,
+		rarity: "Legendary",
 	},
-	[Rarity.Mythic + RarityStars.OneBlueStar]: {
+	[RARITIES.indexOf("Mythic") + RarityStars.OneBlueStar]: {
 		mythicShards: 20,
 		orbs: 10,
-		rarity: Rarity.Mythic,
+		rarity: "Mythic",
 	},
 
-	[Rarity.Mythic + RarityStars.TwoBlueStars]: {
+	[RARITIES.indexOf("Mythic") + RarityStars.TwoBlueStars]: {
 		mythicShards: 30,
 		orbs: 10,
-		rarity: Rarity.Mythic,
+		rarity: "Mythic",
 	},
-	[Rarity.Mythic + RarityStars.ThreeBlueStars]: {
+	[RARITIES.indexOf("Mythic") + RarityStars.ThreeBlueStars]: {
 		mythicShards: 50,
 		orbs: 15,
-		rarity: Rarity.Mythic,
+		rarity: "Mythic",
 	},
-	[Rarity.Mythic + RarityStars.MythicWings]: {
+	[RARITIES.indexOf("Mythic") + RarityStars.MythicWings]: {
 		mythicShards: 100,
 		orbs: 20,
-		rarity: Rarity.Mythic,
+		rarity: "Mythic",
 	},
 };

@@ -1,3 +1,4 @@
+import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { getShardLocations } from "../campaign-data.ts";
 import {
 	type CampaignEventType,
@@ -7,7 +8,6 @@ import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
 import type {
 	Campaign,
 	CampaignsLocationsUsage,
-	Rarity,
 	RarityStars,
 } from "../constants.ts";
 import { charsProgression, charsUnlockShards } from "../rarity-data.ts";
@@ -38,8 +38,8 @@ export function getShardsNeeded(
 ): { shards: number; mythicShards: number } {
 	let totalShards = 0;
 	let totalMythicShards = 0;
-	const startKey = startRarity + startStars;
-	const endKey = endRarity + endStars;
+	const startKey = RARITIES.indexOf(startRarity) + startStars;
+	const endKey = RARITIES.indexOf(endRarity) + endStars;
 
 	for (const [keyStr, cost] of Object.entries(charsProgression)) {
 		const key = Number(keyStr);

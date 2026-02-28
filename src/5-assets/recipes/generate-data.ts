@@ -11,39 +11,18 @@
 import fs from "node:fs";
 import { join } from "node:path";
 
-const RARITY_TO_NUMBER: Record<string, number> = {
-	Common: 0,
-	Uncommon: 1,
-	Rare: 2,
-	Epic: 3,
-	Legendary: 4,
-	Mythic: 5,
+import MATERIALS_DATA from "../materials/data.generated.json" with {
+	type: "json",
 };
 
-interface RawMaterial {
-	id: string;
-	name: string;
-	rarity: string;
-	stat: string;
-	iconFilename: string;
-	recipe: Array<{ id: string; count: number }> | null;
-}
-
 export const main = () => {
-	const materialsData: Record<string, RawMaterial> = JSON.parse(
-		fs.readFileSync(
-			join(import.meta.dirname, "..", "materials", "data.generated.json"),
-			"utf-8",
-		),
-	);
-
 	// Build processed materials with numeric rarity
 	const processed: Record<
 		string,
 		{
 			id: string;
 			label: string;
-			rarity: number;
+			rarity: string;
 			stat: string;
 			iconFilename: string;
 			crafted: boolean;
@@ -51,19 +30,13 @@ export const main = () => {
 		}
 	> = {};
 
-	for (const [id, mat] of Object.entries(materialsData)) {
-		const rarity = RARITY_TO_NUMBER[mat.rarity];
-		if (rarity === undefined) {
-			throw new Error(
-				`Unknown rarity "${mat.rarity}" for material "${id}". Add it to RARITY_TO_NUMBER.`,
-			);
-		}
+	for (const [id, mat] of Object.entries(MATERIALS_DATA)) {
 		const crafted = mat.recipe != null && mat.recipe.length > 0;
 
 		processed[id] = {
 			id: mat.id,
 			label: mat.name,
-			rarity,
+			rarity: mat.rarity,
 			stat: mat.stat,
 			iconFilename: mat.iconFilename,
 			crafted,

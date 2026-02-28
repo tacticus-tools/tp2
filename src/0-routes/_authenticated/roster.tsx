@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation } from "convex/react";
 import { useCallback, useMemo, useRef, useState } from "react";
+import type { Alliance } from "#common/alliance.ts";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
 import { RosterGrid } from "@/1-components/roster/RosterGrid.tsx";
 import { ShareRosterDialog } from "@/1-components/roster/ShareRosterDialog.tsx";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
-import type { Alliance } from "@/4-lib/general/constants.ts";
 import {
 	enrichRoster,
 	filterRoster,

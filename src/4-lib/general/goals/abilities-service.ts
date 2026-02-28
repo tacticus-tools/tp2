@@ -1,8 +1,9 @@
+import type { Alliance } from "#common/alliance.ts";
+import { RARITIES, type Rarity } from "#common/rarity.ts";
 import {
 	BADGES_PER_LEVEL,
 	GOLD_PER_LEVEL,
 } from "@/5-assets/ability-costs/index.ts";
-import type { Alliance, Rarity } from "../constants.ts";
 import { getRarityFromLevel } from "../rarity-data.ts";
 
 export interface IAbilitiesMaterialsTotal {
@@ -12,7 +13,7 @@ export interface IAbilitiesMaterialsTotal {
 }
 
 function createEmptyRarityRecord(): Record<Rarity, number> {
-	return { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+	return { Common: 0, Uncommon: 0, Rare: 0, Epic: 0, Legendary: 0, Mythic: 0 };
 }
 
 /**
@@ -53,7 +54,7 @@ export function getCombinedAbilitiesMaterials(
 	const passiveMats = getAbilitiesMaterials(passiveStart, passiveEnd, alliance);
 
 	const badges = createEmptyRarityRecord();
-	for (const rarity of [0, 1, 2, 3, 4, 5] as Rarity[]) {
+	for (const rarity of RARITIES) {
 		badges[rarity] = activeMats.badges[rarity] + passiveMats.badges[rarity];
 	}
 

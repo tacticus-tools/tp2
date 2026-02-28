@@ -7,13 +7,14 @@
  * - Character rank-up material requirements
  */
 
+import type { Rarity } from "#common/rarity.ts";
 import { CHARACTER_RANK_UP_MATERIALS } from "@/5-assets/character-rank-up-materials/index.ts";
 import type { CHARACTERS, CharacterId } from "@/5-assets/characters/index.ts";
 import {
 	EXPANDED_RECIPES,
 	PROCESSED_MATERIALS,
 } from "@/5-assets/recipes/index.ts";
-import type { Rank, Rarity } from "./constants.ts";
+import type { Rank } from "./constants.ts";
 import { rankToString } from "./rank-data.ts";
 
 // ---------------------------------------------------------------------------
@@ -99,7 +100,7 @@ function consumeOrExpand(
 	if (
 		upgradesRarity.length > 0 &&
 		mat &&
-		!upgradesRarity.includes(mat.rarity as Rarity)
+		!upgradesRarity.includes(mat.rarity)
 	) {
 		return;
 	}

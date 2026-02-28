@@ -1,3 +1,4 @@
+import type { Alliance } from "#common/alliance.ts";
 import { Input } from "@/1-components/ui/input.tsx";
 import {
 	Select,
@@ -6,7 +7,6 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/1-components/ui/select.tsx";
-import type { Alliance } from "@/4-lib/general/constants.ts";
 import type { RosterSortKey } from "@/4-lib/general/roster-display.ts";
 
 interface RosterControlsProps {

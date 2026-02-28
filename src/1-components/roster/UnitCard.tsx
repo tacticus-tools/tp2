@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { StarsIcon } from "@/1-components/general/StarsIcon.tsx";
-import { getRarityFrameUrl } from "@/4-lib/general/image-utils.ts";
+import { FRAME_URLS } from "@/4-lib/general/image-utils.ts";
 import type { EnrichedRosterUnit } from "@/4-lib/general/roster-display.ts";
 import { cn } from "@/4-lib/utils.ts";
 import {
@@ -55,7 +55,7 @@ interface UnitCardProps {
 }
 
 export function UnitCard({ unit }: UnitCardProps) {
-	const frameUrl = getRarityFrameUrl(unit.rarity);
+	const frameUrl = FRAME_URLS[unit.rarity];
 	const [imgFailed, setImgFailed] = useState(false);
 
 	const equipmentSlots = buildEquipmentSlots(unit);
@@ -102,7 +102,7 @@ export function UnitCard({ unit }: UnitCardProps) {
 				)}
 				{/* Stars centered on top edge of frame */}
 				{!unit.isLocked && (
-					<div className="absolute -top-[8px] right-0 left-0 z-3 flex justify-center md:-top-[12px]">
+					<div className="absolute inset-x-0 -top-[8px] z-3 flex justify-center md:-top-[12px]">
 						<StarsIcon stars={unit.stars} size={14} className="md:hidden" />
 						<StarsIcon
 							stars={unit.stars}

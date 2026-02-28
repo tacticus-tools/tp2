@@ -8,6 +8,7 @@ import {
 	useRef,
 	useState,
 } from "react";
+import { RARITIES, type Rarity, RaritySchema } from "#common/rarity.ts";
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import {
 	AlertDialog,
@@ -34,7 +35,6 @@ import {
 	CampaignsLocationsUsage,
 	PersonalGoalType,
 	Rank,
-	Rarity,
 	RarityStars,
 } from "@/4-lib/general/constants.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
@@ -59,24 +59,6 @@ interface AddGoalDialogProps {
 const allSelectableRanks = Object.entries(rankToString).filter(
 	([key]) => Number(key) > Rank.Locked,
 );
-
-const allRarities = [
-	Rarity.Common,
-	Rarity.Uncommon,
-	Rarity.Rare,
-	Rarity.Epic,
-	Rarity.Legendary,
-	Rarity.Mythic,
-];
-
-const rarityLabels: Record<Rarity, string> = {
-	[Rarity.Common]: "Common",
-	[Rarity.Uncommon]: "Uncommon",
-	[Rarity.Rare]: "Rare",
-	[Rarity.Epic]: "Epic",
-	[Rarity.Legendary]: "Legendary",
-	[Rarity.Mythic]: "Mythic",
-};
 
 const starsOptions = [
 	{ value: RarityStars.None, label: "No stars" },
@@ -131,7 +113,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 	const [onslaughtShards, setOnslaughtShards] = useState(1);
 
 	// Ascend target fields
-	const [rarityEnd, setRarityEnd] = useState<Rarity>(Rarity.Legendary);
+	const [rarityEnd, setRarityEnd] = useState<Rarity>("Legendary");
 	const [starsEnd, setStarsEnd] = useState<RarityStars>(RarityStars.None);
 
 	// Override toggle
@@ -150,7 +132,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 		const rosterUnit = roster.get(selectedUnit.id);
 		const rarity = rosterUnit
 			? rosterUnit.rarity
-			: (unitById.get(selectedUnit.id)?.initialRarity ?? Rarity.Common);
+			: (unitById.get(selectedUnit.id)?.initialRarity ?? "Common");
 		return rarityToMaxRank[rarity];
 	}, [selectedUnit, roster]);
 
@@ -233,7 +215,11 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 			}
 			// Auto-set ascend target rarity to next rarity up
 			if (goalType === PersonalGoalType.Ascend) {
-				setRarityEnd(Math.min(rosterUnit.rarity + 1, Rarity.Mythic) as Rarity);
+				setRarityEnd(
+					rosterUnit.rarity === "Mythic"
+						? RARITIES[RARITIES.indexOf(rosterUnit.rarity) + 1]
+						: "Mythic",
+				);
 				setStarsEnd(RarityStars.None);
 			}
 		}
@@ -278,7 +264,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 		setPassiveEnd(1);
 		setUpgradesRarity([]);
 		setOnslaughtShards(1);
-		setRarityEnd(Rarity.Legendary);
+		setRarityEnd("Legendary");
 		setStarsEnd(RarityStars.None);
 		setOverrideMode(false);
 	}, []);
@@ -599,7 +585,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 								<span className="text-muted-foreground">(optional)</span>
 							</Label>
 							<div className="flex flex-wrap gap-2">
-								{allRarities.map((rarity) => {
+								{RARITIES.map((rarity) => {
 									const checked = upgradesRarity.includes(rarity);
 									return (
 										<label
@@ -618,7 +604,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 												className="sr-only"
 											/>
 											<RarityIcon rarity={rarity} size={16} />
-											{rarityLabels[rarity]}
+											{rarity}
 										</label>
 									);
 								})}
@@ -634,17 +620,17 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 									<Label>Target Rarity</Label>
 									<Select
 										value={String(rarityEnd)}
-										onValueChange={(v) => setRarityEnd(Number(v) as Rarity)}
+										onValueChange={(v) => setRarityEnd(RaritySchema.parse(v))}
 									>
 										<SelectTrigger className="w-full">
 											<SelectValue />
 										</SelectTrigger>
 										<SelectContent>
-											{allRarities.map((rarity) => (
+											{RARITIES.map((rarity) => (
 												<SelectItem key={rarity} value={String(rarity)}>
 													<span className="flex items-center gap-1.5">
 														<RarityIcon rarity={rarity} size={16} />
-														{rarityLabels[rarity]}
+														{rarity}
 													</span>
 												</SelectItem>
 											))}

@@ -1,10 +1,10 @@
+import type { Alliance } from "#common/alliance.ts";
+import type { Rarity } from "#common/rarity.ts";
 import type { CharacterId } from "@/5-assets/characters/index.ts";
 import {
-	type Alliance,
 	type CampaignsLocationsUsage,
 	PersonalGoalType,
 	type Rank,
-	type Rarity,
 	type RarityStars,
 } from "../constants.ts";
 import type { IAbilitiesMaterialsTotal } from "./abilities-service.ts";

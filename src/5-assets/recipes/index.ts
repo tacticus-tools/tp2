@@ -1,3 +1,4 @@
+import type { Rarity } from "#common/rarity.ts";
 import type { DeepReadonly } from "@/types.ts";
 import expandedData from "./expanded.generated.json" with { type: "json" };
 import processedData from "./processed.generated.json" with { type: "json" };
@@ -24,7 +25,7 @@ const processedWithIcons = Object.freeze(
 				{
 					id: string;
 					label: string;
-					rarity: number;
+					rarity: Rarity;
 					stat: string;
 					iconFilename: string;
 					crafted: boolean;
@@ -45,7 +46,7 @@ const processedWithIcons = Object.freeze(
 		{
 			id: string;
 			label: string;
-			rarity: number;
+			rarity: Rarity;
 			stat: string;
 			iconFilename: string;
 			crafted: boolean;

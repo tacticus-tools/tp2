@@ -1,4 +1,94 @@
-import { type Alliance, Rank, Rarity } from "./constants.ts";
+import CommonIcon from "@/5-assets/images/rarity-icons/common.png";
+import EpicIcon from "@/5-assets/images/rarity-icons/epic.png";
+import LegendaryIcon from "@/5-assets/images/rarity-icons/legendary.png";
+import MythicIcon from "@/5-assets/images/rarity-icons/mythic.png";
+import RareIcon from "@/5-assets/images/rarity-icons/rare.png";
+import UncommonIcon from "@/5-assets/images/rarity-icons/uncommon.png";
+import ChaosCommonBadge from "@/5-assets/images/tacticus/badges/chaos-common.png";
+import ChaosEpicBadge from "@/5-assets/images/tacticus/badges/chaos-epic.png";
+import ChaosLegendaryBadge from "@/5-assets/images/tacticus/badges/chaos-legendary.png";
+import ChaosMythicBadge from "@/5-assets/images/tacticus/badges/chaos-mythic.png";
+import ChaosRareBadge from "@/5-assets/images/tacticus/badges/chaos-rare.png";
+import ChaosUncommonBadge from "@/5-assets/images/tacticus/badges/chaos-uncommon.png";
+import ImperialCommonBadge from "@/5-assets/images/tacticus/badges/imperial-common.png";
+import ImperialEpicBadge from "@/5-assets/images/tacticus/badges/imperial-epic.png";
+import ImperialLegendaryBadge from "@/5-assets/images/tacticus/badges/imperial-legendary.png";
+import ImperialMythicBadge from "@/5-assets/images/tacticus/badges/imperial-mythic.png";
+import ImperialRareBadge from "@/5-assets/images/tacticus/badges/imperial-rare.png";
+import ImperialUncommonBadge from "@/5-assets/images/tacticus/badges/imperial-uncommon.png";
+import XenosCommonBadge from "@/5-assets/images/tacticus/badges/xenos-common.png";
+import XenosEpicBadge from "@/5-assets/images/tacticus/badges/xenos-epic.png";
+import XenosLegendaryBadge from "@/5-assets/images/tacticus/badges/xenos-legendary.png";
+import XenosMythicBadge from "@/5-assets/images/tacticus/badges/xenos-mythic.png";
+import XenosRareBadge from "@/5-assets/images/tacticus/badges/xenos-rare.png";
+import XenosUncommonBadge from "@/5-assets/images/tacticus/badges/xenos-uncommon.png";
+import CommonBook from "@/5-assets/images/tacticus/books/common.png";
+import EpicBook from "@/5-assets/images/tacticus/books/epic.png";
+import LegendaryBook from "@/5-assets/images/tacticus/books/legendary.png";
+import MythicBook from "@/5-assets/images/tacticus/books/mythic.png";
+import RareBook from "@/5-assets/images/tacticus/books/rare.png";
+import UncommonBook from "@/5-assets/images/tacticus/books/uncommon.png";
+import CommonFrame from "@/5-assets/images/tacticus/frames/common.png";
+import EpicFrame from "@/5-assets/images/tacticus/frames/epic.png";
+import LegendaryFrame from "@/5-assets/images/tacticus/frames/legendary.png";
+import MythicFrame from "@/5-assets/images/tacticus/frames/mythic.png";
+import RareFrame from "@/5-assets/images/tacticus/frames/rare.png";
+import UncommonFrame from "@/5-assets/images/tacticus/frames/uncommon.png";
+import { Rank } from "./constants.ts";
+
+export const FRAME_URLS = {
+	Common: CommonFrame,
+	Uncommon: UncommonFrame,
+	Rare: RareFrame,
+	Epic: EpicFrame,
+	Legendary: LegendaryFrame,
+	Mythic: MythicFrame,
+} as const;
+
+export const BADGE_URLS = {
+	Imperial: {
+		Common: ImperialCommonBadge,
+		Uncommon: ImperialUncommonBadge,
+		Rare: ImperialRareBadge,
+		Epic: ImperialEpicBadge,
+		Legendary: ImperialLegendaryBadge,
+		Mythic: ImperialMythicBadge,
+	},
+	Chaos: {
+		Common: ChaosCommonBadge,
+		Uncommon: ChaosUncommonBadge,
+		Rare: ChaosRareBadge,
+		Epic: ChaosEpicBadge,
+		Legendary: ChaosLegendaryBadge,
+		Mythic: ChaosMythicBadge,
+	},
+	Xenos: {
+		Common: XenosCommonBadge,
+		Uncommon: XenosUncommonBadge,
+		Rare: XenosRareBadge,
+		Epic: XenosEpicBadge,
+		Legendary: XenosLegendaryBadge,
+		Mythic: XenosMythicBadge,
+	},
+} as const;
+
+export const BOOK_URLS = {
+	Common: CommonBook,
+	Uncommon: UncommonBook,
+	Rare: RareBook,
+	Epic: EpicBook,
+	Legendary: LegendaryBook,
+	Mythic: MythicBook,
+};
+
+export const RARITY_ICON_URLS = {
+	Common: CommonIcon,
+	Uncommon: UncommonIcon,
+	Rare: RareIcon,
+	Epic: EpicIcon,
+	Legendary: LegendaryIcon,
+	Mythic: MythicIcon,
+};
 
 const rankFilenames: Record<Rank, string> = {
 	[Rank.Locked]: "stone1.png",
@@ -25,44 +115,10 @@ const rankFilenames: Record<Rank, string> = {
 	[Rank.Adamantine3]: "adamantine3.png",
 };
 
-const rarityFilenames: Record<Rarity, string> = {
-	[Rarity.Common]: "common.png",
-	[Rarity.Uncommon]: "uncommon.png",
-	[Rarity.Rare]: "rare.png",
-	[Rarity.Epic]: "epic.png",
-	[Rarity.Legendary]: "legendary.png",
-	[Rarity.Mythic]: "mythic.png",
-};
-
 export function getRankImageUrl(rank: Rank): string {
 	const filename = rankFilenames[rank];
 	return new URL(
 		`../../5-assets/images/tacticus/ranks/${filename}`,
-		import.meta.url,
-	).href;
-}
-
-export function getRarityImageUrl(rarity: Rarity): string {
-	const filename = rarityFilenames[rarity];
-	return new URL(
-		`../../5-assets/images/tacticus/rarity/${filename}`,
-		import.meta.url,
-	).href;
-}
-
-const rarityFrameFilenames: Record<Rarity, string> = {
-	[Rarity.Common]: "common.png",
-	[Rarity.Uncommon]: "uncommon.png",
-	[Rarity.Rare]: "rare.png",
-	[Rarity.Epic]: "epic.png",
-	[Rarity.Legendary]: "legendary.png",
-	[Rarity.Mythic]: "mythic.png",
-};
-
-export function getRarityFrameUrl(rarity: Rarity): string {
-	const filename = rarityFrameFilenames[rarity];
-	return new URL(
-		`../../5-assets/images/tacticus/rarity_frames/${filename}`,
 		import.meta.url,
 	).href;
 }
@@ -74,39 +130,9 @@ export function getEnergyIconUrl(): string {
 	).href;
 }
 
-export function getXpBookIconUrl(rarity: "legendary" | "mythic"): string {
-	return new URL(
-		`../../5-assets/images/tacticus/icons/xp_book_${rarity}.png`,
-		import.meta.url,
-	).href;
-}
-
 export function getCampaignImageUrl(campaign: string): string {
 	return new URL(
 		`../../5-assets/images/tacticus/campaigns/${campaign}.png`,
-		import.meta.url,
-	).href;
-}
-
-const allianceFilenames: Record<Alliance, string> = {
-	Imperial: "imperial",
-	Xenos: "xenos",
-	Chaos: "chaos",
-};
-
-const rarityNames: Record<Rarity, string> = {
-	[Rarity.Common]: "common",
-	[Rarity.Uncommon]: "uncommon",
-	[Rarity.Rare]: "rare",
-	[Rarity.Epic]: "epic",
-	[Rarity.Legendary]: "legendary",
-	[Rarity.Mythic]: "mythic",
-};
-
-export function getBadgeImageUrl(alliance: Alliance, rarity: Rarity): string {
-	const filename = `${allianceFilenames[alliance]}-${rarityNames[rarity]}.png`;
-	return new URL(
-		`../../5-assets/images/tacticus/badges/${filename}`,
 		import.meta.url,
 	).href;
 }

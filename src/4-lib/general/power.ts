@@ -1,4 +1,5 @@
-import type { Rank, Rarity, RarityStars } from "./constants.ts";
+import type { Rarity } from "#common/rarity.ts";
+import type { Rank, RarityStars } from "./constants.ts";
 
 /**
  * Calculate estimated power for a roster unit.
@@ -24,14 +25,14 @@ function getRankCoeff(rank: Rank): number {
 	return 1.25 ** (rank - 1);
 }
 
-const CHAR_RARITY_COEFF: Record<number, number> = {
-	0: 1.0, // Common
-	1: 1.2, // Uncommon
-	2: 1.4, // Rare
-	3: 1.6, // Epic
-	4: 1.8, // Legendary
-	5: 2.0, // Mythic
-};
+const CHAR_RARITY_COEFF: Record<Rarity, number> = {
+	Common: 1.0,
+	Uncommon: 1.2,
+	Rare: 1.4,
+	Epic: 1.6,
+	Legendary: 1.8,
+	Mythic: 2.0,
+} as const;
 
 const CHAR_STARS_COEFF: Record<number, number> = {
 	0: 1.0, // None
@@ -51,13 +52,13 @@ const CHAR_STARS_COEFF: Record<number, number> = {
 	14: 2.4, // MythicWings
 };
 
-const MOW_RARITY_COEFF: Record<number, number> = {
-	0: 0.0,
-	1: 0.05,
-	2: 0.1,
-	3: 0.15,
-	4: 0.2,
-	5: 0.25,
+const MOW_RARITY_COEFF: Record<Rarity, number> = {
+	Common: 0.0,
+	Uncommon: 0.05,
+	Rare: 0.1,
+	Epic: 0.15,
+	Legendary: 0.2,
+	Mythic: 0.25,
 };
 
 const MOW_STARS_COEFF: Record<number, number> = {

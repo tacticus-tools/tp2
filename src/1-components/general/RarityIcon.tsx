@@ -1,14 +1,5 @@
-import { Rarity } from "@/4-lib/general/constants.ts";
-import { getRarityImageUrl } from "@/4-lib/general/image-utils.ts";
-
-const rarityLabels: Record<Rarity, string> = {
-	[Rarity.Common]: "Common",
-	[Rarity.Uncommon]: "Uncommon",
-	[Rarity.Rare]: "Rare",
-	[Rarity.Epic]: "Epic",
-	[Rarity.Legendary]: "Legendary",
-	[Rarity.Mythic]: "Mythic",
-};
+import type { Rarity } from "#common/rarity.ts";
+import { RARITY_ICON_URLS } from "@/4-lib/general/image-utils.ts";
 
 interface RarityIconProps {
 	rarity: Rarity;
@@ -18,8 +9,8 @@ interface RarityIconProps {
 export function RarityIcon({ rarity, size = 20 }: RarityIconProps) {
 	return (
 		<img
-			src={getRarityImageUrl(rarity)}
-			alt={rarityLabels[rarity]}
+			src={RARITY_ICON_URLS[rarity]}
+			alt={rarity}
 			width={size}
 			height={size}
 			loading="lazy"

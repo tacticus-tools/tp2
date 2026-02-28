@@ -25,6 +25,7 @@
 		"erasableSyntaxOnly": true,
 		"baseUrl": ".",
 		"paths": {
+			"#common/*": ["./common/*"],
 			"@/*": ["./src/*"],
 			"~/*": ["./convex/*"]
 		}

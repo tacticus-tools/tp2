@@ -1,24 +1,17 @@
+import type { Alliance } from "#common/alliance.ts";
+import { type Rarity, rarityComparator } from "#common/rarity.ts";
 import type { FactionData } from "@/5-assets/factions/index.ts";
-import type { Alliance, RarityStars } from "./constants.ts";
-import { Rank, Rarity, RarityStars as RS } from "./constants.ts";
+import type { RarityStars } from "./constants.ts";
+import { Rank, RarityStars as RS } from "./constants.ts";
 import { calculateCharacterPower, calculateMowPower } from "./power.ts";
 import type { RosterEquipment, RosterUnit } from "./roster-utils.ts";
-
-const RARITY_STRING_MAP: Record<string, Rarity> = {
-	Common: Rarity.Common,
-	Uncommon: Rarity.Uncommon,
-	Rare: Rarity.Rare,
-	Epic: Rarity.Epic,
-	Legendary: Rarity.Legendary,
-	Mythic: Rarity.Mythic,
-};
 
 interface UnitMetadata {
 	id: string;
 	name: string;
 	factionId: string;
 	alliance: string;
-	initialRarity: string;
+	initialRarity: Rarity;
 	roundIcon: string | undefined;
 	portrait: string | undefined;
 	activeAbilityIcon: string | undefined;
@@ -77,7 +70,7 @@ export function enrichRoster(
 					activeAbilityIcon: char.activeAbilityIcon,
 					passiveAbilityIcon: char.passiveAbilityIcon,
 					rank: Rank.Locked,
-					rarity: RARITY_STRING_MAP[char.initialRarity] ?? Rarity.Common,
+					rarity: char.initialRarity,
 					stars: RS.None,
 					abilities: [0, 0],
 					level: 0,
@@ -181,7 +174,9 @@ function compareUnits(
 			return b.rank - a.rank || a.name.localeCompare(b.name);
 		case "rarity":
 			return (
-				b.rarity - a.rarity || b.stars - a.stars || a.name.localeCompare(b.name)
+				rarityComparator(b.rarity, a.rarity) ||
+				b.stars - a.stars ||
+				a.name.localeCompare(b.name)
 			);
 		case "name":
 			return a.name.localeCompare(b.name);

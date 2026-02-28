@@ -6,7 +6,7 @@ export const DATA = [
     "faction": "Sisterhood",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_adept_canoness_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "adeptCelestine",
@@ -15,7 +15,7 @@ export const DATA = [
     "faction": "Sisterhood",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_adept_celestine_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "adeptHospitaller",
@@ -24,7 +24,7 @@ export const DATA = [
     "faction": "Sisterhood",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_adept_hospitaller_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "adeptMorvenn",
@@ -33,7 +33,7 @@ export const DATA = [
     "faction": "Sisterhood",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_adept_morvenn_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "adeptRetributor",
@@ -42,7 +42,7 @@ export const DATA = [
     "faction": "Sisterhood",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_adept_retributor_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "admecDestroyer",
@@ -51,7 +51,7 @@ export const DATA = [
     "faction": "AdeptusMechanicus",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_admec_destroyer_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "admecDominus",
@@ -60,7 +60,7 @@ export const DATA = [
     "faction": "AdeptusMechanicus",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_admec_dominus_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "admecManipulus",
@@ -69,7 +69,7 @@ export const DATA = [
     "faction": "AdeptusMechanicus",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_admec_manipulus_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "admecMarshall",
@@ -78,7 +78,7 @@ export const DATA = [
     "faction": "AdeptusMechanicus",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_admec_marshall_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "admecRuststalker",
@@ -87,7 +87,7 @@ export const DATA = [
     "faction": "AdeptusMechanicus",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_admec_ruststalker_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "astraBullgryn",
@@ -96,7 +96,7 @@ export const DATA = [
     "faction": "AstraMilitarum",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_astra_bullgryn_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "astraCreed",
@@ -105,7 +105,7 @@ export const DATA = [
     "faction": "AstraMilitarum",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_astra_creed_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "astraDreir",
@@ -114,7 +114,7 @@ export const DATA = [
     "faction": "AstraMilitarum",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_astra_dreir_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "astraOrdnance",
@@ -123,7 +123,7 @@ export const DATA = [
     "faction": "AstraMilitarum",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_astra_ordnance_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "astraPrimarisPsy",
@@ -132,7 +132,7 @@ export const DATA = [
     "faction": "AstraMilitarum",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_astra_psyker_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "astraYarrick",
@@ -141,7 +141,7 @@ export const DATA = [
     "faction": "AstraMilitarum",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_astra_yarrick_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "blackAbaddon",
@@ -150,7 +150,7 @@ export const DATA = [
     "faction": "BlackLegion",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_black_abaddon_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "blackHaarken",
@@ -159,7 +159,7 @@ export const DATA = [
     "faction": "BlackLegion",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_black_haarken_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "blackObliterator",
@@ -168,7 +168,7 @@ export const DATA = [
     "faction": "BlackLegion",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_black_obliterator_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "blackPossession",
@@ -177,7 +177,7 @@ export const DATA = [
     "faction": "BlackLegion",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_black_possession_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "blackTerminator",
@@ -186,7 +186,7 @@ export const DATA = [
     "faction": "BlackLegion",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_black_terminator_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "bloodDante",
@@ -195,7 +195,7 @@ export const DATA = [
     "faction": "BloodAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_blood_dante_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "bloodDeathCompany",
@@ -204,7 +204,7 @@ export const DATA = [
     "faction": "BloodAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_blood_deathcompany_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "bloodIntercessor",
@@ -213,7 +213,7 @@ export const DATA = [
     "faction": "BloodAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_blood_intercessor_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "bloodMephiston",
@@ -222,7 +222,7 @@ export const DATA = [
     "faction": "BloodAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_blood_mephiston_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "bloodSanguinary",
@@ -231,7 +231,7 @@ export const DATA = [
     "faction": "BloodAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_blood_sanguinary_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "custoAtlacoya",
@@ -240,7 +240,7 @@ export const DATA = [
     "faction": "Custodes",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_custo_atlacoya_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "custoBladeChampion",
@@ -249,7 +249,7 @@ export const DATA = [
     "faction": "Custodes",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_custo_bladechampion_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "custoKyrus",
@@ -258,7 +258,7 @@ export const DATA = [
     "faction": "Custodes",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_custo_kyrus_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "custoTrajann",
@@ -267,7 +267,7 @@ export const DATA = [
     "faction": "Custodes",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_custo_trajann_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "custoVexilusPraetor",
@@ -276,7 +276,7 @@ export const DATA = [
     "faction": "Custodes",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_custo_vexilus_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "darkaAsmodai",
@@ -285,7 +285,7 @@ export const DATA = [
     "faction": "DarkAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_darka_asmodai_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "darkaAzrael",
@@ -294,7 +294,7 @@ export const DATA = [
     "faction": "DarkAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_darka_azrael_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "darkaCompanion",
@@ -303,7 +303,7 @@ export const DATA = [
     "faction": "DarkAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_darka_companion_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "darkaHellblaster",
@@ -312,7 +312,7 @@ export const DATA = [
     "faction": "DarkAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_darka_hellblaster_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "darkaTerminator",
@@ -321,7 +321,7 @@ export const DATA = [
     "faction": "DarkAngels",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_darka_terminator_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "deathBlightbringer",
@@ -330,7 +330,7 @@ export const DATA = [
     "faction": "DeathGuard",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_death_blightbringer_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "deathBlightlord",
@@ -339,7 +339,7 @@ export const DATA = [
     "faction": "DeathGuard",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_death_blightlord_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "deathPutrifier",
@@ -348,7 +348,7 @@ export const DATA = [
     "faction": "DeathGuard",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_death_putrifier_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "deathRotbone",
@@ -357,7 +357,7 @@ export const DATA = [
     "faction": "DeathGuard",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_death_rotbone_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "deathTyphus",
@@ -366,7 +366,7 @@ export const DATA = [
     "faction": "DeathGuard",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_death_typhus_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "eldarAutarch",
@@ -375,7 +375,7 @@ export const DATA = [
     "faction": "Aeldari",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_aelda_autarch_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "eldarFarseer",
@@ -384,7 +384,7 @@ export const DATA = [
     "faction": "Aeldari",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_aelda_farseer_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "eldarJainZar",
@@ -393,7 +393,7 @@ export const DATA = [
     "faction": "Aeldari",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_aelda_jainzar_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "eldarMauganRa",
@@ -402,7 +402,7 @@ export const DATA = [
     "faction": "Aeldari",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_aelda_maugan_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "eldarRanger",
@@ -411,7 +411,7 @@ export const DATA = [
     "faction": "Aeldari",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_aelda_ranger_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "emperExultant",
@@ -420,7 +420,7 @@ export const DATA = [
     "faction": "EmperorsChildren",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_emper_exultant_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "emperFlawlessBlade",
@@ -429,7 +429,7 @@ export const DATA = [
     "faction": "EmperorsChildren",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_emper_blade_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "emperKakophonist",
@@ -438,7 +438,7 @@ export const DATA = [
     "faction": "EmperorsChildren",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_emper_kakophonist_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "emperLucius",
@@ -447,7 +447,7 @@ export const DATA = [
     "faction": "EmperorsChildren",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_emper_lucius_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "emperNoiseMarine",
@@ -456,7 +456,7 @@ export const DATA = [
     "faction": "EmperorsChildren",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_emper_noisemarine_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "genesBiophagus",
@@ -465,7 +465,7 @@ export const DATA = [
     "faction": "Genestealers",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_genes_biophagus_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "genesKelermorph",
@@ -474,7 +474,7 @@ export const DATA = [
     "faction": "Genestealers",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_genes_kelermorph_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "genesMagus",
@@ -483,7 +483,7 @@ export const DATA = [
     "faction": "Genestealers",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_genes_magus_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "genesPatriarch",
@@ -492,7 +492,7 @@ export const DATA = [
     "faction": "Genestealers",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_genes_patriarch_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "genesPrimus",
@@ -501,7 +501,7 @@ export const DATA = [
     "faction": "Genestealers",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_genes_primus_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "necroDestroyer",
@@ -510,7 +510,7 @@ export const DATA = [
     "faction": "Necrons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_necro_hexmark_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "necroOverlord",
@@ -519,7 +519,7 @@ export const DATA = [
     "faction": "Necrons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_necro_overlord_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "necroPlasmancer",
@@ -528,7 +528,7 @@ export const DATA = [
     "faction": "Necrons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_necro_plasmancer_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "necroSpyder",
@@ -537,7 +537,7 @@ export const DATA = [
     "faction": "Necrons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_necro_spyder_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "necroWarden",
@@ -546,7 +546,7 @@ export const DATA = [
     "faction": "Necrons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_necro_warden_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "orksBigMek",
@@ -555,7 +555,7 @@ export const DATA = [
     "faction": "Orks",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_orkss_mek_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "orksKillaKan",
@@ -564,7 +564,7 @@ export const DATA = [
     "faction": "Orks",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_orkss_killakan_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "orksNob",
@@ -573,7 +573,7 @@ export const DATA = [
     "faction": "Orks",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_orkss_nob_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "orksRuntherd",
@@ -582,7 +582,7 @@ export const DATA = [
     "faction": "Orks",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_orkss_runtherd_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "orksWarboss",
@@ -591,7 +591,7 @@ export const DATA = [
     "faction": "Orks",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_orkss_warboss_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "spaceBlackmane",
@@ -600,7 +600,7 @@ export const DATA = [
     "faction": "SpaceWolves",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_space_ragnar_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "spaceHound",
@@ -609,7 +609,7 @@ export const DATA = [
     "faction": "SpaceWolves",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_space_hound_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "spaceRockfist",
@@ -618,7 +618,7 @@ export const DATA = [
     "faction": "SpaceWolves",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_space_arjac_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "spaceStormcaller",
@@ -627,7 +627,7 @@ export const DATA = [
     "faction": "SpaceWolves",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_space_stormcaller_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "spaceWolfPriest",
@@ -636,7 +636,7 @@ export const DATA = [
     "faction": "SpaceWolves",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_space_wolfpriest_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "spaceWulfen",
@@ -645,7 +645,7 @@ export const DATA = [
     "faction": "SpaceWolves",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_space_wulfen_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "tauAunShi",
@@ -654,7 +654,7 @@ export const DATA = [
     "faction": "Tau",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tauta_aunshi_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "tauCrisis",
@@ -663,7 +663,7 @@ export const DATA = [
     "faction": "Tau",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tauta_crisis_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "tauDarkstrider",
@@ -672,7 +672,7 @@ export const DATA = [
     "faction": "Tau",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tauta_darkstrider_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "tauFarsight",
@@ -681,7 +681,7 @@ export const DATA = [
     "faction": "Tau",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tauta_farsight_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "tauMarksman",
@@ -690,7 +690,7 @@ export const DATA = [
     "faction": "Tau",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tauta_marksman_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "tauShadowsun",
@@ -699,7 +699,7 @@ export const DATA = [
     "faction": "Tau",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tauta_shadowsun_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "templAggressor",
@@ -708,7 +708,7 @@ export const DATA = [
     "faction": "BlackTemplars",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_templ_aggressor_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "templAncient",
@@ -717,7 +717,7 @@ export const DATA = [
     "faction": "BlackTemplars",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_templ_ancient_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "templChampion",
@@ -726,7 +726,7 @@ export const DATA = [
     "faction": "BlackTemplars",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_templ_champion_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "templHelbrecht",
@@ -735,7 +735,7 @@ export const DATA = [
     "faction": "BlackTemplars",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_templ_helbrecht_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "templSwordBrother",
@@ -744,7 +744,7 @@ export const DATA = [
     "faction": "BlackTemplars",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_templ_brother_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "thousAhriman",
@@ -753,7 +753,7 @@ export const DATA = [
     "faction": "ThousandSons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_thous_ahriman_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "thousInfernalMaster",
@@ -762,7 +762,7 @@ export const DATA = [
     "faction": "ThousandSons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_thous_infernal_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "thousSorcerer",
@@ -771,7 +771,7 @@ export const DATA = [
     "faction": "ThousandSons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_thous_sorcerer_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "thousTerminator",
@@ -780,7 +780,7 @@ export const DATA = [
     "faction": "ThousandSons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_thous_terminator_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "thousTzaangor",
@@ -789,7 +789,7 @@ export const DATA = [
     "faction": "ThousandSons",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_thous_tzaangor_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "tyranDeathleaper",
@@ -798,7 +798,7 @@ export const DATA = [
     "faction": "Tyranids",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tyran_deathleaper_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "tyranNeurothrope",
@@ -807,7 +807,7 @@ export const DATA = [
     "faction": "Tyranids",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tyran_neurothrope_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "tyranParasite",
@@ -816,7 +816,7 @@ export const DATA = [
     "faction": "Tyranids",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tyran_parasite_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "tyranTyrantGuard",
@@ -825,7 +825,7 @@ export const DATA = [
     "faction": "Tyranids",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tyran_tyrantguard_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "tyranWingedPrime",
@@ -834,7 +834,7 @@ export const DATA = [
     "faction": "Tyranids",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_tyran_wingedprime_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "ultraApothecary",
@@ -843,7 +843,7 @@ export const DATA = [
     "faction": "Ultramarines",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_ultra_apothecary_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "ultraCalgar",
@@ -852,7 +852,7 @@ export const DATA = [
     "faction": "Ultramarines",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_ultra_calgar_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "ultraEliminatorSgt",
@@ -861,7 +861,7 @@ export const DATA = [
     "faction": "Ultramarines",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_ultra_eliminator_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "ultraInceptorSgt",
@@ -870,7 +870,7 @@ export const DATA = [
     "faction": "Ultramarines",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_ultra_inceptor_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "ultraTigurius",
@@ -879,7 +879,7 @@ export const DATA = [
     "faction": "Ultramarines",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_ultra_tigurius_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "ultraTitus",
@@ -888,7 +888,7 @@ export const DATA = [
     "faction": "Ultramarines",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_ultra_titus_01.png",
-    "initialRarity": 3
+    "initialRarity": "Epic"
   },
   {
     "id": "votanIronmaster",
@@ -897,7 +897,7 @@ export const DATA = [
     "faction": "LeaguesOfVotann",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_votan_ironmaster_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "votanUthar",
@@ -906,7 +906,7 @@ export const DATA = [
     "faction": "LeaguesOfVotann",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_votan_uthar_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "worldEightbound",
@@ -915,7 +915,7 @@ export const DATA = [
     "faction": "WorldEaters",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_world_eightbound_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "worldExecutions",
@@ -924,7 +924,7 @@ export const DATA = [
     "faction": "WorldEaters",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_world_executions_01.png",
-    "initialRarity": 2
+    "initialRarity": "Rare"
   },
   {
     "id": "worldJakhal",
@@ -933,7 +933,7 @@ export const DATA = [
     "faction": "WorldEaters",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_world_jakhal_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "worldKharn",
@@ -942,7 +942,7 @@ export const DATA = [
     "faction": "WorldEaters",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_world_kharn_01.png",
-    "initialRarity": 4
+    "initialRarity": "Legendary"
   },
   {
     "id": "worldTerminator",
@@ -951,7 +951,7 @@ export const DATA = [
     "faction": "WorldEaters",
     "unitType": "character",
     "roundIconFilename": "ui_image_RoundPortrait_world_terminator_01.png",
-    "initialRarity": 1
+    "initialRarity": "Uncommon"
   },
   {
     "id": "adeptExorcist",
@@ -960,7 +960,7 @@ export const DATA = [
     "faction": "Sisterhood",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_adept_exorcist_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "astraOrdnanceBattery",
@@ -969,7 +969,7 @@ export const DATA = [
     "faction": "AstraMilitarum",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_astra_ordnancebattery_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "blackForgefiend",
@@ -978,7 +978,7 @@ export const DATA = [
     "faction": "BlackLegion",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_black_forgefiend_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "darkaStormSpeeder",
@@ -987,7 +987,7 @@ export const DATA = [
     "faction": "DarkAngels",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_darka_stormspeeder_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "deathCrawler",
@@ -996,7 +996,7 @@ export const DATA = [
     "faction": "DeathGuard",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_death_crawler_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "orksRukkatrukk",
@@ -1005,7 +1005,7 @@ export const DATA = [
     "faction": "Orks",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_orkss_rukkatrukk_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "tauBroadside",
@@ -1014,7 +1014,7 @@ export const DATA = [
     "faction": "Tau",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_tauta_broadside_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "thousDaemonPrince",
@@ -1023,7 +1023,7 @@ export const DATA = [
     "faction": "ThousandSons",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_thous_daemonprince_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "tyranBiovore",
@@ -1032,7 +1032,7 @@ export const DATA = [
     "faction": "Tyranids",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_tyran_biovore_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   },
   {
     "id": "ultraDreadnought",
@@ -1041,6 +1041,6 @@ export const DATA = [
     "faction": "Ultramarines",
     "unitType": "mow",
     "roundIconFilename": "ui_image_RoundPortrait_ultra_dreadnought_01.png",
-    "initialRarity": 0
+    "initialRarity": "Common"
   }
 ] as const;

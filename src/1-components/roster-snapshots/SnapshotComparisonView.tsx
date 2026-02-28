@@ -2,8 +2,8 @@ import { ArrowRight, ChevronDown, ChevronRight, Plus, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
-import type { Rank, Rarity, RarityStars } from "@/4-lib/general/constants.ts";
-import { getRarityFrameUrl } from "@/4-lib/general/image-utils.ts";
+import type { Rank, RarityStars } from "@/4-lib/general/constants.ts";
+import { FRAME_URLS } from "@/4-lib/general/image-utils.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { starsColor, starsLabel } from "@/4-lib/general/roster-display.ts";
 import { diffSnapshots } from "@/4-lib/general/roster-snapshots/snapshot-service.ts";
@@ -201,8 +201,8 @@ function UnitDiffCard({
 
 	// For added/removed, use the unit that exists
 	const displayUnit = isAdded ? rightUnit : leftUnit;
-	const rarity = (displayUnit?.rarity ?? 0) as Rarity;
-	const frameUrl = getRarityFrameUrl(rarity);
+	const rarity = displayUnit?.rarity ?? "Common";
+	const frameUrl = FRAME_URLS[rarity];
 
 	return (
 		<div

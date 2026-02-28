@@ -31,6 +31,7 @@ import { main as prepareXpLevelData } from "./src/5-assets/xp-levels/generate-da
 const config = defineConfig({
 	resolve: {
 		alias: {
+			"#common": fileURLToPath(new URL("./common", import.meta.url)),
 			"@": fileURLToPath(new URL("./src", import.meta.url)),
 			"~": fileURLToPath(new URL("./convex", import.meta.url)),
 		},

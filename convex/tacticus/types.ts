@@ -1,3 +1,5 @@
+import type { Rarity } from "#common/rarity.ts";
+
 export interface TacticusPlayerResponse {
 	player: TacticusPlayer;
 }
@@ -12,7 +14,7 @@ export interface TacticusEquipment {
 	id: string;
 	level: number;
 	name: string;
-	rarity: string;
+	rarity: Rarity;
 	slotId: string;
 }
 
@@ -28,7 +30,7 @@ export interface TacticusInventory {
 }
 
 interface TacticusOrb {
-	rarity: string;
+	rarity: Rarity;
 	amount: number;
 }
 
@@ -40,7 +42,7 @@ interface TacticusOrbs {
 
 interface TacticusForgeBadge {
 	name: string;
-	rarity: string;
+	rarity: Rarity;
 	amount: number;
 }
 
@@ -58,13 +60,13 @@ interface TacticusAbility {
 
 interface TacticusXpBook {
 	id: string;
-	rarity: string;
+	rarity: Rarity;
 	amount: number;
 }
 
 interface TacticusAbilityBadge {
 	id: string;
-	rarity: string;
+	rarity: Rarity;
 	amount: number;
 }
 

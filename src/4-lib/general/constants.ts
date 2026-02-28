@@ -24,26 +24,6 @@ export const Rank = {
 } as const;
 export type Rank = (typeof Rank)[keyof typeof Rank];
 
-export const Rarity = {
-	Common: 0,
-	Uncommon: 1,
-	Rare: 2,
-	Epic: 3,
-	Legendary: 4,
-	Mythic: 5,
-} as const;
-export type Rarity = (typeof Rarity)[keyof typeof Rarity];
-
-export const RarityString = {
-	Common: "Common",
-	Uncommon: "Uncommon",
-	Rare: "Rare",
-	Epic: "Epic",
-	Legendary: "Legendary",
-	Mythic: "Mythic",
-} as const;
-export type RarityString = (typeof RarityString)[keyof typeof RarityString];
-
 export const RarityStars = {
 	None: 0,
 	OneStar: 1,
@@ -62,13 +42,6 @@ export const RarityStars = {
 	MythicWings: 14,
 } as const;
 export type RarityStars = (typeof RarityStars)[keyof typeof RarityStars];
-
-export const Alliance = {
-	Chaos: "Chaos",
-	Imperial: "Imperial",
-	Xenos: "Xenos",
-} as const;
-export type Alliance = (typeof Alliance)[keyof typeof Alliance];
 
 export const PersonalGoalType = {
 	UpgradeRank: 1,

@@ -9,6 +9,8 @@ import {
 	Trash2,
 } from "lucide-react";
 import { useState } from "react";
+import type { Alliance } from "#common/alliance.ts";
+import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
@@ -22,31 +24,16 @@ import type {
 	IXpBookCoverage,
 } from "@/4-lib/general/badge-inventory.ts";
 import {
-	type Alliance,
 	PersonalGoalType,
 	type Rank,
-	type Rarity,
-	Rarity as RarityEnum,
 	RarityStars,
 	type RarityStars as RarityStarsType,
 } from "@/4-lib/general/constants.ts";
 import type { IGoalEstimate } from "@/4-lib/general/goals/types.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
-import {
-	getBadgeImageUrl,
-	getXpBookIconUrl,
-} from "@/4-lib/general/image-utils.ts";
+import { BADGE_URLS, BOOK_URLS } from "@/4-lib/general/image-utils.ts";
 import { rankToString } from "@/4-lib/general/rank-data.ts";
 import { cn } from "@/4-lib/utils.ts";
-
-const rarityLabels: Record<Rarity, string> = {
-	[RarityEnum.Common]: "Common",
-	[RarityEnum.Uncommon]: "Uncommon",
-	[RarityEnum.Rare]: "Rare",
-	[RarityEnum.Epic]: "Epic",
-	[RarityEnum.Legendary]: "Legendary",
-	[RarityEnum.Mythic]: "Mythic",
-};
 
 function starsLabel(stars: RarityStarsType): string {
 	if (stars >= RarityStars.OneBlueStar) {
@@ -97,7 +84,7 @@ export type GoalData =
 			type: typeof PersonalGoalType.UpgradeRank;
 			rankStart: Rank;
 			rankEnd: Rank;
-			upgradesRarity?: number[];
+			upgradesRarity?: Rarity[];
 	  }
 	| {
 			type: typeof PersonalGoalType.Ascend;
@@ -113,7 +100,7 @@ export type GoalData =
 			primaryEnd: number;
 			secondaryStart: number;
 			secondaryEnd: number;
-			upgradesRarity?: number[];
+			upgradesRarity?: Rarity[];
 	  }
 	| {
 			type: typeof PersonalGoalType.CharacterAbilities;
@@ -136,13 +123,13 @@ const goalTypeBadgeColor: Record<PersonalGoalType, string> = {
 		"bg-cyan-500/15 text-cyan-400 border-cyan-500/30",
 };
 
-function RarityFilterIcons({ upgradesRarity }: { upgradesRarity?: number[] }) {
+function RarityFilterIcons({ upgradesRarity }: { upgradesRarity?: Rarity[] }) {
 	if (!upgradesRarity || upgradesRarity.length === 0) return null;
 	return (
 		<div className="flex items-center gap-1" title="Upgrade rarity filter">
-			{upgradesRarity.map((r) => (
-				<span key={r} title={`${rarityLabels[r as Rarity]} upgrades`}>
-					<RarityIcon rarity={r as Rarity} size={16} />
+			{upgradesRarity.map((rarity) => (
+				<span key={rarity} title={`${rarity} upgrades`}>
+					<RarityIcon rarity={rarity} size={16} />
 				</span>
 			))}
 		</div>
@@ -186,16 +173,15 @@ function GoalProgress({ data }: { data: GoalData }) {
 			);
 		}
 		case PersonalGoalType.Ascend: {
-			const startIdx = data.rarityStart * 100 + data.starsStart;
-			const endIdx = data.rarityEnd * 100 + data.starsEnd;
+			const startIdx =
+				RARITIES.indexOf(data.rarityStart) * 100 + data.starsStart;
+			const endIdx = RARITIES.indexOf(data.rarityEnd) * 100 + data.starsEnd;
 			const completed = startIdx >= endIdx;
 			return (
 				<div className="flex items-center gap-2 text-sm">
 					<div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2 py-1">
 						<RarityIcon rarity={data.rarityStart} size={20} />
-						<span className="text-muted-foreground">
-							{rarityLabels[data.rarityStart]}
-						</span>
+						<span className="text-muted-foreground">data.rarityStart</span>
 						{starsLabel(data.starsStart) && (
 							<span className={cn("text-xs", starsColor(data.starsStart))}>
 								{starsLabel(data.starsStart)}
@@ -208,7 +194,7 @@ function GoalProgress({ data }: { data: GoalData }) {
 					<div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2 py-1 ring-1 ring-purple-500/20">
 						<RarityIcon rarity={data.rarityEnd} size={20} />
 						<span className="font-medium text-foreground">
-							{rarityLabels[data.rarityEnd]}
+							{data.rarityEnd}
 						</span>
 						{starsLabel(data.starsEnd) && (
 							<span className={cn("text-xs", starsColor(data.starsEnd))}>
@@ -268,15 +254,6 @@ function GoalProgress({ data }: { data: GoalData }) {
 	}
 }
 
-const BADGE_RARITIES = [
-	RarityEnum.Common,
-	RarityEnum.Uncommon,
-	RarityEnum.Rare,
-	RarityEnum.Epic,
-	RarityEnum.Legendary,
-	RarityEnum.Mythic,
-] as const;
-
 function BadgeBreakdown({
 	badges,
 	alliance,
@@ -286,36 +263,36 @@ function BadgeBreakdown({
 	alliance?: Alliance;
 	coverage?: Record<Rarity, IRarityCoverage>;
 }) {
-	const nonZero = BADGE_RARITIES.filter((r) => badges[r] > 0);
+	const nonZero = RARITIES.filter((r) => badges[r] > 0);
 	if (nonZero.length === 0) return null;
 
 	return (
 		<div className="flex flex-wrap items-center gap-1.5">
-			{nonZero.map((r) => {
-				const cov = coverage?.[r];
+			{nonZero.map((rarity) => {
+				const cov = coverage?.[rarity];
 				const isFullyCovered = cov != null && cov.covered >= cov.needed;
 				const label = alliance
-					? `${rarityLabels[r]} ${alliance} badge`
-					: `${rarityLabels[r]} badge`;
+					? `${rarity} ${alliance} badge`
+					: `${rarity} badge`;
 				const titleSuffix =
 					cov != null ? ` (${cov.covered}/${cov.needed} in inventory)` : "";
 				return (
 					<span
-						key={r}
+						key={rarity}
 						className="flex items-center gap-0.5"
-						title={`${badges[r]} ${label}${badges[r] !== 1 ? "s" : ""}${titleSuffix}`}
+						title={`${badges[rarity]} ${label}${badges[rarity] !== 1 ? "s" : ""}${titleSuffix}`}
 					>
 						<span className="relative shrink-0">
 							{alliance ? (
 								<img
-									src={getBadgeImageUrl(alliance, r)}
+									src={BADGE_URLS[alliance][rarity]}
 									alt={label}
 									width={16}
 									height={16}
 									loading="lazy"
 								/>
 							) : (
-								<RarityIcon rarity={r} size={14} />
+								<RarityIcon rarity={rarity} size={14} />
 							)}
 							{isFullyCovered && (
 								<Check className="absolute -right-1 -bottom-1 size-2.5 text-emerald-400" />
@@ -327,7 +304,7 @@ function BadgeBreakdown({
 								isFullyCovered ? "text-emerald-400" : "text-muted-foreground",
 							)}
 						>
-							{badges[r]}
+							{rarity}
 						</span>
 					</span>
 				);
@@ -363,7 +340,7 @@ function XpBookDisplay({
 			>
 				<span className="relative shrink-0">
 					<img
-						src={getXpBookIconUrl("legendary")}
+						src={BOOK_URLS.Legendary}
 						alt="Legendary XP book"
 						width={14}
 						height={14}
@@ -391,7 +368,7 @@ function XpBookDisplay({
 					>
 						<span className="relative shrink-0">
 							<img
-								src={getXpBookIconUrl("mythic")}
+								src={BOOK_URLS.Mythic}
 								alt="Mythic XP book"
 								width={14}
 								height={14}

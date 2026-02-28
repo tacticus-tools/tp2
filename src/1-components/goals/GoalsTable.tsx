@@ -6,12 +6,14 @@ import {
 	Trash2,
 } from "lucide-react";
 import { useMemo, useState } from "react";
+import z from "zod";
+import { RaritySchema } from "#common/rarity.ts";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
-import type { PersonalGoalType, Rarity } from "@/4-lib/general/constants.ts";
+import type { PersonalGoalType } from "@/4-lib/general/constants.ts";
 import type { IGoalEstimate } from "@/4-lib/general/goals/types.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
 import { cn } from "@/4-lib/utils.ts";
@@ -221,12 +223,12 @@ export function GoalsTable({
 												string,
 												unknown
 											>;
-											const rarities = parsed.upgradesRarity as
-												| number[]
-												| undefined;
+											const rarities = z
+												.array(RaritySchema)
+												.safeParse(parsed.upgradesRarity).data;
 											if (!rarities?.length) return null;
-											return rarities.map((r) => (
-												<RarityIcon key={r} rarity={r as Rarity} size={14} />
+											return rarities.map((rarity) => (
+												<RarityIcon key={rarity} rarity={rarity} size={14} />
 											));
 										})()}
 									</div>

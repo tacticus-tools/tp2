@@ -1,12 +1,7 @@
+import { ALLIANCES, type Alliance } from "#common/alliance.ts";
+import { RARITIES, type Rarity } from "#common/rarity.ts";
 import type { TacticusInventory } from "~/tacticus/types.ts";
-import {
-	type Alliance,
-	type Rarity,
-	Rarity as RarityEnum,
-	type RarityString,
-} from "./constants.ts";
 import type { IGoalEstimate } from "./goals/types.ts";
-import { rarityStringToNumber } from "./rarity-data.ts";
 
 /** Per-rarity coverage info for a single badge category within a goal */
 export interface IRarityCoverage {
@@ -34,40 +29,37 @@ interface BadgeInventoryPools {
 }
 
 function emptyRarityPool(): Record<Rarity, number> {
-	return { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+	return {
+		Common: 0,
+		Uncommon: 0,
+		Rare: 0,
+		Epic: 0,
+		Legendary: 0,
+		Mythic: 0,
+	} as const;
 }
 
 /**
  * Convert the API inventory into numeric badge pools.
  */
-export function buildBadgeInventory(
-	inventory: TacticusInventory,
-): BadgeInventoryPools {
-	const ability: Record<Alliance, Record<Rarity, number>> = {
+export function buildBadgeInventory(inventory: TacticusInventory) {
+	const ability = {
 		Imperial: emptyRarityPool(),
 		Xenos: emptyRarityPool(),
 		Chaos: emptyRarityPool(),
 	};
 
-	for (const alliance of ["Imperial", "Xenos", "Chaos"] as Alliance[]) {
+	for (const alliance of ALLIANCES) {
 		const badges = inventory.abilityBadges[alliance];
 		if (!badges) continue;
 		for (const badge of badges) {
-			const rarity =
-				rarityStringToNumber[badge.rarity as RarityString] ?? undefined;
-			if (rarity !== undefined) {
-				ability[alliance][rarity] += badge.amount;
-			}
+			ability[alliance][badge.rarity] += badge.amount;
 		}
 	}
 
 	const forge = emptyRarityPool();
 	for (const badge of inventory.forgeBadges) {
-		const rarity =
-			rarityStringToNumber[badge.rarity as RarityString] ?? undefined;
-		if (rarity !== undefined) {
-			forge[rarity] += badge.amount;
-		}
+		forge[badge.rarity] += badge.amount;
 	}
 
 	return { ability, forge };
@@ -105,7 +97,7 @@ export function allocateBadgesToGoals(
 			const pool = abilityPool[alliance];
 			const cov = {} as Record<Rarity, IRarityCoverage>;
 
-			for (const r of [0, 1, 2, 3, 4, 5] as Rarity[]) {
+			for (const r of RARITIES) {
 				const needed = badges[r];
 				if (needed <= 0) {
 					cov[r] = { needed: 0, covered: 0 };
@@ -130,7 +122,7 @@ export function allocateBadgesToGoals(
 			const { forgeBadges } = est.mowEstimate;
 			const forgeCov = {} as Record<Rarity, IRarityCoverage>;
 
-			for (const r of [0, 1, 2, 3, 4, 5] as Rarity[]) {
+			for (const r of RARITIES) {
 				const needed = forgeBadges[r];
 				if (needed <= 0) {
 					forgeCov[r] = { needed: 0, covered: 0 };
@@ -167,11 +159,9 @@ export function buildXpBookInventory(
 	let mythic = 0;
 
 	for (const book of inventory.xpBooks) {
-		const rarity =
-			rarityStringToNumber[book.rarity as RarityString] ?? undefined;
-		if (rarity === RarityEnum.Legendary) {
+		if (book.rarity === "Legendary") {
 			legendary += book.amount;
-		} else if (rarity === RarityEnum.Mythic) {
+		} else if (book.rarity === "Mythic") {
 			mythic += book.amount;
 		}
 	}

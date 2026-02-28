@@ -2,9 +2,9 @@ import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useQuery } from "convex/react";
 import { Loader2 } from "lucide-react";
 import { useMemo, useState } from "react";
+import type { Alliance } from "#common/alliance.ts";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
 import { RosterGrid } from "@/1-components/roster/RosterGrid.tsx";
-import type { Alliance } from "@/4-lib/general/constants.ts";
 import {
 	enrichRoster,
 	filterRoster,
