@@ -13,7 +13,7 @@ import { join } from "node:path";
 import { DATA as characters } from "../characters/data.generated.ts";
 import { DATA as mows } from "../mows/data.generated.ts";
 
-export const main = async () => {
+export const main = () => {
 	const units = [];
 
 	for (const c of characters) {

@@ -181,7 +181,7 @@ function GoalProgress({ data }: { data: GoalData }) {
 				<div className="flex items-center gap-2 text-sm">
 					<div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2 py-1">
 						<RarityIcon rarity={data.rarityStart} size={20} />
-						<span className="text-muted-foreground">data.rarityStart</span>
+						<span className="text-muted-foreground">{data.rarityStart}</span>
 						{starsLabel(data.starsStart) && (
 							<span className={cn("text-xs", starsColor(data.starsStart))}>
 								{starsLabel(data.starsStart)}
