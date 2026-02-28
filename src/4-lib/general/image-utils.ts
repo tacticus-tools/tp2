@@ -1,9 +1,3 @@
-import CommonIcon from "@/5-assets/images/rarity-icons/common.png";
-import EpicIcon from "@/5-assets/images/rarity-icons/epic.png";
-import LegendaryIcon from "@/5-assets/images/rarity-icons/legendary.png";
-import MythicIcon from "@/5-assets/images/rarity-icons/mythic.png";
-import RareIcon from "@/5-assets/images/rarity-icons/rare.png";
-import UncommonIcon from "@/5-assets/images/rarity-icons/uncommon.png";
 import ChaosCommonBadge from "@/5-assets/images/tacticus/badges/chaos-common.png";
 import ChaosEpicBadge from "@/5-assets/images/tacticus/badges/chaos-epic.png";
 import ChaosLegendaryBadge from "@/5-assets/images/tacticus/badges/chaos-legendary.png";
@@ -22,18 +16,20 @@ import XenosLegendaryBadge from "@/5-assets/images/tacticus/badges/xenos-legenda
 import XenosMythicBadge from "@/5-assets/images/tacticus/badges/xenos-mythic.png";
 import XenosRareBadge from "@/5-assets/images/tacticus/badges/xenos-rare.png";
 import XenosUncommonBadge from "@/5-assets/images/tacticus/badges/xenos-uncommon.png";
-import CommonBook from "@/5-assets/images/tacticus/books/common.png";
-import EpicBook from "@/5-assets/images/tacticus/books/epic.png";
-import LegendaryBook from "@/5-assets/images/tacticus/books/legendary.png";
-import MythicBook from "@/5-assets/images/tacticus/books/mythic.png";
-import RareBook from "@/5-assets/images/tacticus/books/rare.png";
-import UncommonBook from "@/5-assets/images/tacticus/books/uncommon.png";
-import CommonFrame from "@/5-assets/images/tacticus/frames/common.png";
-import EpicFrame from "@/5-assets/images/tacticus/frames/epic.png";
-import LegendaryFrame from "@/5-assets/images/tacticus/frames/legendary.png";
-import MythicFrame from "@/5-assets/images/tacticus/frames/mythic.png";
-import RareFrame from "@/5-assets/images/tacticus/frames/rare.png";
-import UncommonFrame from "@/5-assets/images/tacticus/frames/uncommon.png";
+import LegendaryBook from "@/5-assets/images/tacticus/icons/xp_book_legendary.png";
+import MythicBook from "@/5-assets/images/tacticus/icons/xp_book_mythic.png";
+import CommonIcon from "@/5-assets/images/tacticus/rarity/common.png";
+import EpicIcon from "@/5-assets/images/tacticus/rarity/epic.png";
+import LegendaryIcon from "@/5-assets/images/tacticus/rarity/legendary.png";
+import MythicIcon from "@/5-assets/images/tacticus/rarity/mythic.png";
+import RareIcon from "@/5-assets/images/tacticus/rarity/rare.png";
+import UncommonIcon from "@/5-assets/images/tacticus/rarity/uncommon.png";
+import CommonFrame from "@/5-assets/images/tacticus/rarity_frames/common.png";
+import EpicFrame from "@/5-assets/images/tacticus/rarity_frames/epic.png";
+import LegendaryFrame from "@/5-assets/images/tacticus/rarity_frames/legendary.png";
+import MythicFrame from "@/5-assets/images/tacticus/rarity_frames/mythic.png";
+import RareFrame from "@/5-assets/images/tacticus/rarity_frames/rare.png";
+import UncommonFrame from "@/5-assets/images/tacticus/rarity_frames/uncommon.png";
 import { Rank } from "./constants.ts";
 
 export const FRAME_URLS = {
@@ -73,10 +69,6 @@ export const BADGE_URLS = {
 } as const;
 
 export const BOOK_URLS = {
-	Common: CommonBook,
-	Uncommon: UncommonBook,
-	Rare: RareBook,
-	Epic: EpicBook,
 	Legendary: LegendaryBook,
 	Mythic: MythicBook,
 };
