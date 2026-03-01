@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { CampaignProgressCard } from "@/1-components/general/CampaignProgressCard.tsx";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
-import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
 import {
 	getCampaignMetadata,
 	getEventCampaignBaseNames,
@@ -26,19 +24,9 @@ interface CampaignGroup {
 }
 
 function CampaignsPage() {
-	const campaignProgress = usePlayerDataStore((s) => s.campaignProgress);
-
 	const persistedProgress = useCampaignProgressStore((s) => s.progress);
-	const mergeFromApi = useCampaignProgressStore((s) => s.mergeFromApi);
 
 	const metadata = getCampaignMetadata();
-
-	// When API campaign progress changes, merge into persisted store
-	useEffect(() => {
-		if (campaignProgress.length > 0) {
-			mergeFromApi(campaignProgress);
-		}
-	}, [campaignProgress, mergeFromApi]);
 
 	// Build grouped campaign data using persisted progress
 	const { mainGroups, eventGroups } = (() => {

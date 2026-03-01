@@ -46,6 +46,11 @@ export default defineSchema({
 		data: v.string(), // JSON: { snapshots: RosterSnapshot[], deletedSnapshots: RosterSnapshot[] }
 		updatedAt: v.number(),
 	}).index("by_userId", ["userId"]),
+	campaignProgress: defineTable({
+		userId: v.id("users"),
+		data: v.string(), // JSON: Record<string, number> — campaign name -> max node number
+		updatedAt: v.number(),
+	}).index("by_userId", ["userId"]),
 	gwOffense: defineTable({
 		userId: v.id("users"),
 		bfLevel: v.number(),

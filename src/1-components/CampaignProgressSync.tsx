@@ -1,0 +1,84 @@
+import { useMutation, useQuery } from "convex/react";
+import { useEffect, useRef } from "react";
+import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
+import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
+// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
+import { api } from "~/_generated/api";
+
+/**
+ * Headless sync bridge that persists campaign progress to Convex.
+ *
+ * Phase A: Load from Convex (once) — merge with localStorage via highest-value-wins
+ * Phase B: Merge from API — replaces the useEffect that was in campaigns.tsx
+ * Phase C: Save to Convex — on store changes, save to DB
+ */
+export function CampaignProgressSync() {
+	const convexDoc = useQuery(api.campaignProgress.get);
+	const saveMutation = useMutation(api.campaignProgress.save);
+
+	const convexMergedRef = useRef(false);
+	const lastSavedRef = useRef<string | null>(null);
+
+	const progress = useCampaignProgressStore((s) => s.progress);
+	const apiCampaignProgress = usePlayerDataStore((s) => s.campaignProgress);
+
+	// Phase A: Load from Convex (once per session)
+	useEffect(() => {
+		if (convexMergedRef.current) return;
+		// convexDoc is undefined while loading, null if no row exists
+		if (convexDoc === undefined) return;
+
+		convexMergedRef.current = true;
+
+		if (convexDoc === null) return;
+
+		let convexProgress: Record<string, number>;
+		try {
+			convexProgress = JSON.parse(convexDoc.data) as Record<string, number>;
+		} catch {
+			return;
+		}
+
+		// Highest-value-wins merge into Zustand
+		const currentProgress = useCampaignProgressStore.getState().progress;
+		const merged = { ...currentProgress };
+		let changed = false;
+
+		for (const [campaign, nodes] of Object.entries(convexProgress)) {
+			if (typeof nodes === "number" && nodes > (merged[campaign] ?? 0)) {
+				merged[campaign] = nodes;
+				changed = true;
+			}
+		}
+
+		if (changed) {
+			useCampaignProgressStore.setState({ progress: merged });
+		}
+
+		// Set lastSavedRef to prevent immediate re-save
+		lastSavedRef.current = JSON.stringify(
+			useCampaignProgressStore.getState().progress,
+		);
+	}, [convexDoc]);
+
+	// Phase B: Merge from API (replaces campaigns.tsx useEffect)
+	useEffect(() => {
+		if (apiCampaignProgress.length > 0) {
+			useCampaignProgressStore.getState().mergeFromApi(apiCampaignProgress);
+		}
+	}, [apiCampaignProgress]);
+
+	// Phase C: Save to Convex on store change
+	useEffect(() => {
+		if (!convexMergedRef.current) return;
+
+		const serialized = JSON.stringify(progress);
+		if (serialized === "{}") return;
+		if (serialized === lastSavedRef.current) return;
+
+		lastSavedRef.current = serialized;
+		void saveMutation({ data: serialized });
+	}, [progress, saveMutation]);
+
+	return null;
+}

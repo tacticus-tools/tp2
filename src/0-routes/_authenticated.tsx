@@ -2,6 +2,7 @@ import { createFileRoute, Outlet, useNavigate } from "@tanstack/react-router";
 import { useConvexAuth } from "convex/react";
 import { Loader2 } from "lucide-react";
 import { useEffect } from "react";
+import { CampaignProgressSync } from "@/1-components/CampaignProgressSync.tsx";
 
 export const Route = createFileRoute("/_authenticated")({
 	component: AuthenticatedLayout,
@@ -25,5 +26,10 @@ function AuthenticatedLayout() {
 		);
 	}
 
-	return <Outlet />;
+	return (
+		<>
+			<CampaignProgressSync />
+			<Outlet />
+		</>
+	);
 }

@@ -9,6 +9,7 @@
  */
 
 import type * as auth from "../auth.js";
+import type * as campaignProgress from "../campaignProgress.js";
 import type * as env from "../env.js";
 import type * as goals from "../goals.js";
 import type * as gwOffense from "../gwOffense.js";
@@ -31,6 +32,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
+  campaignProgress: typeof campaignProgress;
   env: typeof env;
   goals: typeof goals;
   gwOffense: typeof gwOffense;
