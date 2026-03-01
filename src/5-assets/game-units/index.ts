@@ -25,10 +25,10 @@ export type GameUnitId = GameUnit["id"];
 /** All game units (characters + MoWs) with resolved icon URLs */
 export const GAME_UNITS = Object.freeze(units) as DeepReadonly<typeof units>;
 
-/** Lookup map: unitId → GameUnit (accepts any string key for API-sourced IDs) */
-export const unitById: ReadonlyMap<string, GameUnit> = new Map(
-	GAME_UNITS.map((u) => [u.id, u]),
-);
+/** Lookup record: unitId → GameUnit (accepts any string key for API-sourced IDs) */
+export const unitById: Readonly<Record<string, GameUnit>> = Object.freeze(
+	Object.fromEntries(GAME_UNITS.map((u) => [u.id, u])),
+) as Readonly<Record<string, GameUnit>>;
 
 /** All game units sorted by name (for combobox display) */
 export const allGameUnitsSorted = Object.freeze(

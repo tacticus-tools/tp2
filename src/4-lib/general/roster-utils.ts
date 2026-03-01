@@ -71,10 +71,12 @@ export interface RosterUnit {
 }
 
 /**
- * Build a lookup Map<unitId, RosterUnit> from the Tacticus API response units.
+ * Build a lookup Record<unitId, RosterUnit> from the Tacticus API response units.
  */
-export function buildRosterMap(units: TacticusUnit[]): Map<string, RosterUnit> {
-	const map = new Map<string, RosterUnit>();
+export function buildRosterMap(
+	units: TacticusUnit[],
+): Record<string, RosterUnit> {
+	const record: Record<string, RosterUnit> = {};
 	for (const u of units) {
 		const { rarity, stars } = convertProgressionIndex(u.progressionIndex);
 		const rank = convertApiRank(u.rank);
@@ -94,7 +96,7 @@ export function buildRosterMap(units: TacticusUnit[]): Map<string, RosterUnit> {
 			}
 		}
 
-		map.set(u.id, {
+		record[u.id] = {
 			rank,
 			rarity,
 			stars,
@@ -111,7 +113,7 @@ export function buildRosterMap(units: TacticusUnit[]): Map<string, RosterUnit> {
 				rarity: item.rarity,
 				slotId: item.slotId,
 			})),
-		});
+		};
 	}
-	return map;
+	return record;
 }

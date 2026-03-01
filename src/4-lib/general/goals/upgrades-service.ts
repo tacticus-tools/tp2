@@ -9,7 +9,7 @@ import {
 	filterLocationsByCampaignEvent,
 } from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import type { Campaign, Rank } from "../constants.ts";
+import type { Rank } from "../constants.ts";
 import { rankToLevel } from "../rank-data.ts";
 import { getBaseUpgradesForRankUp } from "../upgrade-data.ts";
 
@@ -34,7 +34,7 @@ export function estimateUpgradeDays(
 	appliedUpgrades: string[] = [],
 	upgradesRarity: Rarity[] = [],
 	inventory: Record<string, number> = {},
-	campaignProgress: Map<Campaign, number> = new Map(),
+	campaignProgress: Record<string, number> = {},
 	campaignEvent: CampaignEventType = "none",
 	mutateInventory = false,
 ): IUpgradeEstimate {

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Input } from "@/1-components/ui/input.tsx";
 import {
 	Select,
@@ -16,18 +16,19 @@ export const Route = createFileRoute("/data/upgrades")({
 	component: UpgradesPage,
 });
 
-const charLookup = new Map(CHARACTERS.map((c) => [c.id as string, c]));
+const charLookup: Record<string, (typeof CHARACTERS)[number]> =
+	Object.fromEntries(CHARACTERS.map((c) => [c.id as string, c]));
 
 function UpgradesPage() {
 	const [search, setSearch] = useState("");
 	const [selectedCharId, setSelectedCharId] = useState("all");
 
-	const characterEntries = useMemo(() => {
+	const characterEntries = (() => {
 		const entries = Object.entries(CHARACTER_RANK_UP_MATERIALS)
 			.map(([id, ranks]) => ({
 				id,
-				name: charLookup.get(id)?.name ?? id,
-				roundIcon: charLookup.get(id)?.roundIcon,
+				name: charLookup[id]?.name ?? id,
+				roundIcon: charLookup[id]?.roundIcon,
 				ranks: ranks as Record<string, readonly string[]>,
 			}))
 			.sort((a, b) => a.name.localeCompare(b.name));
@@ -40,7 +41,7 @@ function UpgradesPage() {
 			return entries.filter((e) => e.name.toLowerCase().includes(q));
 		}
 		return entries;
-	}, [search, selectedCharId]);
+	})();
 
 	return (
 		<div className="space-y-6">
@@ -73,7 +74,7 @@ function UpgradesPage() {
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="all">All characters</SelectItem>
-						{[...charLookup.entries()]
+						{Object.entries(charLookup)
 							.sort(([, a], [, b]) => a.name.localeCompare(b.name))
 							.map(([id, c]) => (
 								<SelectItem key={id} value={id}>

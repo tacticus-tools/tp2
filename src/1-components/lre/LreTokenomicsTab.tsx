@@ -1,5 +1,4 @@
 import { Gem, Star } from "lucide-react";
-import { useMemo } from "react";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import {
@@ -26,10 +25,12 @@ import { LreObjectiveIcon } from "./LreObjectiveIcon.tsx";
 
 type LeBattle = DeepReadonly<LeBattleData[number]>;
 
-const characterMap = new Map<
+const characterMap: Record<
 	string,
 	{ name: string; roundIcon: string | undefined }
->(CHARACTERS.map((c) => [c.id, { name: c.name, roundIcon: c.roundIcon }]));
+> = Object.fromEntries(
+	CHARACTERS.map((c) => [c.id, { name: c.name, roundIcon: c.roundIcon }]),
+);
 
 function findLeBattleData(eventId: number): LeBattle | undefined {
 	return LE_BATTLES.find((e) => e.id === String(eventId));
@@ -60,30 +61,25 @@ export function LreTokenomicsTab({
 	teams: ConvexTeam[];
 	progressData: LreProgressData;
 	apiSummary: ApiLreSummary | null;
-	roster?: Map<string, RosterUnit>;
+	roster?: Record<string, RosterUnit>;
 }) {
-	const leBattle = useMemo(() => findLeBattleData(event.id), [event.id]);
+	const leBattle = findLeBattleData(event.id);
 
 	// Convert Convex teams to LreTeamData
-	const teamData: LreTeamData[] = useMemo(
-		() =>
-			teams
-				.filter((t) => isTrackId(t.trackId))
-				.map((t) => ({
-					name: t.name,
-					trackId: t.trackId as TrackId,
-					characterIds: t.characterIds,
-					restrictionIds: t.restrictionIds ?? [],
-					expectedBattleClears: t.expectedBattleClears,
-					notes: t.notes,
-				})),
-		[teams],
-	);
+	const teamData: LreTeamData[] = teams
+		.filter((t) => isTrackId(t.trackId))
+		.map((t) => ({
+			name: t.name,
+			trackId: t.trackId as TrackId,
+			characterIds: t.characterIds,
+			restrictionIds: t.restrictionIds ?? [],
+			expectedBattleClears: t.expectedBattleClears,
+			notes: t.notes,
+		}));
 
 	// Build baseline from API values (ground truth) or default to zero
-	const baseline = useMemo(() => {
-		if (apiSummary) {
-			return {
+	const baseline = apiSummary
+		? {
 				points: apiSummary.currentPoints,
 				shards: apiSummary.currentShards,
 				engrams: apiSummary.currentCurrency,
@@ -91,27 +87,18 @@ export function LreTokenomicsTab({
 					apiSummary.currentClaimedChestIndex != null
 						? apiSummary.currentClaimedChestIndex + 1
 						: 0,
-			};
-		}
-		return { points: 0, shards: 0, engrams: 0, chestsOpened: 0 };
-	}, [apiSummary]);
+			}
+		: { points: 0, shards: 0, engrams: 0, chestsOpened: 0 };
 
-	const tokens = useMemo(
-		() =>
-			computeAllTokenUsage(
-				teamData,
-				event,
-				leBattle,
-				progressData,
-				baseline.points,
-			),
-		[teamData, event, leBattle, progressData, baseline.points],
+	const tokens = computeAllTokenUsage(
+		teamData,
+		event,
+		leBattle,
+		progressData,
+		baseline.points,
 	);
 
-	const displays = useMemo(
-		() => getTokenDisplays(tokens, event, baseline),
-		[tokens, event, baseline],
-	);
+	const displays = getTokenDisplays(tokens, event, baseline);
 
 	const lastDisplay = displays[displays.length - 1];
 
@@ -191,8 +178,8 @@ export function LreTokenomicsTab({
 							{/* Characters */}
 							<div className="mt-1.5 flex flex-wrap gap-1.5">
 								{d.characterIds.map((id) => {
-									const char = characterMap.get(id);
-									const rosterUnit = roster?.get(id);
+									const char = characterMap[id];
+									const rosterUnit = roster?.[id];
 									return (
 										<div
 											key={id}

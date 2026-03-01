@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { Input } from "@/1-components/ui/input.tsx";
 import {
@@ -20,7 +20,7 @@ interface CharacterGridProps {
 	/** When provided, only show characters whose IDs are in this set */
 	allowedIds?: Set<string>;
 	/** When provided, characters not in roster are grayed out and rank icons are shown */
-	roster?: Map<string, RosterUnit>;
+	roster?: Record<string, RosterUnit>;
 }
 
 const allFactions = Object.entries(FACTIONS)
@@ -37,9 +37,9 @@ export function CharacterGrid({
 	const [search, setSearch] = useState("");
 	const [factionFilter, setFactionFilter] = useState("all");
 
-	const selectedSet = useMemo(() => new Set(selected), [selected]);
+	const selectedSet = new Set(selected);
 
-	const filtered = useMemo(() => {
+	const filtered = (() => {
 		let chars = [...CHARACTERS];
 		if (allowedIds) {
 			chars = chars.filter((c) => allowedIds.has(c.id));
@@ -54,8 +54,8 @@ export function CharacterGrid({
 		// Sort: roster characters first (by rank descending), then locked alphabetically
 		if (roster) {
 			return chars.sort((a, b) => {
-				const aUnit = roster.get(a.id);
-				const bUnit = roster.get(b.id);
+				const aUnit = roster[a.id];
+				const bUnit = roster[b.id];
 				if (aUnit && !bUnit) return -1;
 				if (!aUnit && bUnit) return 1;
 				if (aUnit && bUnit) return bUnit.rank - aUnit.rank;
@@ -63,7 +63,7 @@ export function CharacterGrid({
 			});
 		}
 		return chars.sort((a, b) => a.name.localeCompare(b.name));
-	}, [search, factionFilter, allowedIds, roster]);
+	})();
 
 	const atMax = maxSelections !== undefined && selected.length >= maxSelections;
 
@@ -94,7 +94,7 @@ export function CharacterGrid({
 			<div className="grid max-h-64 grid-cols-5 gap-1.5 overflow-y-auto sm:grid-cols-6 md:grid-cols-8">
 				{filtered.map((char) => {
 					const isSelected = selectedSet.has(char.id);
-					const rosterUnit = roster?.get(char.id);
+					const rosterUnit = roster?.[char.id];
 					const isLocked = roster !== undefined && !rosterUnit;
 					const disabled = (!isSelected && atMax) || (isLocked && !isSelected);
 					const iconUrl = getFactionIconUrl(char.factionId);

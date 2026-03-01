@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
 import { Loader2, Shield } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { GwDeployDialog } from "@/1-components/gw-offense/GwDeployDialog.tsx";
 import { GwZoneCard } from "@/1-components/gw-offense/GwZoneCard.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
@@ -50,18 +50,14 @@ function GwOffensePage() {
 		number | null
 	>(null);
 
-	const plan = useMemo(
-		() => parsePlan(doc?.bfLevel, doc?.deployments, doc?.notes),
-		[doc?.bfLevel, doc?.deployments, doc?.notes],
-	);
+	const plan = parsePlan(doc?.bfLevel, doc?.deployments, doc?.notes);
 
-	const teamMap = useMemo(() => {
-		if (!teams)
-			return new Map<
-				string,
-				{ name: string; characterIds: string[]; mowIds: string[] }
-			>();
-		return new Map(
+	const teamMap: Record<
+		string,
+		{ name: string; characterIds: string[]; mowIds: string[] }
+	> = (() => {
+		if (!teams) return {};
+		return Object.fromEntries(
 			teams.map((t) => [
 				t._id,
 				{
@@ -71,59 +67,44 @@ function GwOffensePage() {
 				},
 			]),
 		);
-	}, [teams]);
+	})();
 
-	const deployedTeamIds = useMemo(
-		() => new Set(plan.deployments.map((d) => d.teamId)),
-		[plan.deployments],
-	);
+	const deployedTeamIds = new Set(plan.deployments.map((d) => d.teamId));
 
-	const warScore = useMemo(
-		() => computeWarScore(GUILD_WAR, plan.deployments),
-		[plan.deployments],
-	);
+	const warScore = computeWarScore(GUILD_WAR, plan.deployments);
 
-	const handleDeploy = useCallback(
-		async (sectionIndex: number, teamId: string) => {
-			const newDeployments: GwDeployment[] = [
-				...plan.deployments.filter((d) => d.sectionIndex !== sectionIndex),
-				{ sectionIndex, teamId },
-			];
-			await saveGw({
-				bfLevel: selectedBfLevel,
-				deployments: JSON.stringify(newDeployments),
-				notes: plan.notes,
-			});
-		},
-		[plan.deployments, plan.notes, selectedBfLevel, saveGw],
-	);
+	const handleDeploy = async (sectionIndex: number, teamId: string) => {
+		const newDeployments: GwDeployment[] = [
+			...plan.deployments.filter((d) => d.sectionIndex !== sectionIndex),
+			{ sectionIndex, teamId },
+		];
+		await saveGw({
+			bfLevel: selectedBfLevel,
+			deployments: JSON.stringify(newDeployments),
+			notes: plan.notes,
+		});
+	};
 
-	const handleRemove = useCallback(
-		async (sectionIndex: number) => {
-			const newDeployments = plan.deployments.filter(
-				(d) => d.sectionIndex !== sectionIndex,
-			);
-			await saveGw({
-				bfLevel: selectedBfLevel,
-				deployments: JSON.stringify(newDeployments),
-				notes: plan.notes,
-			});
-		},
-		[plan.deployments, plan.notes, selectedBfLevel, saveGw],
-	);
+	const handleRemove = async (sectionIndex: number) => {
+		const newDeployments = plan.deployments.filter(
+			(d) => d.sectionIndex !== sectionIndex,
+		);
+		await saveGw({
+			bfLevel: selectedBfLevel,
+			deployments: JSON.stringify(newDeployments),
+			notes: plan.notes,
+		});
+	};
 
-	const handleBfLevelChange = useCallback(
-		async (level: string) => {
-			const bfLevel = Number(level);
-			setSelectedBfLevel(bfLevel);
-			await saveGw({
-				bfLevel,
-				deployments: JSON.stringify(plan.deployments),
-				notes: plan.notes,
-			});
-		},
-		[setSelectedBfLevel, saveGw, plan.deployments, plan.notes],
-	);
+	const handleBfLevelChange = async (level: string) => {
+		const bfLevel = Number(level);
+		setSelectedBfLevel(bfLevel);
+		await saveGw({
+			bfLevel,
+			deployments: JSON.stringify(plan.deployments),
+			notes: plan.notes,
+		});
+	};
 
 	if (doc === undefined || teams === undefined) {
 		return (
@@ -187,7 +168,7 @@ function GwOffensePage() {
 					const deployment = plan.deployments.find(
 						(d) => d.sectionIndex === globalIndex,
 					);
-					const team = deployment ? teamMap.get(deployment.teamId) : undefined;
+					const team = deployment ? teamMap[deployment.teamId] : undefined;
 
 					return (
 						<GwZoneCard

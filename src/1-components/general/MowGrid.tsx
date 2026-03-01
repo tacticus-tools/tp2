@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Input } from "@/1-components/ui/input.tsx";
 import { cn } from "@/4-lib/utils.ts";
 import { getFactionIconUrl } from "@/5-assets/factions/index.ts";
@@ -19,16 +19,16 @@ export function MowGrid({
 }: MowGridProps) {
 	const [search, setSearch] = useState("");
 
-	const selectedSet = useMemo(() => new Set(selected), [selected]);
+	const selectedSet = new Set(selected);
 
-	const filtered = useMemo(() => {
+	const filtered = (() => {
 		let mows = [...MOWS];
 		if (search.trim()) {
 			const q = search.trim().toLowerCase();
 			mows = mows.filter((m) => m.name.toLowerCase().includes(q));
 		}
 		return mows.sort((a, b) => a.name.localeCompare(b.name));
-	}, [search]);
+	})();
 
 	const atMax = maxSelections !== undefined && selected.length >= maxSelections;
 

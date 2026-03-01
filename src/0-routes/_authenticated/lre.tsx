@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { LreBattlesTab } from "@/1-components/lre/LreBattlesTab.tsx";
 import { LreEventSelector } from "@/1-components/lre/LreEventSelector.tsx";
 import { LreProgressTab } from "@/1-components/lre/LreProgressTab.tsx";
@@ -155,30 +155,20 @@ function LrePage() {
 	// Match via the event's characterId field.
 	const legendaryEvents = usePlayerDataStore((s) => s.legendaryEvents);
 	const roster = usePlayerDataStore((s) => s.roster);
-	const apiEventProgress = useMemo(
-		() =>
-			event
-				? legendaryEvents.find((le) => le.id === event.characterId)
-				: undefined,
-		[legendaryEvents, event],
-	);
-	const apiSummary: ApiLreSummary | null = useMemo(
-		() => (apiEventProgress ? extractApiSummary(apiEventProgress) : null),
-		[apiEventProgress],
-	);
-	const apiProgressData: LreProgressData | null = useMemo(
-		() =>
-			apiEventProgress ? apiProgressToLreProgress(apiEventProgress) : null,
-		[apiEventProgress],
-	);
+	const apiEventProgress = event
+		? legendaryEvents.find((le) => le.id === event.characterId)
+		: undefined;
+	const apiSummary: ApiLreSummary | null = apiEventProgress
+		? extractApiSummary(apiEventProgress)
+		: null;
+	const apiProgressData: LreProgressData | null = apiEventProgress
+		? apiProgressToLreProgress(apiEventProgress)
+		: null;
 
 	// Merge: full initialized grid + Convex user edits + API battle progress
-	const leBattle = useMemo(
-		() => (event ? findLeBattleData(event.id) : undefined),
-		[event],
-	);
+	const leBattle = event ? findLeBattleData(event.id) : undefined;
 
-	const progressData: LreProgressData = useMemo(() => {
+	const progressData: LreProgressData = (() => {
 		if (!event) {
 			return { tracksProgress: [], occurrenceProgress: [], notes: "" };
 		}
@@ -210,24 +200,21 @@ function LrePage() {
 		// 4. Overlay API data on top — only Cleared/PartiallyCleared requirements
 		// are authoritative. NotCleared from API should not overwrite user flags.
 		return overlayApiProgress(merged, apiProgressData);
-	}, [event, leBattle, savedProgress, apiProgressData]);
+	})();
 
 	// Debounced auto-save (only for occurrence data when API is source of truth)
 	const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-	const handleProgressChange = useCallback(
-		(data: LreProgressData) => {
-			if (saveTimerRef.current) {
-				clearTimeout(saveTimerRef.current);
-			}
-			saveTimerRef.current = setTimeout(() => {
-				void saveProgressMutation({
-					eventId: selectedEventId,
-					data: JSON.stringify(data),
-				});
-			}, 500);
-		},
-		[selectedEventId, saveProgressMutation],
-	);
+	const handleProgressChange = (data: LreProgressData) => {
+		if (saveTimerRef.current) {
+			clearTimeout(saveTimerRef.current);
+		}
+		saveTimerRef.current = setTimeout(() => {
+			void saveProgressMutation({
+				eventId: selectedEventId,
+				data: JSON.stringify(data),
+			});
+		}, 500);
+	};
 
 	// Cleanup timer on unmount
 	useEffect(() => {
@@ -238,46 +225,37 @@ function LrePage() {
 		};
 	}, []);
 
-	const handleAddTeam = useCallback(
-		(data: {
-			trackId: string;
-			name: string;
-			characterIds: string[];
+	const handleAddTeam = (data: {
+		trackId: string;
+		name: string;
+		characterIds: string[];
+		restrictionIds?: string[];
+		expectedBattleClears?: number;
+		notes?: string;
+	}) => {
+		void addTeamMutation({
+			eventId: selectedEventId,
+			...data,
+		});
+	};
+
+	const handleUpdateTeam = (
+		teamId: Id<"lreTeams">,
+		data: {
+			trackId?: string;
+			name?: string;
+			characterIds?: string[];
 			restrictionIds?: string[];
 			expectedBattleClears?: number;
 			notes?: string;
-		}) => {
-			void addTeamMutation({
-				eventId: selectedEventId,
-				...data,
-			});
 		},
-		[selectedEventId, addTeamMutation],
-	);
+	) => {
+		void updateTeamMutation({ teamId, ...data });
+	};
 
-	const handleUpdateTeam = useCallback(
-		(
-			teamId: Id<"lreTeams">,
-			data: {
-				trackId?: string;
-				name?: string;
-				characterIds?: string[];
-				restrictionIds?: string[];
-				expectedBattleClears?: number;
-				notes?: string;
-			},
-		) => {
-			void updateTeamMutation({ teamId, ...data });
-		},
-		[updateTeamMutation],
-	);
-
-	const handleRemoveTeam = useCallback(
-		(teamId: Id<"lreTeams">) => {
-			void removeTeamMutation({ teamId });
-		},
-		[removeTeamMutation],
-	);
+	const handleRemoveTeam = (teamId: Id<"lreTeams">) => {
+		void removeTeamMutation({ teamId });
+	};
 
 	if (!event) {
 		return (

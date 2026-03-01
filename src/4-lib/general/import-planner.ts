@@ -67,7 +67,7 @@ export function parsePlannerExport(raw: string): ImportResult {
 	}
 
 	for (const pg of parsed.goals) {
-		const unit = unitById.get(pg.character);
+		const unit = unitById[pg.character];
 		if (!unit) {
 			skipped.push(pg.character);
 			continue;

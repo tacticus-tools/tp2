@@ -1,7 +1,7 @@
 import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useQuery } from "convex/react";
 import { Loader2 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import z from "zod";
 import type { Alliance } from "#common/alliance.ts";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
@@ -26,13 +26,8 @@ export const Route = createFileRoute("/shared/roster")({
 	}),
 });
 
-function deserializeRoster(json: string): Map<string, RosterUnit> {
-	const obj = z.record(z.string(), RosterUnitSchema).parse(JSON.parse(json));
-	const map = new Map<string, RosterUnit>();
-	for (const [id, unit] of Object.entries(obj)) {
-		map.set(id, unit);
-	}
-	return map;
+function deserializeRoster(json: string): Record<string, RosterUnit> {
+	return z.record(z.string(), RosterUnitSchema).parse(JSON.parse(json));
 }
 
 function SharedRosterPage() {
@@ -44,20 +39,11 @@ function SharedRosterPage() {
 	const [sortBy, setSortBy] = useState<RosterSortKey>("rank");
 	const [viewMode, setViewMode] = useState<"faction" | "all">("faction");
 
-	const roster = useMemo(() => {
-		if (!data?.roster) return new Map<string, RosterUnit>();
-		return deserializeRoster(data.roster);
-	}, [data?.roster]);
+	const roster = data?.roster ? deserializeRoster(data.roster) : {};
 
-	const enriched = useMemo(
-		() => enrichRoster(roster, CHARACTERS, MOWS),
-		[roster],
-	);
+	const enriched = enrichRoster(roster, CHARACTERS, MOWS);
 
-	const filtered = useMemo(
-		() => filterRoster(enriched, search, allianceFilter),
-		[enriched, search, allianceFilter],
-	);
+	const filtered = filterRoster(enriched, search, allianceFilter);
 
 	if (!token) {
 		return (

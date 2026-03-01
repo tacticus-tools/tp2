@@ -6,7 +6,7 @@ import {
 	filterLocationsByCampaignEvent,
 } from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import type { Campaign, RarityStars } from "../constants.ts";
+import type { RarityStars } from "../constants.ts";
 import { charsProgression, charsUnlockShards } from "../rarity-data.ts";
 
 export interface IShardsEstimate {
@@ -72,7 +72,7 @@ export function estimateShardFarmingDays(
 	dailyEnergy: number,
 	_campaignsUsage: CampaignsLocationsUsage,
 	unitId?: string,
-	campaignProgress: Map<Campaign, number> = new Map(),
+	campaignProgress: Record<string, number> = {},
 	campaignEvent: CampaignEventType = "none",
 ): IShardsEstimate {
 	if (shardsNeeded <= 0) {

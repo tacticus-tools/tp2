@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { CharacterGrid } from "@/1-components/general/CharacterGrid.tsx";
 import { MowGrid } from "@/1-components/general/MowGrid.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
@@ -88,27 +88,27 @@ export function TeamDialog({
 		initialNotes,
 	]);
 
-	const handleToggle = useCallback((charId: string) => {
+	const handleToggle = (charId: string) => {
 		setCharacterIds((prev) =>
 			prev.includes(charId)
 				? prev.filter((id) => id !== charId)
 				: [...prev, charId],
 		);
-	}, []);
+	};
 
-	const handleMowToggle = useCallback((mowId: string) => {
+	const handleMowToggle = (mowId: string) => {
 		setMowIds((prev) =>
 			prev.includes(mowId)
 				? prev.filter((id) => id !== mowId)
 				: [...prev, mowId],
 		);
-	}, []);
+	};
 
-	const handleModeToggle = useCallback((mode: GameMode, checked: boolean) => {
+	const handleModeToggle = (mode: GameMode, checked: boolean) => {
 		setModes((prev) => ({ ...prev, [mode]: checked }));
-	}, []);
+	};
 
-	const handleSave = useCallback(() => {
+	const handleSave = () => {
 		if (!name.trim()) return;
 		onSave({
 			name: name.trim(),
@@ -118,7 +118,7 @@ export function TeamDialog({
 			notes: notes.trim(),
 		});
 		onOpenChange(false);
-	}, [name, characterIds, mowIds, modes, notes, onSave, onOpenChange]);
+	};
 
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>

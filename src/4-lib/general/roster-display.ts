@@ -49,7 +49,7 @@ export interface EnrichRosterOptions {
 }
 
 export function enrichRoster(
-	roster: Map<string, RosterUnit>,
+	roster: Record<string, RosterUnit>,
 	characters: readonly UnitMetadata[],
 	mows: readonly UnitMetadata[],
 	options?: EnrichRosterOptions,
@@ -57,7 +57,7 @@ export function enrichRoster(
 	const units: EnrichedRosterUnit[] = [];
 
 	for (const char of characters) {
-		const ru = roster.get(char.id);
+		const ru = roster[char.id];
 		if (!ru) {
 			if (options?.includeUnowned) {
 				units.push({
@@ -115,7 +115,7 @@ export function enrichRoster(
 	}
 
 	for (const mow of mows) {
-		const ru = roster.get(mow.id);
+		const ru = roster[mow.id];
 		if (!ru) continue;
 		units.push({
 			id: mow.id,
@@ -232,10 +232,10 @@ export function groupByFaction(
 	units: EnrichedRosterUnit[],
 	factions: FactionData,
 ): FactionGroup[] {
-	const groups = new Map<string, FactionGroup>();
+	const groups: Record<string, FactionGroup> = {};
 
 	for (const unit of units) {
-		let group = groups.get(unit.factionId);
+		let group = groups[unit.factionId];
 		if (!group) {
 			const faction = factions[unit.factionId];
 			group = {
@@ -245,12 +245,12 @@ export function groupByFaction(
 				alliance: faction?.alliance ?? unit.alliance,
 				units: [],
 			};
-			groups.set(unit.factionId, group);
+			groups[unit.factionId] = group;
 		}
 		group.units.push(unit);
 	}
 
-	return Array.from(groups.values()).sort((a, b) => {
+	return Object.values(groups).sort((a, b) => {
 		const allianceDiff =
 			(ALLIANCE_ORDER[a.alliance] ?? 3) - (ALLIANCE_ORDER[b.alliance] ?? 3);
 		if (allianceDiff !== 0) return allianceDiff;

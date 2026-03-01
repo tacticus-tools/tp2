@@ -1,5 +1,5 @@
 import { Pencil, Plus, Trash2 } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
@@ -20,10 +20,12 @@ interface LreTeam {
 	notes?: string;
 }
 
-const characterMap = new Map<
+const characterMap: Record<
 	string,
 	{ name: string; roundIcon: string | undefined }
->(CHARACTERS.map((c) => [c.id, { name: c.name, roundIcon: c.roundIcon }]));
+> = Object.fromEntries(
+	CHARACTERS.map((c) => [c.id, { name: c.name, roundIcon: c.roundIcon }]),
+);
 
 export function LreTeamsTab({
 	teams,
@@ -57,54 +59,51 @@ export function LreTeamsTab({
 		},
 	) => void;
 	onRemoveTeam: (teamId: Id<"lreTeams">) => void;
-	roster?: Map<string, RosterUnit>;
+	roster?: Record<string, RosterUnit>;
 }) {
 	const [dialogOpen, setDialogOpen] = useState(false);
 	const [editingTeam, setEditingTeam] = useState<LreTeam | null>(null);
 
 	const trackTeams = teams.filter((t) => t.trackId === trackId);
 
-	const handleAdd = useCallback(() => {
+	const handleAdd = () => {
 		setEditingTeam(null);
 		setDialogOpen(true);
-	}, []);
+	};
 
-	const handleEdit = useCallback((team: LreTeam) => {
+	const handleEdit = (team: LreTeam) => {
 		setEditingTeam(team);
 		setDialogOpen(true);
-	}, []);
+	};
 
-	const handleSave = useCallback(
-		(data: {
-			name: string;
-			trackId: TrackId;
-			characterIds: string[];
-			restrictionIds: string[];
-			expectedBattleClears: number;
-			notes: string;
-		}) => {
-			if (editingTeam) {
-				onUpdateTeam(editingTeam._id, {
-					trackId: data.trackId,
-					name: data.name,
-					characterIds: data.characterIds,
-					restrictionIds: data.restrictionIds,
-					expectedBattleClears: data.expectedBattleClears,
-					notes: data.notes || undefined,
-				});
-			} else {
-				onAddTeam({
-					trackId: data.trackId,
-					name: data.name,
-					characterIds: data.characterIds,
-					restrictionIds: data.restrictionIds,
-					expectedBattleClears: data.expectedBattleClears,
-					notes: data.notes || undefined,
-				});
-			}
-		},
-		[editingTeam, onAddTeam, onUpdateTeam],
-	);
+	const handleSave = (data: {
+		name: string;
+		trackId: TrackId;
+		characterIds: string[];
+		restrictionIds: string[];
+		expectedBattleClears: number;
+		notes: string;
+	}) => {
+		if (editingTeam) {
+			onUpdateTeam(editingTeam._id, {
+				trackId: data.trackId,
+				name: data.name,
+				characterIds: data.characterIds,
+				restrictionIds: data.restrictionIds,
+				expectedBattleClears: data.expectedBattleClears,
+				notes: data.notes || undefined,
+			});
+		} else {
+			onAddTeam({
+				trackId: data.trackId,
+				name: data.name,
+				characterIds: data.characterIds,
+				restrictionIds: data.restrictionIds,
+				expectedBattleClears: data.expectedBattleClears,
+				notes: data.notes || undefined,
+			});
+		}
+	};
 
 	return (
 		<div className="space-y-4">
@@ -154,8 +153,8 @@ export function LreTeamsTab({
 									{/* Character portraits */}
 									<div className="mt-1.5 flex flex-wrap gap-1.5">
 										{team.characterIds.map((charId) => {
-											const char = characterMap.get(charId);
-											const rosterUnit = roster?.get(charId);
+											const char = characterMap[charId];
+											const rosterUnit = roster?.[charId];
 											return (
 												<div
 													key={charId}

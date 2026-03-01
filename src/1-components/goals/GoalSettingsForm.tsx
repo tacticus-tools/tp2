@@ -1,5 +1,5 @@
 import { Zap } from "lucide-react";
-import { useCallback, useId } from "react";
+import { useId } from "react";
 import { RARITIES, type Rarity } from "#common/rarity.ts";
 import { Input } from "@/1-components/ui/input.tsx";
 import { Label } from "@/1-components/ui/label.tsx";
@@ -72,16 +72,16 @@ export function GoalSettingsForm({
 		setCustomFarmSelections,
 	} = useGoalPreferencesStore();
 
-	const toggleCustomSelection = useCallback(
-		(rarity: Rarity, campaignType: CampaignType) => {
-			const current = customFarmSelections[rarity] ?? [];
-			const next = current.includes(campaignType)
-				? current.filter((t) => t !== campaignType)
-				: [...current, campaignType];
-			setCustomFarmSelections({ ...customFarmSelections, [rarity]: next });
-		},
-		[customFarmSelections, setCustomFarmSelections],
-	);
+	const toggleCustomSelection = (
+		rarity: Rarity,
+		campaignType: CampaignType,
+	) => {
+		const current = customFarmSelections[rarity] ?? [];
+		const next = current.includes(campaignType)
+			? current.filter((t) => t !== campaignType)
+			: [...current, campaignType];
+		setCustomFarmSelections({ ...customFarmSelections, [rarity]: next });
+	};
 
 	return (
 		<div className="space-y-4">

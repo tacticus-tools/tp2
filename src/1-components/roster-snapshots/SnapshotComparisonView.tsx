@@ -1,5 +1,5 @@
 import { ArrowRight, ChevronDown, ChevronRight, Plus, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import type { Rank, RarityStars } from "@/4-lib/general/constants.ts";
@@ -25,25 +25,25 @@ interface UnitMeta {
 	isMow: boolean;
 }
 
-const metaByUnitId = new Map<string, UnitMeta>();
+const metaByUnitId: Record<string, UnitMeta> = {};
 for (const c of CHARACTERS)
-	metaByUnitId.set(c.id, {
+	metaByUnitId[c.id] = {
 		name: c.name,
 		portrait: c.portrait,
 		roundIcon: c.roundIcon,
 		activeAbilityIcon: c.activeAbilityIcon,
 		passiveAbilityIcon: c.passiveAbilityIcon,
 		isMow: false,
-	});
+	};
 for (const m of MOWS)
-	metaByUnitId.set(m.id, {
+	metaByUnitId[m.id] = {
 		name: m.name,
 		portrait: m.portrait,
 		roundIcon: m.roundIcon,
 		activeAbilityIcon: m.activeAbilityIcon,
 		passiveAbilityIcon: m.passiveAbilityIcon,
 		isMow: true,
-	});
+	};
 
 export function SnapshotComparisonView({
 	left,
@@ -54,12 +54,9 @@ export function SnapshotComparisonView({
 	right: RosterSnapshot;
 	hiddenFields: Set<string>;
 }) {
-	const diffs = useMemo(
-		() => diffSnapshots(left, right, hiddenFields),
-		[left, right, hiddenFields],
-	);
+	const diffs = diffSnapshots(left, right, hiddenFields);
 
-	const summary = useMemo(() => {
+	const summary = (() => {
 		let changed = 0;
 		let added = 0;
 		let removed = 0;
@@ -69,15 +66,15 @@ export function SnapshotComparisonView({
 			else removed++;
 		}
 		return { changed, added, removed, total: diffs.length };
-	}, [diffs]);
+	})();
 
-	const unchangedCount = useMemo(() => {
+	const unchangedCount = (() => {
 		const allIds = new Set([
 			...Object.keys(left.units),
 			...Object.keys(right.units),
 		]);
 		return allIds.size - diffs.length;
-	}, [left, right, diffs]);
+	})();
 
 	const [showUnchanged, setShowUnchanged] = useState(false);
 
@@ -154,20 +151,17 @@ function UnchangedList({
 	right: RosterSnapshot;
 	diffs: UnitDiff[];
 }) {
-	const changedIds = useMemo(
-		() => new Set(diffs.map((d) => d.unitId)),
-		[diffs],
-	);
-	const unchangedUnits = useMemo(() => {
+	const changedIds = new Set(diffs.map((d) => d.unitId));
+	const unchangedUnits = (() => {
 		const allIds = new Set([
 			...Object.keys(left.units),
 			...Object.keys(right.units),
 		]);
 		return [...allIds]
 			.filter((id) => !changedIds.has(id))
-			.map((id) => ({ id, name: metaByUnitId.get(id)?.name ?? id }))
+			.map((id) => ({ id, name: metaByUnitId[id]?.name ?? id }))
 			.sort((a, b) => a.name.localeCompare(b.name));
-	}, [left, right, changedIds]);
+	})();
 
 	return (
 		<div className="mt-2 flex flex-wrap gap-1.5">
@@ -192,7 +186,7 @@ function UnitDiffCard({
 	leftUnit: SnapshotUnit | undefined;
 	rightUnit: SnapshotUnit | undefined;
 }) {
-	const meta = metaByUnitId.get(diff.unitId);
+	const meta = metaByUnitId[diff.unitId];
 	const name = meta?.name ?? diff.unitId;
 	const [imgFailed, setImgFailed] = useState(false);
 

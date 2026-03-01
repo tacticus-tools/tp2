@@ -23,7 +23,7 @@ import {
 	sortEstimatesForHse,
 } from "../campaign-events.ts";
 import { filterLocationsByCampaignProgress } from "../campaign-progress.ts";
-import type { Campaign, CampaignType } from "../constants.ts";
+import type { CampaignType } from "../constants.ts";
 import type {
 	CharacterRaidGoalSelect,
 	ICharacterUpgradeRankGoal,
@@ -187,7 +187,7 @@ function planRaidsForMaterial(
 	material: IMaterialEstimate,
 	energyLeft: number,
 	plannedLocationIds: Set<string>,
-	battleAttempts: Map<string, number> | null,
+	battleAttempts: Record<string, number> | null,
 ): { raidLocations: IRaidLocation[]; energySpent: number } {
 	const raidLocations: IRaidLocation[] = [];
 	let totalEnergySpent = 0;
@@ -199,7 +199,7 @@ function planRaidsForMaterial(
 	for (const loc of availableLocations) {
 		// On Day 1, use actual remaining attempts from sync; otherwise full daily count
 		const syncKey = `${loc.campaign}:${loc.nodeNumber}`;
-		const syncAttempts = battleAttempts?.get(syncKey);
+		const syncAttempts = battleAttempts?.[syncKey];
 		const attemptsLeft = syncAttempts ?? loc.dailyBattleCount;
 
 		// Fully farmed today → include as a zero-raid entry so the UI can show it
@@ -261,7 +261,7 @@ function planRaidsForMaterial(
 function buildEstimatesByPriority(
 	upgradeRankGoals: ICharacterUpgradeRankGoal[],
 	inventory: Record<string, number>,
-	campaignProgress: Map<Campaign, number>,
+	campaignProgress: Record<string, number>,
 	farmStrategy: FarmStrategy,
 	campaignEvent: CampaignEventType = "none",
 	customFarmSelections?: CustomFarmSelections,
@@ -269,7 +269,7 @@ function buildEstimatesByPriority(
 	allEstimates: IMaterialEstimate[];
 	finishedEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
-	materialUnitIds: Map<string, string[]>;
+	materialUnitIds: Record<string, string[]>;
 } {
 	const allLocations = getAllUpgradeLocations();
 	const allMaterialsData = getAllMaterials();
@@ -277,7 +277,7 @@ function buildEstimatesByPriority(
 
 	const blockedMaterials: IBlockedMaterial[] = [];
 	const blockedSet = new Set<string>();
-	const materialUnitIds = new Map<string, string[]>();
+	const materialUnitIds: Record<string, string[]> = {};
 	const allEstimates: IMaterialEstimate[] = [];
 	const finishedEstimates: IMaterialEstimate[] = [];
 
@@ -326,13 +326,13 @@ function buildEstimatesByPriority(
 			const icon = mat?.icon;
 
 			// Track unitIds per material for display
-			const existing = materialUnitIds.get(materialId);
+			const existing = materialUnitIds[materialId];
 			if (existing) {
 				if (!existing.includes(goal.unitId)) {
 					existing.push(goal.unitId);
 				}
 			} else {
-				materialUnitIds.set(materialId, [goal.unitId]);
+				materialUnitIds[materialId] = [goal.unitId];
 			}
 
 			const estimate = computeMaterialEstimate(
@@ -354,7 +354,7 @@ function buildEstimatesByPriority(
 						materialLabel: label,
 						materialIcon: icon,
 						count,
-						unitIds: materialUnitIds.get(materialId) ?? [goal.unitId],
+						unitIds: materialUnitIds[materialId] ?? [goal.unitId],
 					});
 				} else {
 					const blocked = blockedMaterials.find(
@@ -395,7 +395,7 @@ function buildEstimatesByPriority(
 function buildEstimatesByTotalMaterials(
 	upgradeRankGoals: ICharacterUpgradeRankGoal[],
 	inventory: Record<string, number>,
-	campaignProgress: Map<Campaign, number>,
+	campaignProgress: Record<string, number>,
 	farmStrategy: FarmStrategy,
 	campaignEvent: CampaignEventType = "none",
 	customFarmSelections?: CustomFarmSelections,
@@ -403,14 +403,15 @@ function buildEstimatesByTotalMaterials(
 	allEstimates: IMaterialEstimate[];
 	finishedEstimates: IMaterialEstimate[];
 	blockedMaterials: IBlockedMaterial[];
-	materialUnitIds: Map<string, string[]>;
+	materialUnitIds: Record<string, string[]>;
 } {
 	const allLocations = getAllUpgradeLocations();
 	const allMaterialsData = getAllMaterials();
 	const inventoryCopy = { ...inventory };
 
 	// Accumulate materials across all goals
-	const materialNeeds = new Map<string, { count: number; unitIds: string[] }>();
+	const materialNeeds: Record<string, { count: number; unitIds: string[] }> =
+		{};
 
 	// Snapshot inventory before all goals to compute consumed amounts
 	const invBefore = { ...inventoryCopy };
@@ -428,27 +429,29 @@ function buildEstimatesByTotalMaterials(
 
 		for (const [materialId, count] of Object.entries(baseMaterials)) {
 			if (count <= 0) continue;
-			const existing = materialNeeds.get(materialId);
+			const existing = materialNeeds[materialId];
 			if (existing) {
 				existing.count += count;
 				if (!existing.unitIds.includes(goal.unitId)) {
 					existing.unitIds.push(goal.unitId);
 				}
 			} else {
-				materialNeeds.set(materialId, {
+				materialNeeds[materialId] = {
 					count,
 					unitIds: [goal.unitId],
-				});
+				};
 			}
 		}
 	}
 
 	const blockedMaterials: IBlockedMaterial[] = [];
-	const materialUnitIds = new Map<string, string[]>();
+	const materialUnitIds: Record<string, string[]> = {};
 	const allEstimates: IMaterialEstimate[] = [];
 	const finishedEstimates: IMaterialEstimate[] = [];
 
-	for (const [materialId, { count, unitIds }] of materialNeeds) {
+	for (const [materialId, { count, unitIds }] of Object.entries(
+		materialNeeds,
+	)) {
 		// Compute how much inventory was consumed for this material across all goals
 		const consumed =
 			(invBefore[materialId] ?? 0) - (inventoryCopy[materialId] ?? 0);
@@ -474,7 +477,7 @@ function buildEstimatesByTotalMaterials(
 		const label = mat?.label ?? materialId;
 		const icon = mat?.icon;
 
-		materialUnitIds.set(materialId, unitIds);
+		materialUnitIds[materialId] = unitIds;
 
 		const estimate = computeMaterialEstimate(
 			materialId,
@@ -528,14 +531,14 @@ function buildEstimatesByTotalMaterials(
 export function generateDailyRaidsPlan(
 	goals: CharacterRaidGoalSelect[],
 	dailyEnergy: number,
-	campaignProgress: Map<Campaign, number>,
+	campaignProgress: Record<string, number>,
 	inventory: Record<string, number> = {},
 	farmStrategy: FarmStrategy = "leastEnergy",
 	farmOrder: "goalPriority" | "totalMaterials" = "goalPriority",
 	campaignEvent: CampaignEventType = "none",
 	homeScreenEvent: HomeScreenEventType = "none",
 	hseMinEnemyCount = 5,
-	battleAttempts: Map<string, number> = new Map(),
+	battleAttempts: Record<string, number> = {},
 	customFarmSelections?: CustomFarmSelections,
 ): IDailyRaidsPlan {
 	if (dailyEnergy <= 0) {
@@ -614,16 +617,16 @@ export function generateDailyRaidsPlan(
 
 		// Track which locations have been planned this day for each materialId
 		// (same material from different goals shouldn't double-use the same node)
-		const plannedLocationsPerMaterial = new Map<string, Set<string>>();
+		const plannedLocationsPerMaterial: Record<string, Set<string>> = {};
 
 		for (const material of upgradesToFarm) {
 			if (energyLeft < 5) break;
 
 			// Get or create the set of already-planned location IDs for this material
-			let plannedIds = plannedLocationsPerMaterial.get(material.materialId);
+			let plannedIds = plannedLocationsPerMaterial[material.materialId];
 			if (!plannedIds) {
 				plannedIds = new Set();
-				plannedLocationsPerMaterial.set(material.materialId, plannedIds);
+				plannedLocationsPerMaterial[material.materialId] = plannedIds;
 			}
 
 			// On Day 1 (iteration 0), use actual sync attempts; later days get full count
@@ -632,7 +635,9 @@ export function generateDailyRaidsPlan(
 				material,
 				energyLeft,
 				plannedIds,
-				isFirstDay && battleAttempts.size > 0 ? battleAttempts : null,
+				isFirstDay && Object.keys(battleAttempts).length > 0
+					? battleAttempts
+					: null,
 			);
 
 			if (raidLocations.length > 0) {

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { CharacterGrid } from "@/1-components/general/CharacterGrid.tsx";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
@@ -24,10 +24,12 @@ import { DATA as LE_BATTLES } from "@/5-assets/le-battles/index.ts";
 import type { DeepReadonly } from "@/types.ts";
 import { LreObjectiveIcon } from "./LreObjectiveIcon.tsx";
 
-const characterMap = new Map<
+const characterMap: Record<
 	string,
 	{ name: string; roundIcon: string | undefined }
->(CHARACTERS.map((c) => [c.id, { name: c.name, roundIcon: c.roundIcon }]));
+> = Object.fromEntries(
+	CHARACTERS.map((c) => [c.id, { name: c.name, roundIcon: c.roundIcon }]),
+);
 
 type LeBattle = DeepReadonly<LeBattleData[number]>;
 
@@ -91,10 +93,10 @@ export function LreTeamDialog({
 		}
 	}, [open, initial, defaultTrackId, battlesCount]);
 
-	const leBattle = useMemo(() => findLeBattleData(event.id), [event.id]);
+	const leBattle = findLeBattleData(event.id);
 	const leTrack = leBattle?.[trackId];
 
-	const objectives = useMemo(() => {
+	const objectives = (() => {
 		if (!leTrack) return [];
 		return leTrack.objectives.map((obj) => ({
 			key: objectiveKey(obj),
@@ -103,10 +105,10 @@ export function LreTeamDialog({
 			label: obj.target ? `${obj.type}: ${String(obj.target)}` : obj.type,
 			points: obj.points,
 		}));
-	}, [leTrack]);
+	})();
 
 	// Filter characters: exclude disallowed factions, then intersect with selected restrictions
-	const allowedCharacterIds = useMemo(() => {
+	const allowedCharacterIds = (() => {
 		// 1. Remove characters from disallowed factions
 		const disallowed = leTrack?.disallowedFactions ?? [];
 		const trackAllowed = filterAllowedCharacters(
@@ -126,7 +128,7 @@ export function LreTeamDialog({
 			selectedObjs.every((obj) => characterMatchesObjective(c, obj)),
 		);
 		return new Set(filtered.map((c) => c.id));
-	}, [leTrack, objectives, restrictionIds]);
+	})();
 
 	// Prune selected characters that are no longer allowed when restrictions/track change
 	useEffect(() => {
@@ -135,19 +137,19 @@ export function LreTeamDialog({
 		);
 	}, [allowedCharacterIds]);
 
-	const handleToggleCharacter = useCallback((charId: string) => {
+	const handleToggleCharacter = (charId: string) => {
 		setCharacterIds((prev) =>
 			prev.includes(charId)
 				? prev.filter((id) => id !== charId)
 				: [...prev, charId],
 		);
-	}, []);
+	};
 
-	const handleToggleRestriction = useCallback((key: string) => {
+	const handleToggleRestriction = (key: string) => {
 		setRestrictionIds((prev) =>
 			prev.includes(key) ? prev.filter((id) => id !== key) : [...prev, key],
 		);
-	}, []);
+	};
 
 	const handleSave = () => {
 		if (!name.trim()) return;
@@ -259,8 +261,8 @@ export function LreTeamDialog({
 						{characterIds.length > 0 && (
 							<div className="mb-2 flex flex-wrap gap-1.5">
 								{characterIds.map((id) => {
-									const char = characterMap.get(id);
-									const rosterUnit = roster?.get(id);
+									const char = characterMap[id];
+									const rosterUnit = roster?.[id];
 									return (
 										<button
 											key={id}

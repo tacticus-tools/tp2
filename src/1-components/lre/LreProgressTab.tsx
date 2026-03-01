@@ -1,5 +1,5 @@
 import { RefreshCw } from "lucide-react";
-import { Fragment, useCallback, useMemo } from "react";
+import { Fragment } from "react";
 import { objectiveKey } from "@/4-lib/general/lre/lre-character-filter.ts";
 import {
 	computeFullProgress,
@@ -51,11 +51,11 @@ export function LreProgressTab({
 	apiProgressData: LreProgressData | null;
 }) {
 	const synced = apiSummary !== null;
-	const leBattle = useMemo(() => findLeBattleData(event.id), [event.id]);
+	const leBattle = findLeBattleData(event.id);
 	const leTrack = leBattle?.[trackId];
 
 	// Battles that have any API data (for row-level visual hints)
-	const apiSyncedBattles = useMemo(() => {
+	const apiSyncedBattles = (() => {
 		if (!apiProgressData) return new Set<number>();
 		const apiTrack = apiProgressData.tracksProgress.find(
 			(t) => t.trackId === trackId,
@@ -72,22 +72,17 @@ export function LreProgressTab({
 			}
 		}
 		return s;
-	}, [apiProgressData, trackId]);
+	})();
 
 	const trackProgress = progressData.tracksProgress.find(
 		(tp) => tp.trackId === trackId,
 	);
 
-	const fullProgress = useMemo(
-		() => computeFullProgress(progressData, event, leBattle),
-		[progressData, event, leBattle],
-	);
+	const fullProgress = computeFullProgress(progressData, event, leBattle);
 
-	const trackPoints = useMemo(
-		() =>
-			trackProgress ? computeTrackPoints(trackProgress, event, leTrack) : 0,
-		[trackProgress, event, leTrack],
-	);
+	const trackPoints = trackProgress
+		? computeTrackPoints(trackProgress, event, leTrack)
+		: 0;
 
 	// Use API totals when synced, fall back to computed
 	const displayPoints = apiSummary?.currentPoints ?? fullProgress.totalPoints;
@@ -99,43 +94,44 @@ export function LreProgressTab({
 	const displayShards = apiSummary?.currentShards ?? fullProgress.totalShards;
 
 	// Infer bonus shards from API: total shards minus chest-earned shards
-	const inferredBonusShards = useMemo(() => {
+	const inferredBonusShards = (() => {
 		if (!apiSummary || apiSummary.currentClaimedChestIndex == null) return 0;
 		const chestShards =
 			(apiSummary.currentClaimedChestIndex + 1) * event.shardsPerChest;
 		return Math.max(0, apiSummary.currentShards - chestShards);
-	}, [apiSummary, event.shardsPerChest]);
+	})();
 
-	const updateTrackBattle = useCallback(
-		(battleIndex: number, updater: (bp: BattleProgress) => BattleProgress) => {
-			const newTracksProgress = progressData.tracksProgress.map((tp) => {
-				if (tp.trackId !== trackId) return tp;
-				return {
-					...tp,
-					battles: tp.battles.map((bp) =>
-						bp.battleIndex === battleIndex ? updater(bp) : bp,
-					),
-				};
-			});
-			onProgressChange({ ...progressData, tracksProgress: newTracksProgress });
-		},
-		[progressData, trackId, onProgressChange],
-	);
-
-	const updateRequirement = useCallback(
-		(battleIndex: number, reqId: string, status: RequirementStatus) => {
-			updateTrackBattle(battleIndex, (bp) => ({
-				...bp,
-				requirements: bp.requirements.map((r) =>
-					r.id === reqId ? { ...r, status } : r,
+	const updateTrackBattle = (
+		battleIndex: number,
+		updater: (bp: BattleProgress) => BattleProgress,
+	) => {
+		const newTracksProgress = progressData.tracksProgress.map((tp) => {
+			if (tp.trackId !== trackId) return tp;
+			return {
+				...tp,
+				battles: tp.battles.map((bp) =>
+					bp.battleIndex === battleIndex ? updater(bp) : bp,
 				),
-			}));
-		},
-		[updateTrackBattle],
-	);
+			};
+		});
+		onProgressChange({ ...progressData, tracksProgress: newTracksProgress });
+	};
+
+	const updateRequirement = (
+		battleIndex: number,
+		reqId: string,
+		status: RequirementStatus,
+	) => {
+		updateTrackBattle(battleIndex, (bp) => ({
+			...bp,
+			requirements: bp.requirements.map((r) =>
+				r.id === reqId ? { ...r, status } : r,
+			),
+		}));
+	};
 
 	// Build a set of requirement keys that are API-locked (synced + Cleared or PartiallyCleared from API)
-	const apiLockedReqs = useMemo(() => {
+	const apiLockedReqs = (() => {
 		const locked = new Set<string>(); // keys: "battleIndex:reqId"
 		if (!apiProgressData) return locked;
 		const apiTrack = apiProgressData.tracksProgress.find(
@@ -153,41 +149,35 @@ export function LreProgressTab({
 			}
 		}
 		return locked;
-	}, [apiProgressData, trackId]);
+	})();
 
-	const isReqLocked = useCallback(
-		(battleIndex: number, reqId: string) =>
-			apiLockedReqs.has(`${String(battleIndex)}:${reqId}`),
-		[apiLockedReqs],
-	);
+	const isReqLocked = (battleIndex: number, reqId: string) =>
+		apiLockedReqs.has(`${String(battleIndex)}:${reqId}`);
 
 	// Build objective label map
-	const objectiveLabels = useMemo(() => {
-		const map = new Map<string, string>();
+	const objectiveLabels = (() => {
+		const record: Record<string, string> = {};
 		if (leTrack) {
 			for (const obj of leTrack.objectives) {
 				const key = objectiveKey(obj);
 				const label = obj.target
 					? `${obj.type}: ${String(obj.target)}`
 					: obj.type;
-				map.set(key, `${label} (+${obj.points})`);
+				record[key] = `${label} (+${obj.points})`;
 			}
 		}
-		return map;
-	}, [leTrack]);
+		return record;
+	})();
 
 	const reqLabel = (id: string): string => {
 		if (id === "_killPoints") return "Killscore";
 		if (id === "_highScore") return "Highscore";
 		if (id === "_defeatAll") return "Defeat All";
-		return objectiveLabels.get(id) ?? id;
+		return objectiveLabels[id] ?? id;
 	};
 
 	// Reversed battles: show highest battle number at top
-	const reversedBattles = useMemo(
-		() => [...(trackProgress?.battles ?? [])].reverse(),
-		[trackProgress],
-	);
+	const reversedBattles = [...(trackProgress?.battles ?? [])].reverse();
 
 	return (
 		<div className="space-y-6">

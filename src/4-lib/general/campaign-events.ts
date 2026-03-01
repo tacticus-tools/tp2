@@ -12,7 +12,6 @@ import {
 	BATTLE_ENEMY_COUNTS,
 	EVENT_GROUPS,
 } from "@/5-assets/campaign-derived/index.ts";
-import type { Campaign } from "./constants.ts";
 
 // ---------------------------------------------------------------------------
 // Campaign Event types & constants
@@ -78,12 +77,12 @@ export function getAllCeCampaigns(): ReadonlySet<string> {
  * have progress.
  */
 export function detectCampaignEvent(
-	progress: Map<Campaign, number>,
+	progress: Record<string, number>,
 ): CampaignEventType {
 	for (const [eventType, campaigns] of Object.entries(
 		getCampaignEventGroups(),
 	)) {
-		if (campaigns.some((c) => progress.has(c as Campaign))) {
+		if (campaigns.some((c) => c in progress)) {
 			return eventType as CampaignEventType;
 		}
 	}

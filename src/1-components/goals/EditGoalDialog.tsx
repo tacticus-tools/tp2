@@ -1,6 +1,6 @@
 import { useMutation } from "convex/react";
 import { Loader2 } from "lucide-react";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { PersonalGoalType } from "#common/goal-type.ts";
 import { RARITIES, type Rarity, RaritySchema } from "#common/rarity.ts";
 import { RarityIcon } from "@/1-components/general/RarityIcon.tsx";
@@ -73,7 +73,7 @@ interface EditGoalDialogProps {
 		notes?: string;
 		data: string;
 	};
-	roster: Map<string, RosterUnit>;
+	roster: Record<string, RosterUnit>;
 }
 
 export function EditGoalDialog({
@@ -107,26 +107,26 @@ export function EditGoalDialog({
 
 	const updateGoal = useMutation(api.goals.update);
 
-	const hasRoster = roster.size > 0;
+	const hasRoster = Object.keys(roster).length > 0;
 
 	// Compute max rank for this unit based on rarity (only when roster is available)
-	const maxRank = useMemo(() => {
+	const maxRank = (() => {
 		if (!hasRoster) return Rank.Adamantine3;
-		const rosterUnit = roster.get(goal.unitId);
-		const unit = unitById.get(goal.unitId);
+		const rosterUnit = roster[goal.unitId];
+		const unit = unitById[goal.unitId];
 		const rarity = rosterUnit
 			? rosterUnit.rarity
 			: (unit?.initialRarity ?? "Common");
 		return rarityToMaxRank[rarity];
-	}, [goal.unitId, roster, hasRoster]);
+	})();
 
 	// Target rank: only ranks strictly greater than rankStart, capped by maxRank unless override
-	const targetRanks = useMemo(() => {
+	const targetRanks = (() => {
 		const cap = overrideMode || !hasRoster ? Rank.Adamantine3 : maxRank;
 		return allSelectableRanks.filter(
 			([key]) => Number(key) > rankStart && Number(key) <= cap,
 		);
-	}, [rankStart, maxRank, overrideMode, hasRoster]);
+	})();
 
 	// Clamp rankEnd when the cap shrinks (e.g. override off, roster change)
 	useEffect(() => {
@@ -139,7 +139,7 @@ export function EditGoalDialog({
 	}, [rankStart, rankEnd, maxRank, overrideMode, hasRoster]);
 
 	// Save button validation
-	const isSaveDisabled = useMemo(() => {
+	const isSaveDisabled = (() => {
 		if (saving) return true;
 		switch (goal.type) {
 			case PersonalGoalType.UpgradeRank:
@@ -151,16 +151,7 @@ export function EditGoalDialog({
 			default:
 				return false;
 		}
-	}, [
-		saving,
-		goal.type,
-		rankStart,
-		rankEnd,
-		primaryEnd,
-		secondaryEnd,
-		activeEnd,
-		passiveEnd,
-	]);
+	})();
 
 	// Reset form when goal changes
 	useEffect(() => {

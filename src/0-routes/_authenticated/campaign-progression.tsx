@@ -8,7 +8,7 @@ import {
 	TrendingUp,
 	Unlock,
 } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PersonalGoalType } from "#common/goal-type.ts";
 import { CampaignIcon } from "@/1-components/general/CampaignIcon.tsx";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
@@ -23,7 +23,6 @@ import {
 } from "@/4-lib/general/campaign-progress.ts";
 import { computeCampaignProgression } from "@/4-lib/general/campaign-progression/service.ts";
 import type { ICampaignProgressionResult } from "@/4-lib/general/campaign-progression/types.ts";
-import type { Campaign } from "@/4-lib/general/constants.ts";
 import type { CharacterRaidGoalSelect } from "@/4-lib/general/goals/types.ts";
 import { GoalDataSchema } from "@/4-lib/general/schemas.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
@@ -44,23 +43,14 @@ function CampaignProgressionPage() {
 	const [result, setResult] = useState<ICampaignProgressionResult | null>(null);
 	const [computing, setComputing] = useState(false);
 
-	// Build merged campaign progress (API + persisted manual entries)
-	const getMergedProgress = useCallback((): Map<Campaign, number> => {
-		const apiProgress = parseCampaignProgress(campaignProgressApi);
-		const merged = new Map<Campaign, number>();
-		for (const [campaign, nodes] of Object.entries(persistedProgress)) {
-			if (nodes > 0) merged.set(campaign as Campaign, nodes);
-		}
-		for (const [campaign, nodes] of apiProgress) {
-			merged.set(campaign, nodes);
-		}
-		return merged;
-	}, [campaignProgressApi, persistedProgress]);
+	// Compute progression data
+	useEffect(() => {
+		if (!goals) return;
 
-	// Parse goals from Convex into typed goals
-	const getTypedGoals = useCallback((): CharacterRaidGoalSelect[] => {
-		if (!goals) return [];
-		return goals.map((goal) => {
+		let cancelled = false;
+		setComputing(true);
+
+		const typedGoals: CharacterRaidGoalSelect[] = goals.map((goal) => {
 			const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
 			return {
 				...parsed,
@@ -74,17 +64,16 @@ function CampaignProgressionPage() {
 				type: goal.type,
 			} as CharacterRaidGoalSelect;
 		});
-	}, [goals]);
 
-	// Compute progression data
-	useEffect(() => {
-		if (!goals) return;
+		const apiProgress = parseCampaignProgress(campaignProgressApi);
+		const progress: Record<string, number> = {};
+		for (const [campaign, nodes] of Object.entries(persistedProgress)) {
+			if (nodes > 0) progress[campaign] = nodes;
+		}
+		for (const [campaign, nodes] of Object.entries(apiProgress)) {
+			progress[campaign] = nodes;
+		}
 
-		let cancelled = false;
-		setComputing(true);
-
-		const typedGoals = getTypedGoals();
-		const progress = getMergedProgress();
 		const inv = inventory ? buildInventoryMap(inventory.upgrades) : undefined;
 
 		const data = computeCampaignProgression(typedGoals, progress, inv);
@@ -96,7 +85,7 @@ function CampaignProgressionPage() {
 		return () => {
 			cancelled = true;
 		};
-	}, [goals, getTypedGoals, getMergedProgress, inventory]);
+	}, [goals, campaignProgressApi, persistedProgress, inventory]);
 
 	const isLoading = goals === undefined;
 	const upgradeRankCount =

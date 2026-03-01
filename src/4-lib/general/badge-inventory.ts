@@ -68,13 +68,13 @@ export function buildBadgeInventory(inventory: TacticusInventory) {
 /**
  * Allocate badge inventory to goals in priority order.
  * Higher-priority goals (lower index in sortedGoalIds) consume badges first.
- * Returns a Map from goalId → IBadgeCoverage.
+ * Returns a Record from goalId → IBadgeCoverage.
  */
 export function allocateBadgesToGoals(
 	sortedGoalIds: string[],
-	estimates: Map<string, IGoalEstimate>,
+	estimates: Record<string, IGoalEstimate>,
 	pools: BadgeInventoryPools,
-): Map<string, IBadgeCoverage> {
+): Record<string, IBadgeCoverage> {
 	// Deep-clone pools so allocation is non-destructive to the caller
 	const abilityPool: Record<Alliance, Record<Rarity, number>> = {
 		Imperial: { ...pools.ability.Imperial },
@@ -83,10 +83,10 @@ export function allocateBadgesToGoals(
 	};
 	const forgePool: Record<Rarity, number> = { ...pools.forge };
 
-	const result = new Map<string, IBadgeCoverage>();
+	const result: Record<string, IBadgeCoverage> = {};
 
 	for (const goalId of sortedGoalIds) {
-		const est = estimates.get(goalId);
+		const est = estimates[goalId];
 		if (!est) continue;
 
 		const coverage: IBadgeCoverage = {};
@@ -95,21 +95,17 @@ export function allocateBadgesToGoals(
 		if (est.abilitiesEstimate) {
 			const { alliance, badges } = est.abilitiesEstimate;
 			const pool = abilityPool[alliance];
-			const cov = {} as Record<Rarity, IRarityCoverage>;
 
-			for (const r of RARITIES) {
-				const needed = badges[r];
-				if (needed <= 0) {
-					cov[r] = { needed: 0, covered: 0 };
-					continue;
-				}
-				const available = pool[r];
-				const covered = Math.min(needed, available);
-				pool[r] -= covered;
-				cov[r] = { needed, covered };
-			}
-
-			coverage.abilityCoverage = cov;
+			coverage.abilityCoverage = Object.fromEntries(
+				RARITIES.map((r) => {
+					const needed = badges[r];
+					if (needed <= 0) return [r, { needed: 0, covered: 0 }];
+					const available = pool[r];
+					const covered = Math.min(needed, available);
+					pool[r] -= covered;
+					return [r, { needed, covered }];
+				}),
+			) as Record<Rarity, IRarityCoverage>;
 		}
 
 		// MoW badges (not alliance-specific — mowEstimate.badges uses a generic pool)
@@ -120,24 +116,20 @@ export function allocateBadgesToGoals(
 		// Only forge badges (which are alliance-independent) are allocated.
 		if (est.mowEstimate) {
 			const { forgeBadges } = est.mowEstimate;
-			const forgeCov = {} as Record<Rarity, IRarityCoverage>;
 
-			for (const r of RARITIES) {
-				const needed = forgeBadges[r];
-				if (needed <= 0) {
-					forgeCov[r] = { needed: 0, covered: 0 };
-					continue;
-				}
-				const available = forgePool[r];
-				const covered = Math.min(needed, available);
-				forgePool[r] -= covered;
-				forgeCov[r] = { needed, covered };
-			}
-
-			coverage.forgeCoverage = forgeCov;
+			coverage.forgeCoverage = Object.fromEntries(
+				RARITIES.map((r) => {
+					const needed = forgeBadges[r];
+					if (needed <= 0) return [r, { needed: 0, covered: 0 }];
+					const available = forgePool[r];
+					const covered = Math.min(needed, available);
+					forgePool[r] -= covered;
+					return [r, { needed, covered }];
+				}),
+			) as Record<Rarity, IRarityCoverage>;
 		}
 
-		result.set(goalId, coverage);
+		result[goalId] = coverage;
 	}
 
 	return result;
@@ -172,20 +164,20 @@ export function buildXpBookInventory(
 /**
  * Allocate XP book inventory to goals in priority order.
  * Higher-priority goals (lower index in sortedGoalIds) consume books first.
- * Returns a Map from goalId → IXpBookCoverage.
+ * Returns a Record from goalId → IXpBookCoverage.
  */
 export function allocateXpBooksToGoals(
 	sortedGoalIds: string[],
-	estimates: Map<string, IGoalEstimate>,
+	estimates: Record<string, IGoalEstimate>,
 	pools: XpBookInventoryPools,
-): Map<string, IXpBookCoverage> {
+): Record<string, IXpBookCoverage> {
 	let legendaryPool = pools.legendary;
 	let mythicPool = pools.mythic;
 
-	const result = new Map<string, IXpBookCoverage>();
+	const result: Record<string, IXpBookCoverage> = {};
 
 	for (const goalId of sortedGoalIds) {
-		const est = estimates.get(goalId);
+		const est = estimates[goalId];
 		if (!est) continue;
 
 		const legendaryNeeded = est.xpBooksTotal;
@@ -199,10 +191,10 @@ export function allocateXpBooksToGoals(
 		const mythicCovered = Math.min(mythicNeeded, mythicPool);
 		mythicPool -= mythicCovered;
 
-		result.set(goalId, {
+		result[goalId] = {
 			legendaryCoverage: { needed: legendaryNeeded, covered: legendaryCovered },
 			mythicCoverage: { needed: mythicNeeded, covered: mythicCovered },
-		});
+		};
 	}
 
 	return result;

@@ -5,7 +5,7 @@ import {
 	Pencil,
 	Trash2,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import type { PersonalGoalType } from "#common/goal-type.ts";
 import { CharacterIcon } from "@/1-components/general/CharacterIcon.tsx";
 import { EnergyIcon } from "@/1-components/general/EnergyIcon.tsx";
@@ -108,7 +108,7 @@ export function GoalsTable({
 		}
 	}
 
-	const sorted = useMemo(() => {
+	const sorted = (() => {
 		const copy = [...rows];
 		const dir = sortDir === "asc" ? 1 : -1;
 		copy.sort((a, b) => {
@@ -138,7 +138,7 @@ export function GoalsTable({
 			}
 		});
 		return copy;
-	}, [rows, sortKey, sortDir]);
+	})();
 
 	return (
 		<div className="overflow-x-auto rounded-lg border border-border">

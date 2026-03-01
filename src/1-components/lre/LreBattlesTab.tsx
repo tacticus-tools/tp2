@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Map as MapIcon } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import { objectiveKey } from "@/4-lib/general/lre/lre-character-filter.ts";
 import type { Data as LeBattleData } from "@/5-assets/le-battles/generate-data.ts";
@@ -12,9 +12,10 @@ import { NPCS } from "@/5-assets/npcs/index.ts";
 import type { DeepReadonly } from "@/types.ts";
 import { LreObjectiveIcon } from "./LreObjectiveIcon.tsx";
 
-const npcMap = new Map<string, { name: string; portrait: string | undefined }>(
-	NPCS.map((n) => [n.id, { name: n.name, portrait: n.portrait }]),
-);
+const npcMap: Record<string, { name: string; portrait: string | undefined }> =
+	Object.fromEntries(
+		NPCS.map((n) => [n.id, { name: n.name, portrait: n.portrait }]),
+	);
 
 type LreEvent = DeepReadonly<Data[number]>;
 type TrackId = "alpha" | "beta" | "gamma";
@@ -44,20 +45,18 @@ export function LreBattlesTab({
 	const points = track.battlesPoints[clampedIndex] ?? 0;
 	const defeatAllBonus = track.defeatAll?.[clampedIndex] ?? null;
 
-	const mapUrl = useMemo(
-		() => (leBattleInfo?.mapId ? getLeMapUrl(leBattleInfo.mapId) : undefined),
-		[leBattleInfo?.mapId],
-	);
+	const mapUrl = leBattleInfo?.mapId
+		? getLeMapUrl(leBattleInfo.mapId)
+		: undefined;
 
-	const totalEnemies = useMemo(() => {
-		if (!leBattleInfo?.waves) return null;
-		return leBattleInfo.waves.reduce(
-			(sum, w) =>
-				sum +
-				Object.values(w.enemies).reduce((s: number, c: number) => s + c, 0),
-			0,
-		);
-	}, [leBattleInfo?.waves]);
+	const totalEnemies = leBattleInfo?.waves
+		? leBattleInfo.waves.reduce(
+				(sum, w) =>
+					sum +
+					Object.values(w.enemies).reduce((s: number, c: number) => s + c, 0),
+				0,
+			)
+		: null;
 
 	return (
 		<div className="space-y-4">
@@ -241,7 +240,7 @@ export function LreBattlesTab({
 									<div className="flex flex-wrap gap-2">
 										{Object.entries(wave.enemies).map(([enemyKey, count]) => {
 											const [npcId, level] = enemyKey.split(":");
-											const npc = npcMap.get(npcId ?? "");
+											const npc = npcMap[npcId ?? ""];
 											return (
 												<div
 													key={enemyKey}
