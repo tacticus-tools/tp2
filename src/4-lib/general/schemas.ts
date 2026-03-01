@@ -184,7 +184,79 @@ export const PlannerGoalSchema = z.object({
 	upgradesRarity: z.array(z.number()).optional(),
 });
 
+// ─── Planner Export: Roster Snapshot (old format) ──────────────────
+
+const PlannerSnapshotCharSchema = z.object({
+	id: z.string(),
+	rank: z.number(),
+	rarity: z.number(),
+	stars: z.number(),
+	activeAbilityLevel: z.number(),
+	passiveAbilityLevel: z.number(),
+	shards: z.number(),
+	mythicShards: z.number(),
+	xpLevel: z.number(),
+});
+
+const PlannerSnapshotSchema = z.object({
+	name: z.string(),
+	dateMillisUtc: z.number(),
+	chars: z.array(PlannerSnapshotCharSchema),
+});
+
+// ─── Planner Export: LRE Progress (old format) ─────────────────────
+
+const PlannerLreBattleSchema = z.object({
+	trackId: z.string(),
+	battleIndex: z.number(),
+	requirements: z.array(
+		z.object({
+			id: z.string(),
+			state: z.number().optional(),
+			status: z.number().optional(),
+		}),
+	),
+});
+
+const PlannerLreProgressSchema = z.object({
+	id: z.number(),
+	name: z.string(),
+	notes: z.string().optional(),
+	battlesProgress: z.array(PlannerLreBattleSchema),
+});
+
+// ─── Planner Export: LRE Teams (old format) ────────────────────────
+
+const PlannerLreTeamSchema = z.object({
+	id: z.string(),
+	name: z.string(),
+	section: z.string(),
+	charSnowprintIds: z.array(z.string()),
+	expectedBattleClears: z.number().optional(),
+	restrictionsIds: z.array(z.string()).optional(),
+	notes: z.string().optional(),
+});
+
+const PlannerLreTeamsEntrySchema = z.object({
+	id: z.number(),
+	name: z.string(),
+	teams: z.array(PlannerLreTeamSchema).optional(),
+});
+
+// ─── Full Planner Export Schema ────────────────────────────────────
+
 export const PlannerExportSchema = z.object({
 	schemaVersion: z.number().optional(),
 	goals: z.array(PlannerGoalSchema).optional(),
+	campaignsProgress: z.record(z.string(), z.number()).optional(),
+	rosterSnapshots: z
+		.object({
+			base: PlannerSnapshotSchema.optional(),
+			diffs: z.array(z.unknown()).optional(),
+		})
+		.optional(),
+	leProgress: z.record(z.string(), PlannerLreProgressSchema).optional(),
+	leTeams: z.record(z.string(), PlannerLreTeamsEntrySchema).optional(),
+	teams: z.array(z.unknown()).optional(),
+	teams2: z.array(z.unknown()).optional(),
 });

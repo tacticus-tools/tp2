@@ -14,6 +14,7 @@ import type * as env from "../env.js";
 import type * as goals from "../goals.js";
 import type * as gwOffense from "../gwOffense.js";
 import type * as http from "../http.js";
+import type * as import_ from "../import.js";
 import type * as lre from "../lre.js";
 import type * as migrations_migrateGoalTypes from "../migrations/migrateGoalTypes.js";
 import type * as roster from "../roster.js";
@@ -37,6 +38,7 @@ declare const fullApi: ApiFromModules<{
   goals: typeof goals;
   gwOffense: typeof gwOffense;
   http: typeof http;
+  import: typeof import_;
   lre: typeof lre;
   "migrations/migrateGoalTypes": typeof migrations_migrateGoalTypes;
   roster: typeof roster;
