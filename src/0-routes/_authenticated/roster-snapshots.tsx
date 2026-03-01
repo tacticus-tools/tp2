@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
 import { Camera, Loader2, RotateCcw, Trash2 } from "lucide-react";
 import { useId, useState } from "react";
+import { toast } from "sonner";
 import { SnapshotComparisonView } from "@/1-components/roster-snapshots/SnapshotComparisonView.tsx";
 import {
 	AlertDialog,
@@ -84,18 +85,30 @@ function RosterSnapshotsPage() {
 			snapshotName.trim() ||
 			`Snapshot ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
 		const newState = createSnapshot(state, roster, name);
-		await save({ data: JSON.stringify(newState) });
-		setSnapshotName("");
+		try {
+			await save({ data: JSON.stringify(newState) });
+			setSnapshotName("");
+		} catch {
+			toast.error("Failed to save snapshot.");
+		}
 	};
 
 	const handleDelete = async (index: number) => {
 		const newState = deleteSnapshot(state, index);
-		await save({ data: JSON.stringify(newState) });
+		try {
+			await save({ data: JSON.stringify(newState) });
+		} catch {
+			toast.error("Failed to delete snapshot.");
+		}
 	};
 
 	const handleRestore = async (deletedIndex: number) => {
 		const newState = restoreSnapshot(state, deletedIndex);
-		await save({ data: JSON.stringify(newState) });
+		try {
+			await save({ data: JSON.stringify(newState) });
+		} catch {
+			toast.error("Failed to restore snapshot.");
+		}
 	};
 
 	if (doc === undefined) {

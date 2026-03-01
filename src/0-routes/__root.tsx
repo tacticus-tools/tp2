@@ -6,6 +6,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { Toaster } from "sonner";
 import AppLayout from "@/1-components/AppLayout.tsx";
 
 import ConvexProvider from "@/2-integrations/convex/provider.tsx";
@@ -69,6 +70,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 						]}
 					/>
 				</ConvexProvider>
+				<Toaster richColors theme="dark" />
 				<Scripts />
 			</body>
 		</html>
