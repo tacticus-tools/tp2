@@ -76,8 +76,14 @@ export function CampaignProgressSync() {
 		if (serialized === "{}") return;
 		if (serialized === lastSavedRef.current) return;
 
-		lastSavedRef.current = serialized;
-		void saveMutation({ data: serialized });
+		void (async () => {
+			try {
+				await saveMutation({ data: serialized });
+				lastSavedRef.current = serialized;
+			} catch {
+				// Keep lastSavedRef unchanged so next state change retries
+			}
+		})();
 	}, [progress, saveMutation]);
 
 	return null;

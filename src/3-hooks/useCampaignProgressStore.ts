@@ -19,7 +19,7 @@ export const useCampaignProgressStore = create<CampaignProgressState>()(
 					const parsed = parseCampaignProgress(apiProgress);
 					const merged = { ...state.progress };
 					for (const [campaign, nodes] of Object.entries(parsed)) {
-						merged[campaign] = nodes;
+						merged[campaign] = Math.max(merged[campaign] ?? 0, nodes);
 					}
 					return { progress: merged };
 				}),
