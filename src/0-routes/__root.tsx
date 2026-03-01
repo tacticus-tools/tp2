@@ -70,7 +70,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 						]}
 					/>
 				</ConvexProvider>
-				<Toaster richColors theme="dark" />
+				<Toaster richColors theme="system" />
 				<Scripts />
 			</body>
 		</html>
