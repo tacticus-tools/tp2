@@ -392,7 +392,6 @@ function GoalsPage() {
 		goals,
 		dailyEnergy,
 		shardsEnergy,
-		playerContext,
 		roster,
 		farmStrategy,
 		farmOrder,
@@ -403,6 +402,9 @@ function GoalsPage() {
 		initialSyncDone,
 		settingsVersion,
 		campaignProgress,
+		persistedProgress,
+		inventory,
+		campaignEventEnabled,
 	]);
 
 	// Badge coverage: allocate inventory badges to goals in priority order

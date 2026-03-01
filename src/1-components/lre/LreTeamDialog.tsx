@@ -132,10 +132,28 @@ export function LreTeamDialog({
 
 	// Prune selected characters that are no longer allowed when restrictions/track change
 	useEffect(() => {
-		setCharacterIds((prev) =>
-			prev.filter((id) => (allowedCharacterIds as Set<string>).has(id)),
+		const disallowed = leTrack?.disallowedFactions ?? [];
+		const trackAllowed = filterAllowedCharacters(
+			disallowed,
+			CHARACTERS as unknown as import("@/5-assets/characters/index.ts").Character[],
 		);
-	}, [allowedCharacterIds]);
+		const selectedObjs = (leTrack?.objectives ?? []).filter((obj) =>
+			restrictionIds.includes(objectiveKey(obj)),
+		);
+
+		const allowed =
+			selectedObjs.length === 0
+				? new Set(trackAllowed.map((c) => c.id))
+				: new Set(
+						trackAllowed
+							.filter((c) =>
+								selectedObjs.every((obj) => characterMatchesObjective(c, obj)),
+							)
+							.map((c) => c.id as string),
+					);
+
+		setCharacterIds((prev) => prev.filter((id) => allowed.has(id)));
+	}, [leTrack, restrictionIds]);
 
 	const handleToggleCharacter = (charId: string) => {
 		setCharacterIds((prev) =>
