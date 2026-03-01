@@ -8,7 +8,6 @@ import {
 	Table,
 	Target,
 	Trash2,
-	Upload,
 	X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -77,7 +76,6 @@ import type {
 	IGoalEstimate,
 } from "@/4-lib/general/goals/types.ts";
 import { goalTypeLabels } from "@/4-lib/general/goals/types.ts";
-import { parsePlannerExport } from "@/4-lib/general/import-planner.ts";
 import type { RosterUnit } from "@/4-lib/general/roster-utils.ts";
 import { GoalDataSchema } from "@/4-lib/general/schemas.ts";
 import { unitById } from "@/5-assets/game-units/index.ts";
@@ -199,7 +197,6 @@ function GoalsPage() {
 	const removeAllGoals = useMutation(api.goals.removeAll);
 	const updateGoal = useMutation(api.goals.update);
 	const reorderGoals = useMutation(api.goals.reorder);
-	const importAll = useMutation(api.import.importAll);
 
 	// Shared player data store (roster, campaign progress, inventory)
 	const roster = usePlayerDataStore((s) => s.roster);
@@ -217,17 +214,6 @@ function GoalsPage() {
 		notes?: string;
 		data: string;
 	} | null>(null);
-	const [importing, setImporting] = useState(false);
-	const [importResult, setImportResult] = useState<{
-		goals: number;
-		campaigns: number;
-		snapshots: number;
-		lreEvents: number;
-		lreTeams: number;
-		skipped: string[];
-	} | null>(null);
-	const fileInputRef = useRef<HTMLInputElement>(null);
-
 	// Persisted campaign progress (includes manually-entered event campaign data)
 	const persistedProgress = useCampaignProgressStore((s) => s.progress);
 
@@ -500,89 +486,6 @@ function GoalsPage() {
 		}
 	}, [lastSyncedAt, syncing, initialSyncDone]);
 
-	const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
-		const file = e.target.files?.[0];
-		if (!file) return;
-
-		setImporting(true);
-		setImportResult(null);
-		try {
-			const text = await file.text();
-			const result = parsePlannerExport(text);
-
-			const hasAnyData =
-				result.goals.length > 0 ||
-				result.campaignProgress !== null ||
-				result.rosterSnapshots !== null ||
-				(result.lreProgress !== null && result.lreProgress.length > 0) ||
-				(result.lreTeams !== null && result.lreTeams.length > 0);
-
-			if (!hasAnyData) {
-				setImportResult({
-					goals: 0,
-					campaigns: 0,
-					snapshots: 0,
-					lreEvents: 0,
-					lreTeams: 0,
-					skipped: result.skipped,
-				});
-				return;
-			}
-
-			await importAll({
-				goals: result.goals.length > 0 ? result.goals : undefined,
-				campaignProgress: result.campaignProgress
-					? JSON.stringify(result.campaignProgress)
-					: undefined,
-				rosterSnapshots: result.rosterSnapshots ?? undefined,
-				lreProgress:
-					result.lreProgress && result.lreProgress.length > 0
-						? result.lreProgress
-						: undefined,
-				lreTeams:
-					result.lreTeams && result.lreTeams.length > 0
-						? result.lreTeams
-						: undefined,
-			});
-
-			// Update the Zustand campaign progress store so the campaigns page
-			// reflects imported data immediately (without needing an API sync)
-			if (result.campaignProgress) {
-				useCampaignProgressStore.setState({
-					progress: result.campaignProgress,
-				});
-			}
-
-			setImportResult({
-				goals: result.goals.length,
-				campaigns: result.campaignProgress
-					? Object.keys(result.campaignProgress).length
-					: 0,
-				snapshots: result.rosterSnapshots ? 1 : 0,
-				lreEvents: result.lreProgress?.length ?? 0,
-				lreTeams: result.lreTeams?.length ?? 0,
-				skipped: result.skipped,
-			});
-		} catch {
-			setImportResult({
-				goals: 0,
-				campaigns: 0,
-				snapshots: 0,
-				lreEvents: 0,
-				lreTeams: 0,
-				skipped: [
-					"Failed to parse file. Make sure it's a valid Tacticus Planner export.",
-				],
-			});
-		} finally {
-			setImporting(false);
-			// Reset file input so the same file can be re-selected
-			if (fileInputRef.current) {
-				fileInputRef.current.value = "";
-			}
-		}
-	};
-
 	function buildGoalCardData(
 		data: string,
 		type: string,
@@ -702,51 +605,6 @@ function GoalsPage() {
 
 					<AddGoalDialog goalCount={goalCount} roster={roster} />
 
-					{/* Import from Tacticus Planner */}
-					<input
-						ref={fileInputRef}
-						type="file"
-						accept=".json"
-						onChange={handleImport}
-						className="hidden"
-					/>
-					<AlertDialog>
-						<AlertDialogTrigger asChild>
-							<Button
-								variant="outline"
-								size="sm"
-								disabled={importing}
-								aria-label={importing ? "Importing..." : "Import"}
-							>
-								<Upload className="size-4" />
-								<span className="hidden sm:inline">
-									{importing ? "Importing..." : "Import"}
-								</span>
-							</Button>
-						</AlertDialogTrigger>
-						<AlertDialogContent>
-							<AlertDialogHeader>
-								<AlertDialogTitle>
-									Import from Tacticus Planner
-								</AlertDialogTitle>
-								<AlertDialogDescription>
-									Import your data from a Tacticus Planner export file (.json).
-									This will import goals, campaign progress, roster snapshots,
-									LRE progress, and LRE teams. Existing data in imported
-									sections will be replaced.
-								</AlertDialogDescription>
-							</AlertDialogHeader>
-							<AlertDialogFooter>
-								<AlertDialogCancel>Cancel</AlertDialogCancel>
-								<AlertDialogAction
-									onClick={() => fileInputRef.current?.click()}
-								>
-									Choose File
-								</AlertDialogAction>
-							</AlertDialogFooter>
-						</AlertDialogContent>
-					</AlertDialog>
-
 					{goalCount > 0 && (
 						<AlertDialog>
 							<AlertDialogTrigger asChild>
@@ -777,54 +635,6 @@ function GoalsPage() {
 					)}
 				</div>
 			</div>
-
-			{/* Import result */}
-			{importResult && (
-				<div className="rounded-lg border border-border bg-muted/30 p-4">
-					<div className="flex items-start justify-between gap-2">
-						<div className="space-y-1">
-							{importResult.goals > 0 ||
-							importResult.campaigns > 0 ||
-							importResult.snapshots > 0 ||
-							importResult.lreEvents > 0 ||
-							importResult.lreTeams > 0 ? (
-								<p className="text-sm font-medium text-emerald-400">
-									Imported:{" "}
-									{[
-										importResult.goals > 0 && `${importResult.goals} goals`,
-										importResult.campaigns > 0 &&
-											`${importResult.campaigns} campaigns`,
-										importResult.snapshots > 0 &&
-											`${importResult.snapshots} roster snapshot`,
-										importResult.lreEvents > 0 &&
-											`${importResult.lreEvents} LRE events`,
-										importResult.lreTeams > 0 &&
-											`${importResult.lreTeams} LRE teams`,
-									]
-										.filter(Boolean)
-										.join(", ")}
-								</p>
-							) : (
-								<p className="text-sm font-medium text-destructive">
-									No data was imported.
-								</p>
-							)}
-							{importResult.skipped.length > 0 && (
-								<p className="text-xs text-muted-foreground">
-									Skipped: {importResult.skipped.join(", ")}
-								</p>
-							)}
-						</div>
-						<button
-							type="button"
-							onClick={() => setImportResult(null)}
-							className="text-xs text-muted-foreground hover:text-foreground"
-						>
-							Dismiss
-						</button>
-					</div>
-				</div>
-			)}
 
 			{/* Content — wait for goals, Zustand hydration, and initial sync */}
 			{isLoading || !hasHydrated || !initialSyncDone ? (
