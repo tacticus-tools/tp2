@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { CampaignProgressCard } from "@/1-components/general/CampaignProgressCard.tsx";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
@@ -41,8 +41,8 @@ function CampaignsPage() {
 	}, [campaignProgress, mergeFromApi]);
 
 	// Build grouped campaign data using persisted progress
-	const { mainGroups, eventGroups } = useMemo(() => {
-		const groupMap = new Map<string, CampaignGroup>();
+	const { mainGroups, eventGroups } = (() => {
+		const groupMap: Record<string, CampaignGroup> = {};
 
 		for (const [key, m] of Object.entries(metadata)) {
 			const campaign = key as Campaign;
@@ -51,10 +51,10 @@ function CampaignsPage() {
 			const rawProgress = persistedProgress[campaign] ?? 0;
 			const unlocked = getUnlockedNodeCount(campaign, rawProgress);
 
-			let group = groupMap.get(m.baseName);
+			let group = groupMap[m.baseName];
 			if (!group) {
 				group = { baseName: m.baseName, entries: [] };
-				groupMap.set(m.baseName, group);
+				groupMap[m.baseName] = group;
 			}
 
 			group.entries.push({
@@ -65,7 +65,7 @@ function CampaignsPage() {
 			});
 		}
 
-		for (const group of groupMap.values()) {
+		for (const group of Object.values(groupMap)) {
 			group.entries.sort((a, b) => {
 				const aM = metadata[a.campaign as keyof typeof metadata];
 				const bM = metadata[b.campaign as keyof typeof metadata];
@@ -75,14 +75,14 @@ function CampaignsPage() {
 
 		const toGroups = (order: readonly string[]) =>
 			order
-				.map((name) => groupMap.get(name))
+				.map((name) => groupMap[name])
 				.filter((g): g is CampaignGroup => !!g);
 
 		return {
 			mainGroups: toGroups(getMainCampaignBaseNames()),
 			eventGroups: toGroups(getEventCampaignBaseNames()),
 		};
-	}, [metadata, persistedProgress]);
+	})();
 
 	return (
 		<div className="space-y-6">

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
 import { Loader2, Plus, Users2 } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { useState } from "react";
 import { TeamCard } from "@/1-components/teams/TeamCard.tsx";
 import { TeamDialog } from "@/1-components/teams/TeamDialog.tsx";
 import { TeamModeFilter } from "@/1-components/teams/TeamModeFilter.tsx";
@@ -48,7 +48,7 @@ function TeamsPage() {
 	} | null>(null);
 	const [deletingTeamId, setDeletingTeamId] = useState<string | null>(null);
 
-	const filtered = useMemo(() => {
+	const filtered = (() => {
 		if (!teams) return [];
 		let result = [...teams];
 
@@ -62,71 +62,65 @@ function TeamsPage() {
 		}
 
 		return result;
-	}, [teams, modeFilter, searchQuery]);
+	})();
 
-	const usedMowIds = useMemo(() => {
+	const usedMowIds = (() => {
 		const set = new Set<string>();
 		for (const t of teams ?? []) {
 			if (t._id === editingTeam?.id) continue;
 			for (const id of t.mowIds ?? []) set.add(id);
 		}
 		return set;
-	}, [teams, editingTeam?.id]);
+	})();
 
-	const handleAdd = useCallback(
-		async (data: {
-			name: string;
-			characterIds: string[];
-			mowIds: string[];
-			modes: Record<GameMode, boolean>;
-			notes: string;
-		}) => {
-			await addTeam({
-				name: data.name,
-				characterIds: data.characterIds,
-				mowIds: data.mowIds.length > 0 ? data.mowIds : undefined,
-				gwOffense: data.modes.gwOffense || undefined,
-				gwDefense: data.modes.gwDefense || undefined,
-				raid: data.modes.raid || undefined,
-				ta: data.modes.ta || undefined,
-				notes: data.notes || undefined,
-			});
-		},
-		[addTeam],
-	);
+	const handleAdd = async (data: {
+		name: string;
+		characterIds: string[];
+		mowIds: string[];
+		modes: Record<GameMode, boolean>;
+		notes: string;
+	}) => {
+		await addTeam({
+			name: data.name,
+			characterIds: data.characterIds,
+			mowIds: data.mowIds.length > 0 ? data.mowIds : undefined,
+			gwOffense: data.modes.gwOffense || undefined,
+			gwDefense: data.modes.gwDefense || undefined,
+			raid: data.modes.raid || undefined,
+			ta: data.modes.ta || undefined,
+			notes: data.notes || undefined,
+		});
+	};
 
-	const handleEdit = useCallback(
-		async (data: {
-			name: string;
-			characterIds: string[];
-			mowIds: string[];
-			modes: Record<GameMode, boolean>;
-			notes: string;
-		}) => {
-			if (!editingTeam) return;
-			await updateTeam({
-				teamId: editingTeam.id as Id<"teams">,
-				name: data.name,
-				characterIds: data.characterIds,
-				mowIds: data.mowIds.length > 0 ? data.mowIds : undefined,
-				gwOffense: data.modes.gwOffense || undefined,
-				gwDefense: data.modes.gwDefense || undefined,
-				raid: data.modes.raid || undefined,
-				ta: data.modes.ta || undefined,
-				notes: data.notes || undefined,
-			});
-			setEditingTeam(null);
-		},
-		[editingTeam, updateTeam],
-	);
+	const handleEdit = async (data: {
+		name: string;
+		characterIds: string[];
+		mowIds: string[];
+		modes: Record<GameMode, boolean>;
+		notes: string;
+	}) => {
+		if (!editingTeam) return;
+		await updateTeam({
+			teamId: editingTeam.id as Id<"teams">,
+			name: data.name,
+			characterIds: data.characterIds,
+			mowIds: data.mowIds.length > 0 ? data.mowIds : undefined,
+			gwOffense: data.modes.gwOffense || undefined,
+			gwDefense: data.modes.gwDefense || undefined,
+			raid: data.modes.raid || undefined,
+			ta: data.modes.ta || undefined,
+			notes: data.notes || undefined,
+		});
+		setEditingTeam(null);
+	};
 
-	const handleDelete = useCallback(async () => {
+	const handleDelete = async () => {
 		if (!deletingTeamId) return;
 		await removeTeam({
 			teamId: deletingTeamId as Id<"teams">,
 		});
 		setDeletingTeamId(null);
-	}, [deletingTeamId, removeTeam]);
+	};
 
 	if (teams === undefined) {
 		return (

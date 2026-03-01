@@ -38,11 +38,11 @@ export function createEmptyState(): RosterSnapshotsState {
 
 export function createSnapshot(
 	state: RosterSnapshotsState,
-	roster: Map<string, RosterUnit>,
+	roster: Record<string, RosterUnit>,
 	name: string,
 ): RosterSnapshotsState {
 	const units: Record<string, SnapshotUnit> = {};
-	for (const [unitId, unit] of roster) {
+	for (const [unitId, unit] of Object.entries(roster)) {
 		units[unitId] = rosterUnitToSnapshot(unit);
 	}
 
@@ -89,11 +89,11 @@ export function restoreSnapshot(
 }
 
 export function rosterMapToSnapshot(
-	roster: Map<string, RosterUnit>,
+	roster: Record<string, RosterUnit>,
 	name: string,
 ): RosterSnapshot {
 	const units: Record<string, SnapshotUnit> = {};
-	for (const [unitId, unit] of roster) {
+	for (const [unitId, unit] of Object.entries(roster)) {
 		units[unitId] = rosterUnitToSnapshot(unit);
 	}
 	return { name, createdAt: Date.now(), units };

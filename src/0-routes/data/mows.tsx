@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Input } from "@/1-components/ui/input.tsx";
 import {
 	Select,
@@ -20,7 +20,7 @@ function MowsPage() {
 	const [search, setSearch] = useState("");
 	const [allianceFilter, setAllianceFilter] = useState("all");
 
-	const filtered = useMemo(() => {
+	const filtered = (() => {
 		let result = [...MOWS];
 		if (allianceFilter !== "all") {
 			result = result.filter((m) => m.alliance === allianceFilter);
@@ -30,7 +30,7 @@ function MowsPage() {
 			result = result.filter((m) => m.name.toLowerCase().includes(q));
 		}
 		return result.sort((a, b) => a.name.localeCompare(b.name));
-	}, [search, allianceFilter]);
+	})();
 
 	return (
 		<div className="space-y-6">

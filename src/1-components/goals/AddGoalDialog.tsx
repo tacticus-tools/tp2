@@ -1,13 +1,6 @@
 import { useMutation } from "convex/react";
 import { Loader2, Lock, Plus, Search, X } from "lucide-react";
-import {
-	useCallback,
-	useEffect,
-	useId,
-	useMemo,
-	useRef,
-	useState,
-} from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { CampaignsLocationsUsage } from "#common/campaigns-locations-usage.ts";
 import { PersonalGoalType } from "#common/goal-type.ts";
 import { RARITIES, type Rarity, RaritySchema } from "#common/rarity.ts";
@@ -49,7 +42,7 @@ import { api } from "~/_generated/api";
 
 interface AddGoalDialogProps {
 	goalCount: number;
-	roster: Map<string, RosterUnit>;
+	roster: Record<string, RosterUnit>;
 }
 
 // All ranks excluding Locked
@@ -121,25 +114,25 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 	const [unitSearch, setUnitSearch] = useState("");
 	const listRef = useRef<HTMLDivElement>(null);
 
-	const hasRoster = roster.size > 0;
+	const hasRoster = Object.keys(roster).length > 0;
 
 	// Compute max rank for selected unit based on rarity
-	const maxRank = useMemo(() => {
+	const maxRank = (() => {
 		if (!selectedUnit) return Rank.Adamantine3;
-		const rosterUnit = roster.get(selectedUnit.id);
+		const rosterUnit = roster[selectedUnit.id];
 		const rarity = rosterUnit
 			? rosterUnit.rarity
-			: (unitById.get(selectedUnit.id)?.initialRarity ?? "Common");
+			: (unitById[selectedUnit.id]?.initialRarity ?? "Common");
 		return rarityToMaxRank[rarity];
-	}, [selectedUnit, roster]);
+	})();
 
 	// Target rank: only ranks strictly greater than rankStart, capped by maxRank unless override
-	const targetRanks = useMemo(() => {
+	const targetRanks = (() => {
 		const cap = overrideMode ? Rank.Adamantine3 : maxRank;
 		return allSelectableRanks.filter(
 			([key]) => Number(key) > rankStart && Number(key) <= cap,
 		);
-	}, [rankStart, maxRank, overrideMode]);
+	})();
 
 	// Clamp rankEnd when the cap shrinks (e.g. unit/rarity change, override off)
 	useEffect(() => {
@@ -152,7 +145,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 	}, [rankStart, rankEnd, maxRank, overrideMode]);
 
 	// Filter units based on goal type, search query, and roster
-	const filteredUnits = useMemo(() => {
+	const filteredUnits = (() => {
 		const byType = allGameUnitsSorted.filter((u) =>
 			goalType === PersonalGoalType.MowAbilities
 				? u.unitType === "mow"
@@ -162,7 +155,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 		// When roster is populated and override is off, hide locked characters
 		const byRoster =
 			hasRoster && !overrideMode
-				? byType.filter((u) => roster.has(u.id))
+				? byType.filter((u) => u.id in roster)
 				: byType;
 
 		if (!unitSearch.trim()) return byRoster;
@@ -171,10 +164,10 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 			(u) =>
 				u.name.toLowerCase().includes(q) || u.faction.toLowerCase().includes(q),
 		);
-	}, [goalType, unitSearch, hasRoster, overrideMode, roster]);
+	})();
 
 	// Save button validation
-	const isSaveDisabled = useMemo(() => {
+	const isSaveDisabled = (() => {
 		if (saving || !selectedUnit) return true;
 		switch (goalType) {
 			case PersonalGoalType.UpgradeRank:
@@ -186,24 +179,14 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 			default:
 				return false;
 		}
-	}, [
-		saving,
-		selectedUnit,
-		goalType,
-		rankStart,
-		rankEnd,
-		primaryEnd,
-		secondaryEnd,
-		activeEnd,
-		passiveEnd,
-	]);
+	})();
 
 	function handleUnitSelect(unit: GameUnit) {
 		setSelectedUnit(unit);
 		setUnitSearch("");
 
 		// Auto-set starting rank from roster
-		const rosterUnit = roster.get(unit.id);
+		const rosterUnit = roster[unit.id];
 		if (rosterUnit) {
 			setRankStart(rosterUnit.rank);
 			// Auto-bump target rank if needed
@@ -245,7 +228,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 		}
 	}
 
-	const resetForm = useCallback(() => {
+	const resetForm = () => {
 		setGoalType(PersonalGoalType.UpgradeRank);
 		setSelectedUnit(null);
 		setUnitSearch("");
@@ -262,7 +245,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 		setRarityEnd("Legendary");
 		setStarsEnd(RarityStars.None);
 		setOverrideMode(false);
-	}, []);
+	};
 
 	async function handleSave() {
 		if (!selectedUnit) return;
@@ -415,7 +398,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 						<Label>Character / Unit</Label>
 						{selectedUnit ? (
 							<div className="flex items-center gap-2 rounded-md border border-border bg-muted/30 px-3 py-2">
-								{hasRoster && !roster.has(selectedUnit.id) && (
+								{hasRoster && !(selectedUnit.id in roster) && (
 									<Lock className="size-3.5 shrink-0 text-muted-foreground" />
 								)}
 								<span className="text-sm font-medium">{selectedUnit.name}</span>
@@ -454,7 +437,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 										</div>
 									) : (
 										filteredUnits.map((unit) => {
-											const isLocked = hasRoster && !roster.has(unit.id);
+											const isLocked = hasRoster && !(unit.id in roster);
 											return (
 												<button
 													key={unit.id}

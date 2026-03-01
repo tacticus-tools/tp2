@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
 import { Camera, Loader2, RotateCcw, Trash2 } from "lucide-react";
-import { useCallback, useId, useMemo, useState } from "react";
+import { useId, useState } from "react";
 import { SnapshotComparisonView } from "@/1-components/roster-snapshots/SnapshotComparisonView.tsx";
 import {
 	AlertDialog,
@@ -76,33 +76,27 @@ function RosterSnapshotsPage() {
 	const [snapshotName, setSnapshotName] = useState("");
 	const [showDeleted, setShowDeleted] = useState(false);
 
-	const state = useMemo(() => parseState(doc?.data), [doc?.data]);
+	const state = parseState(doc?.data);
 
-	const handleTakeSnapshot = useCallback(async () => {
-		if (roster.size === 0) return;
+	const handleTakeSnapshot = async () => {
+		if (Object.keys(roster).length === 0) return;
 		const name =
 			snapshotName.trim() ||
 			`Snapshot ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
 		const newState = createSnapshot(state, roster, name);
 		await save({ data: JSON.stringify(newState) });
 		setSnapshotName("");
-	}, [roster, state, save, snapshotName]);
+	};
 
-	const handleDelete = useCallback(
-		async (index: number) => {
-			const newState = deleteSnapshot(state, index);
-			await save({ data: JSON.stringify(newState) });
-		},
-		[state, save],
-	);
+	const handleDelete = async (index: number) => {
+		const newState = deleteSnapshot(state, index);
+		await save({ data: JSON.stringify(newState) });
+	};
 
-	const handleRestore = useCallback(
-		async (deletedIndex: number) => {
-			const newState = restoreSnapshot(state, deletedIndex);
-			await save({ data: JSON.stringify(newState) });
-		},
-		[state, save],
-	);
+	const handleRestore = async (deletedIndex: number) => {
+		const newState = restoreSnapshot(state, deletedIndex);
+		await save({ data: JSON.stringify(newState) });
+	};
 
 	if (doc === undefined) {
 		return (
@@ -112,7 +106,8 @@ function RosterSnapshotsPage() {
 		);
 	}
 
-	const canTakeSnapshot = roster.size > 0 && lastSyncedAt !== null;
+	const canTakeSnapshot =
+		Object.keys(roster).length > 0 && lastSyncedAt !== null;
 
 	return (
 		<div className="space-y-6">
@@ -158,9 +153,9 @@ function RosterSnapshotsPage() {
 						<AlertDialogHeader>
 							<AlertDialogTitle>Take Roster Snapshot?</AlertDialogTitle>
 							<AlertDialogDescription>
-								This will capture your current roster state ({roster.size}{" "}
-								units). You can compare it with future snapshots to see your
-								progress.
+								This will capture your current roster state (
+								{Object.keys(roster).length} units). You can compare it with
+								future snapshots to see your progress.
 							</AlertDialogDescription>
 						</AlertDialogHeader>
 						<AlertDialogFooter>
@@ -300,7 +295,7 @@ function ComparisonSection({
 	toggleHiddenField,
 }: {
 	state: RosterSnapshotsState;
-	roster: Map<string, RosterUnit>;
+	roster: Record<string, RosterUnit>;
 	selectedLeftIndex: number;
 	selectedRightIndex: number;
 	setSelectedLeftIndex: (i: number) => void;
@@ -309,15 +304,12 @@ function ComparisonSection({
 	toggleHiddenField: (field: string) => void;
 }) {
 	const leftSnapshot = state.snapshots[selectedLeftIndex];
-	const rightSnapshot = useMemo(
-		() =>
-			selectedRightIndex === -1
-				? roster.size > 0
-					? rosterMapToSnapshot(roster, "Current Roster")
-					: undefined
-				: state.snapshots[selectedRightIndex],
-		[selectedRightIndex, roster, state.snapshots],
-	);
+	const rightSnapshot =
+		selectedRightIndex === -1
+			? Object.keys(roster).length > 0
+				? rosterMapToSnapshot(roster, "Current Roster")
+				: undefined
+			: state.snapshots[selectedRightIndex];
 
 	const isSameSnapshot =
 		selectedRightIndex !== -1 && selectedLeftIndex === selectedRightIndex;

@@ -1,6 +1,6 @@
 import { toJpeg } from "html-to-image";
 import { Check, Copy, Download, Loader2, Share2 } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import {
 	AlertDialog,
 	AlertDialogCancel,
@@ -26,7 +26,7 @@ export function ShareRosterDialog({
 	const [copying, setCopying] = useState(false);
 	const [copied, setCopied] = useState(false);
 
-	const handleDownloadImage = useCallback(async () => {
+	const handleDownloadImage = async () => {
 		const node = gridRef.current;
 		if (!node) return;
 		setDownloading(true);
@@ -44,9 +44,9 @@ export function ShareRosterDialog({
 		} finally {
 			setDownloading(false);
 		}
-	}, [gridRef]);
+	};
 
-	const handleCopyLink = useCallback(async () => {
+	const handleCopyLink = async () => {
 		setCopying(true);
 		try {
 			const token = await onShare();
@@ -58,7 +58,7 @@ export function ShareRosterDialog({
 		} finally {
 			setCopying(false);
 		}
-	}, [onShare]);
+	};
 
 	return (
 		<AlertDialog>

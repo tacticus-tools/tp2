@@ -11,7 +11,7 @@ import {
 	Upload,
 	X,
 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CampaignsLocationsUsage } from "#common/campaigns-locations-usage.ts";
 import {
 	PersonalGoalType as GoalType,
@@ -66,7 +66,6 @@ import {
 	parseCampaignProgress,
 	parseTodayActivity,
 } from "@/4-lib/general/campaign-progress.ts";
-import type { Campaign } from "@/4-lib/general/constants.ts";
 import { generateDailyRaidsPlan } from "@/4-lib/general/daily-raids/service.ts";
 import type { IDailyRaidsPlan } from "@/4-lib/general/daily-raids/types.ts";
 import {
@@ -128,14 +127,14 @@ function buildTypedGoals(
 		type: string;
 		data: string;
 	}[],
-	roster: Map<string, RosterUnit> | null,
+	roster: Record<string, RosterUnit> | null,
 ): CharacterRaidGoalSelect[] {
 	return goals.map((goal) => {
 		const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
 
 		// Sync UpgradeRank starting state from roster
 		if (goal.type === GoalType.UpgradeRank && roster) {
-			const rosterUnit = roster.get(goal.unitId);
+			const rosterUnit = roster[goal.unitId];
 			if (rosterUnit) {
 				const storedRankStart = parsed.rankStart ?? 0;
 				if (rosterUnit.rank > storedRankStart) {
@@ -157,7 +156,7 @@ function buildTypedGoals(
 			parsed.onslaughtMythicShards ??= 1;
 			parsed.campaignsUsage ??= CampaignsLocationsUsage.LeastEnergy;
 			if (roster) {
-				const rosterUnit = roster.get(goal.unitId);
+				const rosterUnit = roster[goal.unitId];
 				if (rosterUnit) {
 					parsed.rarityStart = rosterUnit.rarity;
 					parsed.starsStart = rosterUnit.stars;
@@ -169,7 +168,7 @@ function buildTypedGoals(
 
 		// Sync Abilities starting state from roster
 		if (goal.type === GoalType.CharacterAbilities && roster) {
-			const rosterUnit = roster.get(goal.unitId);
+			const rosterUnit = roster[goal.unitId];
 			if (rosterUnit) {
 				parsed.activeStart = rosterUnit.abilities[0];
 				parsed.passiveStart = rosterUnit.abilities[1];
@@ -178,7 +177,7 @@ function buildTypedGoals(
 			}
 		}
 
-		const unitData = unitById.get(goal.unitId);
+		const unitData = unitById[goal.unitId];
 
 		return {
 			...parsed,
@@ -261,23 +260,20 @@ function GoalsPage() {
 
 	// Derive player context from store for estimation pipeline
 	// Merges API-derived progress with persisted progress (includes manual event entries)
-	const playerContext = useMemo<PlayerContext>(() => {
+	const playerContext: PlayerContext = (() => {
 		const ctx: PlayerContext = {};
 		const apiProgress = parseCampaignProgress(campaignProgress);
 		// Start with persisted progress (includes manually-entered event campaigns)
-		const merged = new Map<string, number>();
+		const merged: Record<string, number> = {};
 		for (const [campaign, nodes] of Object.entries(persistedProgress)) {
-			if (nodes > 0) merged.set(campaign, nodes);
+			if (nodes > 0) merged[campaign] = nodes;
 		}
 		// API progress overwrites persisted for trackable campaigns
-		for (const [campaign, nodes] of apiProgress) {
-			merged.set(campaign, nodes);
+		for (const [campaign, nodes] of Object.entries(apiProgress)) {
+			merged[campaign] = nodes;
 		}
-		if (merged.size > 0) {
-			ctx.campaignProgress = merged as Map<
-				import("@/4-lib/general/constants").Campaign,
-				number
-			>;
+		if (Object.keys(merged).length > 0) {
+			ctx.campaignProgress = merged;
 		}
 		if (inventory) {
 			ctx.inventory = buildInventoryMap(inventory.upgrades);
@@ -287,58 +283,36 @@ function GoalsPage() {
 			? detectCampaignEvent(apiProgress)
 			: "none";
 		return ctx;
-	}, [campaignProgress, inventory, persistedProgress, campaignEventEnabled]);
+	})();
 
 	// Track when the initial data sync attempt completes (success or failure)
 	// so we don't compute estimates/daily-raids with empty inventory before data arrives.
 	const [initialSyncDone, setInitialSyncDone] = useState(false);
 
-	// Calculate estimates for all goals (async — uses real campaign/recipe data)
+	// Calculate estimates for all goals — uses real campaign/recipe data.
 	// Goals are processed sequentially in priority order with a shared mutable
 	// inventory so lower-priority goals see reduced materials.
-	// Estimates are stored with the deps token that produced them.
-	// During render, if the token doesn't match, estimates are treated as empty.
-	const [estimatesResult, setEstimatesResult] = useState<{
-		map: Map<string, IGoalEstimate>;
-		token: object;
-	} | null>(null);
+	const [activeEstimates, setActiveEstimates] = useState<
+		Record<string, IGoalEstimate>
+	>({});
+
+	// Daily raids plan — computed in the estimates effect below.
+	const [raidsPlan, setRaidsPlan] = useState<IDailyRaidsPlan | null>(null);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: settingsVersion is an intentional cache-buster
-	const estimatesDepsToken = useMemo(
-		() => ({}),
-		[
-			goals,
-			dailyEnergy,
-			shardsEnergy,
-			playerContext,
-			roster,
-			farmStrategy,
-			farmOrder,
-			customFarmSelections,
-			homeScreenEvent,
-			hseMinEnemyCount,
-			hasHydrated,
-			initialSyncDone,
-			settingsVersion,
-		],
-	);
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: deps tracked via estimatesDepsToken
 	useEffect(() => {
 		if (!goals || !hasHydrated || !initialSyncDone) {
-			setEstimatesResult(null);
-			setRaidsResult(null);
+			setActiveEstimates({});
+			setRaidsPlan(null);
 			return;
 		}
 
-		const currentToken = estimatesDepsToken;
 		const typedGoals = buildTypedGoals(goals, roster);
 
 		// 1. Run the daily raids simulation (always, not just in dailyRaids view).
 		//    This produces the day-by-day schedule from which we extract accurate
 		//    daysTotal/daysLeft for UpgradeRank goals.
-		const progress =
-			(playerContext.campaignProgress as Map<Campaign, number>) ?? new Map();
+		const progress = playerContext.campaignProgress ?? {};
 		const inv = playerContext.inventory ?? {};
 		const attempts = parseBattleAttempts(campaignProgress);
 
@@ -355,7 +329,7 @@ function GoalsPage() {
 			attempts,
 			customFarmSelections,
 		);
-		setRaidsResult({ plan, token: currentToken });
+		setRaidsPlan(plan);
 
 		// 2. Extract daysTotal/daysLeft from the plan for each UpgradeRank goal.
 		//    daysTotal = number of days this goal has materials being farmed.
@@ -368,7 +342,8 @@ function GoalsPage() {
 					raid.goalId === goalId &&
 					raid.raidLocations.some((loc) => loc.raidsCount > 0),
 			);
-		const planDays = new Map<string, { daysTotal: number; daysLeft: number }>();
+		const planDays: Record<string, { daysTotal: number; daysLeft: number }> =
+			{};
 		for (const goal of typedGoals) {
 			if (goal.type !== GoalType.UpgradeRank) continue;
 			const goalId = goal.goalId;
@@ -378,10 +353,10 @@ function GoalsPage() {
 			const farmDayCount = plan.days.filter((day) =>
 				hasRealRaids(day, goalId),
 			).length;
-			planDays.set(goalId, {
+			planDays[goalId] = {
 				daysTotal: farmDayCount,
 				daysLeft: firstFarmDay >= 0 ? firstFarmDay + farmDayCount : 0,
-			});
+			};
 		}
 
 		// 3. Compute estimates (energy, XP, badges, and non-UpgradeRank goals).
@@ -395,7 +370,7 @@ function GoalsPage() {
 		// 4. Override UpgradeRank estimates with simulation-derived values,
 		//    then recompute cumulative finishByDay so it stays monotonic.
 		for (const est of results) {
-			const pd = planDays.get(est.goalId);
+			const pd = planDays[est.goalId];
 			if (pd) {
 				est.daysTotal = pd.daysTotal;
 				est.daysLeft = pd.daysLeft;
@@ -408,124 +383,103 @@ function GoalsPage() {
 			est.finishByDay = cumulativeFinishDay;
 		}
 
-		const map = new Map<string, IGoalEstimate>();
+		const estimateRecord: Record<string, IGoalEstimate> = {};
 		for (const est of results) {
-			map.set(est.goalId, est);
+			estimateRecord[est.goalId] = est;
 		}
-		setEstimatesResult({ map, token: currentToken });
-	}, [estimatesDepsToken]);
-
-	// Only use estimates if they were computed with the current deps
-	const activeEstimates =
-		estimatesResult?.token === estimatesDepsToken
-			? estimatesResult.map
-			: new Map<string, IGoalEstimate>();
+		setActiveEstimates(estimateRecord);
+	}, [
+		goals,
+		dailyEnergy,
+		shardsEnergy,
+		roster,
+		farmStrategy,
+		farmOrder,
+		customFarmSelections,
+		homeScreenEvent,
+		hseMinEnemyCount,
+		hasHydrated,
+		initialSyncDone,
+		settingsVersion,
+		campaignProgress,
+		persistedProgress,
+		inventory,
+		campaignEventEnabled,
+	]);
 
 	// Badge coverage: allocate inventory badges to goals in priority order
-	const badgeCoverageMap = useMemo(() => {
-		if (!inventory || !goals || activeEstimates.size === 0) return new Map();
+	const badgeCoverageMap = (() => {
+		if (!inventory || !goals || Object.keys(activeEstimates).length === 0)
+			return {};
 		const pools = buildBadgeInventory(inventory);
 		const sortedGoalIds = [...goals]
 			.sort((a, b) => a.priority - b.priority)
 			.map((g) => g.goalId);
 		return allocateBadgesToGoals(sortedGoalIds, activeEstimates, pools);
-	}, [inventory, goals, activeEstimates]);
+	})();
 
 	// XP book coverage: allocate inventory XP books to goals in priority order
-	const xpBookCoverageMap = useMemo(() => {
-		if (!inventory || !goals || activeEstimates.size === 0) return new Map();
+	const xpBookCoverageMap = (() => {
+		if (!inventory || !goals || Object.keys(activeEstimates).length === 0)
+			return {};
 		const pools = buildXpBookInventory(inventory);
 		const sortedGoalIds = [...goals]
 			.sort((a, b) => a.priority - b.priority)
 			.map((g) => g.goalId);
 		return allocateXpBooksToGoals(sortedGoalIds, activeEstimates, pools);
-	}, [inventory, goals, activeEstimates]);
-
-	// Daily raids plan computation.
-	// The plan is stored together with the deps token that produced it.
-	// During render, if the stored token doesn't match the current token,
-	// the plan is treated as stale and null is returned — no flash of old data.
-	const [raidsResult, setRaidsResult] = useState<{
-		plan: IDailyRaidsPlan;
-		token: object;
-	} | null>(null);
-
-	// The daily raids plan is computed in the estimates effect above.
-	const raidsPlan =
-		raidsResult?.token === estimatesDepsToken ? raidsResult.plan : null;
+	})();
 
 	// Compute today's activity from ALL campaign nodes (plan + non-plan farming)
-	const todayActivity = useMemo(
-		() => parseTodayActivity(campaignProgress),
-		[campaignProgress],
-	);
+	const todayActivity = parseTodayActivity(campaignProgress);
 
-	const handleEdit = useCallback(
-		(goalId: string) => {
-			const goal = goals?.find((g) => g.goalId === goalId);
-			if (goal) {
-				setEditingGoal({
-					goalId: goal.goalId,
-					type: goal.type as PersonalGoalType,
-					unitId: goal.unitId,
-					unitName: goal.unitName,
-					include: goal.include,
-					notes: goal.notes,
-					data: goal.data,
-				});
-			}
-		},
-		[goals],
-	);
+	const handleEdit = (goalId: string) => {
+		const goal = goals?.find((g) => g.goalId === goalId);
+		if (goal) {
+			setEditingGoal({
+				goalId: goal.goalId,
+				type: goal.type as PersonalGoalType,
+				unitId: goal.unitId,
+				unitName: goal.unitName,
+				include: goal.include,
+				notes: goal.notes,
+				data: goal.data,
+			});
+		}
+	};
 
-	const handleDelete = useCallback(
-		async (goalId: string) => {
-			await removeGoal({ goalId });
-		},
-		[removeGoal],
-	);
+	const handleDelete = async (goalId: string) => {
+		await removeGoal({ goalId });
+	};
 
-	const handleToggleInclude = useCallback(
-		async (goalId: string, include: boolean) => {
-			await updateGoal({ goalId, include });
-		},
-		[updateGoal],
-	);
+	const handleToggleInclude = async (goalId: string, include: boolean) => {
+		await updateGoal({ goalId, include });
+	};
 
-	const handleToggleOnslaught = useCallback(
-		async (goalId: string, enabled: boolean) => {
-			const goal = goals?.find((g) => g.goalId === goalId);
-			if (!goal) return;
-			const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
-			parsed.onslaughtShards = enabled ? 1 : 0;
-			await updateGoal({ goalId, data: JSON.stringify(parsed) });
-		},
-		[goals, updateGoal],
-	);
+	const handleToggleOnslaught = async (goalId: string, enabled: boolean) => {
+		const goal = goals?.find((g) => g.goalId === goalId);
+		if (!goal) return;
+		const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
+		parsed.onslaughtShards = enabled ? 1 : 0;
+		await updateGoal({ goalId, data: JSON.stringify(parsed) });
+	};
 
-	const handleMoveUp = useCallback(
-		async (goalId: string) => {
-			if (!goals) return;
-			const ids = goals.map((g) => g.goalId);
-			const idx = ids.indexOf(goalId);
-			if (idx <= 0) return;
-			[ids[idx - 1], ids[idx]] = [ids[idx], ids[idx - 1]];
-			await reorderGoals({ goalIds: ids });
-		},
-		[goals, reorderGoals],
-	);
+	const handleMoveUp = async (goalId: string) => {
+		if (!goals) return;
+		const ids = goals.map((g) => g.goalId);
+		const idx = ids.indexOf(goalId);
+		if (idx <= 0) return;
+		[ids[idx - 1], ids[idx]] = [ids[idx], ids[idx - 1]];
+		await reorderGoals({ goalIds: ids });
+	};
 
-	const handleMoveDown = useCallback(
-		async (goalId: string) => {
-			if (!goals) return;
-			const ids = goals.map((g) => g.goalId);
-			const idx = ids.indexOf(goalId);
-			if (idx < 0 || idx >= ids.length - 1) return;
-			[ids[idx], ids[idx + 1]] = [ids[idx + 1], ids[idx]];
-			await reorderGoals({ goalIds: ids });
-		},
-		[goals, reorderGoals],
-	);
+	const handleMoveDown = async (goalId: string) => {
+		if (!goals) return;
+		const ids = goals.map((g) => g.goalId);
+		const idx = ids.indexOf(goalId);
+		if (idx < 0 || idx >= ids.length - 1) return;
+		[ids[idx], ids[idx + 1]] = [ids[idx + 1], ids[idx]];
+		await reorderGoals({ goalIds: ids });
+	};
 
 	// Wait for initial data sync (triggered by SyncButton in header) before
 	// computing estimates/daily-raids so they use real inventory data.
@@ -542,44 +496,41 @@ function GoalsPage() {
 		}
 	}, [lastSyncedAt, syncing, initialSyncDone]);
 
-	const handleImport = useCallback(
-		async (e: React.ChangeEvent<HTMLInputElement>) => {
-			const file = e.target.files?.[0];
-			if (!file) return;
+	const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+		const file = e.target.files?.[0];
+		if (!file) return;
 
-			setImporting(true);
-			setImportResult(null);
-			try {
-				const text = await file.text();
-				const result = parsePlannerExport(text);
+		setImporting(true);
+		setImportResult(null);
+		try {
+			const text = await file.text();
+			const result = parsePlannerExport(text);
 
-				if (result.goals.length === 0) {
-					setImportResult({ imported: 0, skipped: result.skipped });
-					return;
-				}
-
-				await importGoals({ goals: result.goals });
-				setImportResult({
-					imported: result.goals.length,
-					skipped: result.skipped,
-				});
-			} catch {
-				setImportResult({
-					imported: 0,
-					skipped: [
-						"Failed to parse file. Make sure it's a valid Tacticus Planner export.",
-					],
-				});
-			} finally {
-				setImporting(false);
-				// Reset file input so the same file can be re-selected
-				if (fileInputRef.current) {
-					fileInputRef.current.value = "";
-				}
+			if (result.goals.length === 0) {
+				setImportResult({ imported: 0, skipped: result.skipped });
+				return;
 			}
-		},
-		[importGoals],
-	);
+
+			await importGoals({ goals: result.goals });
+			setImportResult({
+				imported: result.goals.length,
+				skipped: result.skipped,
+			});
+		} catch {
+			setImportResult({
+				imported: 0,
+				skipped: [
+					"Failed to parse file. Make sure it's a valid Tacticus Planner export.",
+				],
+			});
+		} finally {
+			setImporting(false);
+			// Reset file input so the same file can be re-selected
+			if (fileInputRef.current) {
+				fileInputRef.current.value = "";
+			}
+		}
+	};
 
 	function buildGoalCardData(
 		data: string,
@@ -588,7 +539,7 @@ function GoalsPage() {
 	): GoalData {
 		const parsed = GoalDataSchema.parse(JSON.parse(data));
 		if (roster) {
-			const rosterUnit = roster.get(unitId);
+			const rosterUnit = roster[unitId];
 			if (rosterUnit) {
 				if (type === GoalType.Ascend) {
 					parsed.rarityStart = rosterUnit.rarity;
@@ -610,10 +561,10 @@ function GoalsPage() {
 	}
 
 	// Apply goal type filter for display (doesn't affect estimates or daily raids)
-	const filteredGoals = useMemo(() => {
+	const filteredGoals = (() => {
 		if (!goals || goalTypeFilter.length === 0) return goals;
 		return goals.filter((g) => goalTypeFilter.includes(g.type as GoalType));
-	}, [goals, goalTypeFilter]);
+	})();
 
 	const goalIds = goals?.map((g) => g.goalId) ?? [];
 	const isFirstGoal = (id: string) => goalIds[0] === id;
@@ -890,7 +841,7 @@ function GoalsPage() {
 									unitName: goal.unitName,
 									priority: goal.priority,
 									include: goal.include,
-									estimate: activeEstimates.get(goal.goalId),
+									estimate: activeEstimates[goal.goalId],
 									data: goal.data,
 								}))}
 								isFirst={isFirstGoal}
@@ -923,11 +874,11 @@ function GoalsPage() {
 												goal.type,
 												goal.unitId,
 											)}
-											estimate={activeEstimates.get(goal.goalId)}
-											badgeCoverage={badgeCoverageMap.get(goal.goalId)}
-											xpBookCoverage={xpBookCoverageMap.get(goal.goalId)}
+											estimate={activeEstimates[goal.goalId]}
+											badgeCoverage={badgeCoverageMap[goal.goalId]}
+											xpBookCoverage={xpBookCoverageMap[goal.goalId]}
 											colorTint={getColorTint(
-												activeEstimates.get(goal.goalId),
+												activeEstimates[goal.goalId],
 												colorMode,
 											)}
 											isFirst={index === 0}

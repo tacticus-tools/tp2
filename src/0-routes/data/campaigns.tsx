@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import {
 	Select,
@@ -18,15 +18,15 @@ export const Route = createFileRoute("/data/campaigns")({
 });
 
 function CampaignsDataPage() {
-	const campaignNames = useMemo(() => Object.keys(CAMPAIGN_BATTLES).sort(), []);
+	const campaignNames = Object.keys(CAMPAIGN_BATTLES).sort();
 	const [selectedCampaign, setSelectedCampaign] = useState(
 		campaignNames[0] ?? "",
 	);
 
-	const battles = useMemo(() => {
+	const battles = (() => {
 		const key = selectedCampaign as keyof typeof CAMPAIGN_BATTLES;
 		return CAMPAIGN_BATTLES[key] ?? [];
-	}, [selectedCampaign]);
+	})();
 
 	return (
 		<div className="space-y-6">

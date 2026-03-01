@@ -18,7 +18,7 @@ export const useCampaignProgressStore = create<CampaignProgressState>()(
 				set((state) => {
 					const parsed = parseCampaignProgress(apiProgress);
 					const merged = { ...state.progress };
-					for (const [campaign, nodes] of parsed) {
+					for (const [campaign, nodes] of Object.entries(parsed)) {
 						merged[campaign] = nodes;
 					}
 					return { progress: merged };

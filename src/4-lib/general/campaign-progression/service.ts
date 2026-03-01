@@ -27,7 +27,7 @@ import type {
  */
 export function computeCampaignProgression(
 	goals: CharacterRaidGoalSelect[],
-	campaignProgress: Map<Campaign, number>,
+	campaignProgress: Record<string, number>,
 	inventory?: Record<string, number>,
 ): ICampaignProgressionResult {
 	const upgradeRankGoals = goals.filter(
@@ -45,7 +45,8 @@ export function computeCampaignProgression(
 	}
 
 	// Step 1: Accumulate base materials needed across all goals
-	const materialNeeds = new Map<string, { count: number; unitIds: string[] }>();
+	const materialNeeds: Record<string, { count: number; unitIds: string[] }> =
+		{};
 
 	// Use a shared inventory copy so materials are subtracted across goals by priority
 	const inventoryCopy = inventory ? { ...inventory } : {};
@@ -61,22 +62,22 @@ export function computeCampaignProgression(
 		);
 
 		for (const [materialId, count] of Object.entries(baseMaterials)) {
-			const existing = materialNeeds.get(materialId);
+			const existing = materialNeeds[materialId];
 			if (existing) {
 				existing.count += count;
 				if (!existing.unitIds.includes(goal.unitId)) {
 					existing.unitIds.push(goal.unitId);
 				}
 			} else {
-				materialNeeds.set(materialId, {
+				materialNeeds[materialId] = {
 					count,
 					unitIds: [goal.unitId],
-				});
+				};
 			}
 		}
 	}
 
-	if (materialNeeds.size === 0) {
+	if (Object.keys(materialNeeds).length === 0) {
 		return {
 			campaigns: [],
 			unfarmableMaterials: [],
@@ -93,7 +94,7 @@ export function computeCampaignProgression(
 	let currentTotalEnergy = 0;
 
 	// Track per-material farming state
-	const materialFarmState = new Map<
+	const materialFarmState: Record<
 		string,
 		{
 			count: number;
@@ -102,9 +103,11 @@ export function computeCampaignProgression(
 			currentCost: number;
 			canFarm: boolean;
 		}
-	>();
+	> = {};
 
-	for (const [materialId, { count, unitIds }] of materialNeeds) {
+	for (const [materialId, { count, unitIds }] of Object.entries(
+		materialNeeds,
+	)) {
 		const locations = allLocations[materialId] ?? [];
 		const farmable = filterLocationsByCampaignProgress(
 			locations,
@@ -130,26 +133,26 @@ export function computeCampaignProgression(
 			});
 		}
 
-		materialFarmState.set(materialId, {
+		materialFarmState[materialId] = {
 			count,
 			unitIds,
 			bestFarmableEnergy,
 			currentCost,
 			canFarm,
-		});
+		};
 	}
 
 	// Step 3: For each campaign with locked nodes, compute savings
-	const campaignSavingsMap = new Map<Campaign, IBattleSavings[]>();
+	const campaignSavingsMap: Record<string, IBattleSavings[]> = {};
 
-	for (const [materialId, state] of materialFarmState) {
+	for (const [materialId, state] of Object.entries(materialFarmState)) {
 		const locations = allLocations[materialId] ?? [];
 		const mat = allMaterials[materialId];
 		const materialLabel = mat?.label ?? materialId;
 
 		// Get locked locations (not yet beaten)
 		const locked = locations.filter((loc) => {
-			const maxNode = campaignProgress.get(loc.campaign as Campaign);
+			const maxNode = campaignProgress[loc.campaign];
 			// If campaign not started, node is locked
 			if (maxNode === undefined) return true;
 			return loc.nodeNumber > maxNode;
@@ -189,11 +192,11 @@ export function computeCampaignProgression(
 				energyPerItem: loc.energyPerItem,
 			};
 
-			const existing = campaignSavingsMap.get(loc.campaign as Campaign);
+			const existing = campaignSavingsMap[loc.campaign];
 			if (existing) {
 				existing.push(entry);
 			} else {
-				campaignSavingsMap.set(loc.campaign as Campaign, [entry]);
+				campaignSavingsMap[loc.campaign] = [entry];
 			}
 		}
 	}
@@ -201,7 +204,7 @@ export function computeCampaignProgression(
 	// Sort each campaign's savings by nodeNumber and compute cumulative
 	const campaigns: ICampaignProgressionData[] = [];
 
-	for (const [campaign, savings] of campaignSavingsMap) {
+	for (const [campaign, savings] of Object.entries(campaignSavingsMap)) {
 		savings.sort((a, b) => a.nodeNumber - b.nodeNumber);
 
 		let cumulative = 0;
@@ -211,7 +214,7 @@ export function computeCampaignProgression(
 		}
 
 		campaigns.push({
-			campaign,
+			campaign: campaign as Campaign,
 			savings,
 			totalSavings: cumulative,
 		});

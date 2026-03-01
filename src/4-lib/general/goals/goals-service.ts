@@ -1,6 +1,5 @@
 import { PersonalGoalType } from "#common/goal-type.ts";
 import type { CampaignEventType } from "../campaign-events.ts";
-import type { Campaign } from "../constants.ts";
 import { getCombinedAbilitiesMaterials } from "./abilities-service.ts";
 import { getCombinedMowMaterials } from "./mow-service.ts";
 import { estimateShardFarmingDays, getShardsNeeded } from "./shards-service.ts";
@@ -20,7 +19,7 @@ import {
 } from "./xp-service.ts";
 
 export interface PlayerContext {
-	campaignProgress?: Map<Campaign, number>;
+	campaignProgress?: Record<string, number>;
 	inventory?: Record<string, number>;
 	campaignEvent?: CampaignEventType;
 	/** When true, estimateUpgradeDays will mutate inventory in place (for sequential goal processing). */
@@ -89,7 +88,7 @@ function estimateRankGoal(
 		goal.appliedUpgrades,
 		goal.upgradesRarity,
 		ctx.inventory ?? {},
-		ctx.campaignProgress ?? new Map(),
+		ctx.campaignProgress ?? {},
 		ctx.campaignEvent ?? "none",
 		ctx.mutateInventory,
 	);
@@ -140,7 +139,7 @@ function estimateAscendGoal(
 		shardsEnergy,
 		goal.campaignsUsage,
 		goal.unitId,
-		ctx.campaignProgress ?? new Map(),
+		ctx.campaignProgress ?? {},
 		ctx.campaignEvent ?? "none",
 	);
 
@@ -210,7 +209,7 @@ function estimateUnlockGoal(
 		shardsEnergy,
 		goal.campaignsUsage,
 		goal.unitId,
-		ctx.campaignProgress ?? new Map(),
+		ctx.campaignProgress ?? {},
 		ctx.campaignEvent ?? "none",
 	);
 

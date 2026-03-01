@@ -1,6 +1,6 @@
 import { useAction } from "convex/react";
 import { RefreshCw } from "lucide-react";
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/1-components/ui/button.tsx";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
 // biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
@@ -14,7 +14,7 @@ export function SyncButton() {
 	const setPlayerData = usePlayerDataStore((s) => s.setPlayerData);
 	const setSyncing = usePlayerDataStore((s) => s.setSyncing);
 
-	const handleSync = useCallback(async () => {
+	const handleSync = async () => {
 		setSyncing(true);
 		try {
 			const response = await getPlayerData();
@@ -26,16 +26,28 @@ export function SyncButton() {
 		} finally {
 			setSyncing(false);
 		}
-	}, [getPlayerData, setPlayerData, setSyncing]);
+	};
 
 	// Auto-sync once on mount if no prior sync data
 	const didAutoSync = useRef(false);
 	useEffect(() => {
 		if (!didAutoSync.current && !lastSyncedAt) {
 			didAutoSync.current = true;
-			void handleSync();
+			setSyncing(true);
+			void getPlayerData()
+				.then((response) => {
+					if (response?.player?.units) {
+						setPlayerData(response);
+					}
+				})
+				.catch(() => {
+					// Sync failed
+				})
+				.finally(() => {
+					setSyncing(false);
+				});
 		}
-	}, [handleSync, lastSyncedAt]);
+	}, [lastSyncedAt, getPlayerData, setPlayerData, setSyncing]);
 
 	return (
 		<Button

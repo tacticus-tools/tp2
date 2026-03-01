@@ -10,7 +10,6 @@ import {
 	idToCampaign,
 	resolveEventCampaign,
 } from "./campaign-data.ts";
-import type { Campaign } from "./constants.ts";
 import type { ITodayActivity } from "./daily-raids/types.ts";
 
 /**
@@ -25,8 +24,8 @@ import type { ITodayActivity } from "./daily-raids/types.ts";
  */
 export function parseCampaignProgress(
 	apiProgress: TacticusCampaignProgress[],
-): Map<Campaign, number> {
-	const progress = new Map<Campaign, number>();
+): Record<string, number> {
+	const progress: Record<string, number> = {};
 
 	for (const camp of apiProgress) {
 		// Try event campaign resolution first
@@ -53,10 +52,10 @@ export function parseCampaignProgress(
 			}
 
 			if (maxBaseNode > 0) {
-				progress.set(eventResolved.base, maxBaseNode);
+				progress[eventResolved.base] = maxBaseNode;
 			}
 			if (maxChallengeNode > 0 && eventResolved.challenge) {
-				progress.set(eventResolved.challenge, maxChallengeNode);
+				progress[eventResolved.challenge] = maxChallengeNode;
 			}
 		} else {
 			// Non-event campaign: API battleIndex is 0-based, nodeNumber is 1-based
@@ -67,7 +66,7 @@ export function parseCampaignProgress(
 			const maxUnlockedNode = Math.max(
 				...camp.battles.map((b) => b.battleIndex + 1),
 			);
-			progress.set(campaign, maxUnlockedNode);
+			progress[campaign] = maxUnlockedNode;
 		}
 	}
 
@@ -80,11 +79,11 @@ export function parseCampaignProgress(
  */
 export function filterLocationsByCampaignProgress<
 	T extends { campaign: string; nodeNumber: number },
->(locations: T[], progress: Map<Campaign, number>): T[] {
-	if (progress.size === 0) return locations;
+>(locations: T[], progress: Record<string, number>): T[] {
+	if (Object.keys(progress).length === 0) return locations;
 
 	return locations.filter((loc) => {
-		const maxNode = progress.get(loc.campaign as Campaign);
+		const maxNode = progress[loc.campaign];
 		// If campaign not in progress data, player hasn't started it → exclude
 		if (maxNode === undefined) return false;
 		return loc.nodeNumber <= maxNode;
@@ -101,8 +100,8 @@ export function filterLocationsByCampaignProgress<
  */
 export function parseBattleAttempts(
 	apiProgress: TacticusCampaignProgress[],
-): Map<string, number> {
-	const attempts = new Map<string, number>();
+): Record<string, number> {
+	const attempts: Record<string, number> = {};
 
 	for (const camp of apiProgress) {
 		const eventResolved = resolveEventCampaign(camp.id, camp.type);
@@ -120,7 +119,7 @@ export function parseBattleAttempts(
 					: eventResolved.base;
 				if (!campaign) continue;
 
-				attempts.set(`${campaign}:${entry.nodeNumber}`, battle.attemptsLeft);
+				attempts[`${campaign}:${entry.nodeNumber}`] = battle.attemptsLeft;
 			}
 		} else {
 			const campaign = idToCampaign[camp.id];
@@ -128,10 +127,7 @@ export function parseBattleAttempts(
 
 			for (const battle of camp.battles) {
 				// API battleIndex is 0-based, pipeline nodeNumber is 1-based
-				attempts.set(
-					`${campaign}:${battle.battleIndex + 1}`,
-					battle.attemptsLeft,
-				);
+				attempts[`${campaign}:${battle.battleIndex + 1}`] = battle.attemptsLeft;
 			}
 		}
 	}

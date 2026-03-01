@@ -11,7 +11,7 @@ import type {
 } from "~/tacticus/types.ts";
 
 interface PlayerDataState {
-	roster: Map<string, RosterUnit>;
+	roster: Record<string, RosterUnit>;
 	campaignProgress: TacticusCampaignProgress[];
 	legendaryEvents: TacticusLegendaryEventProgress[];
 	inventory: TacticusInventory | null;
@@ -24,7 +24,7 @@ interface PlayerDataState {
 }
 
 export const usePlayerDataStore = create<PlayerDataState>()((set) => ({
-	roster: new Map(),
+	roster: {},
 	campaignProgress: [],
 	legendaryEvents: [],
 	inventory: null,

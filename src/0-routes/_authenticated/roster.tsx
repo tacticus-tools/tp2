@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation } from "convex/react";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import type { Alliance } from "#common/alliance.ts";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
 import { RosterGrid } from "@/1-components/roster/RosterGrid.tsx";
@@ -33,25 +33,18 @@ function RosterPage() {
 
 	const gridRef = useRef<HTMLDivElement>(null);
 
-	const enriched = useMemo(
-		() => enrichRoster(roster, CHARACTERS, MOWS, { includeUnowned: true }),
-		[roster],
-	);
+	const enriched = enrichRoster(roster, CHARACTERS, MOWS, {
+		includeUnowned: true,
+	});
 
-	const filtered = useMemo(
-		() => filterRoster(enriched, search, allianceFilter),
-		[enriched, search, allianceFilter],
-	);
+	const filtered = filterRoster(enriched, search, allianceFilter);
 
-	const handleShare = useCallback(async () => {
-		const obj = Object.fromEntries(
-			Array.from(roster.entries()).map(([id, unit]) => [id, unit]),
-		);
+	const handleShare = async () => {
 		const result = await shareRoster({
-			roster: JSON.stringify(obj),
+			roster: JSON.stringify(roster),
 		});
 		return result.token;
-	}, [roster, shareRoster]);
+	};
 
 	return (
 		<div className="space-y-6">
@@ -64,7 +57,7 @@ function RosterPage() {
 					</p>
 				</div>
 
-				{roster.size > 0 && (
+				{Object.keys(roster).length > 0 && (
 					<ShareRosterDialog gridRef={gridRef} onShare={handleShare} />
 				)}
 			</div>
