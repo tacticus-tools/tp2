@@ -1,4 +1,5 @@
-import { useMutation } from "convex/react";
+import { useConvexMutation } from "@convex-dev/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 import { PersonalGoalType } from "#common/goal-type.ts";
@@ -105,7 +106,9 @@ export function EditGoalDialog({
 	// Override toggle
 	const [overrideMode, setOverrideMode] = useState(false);
 
-	const updateGoal = useMutation(api.goals.update);
+	const updateGoal = useMutation({
+		mutationFn: useConvexMutation(api.goals.update),
+	});
 
 	const hasRoster = Object.keys(roster).length > 0;
 
@@ -227,7 +230,7 @@ export function EditGoalDialog({
 					break;
 			}
 
-			await updateGoal({
+			await updateGoal.mutateAsync({
 				goalId: goal.goalId,
 				include,
 				notes: notes.trim() || undefined,

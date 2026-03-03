@@ -1,4 +1,5 @@
-import { useMutation } from "convex/react";
+import { useConvexMutation } from "@convex-dev/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Loader2, Lock, Plus, Search, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import { CampaignsLocationsUsage } from "#common/campaigns-locations-usage.ts";
@@ -109,7 +110,9 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 	// Override toggle
 	const [overrideMode, setOverrideMode] = useState(false);
 
-	const addGoal = useMutation(api.goals.add);
+	const addGoal = useMutation({
+		mutationFn: useConvexMutation(api.goals.add),
+	});
 
 	const [unitSearch, setUnitSearch] = useState("");
 	const listRef = useRef<HTMLDivElement>(null);
@@ -302,7 +305,7 @@ export function AddGoalDialog({ goalCount, roster }: AddGoalDialogProps) {
 					break;
 			}
 
-			await addGoal({
+			await addGoal.mutateAsync({
 				goalId: crypto.randomUUID(),
 				type: goalType,
 				unitId: selectedUnit.id,

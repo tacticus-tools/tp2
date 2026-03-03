@@ -1,4 +1,5 @@
-import { useMutation } from "convex/react";
+import { useConvexMutation } from "@convex-dev/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
@@ -20,7 +21,9 @@ import { parsePlannerExport } from "@/4-lib/general/import-planner.ts";
 import { api } from "~/_generated/api";
 
 export function ImportButton() {
-	const importAll = useMutation(api.import.importAll);
+	const importAll = useMutation({
+		mutationFn: useConvexMutation(api.import.importAll),
+	});
 	const [importing, setImporting] = useState(false);
 	const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -50,7 +53,7 @@ export function ImportButton() {
 				return;
 			}
 
-			await importAll({
+			await importAll.mutateAsync({
 				goals: result.goals.length > 0 ? result.goals : undefined,
 				campaignProgress: result.campaignProgress
 					? JSON.stringify(result.campaignProgress)
