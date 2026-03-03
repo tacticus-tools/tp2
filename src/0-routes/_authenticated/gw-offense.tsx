@@ -3,6 +3,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { Loader2, Shield } from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { GwDeployDialog } from "@/1-components/gw-offense/GwDeployDialog.tsx";
 import { GwZoneCard } from "@/1-components/gw-offense/GwZoneCard.tsx";
 import { Badge } from "@/1-components/ui/badge.tsx";
@@ -32,6 +33,14 @@ function GwOffensePage() {
 	const docQuery = useQuery(convexQuery(api.gwOffense.get));
 	const saveGw = useMutation({
 		mutationFn: useConvexMutation(api.gwOffense.save),
+		onSuccess: () => {
+			toast.success("GW offense saved successfully");
+		},
+		onError: (error) => {
+			toast.error(
+				error instanceof Error ? error.message : "Failed to save GW offense",
+			);
+		},
 	});
 	const teamsQuery = useQuery(convexQuery(api.teams.list));
 
