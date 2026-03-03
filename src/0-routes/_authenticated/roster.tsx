@@ -1,5 +1,6 @@
+import { useConvexMutation } from "@convex-dev/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
 import { useRef, useState } from "react";
 import type { Alliance } from "#common/alliance.ts";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
@@ -22,7 +23,9 @@ export const Route = createFileRoute("/_authenticated/roster")({
 });
 
 function RosterPage() {
-	const shareRoster = useMutation(api.roster.share);
+	const shareRoster = useMutation({
+		mutationFn: useConvexMutation(api.roster.share),
+	});
 
 	const roster = usePlayerDataStore((s) => s.roster);
 
@@ -40,7 +43,7 @@ function RosterPage() {
 	const filtered = filterRoster(enriched, search, allianceFilter);
 
 	const handleShare = async () => {
-		const result = await shareRoster({
+		const result = await shareRoster.mutateAsync({
 			roster: JSON.stringify(roster),
 		});
 		return result.token;
