@@ -1,5 +1,7 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import {
 	LayoutGrid,
 	Loader2,
@@ -192,7 +194,7 @@ function buildTypedGoals(
 }
 
 function GoalsPage() {
-	const goals = useQuery(api.goals.list);
+	const goalsQuery = useQuery(convexQuery(api.goals.list));
 	const removeGoal = useMutation(api.goals.remove);
 	const removeAllGoals = useMutation(api.goals.removeAll);
 	const updateGoal = useMutation(api.goals.update);
@@ -245,8 +247,7 @@ function GoalsPage() {
 		(s) => s.clearGoalTypeFilter,
 	);
 
-	const isLoading = goals === undefined;
-	const goalCount = goals?.length ?? 0;
+	const goalCount = goalsQuery.data?.length ?? 0;
 
 	// Derive player context from store for estimation pipeline
 	// Merges API-derived progress with persisted progress (includes manual event entries)
@@ -291,13 +292,13 @@ function GoalsPage() {
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: settingsVersion is an intentional cache-buster
 	useEffect(() => {
-		if (!goals || !hasHydrated || !initialSyncDone) {
+		if (!goalsQuery.data || !hasHydrated || !initialSyncDone) {
 			setActiveEstimates({});
 			setRaidsPlan(null);
 			return;
 		}
 
-		const typedGoals = buildTypedGoals(goals, roster);
+		const typedGoals = buildTypedGoals(goalsQuery.data, roster);
 
 		// 1. Run the daily raids simulation (always, not just in dailyRaids view).
 		//    This produces the day-by-day schedule from which we extract accurate
@@ -379,7 +380,7 @@ function GoalsPage() {
 		}
 		setActiveEstimates(estimateRecord);
 	}, [
-		goals,
+		goalsQuery.data,
 		dailyEnergy,
 		shardsEnergy,
 		roster,
@@ -399,10 +400,14 @@ function GoalsPage() {
 
 	// Badge coverage: allocate inventory badges to goals in priority order
 	const badgeCoverageMap = (() => {
-		if (!inventory || !goals || Object.keys(activeEstimates).length === 0)
+		if (
+			!inventory ||
+			!goalsQuery.data ||
+			Object.keys(activeEstimates).length === 0
+		)
 			return {};
 		const pools = buildBadgeInventory(inventory);
-		const sortedGoalIds = [...goals]
+		const sortedGoalIds = [...goalsQuery.data]
 			.sort((a, b) => a.priority - b.priority)
 			.map((g) => g.goalId);
 		return allocateBadgesToGoals(sortedGoalIds, activeEstimates, pools);
@@ -410,10 +415,14 @@ function GoalsPage() {
 
 	// XP book coverage: allocate inventory XP books to goals in priority order
 	const xpBookCoverageMap = (() => {
-		if (!inventory || !goals || Object.keys(activeEstimates).length === 0)
+		if (
+			!inventory ||
+			!goalsQuery.data ||
+			Object.keys(activeEstimates).length === 0
+		)
 			return {};
 		const pools = buildXpBookInventory(inventory);
-		const sortedGoalIds = [...goals]
+		const sortedGoalIds = [...goalsQuery.data]
 			.sort((a, b) => a.priority - b.priority)
 			.map((g) => g.goalId);
 		return allocateXpBooksToGoals(sortedGoalIds, activeEstimates, pools);
@@ -423,7 +432,7 @@ function GoalsPage() {
 	const todayActivity = parseTodayActivity(campaignProgress);
 
 	const handleEdit = (goalId: string) => {
-		const goal = goals?.find((g) => g.goalId === goalId);
+		const goal = goalsQuery.data?.find((g) => g.goalId === goalId);
 		if (goal) {
 			setEditingGoal({
 				goalId: goal.goalId,
@@ -446,7 +455,7 @@ function GoalsPage() {
 	};
 
 	const handleToggleOnslaught = async (goalId: string, enabled: boolean) => {
-		const goal = goals?.find((g) => g.goalId === goalId);
+		const goal = goalsQuery.data?.find((g) => g.goalId === goalId);
 		if (!goal) return;
 		const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
 		parsed.onslaughtShards = enabled ? 1 : 0;
@@ -454,8 +463,8 @@ function GoalsPage() {
 	};
 
 	const handleMoveUp = async (goalId: string) => {
-		if (!goals) return;
-		const ids = goals.map((g) => g.goalId);
+		if (!goalsQuery.data) return;
+		const ids = goalsQuery.data.map((g) => g.goalId);
 		const idx = ids.indexOf(goalId);
 		if (idx <= 0) return;
 		[ids[idx - 1], ids[idx]] = [ids[idx], ids[idx - 1]];
@@ -463,8 +472,8 @@ function GoalsPage() {
 	};
 
 	const handleMoveDown = async (goalId: string) => {
-		if (!goals) return;
-		const ids = goals.map((g) => g.goalId);
+		if (!goalsQuery.data) return;
+		const ids = goalsQuery.data.map((g) => g.goalId);
 		const idx = ids.indexOf(goalId);
 		if (idx < 0 || idx >= ids.length - 1) return;
 		[ids[idx], ids[idx + 1]] = [ids[idx + 1], ids[idx]];
@@ -516,11 +525,13 @@ function GoalsPage() {
 
 	// Apply goal type filter for display (doesn't affect estimates or daily raids)
 	const filteredGoals = (() => {
-		if (!goals || goalTypeFilter.length === 0) return goals;
-		return goals.filter((g) => goalTypeFilter.includes(g.type as GoalType));
+		if (!goalsQuery.data || goalTypeFilter.length === 0) return goalsQuery.data;
+		return goalsQuery.data.filter((g) =>
+			goalTypeFilter.includes(g.type as GoalType),
+		);
 	})();
 
-	const goalIds = goals?.map((g) => g.goalId) ?? [];
+	const goalIds = goalsQuery.data?.map((g) => g.goalId) ?? [];
 	const isFirstGoal = (id: string) => goalIds[0] === id;
 	const isLastGoal = (id: string) => goalIds[goalIds.length - 1] === id;
 
@@ -637,7 +648,7 @@ function GoalsPage() {
 			</div>
 
 			{/* Content — wait for goals, Zustand hydration, and initial sync */}
-			{isLoading || !hasHydrated || !initialSyncDone ? (
+			{goalsQuery.isLoading || !hasHydrated || !initialSyncDone ? (
 				<div className="flex items-center justify-center py-20">
 					<Loader2 className="size-8 animate-spin text-muted-foreground" />
 				</div>
