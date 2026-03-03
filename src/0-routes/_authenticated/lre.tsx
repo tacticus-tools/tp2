@@ -1,7 +1,6 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
 import { useEffect, useRef } from "react";
 import { LreBattlesTab } from "@/1-components/lre/LreBattlesTab.tsx";
 import { LreEventSelector } from "@/1-components/lre/LreEventSelector.tsx";
@@ -149,10 +148,18 @@ function LrePage() {
 	const savedProgressQuery = useQuery(
 		convexQuery(api.lre.getProgress, { eventId: selectedEventId }),
 	);
-	const saveProgressMutation = useMutation(api.lre.saveProgress);
-	const addTeamMutation = useMutation(api.lre.addTeam);
-	const updateTeamMutation = useMutation(api.lre.updateTeam);
-	const removeTeamMutation = useMutation(api.lre.removeTeam);
+	const saveProgressMutation = useMutation({
+		mutationFn: useConvexMutation(api.lre.saveProgress),
+	});
+	const addTeamMutation = useMutation({
+		mutationFn: useConvexMutation(api.lre.addTeam),
+	});
+	const updateTeamMutation = useMutation({
+		mutationFn: useConvexMutation(api.lre.updateTeam),
+	});
+	const removeTeamMutation = useMutation({
+		mutationFn: useConvexMutation(api.lre.removeTeam),
+	});
 
 	// API-synced legendary event progress
 	// The API uses Snowprint character IDs (e.g. "bloodDante"), not our numeric event IDs.
@@ -213,7 +220,7 @@ function LrePage() {
 			clearTimeout(saveTimerRef.current);
 		}
 		saveTimerRef.current = setTimeout(() => {
-			void saveProgressMutation({
+			saveProgressMutation.mutate({
 				eventId: selectedEventId,
 				data: JSON.stringify(data),
 			});
@@ -237,7 +244,7 @@ function LrePage() {
 		expectedBattleClears?: number;
 		notes?: string;
 	}) => {
-		void addTeamMutation({
+		addTeamMutation.mutate({
 			eventId: selectedEventId,
 			...data,
 		});
@@ -254,11 +261,11 @@ function LrePage() {
 			notes?: string;
 		},
 	) => {
-		void updateTeamMutation({ teamId, ...data });
+		updateTeamMutation.mutate({ teamId, ...data });
 	};
 
 	const handleRemoveTeam = (teamId: Id<"lreTeams">) => {
-		void removeTeamMutation({ teamId });
+		removeTeamMutation.mutate({ teamId });
 	};
 
 	if (!event) {
