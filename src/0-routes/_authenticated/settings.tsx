@@ -3,13 +3,13 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import {
 	AlertTriangle,
-	Check,
 	ExternalLink,
 	Key,
 	Loader2,
 	ShieldCheck,
 } from "lucide-react";
 import { useId, useState } from "react";
+import { toast } from "sonner";
 import { Badge } from "@/1-components/ui/badge.tsx";
 import { Button } from "@/1-components/ui/button.tsx";
 import {
@@ -33,14 +33,21 @@ function SettingsPage() {
 	const credentialsQuery = useQuery(convexQuery(api.tacticus.credentials.get));
 	const saveMutation = useMutation({
 		mutationFn: useConvexMutation(api.tacticus.credentials.save),
+		onSuccess: () => {
+			toast.success("Credentials saved successfully");
+			setPlayerApiKey("");
+			setGuildApiKey("");
+		},
+		onError: (error) => {
+			toast.error(
+				error instanceof Error ? error.message : "Failed to save credentials.",
+			);
+		},
 	});
 
 	const [tacticusUserId, setTacticusUserId] = useState("");
 	const [playerApiKey, setPlayerApiKey] = useState("");
 	const [guildApiKey, setGuildApiKey] = useState("");
-	const [saving, setSaving] = useState(false);
-	const [saved, setSaved] = useState(false);
-	const [error, setError] = useState<string | null>(null);
 
 	if (credentialsQuery.isLoading)
 		return (
@@ -66,35 +73,20 @@ function SettingsPage() {
 			</div>
 		);
 
-	async function handleSave(e: React.FormEvent) {
+	async function handleSave(e: React.SubmitEvent) {
 		e.preventDefault();
-		setError(null);
-		setSaved(false);
 
 		// For first setup, player API key is required
 		if (!credentialsQuery.data && !playerApiKey.trim()) {
-			setError("Player API key is required.");
+			toast.error("Player API key is required.");
 			return;
 		}
 
-		setSaving(true);
-		try {
-			await saveMutation.mutateAsync({
-				tacticusUserId: tacticusUserId.trim() || undefined,
-				playerApiKey: playerApiKey.trim() || undefined,
-				guildApiKey: guildApiKey.trim() || undefined,
-			});
-			setSaved(true);
-			setPlayerApiKey("");
-			setGuildApiKey("");
-			setTimeout(() => setSaved(false), 3000);
-		} catch (err) {
-			setError(
-				err instanceof Error ? err.message : "Failed to save credentials.",
-			);
-		} finally {
-			setSaving(false);
-		}
+		saveMutation.mutateAsync({
+			tacticusUserId: tacticusUserId.trim() || undefined,
+			playerApiKey: playerApiKey.trim() || undefined,
+			guildApiKey: guildApiKey.trim() || undefined,
+		});
 	}
 
 	return (
@@ -237,18 +229,11 @@ function SettingsPage() {
 							</p>
 						</div>
 
-						{error && <p className="text-sm text-destructive">{error}</p>}
-
-						<Button type="submit" disabled={saving}>
-							{saving ? (
+						<Button type="submit" disabled={saveMutation.isPending}>
+							{saveMutation.isPending ? (
 								<>
 									<Loader2 className="size-4 animate-spin" />
 									Saving...
-								</>
-							) : saved ? (
-								<>
-									<Check className="size-4" />
-									Saved
 								</>
 							) : credentialsQuery.data ? (
 								"Save credentials"
