@@ -67,6 +67,14 @@ function SharedRosterPage() {
 		);
 	}
 
+	if (dataQuery.isError) {
+		return (
+			<div className="py-20 text-center text-muted-foreground">
+				An error occurred while fetching the roster.
+			</div>
+		);
+	}
+
 	if (dataQuery.data === null) {
 		return (
 			<div className="py-20 text-center text-muted-foreground">
@@ -81,7 +89,7 @@ function SharedRosterPage() {
 				<h1 className="text-2xl font-bold tracking-tight">Shared Roster</h1>
 				<p className="text-muted-foreground">
 					Last updated{" "}
-					{new Date(dataQuery.data!.updatedAt).toLocaleDateString(undefined, {
+					{new Date(dataQuery.data.updatedAt).toLocaleDateString(undefined, {
 						year: "numeric",
 						month: "short",
 						day: "numeric",
