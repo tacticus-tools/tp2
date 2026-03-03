@@ -2,6 +2,7 @@ import { useConvexMutation } from "@convex-dev/react-query";
 import { useMutation } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
+import { toast } from "sonner";
 import type { Alliance } from "#common/alliance.ts";
 import { RosterControls } from "@/1-components/roster/RosterControls.tsx";
 import { RosterGrid } from "@/1-components/roster/RosterGrid.tsx";
@@ -25,6 +26,14 @@ export const Route = createFileRoute("/_authenticated/roster")({
 function RosterPage() {
 	const shareRoster = useMutation({
 		mutationFn: useConvexMutation(api.roster.share),
+		onSuccess: () => {
+			toast.success("Roster shared successfully");
+		},
+		onError: (error) => {
+			toast.error(
+				error instanceof Error ? error.message : "Failed to share roster",
+			);
+		},
 	});
 
 	const roster = usePlayerDataStore((s) => s.roster);
@@ -46,7 +55,7 @@ function RosterPage() {
 		const result = await shareRoster.mutateAsync({
 			roster: JSON.stringify(roster),
 		});
-		return result.token;
+		return result?.token ?? null;
 	};
 
 	return (
