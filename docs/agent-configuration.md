@@ -56,7 +56,7 @@ Our `/AGENTS.md` contains only:
 
 Everything else is discoverable from code structure or docs.
 
-Beyond that, only add to the AGENTS.md files after repeated agents failure due to missing information.
+Beyond that, only add to the AGENTS.md files after repeated agent failures due to missing information.
 Even then, prefer adding hooks or tooling over verbose documentation.
 Even after that, consider if the structure of the codebase is making it hard to find critical information.
 
