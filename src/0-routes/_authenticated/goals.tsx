@@ -1,7 +1,6 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
 import {
 	LayoutGrid,
 	Loader2,
@@ -195,10 +194,18 @@ function buildTypedGoals(
 
 function GoalsPage() {
 	const goalsQuery = useQuery(convexQuery(api.goals.list));
-	const removeGoal = useMutation(api.goals.remove);
-	const removeAllGoals = useMutation(api.goals.removeAll);
-	const updateGoal = useMutation(api.goals.update);
-	const reorderGoals = useMutation(api.goals.reorder);
+	const removeGoal = useMutation({
+		mutationFn: useConvexMutation(api.goals.remove),
+	});
+	const removeAllGoals = useMutation({
+		mutationFn: useConvexMutation(api.goals.removeAll),
+	});
+	const updateGoal = useMutation({
+		mutationFn: useConvexMutation(api.goals.update),
+	});
+	const reorderGoals = useMutation({
+		mutationFn: useConvexMutation(api.goals.reorder),
+	});
 
 	// Shared player data store (roster, campaign progress, inventory)
 	const roster = usePlayerDataStore((s) => s.roster);
@@ -447,11 +454,11 @@ function GoalsPage() {
 	};
 
 	const handleDelete = async (goalId: string) => {
-		await removeGoal({ goalId });
+		await removeGoal.mutateAsync({ goalId });
 	};
 
 	const handleToggleInclude = async (goalId: string, include: boolean) => {
-		await updateGoal({ goalId, include });
+		await updateGoal.mutateAsync({ goalId, include });
 	};
 
 	const handleToggleOnslaught = async (goalId: string, enabled: boolean) => {
@@ -459,7 +466,7 @@ function GoalsPage() {
 		if (!goal) return;
 		const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
 		parsed.onslaughtShards = enabled ? 1 : 0;
-		await updateGoal({ goalId, data: JSON.stringify(parsed) });
+		await updateGoal.mutateAsync({ goalId, data: JSON.stringify(parsed) });
 	};
 
 	const handleMoveUp = async (goalId: string) => {
@@ -468,7 +475,7 @@ function GoalsPage() {
 		const idx = ids.indexOf(goalId);
 		if (idx <= 0) return;
 		[ids[idx - 1], ids[idx]] = [ids[idx], ids[idx - 1]];
-		await reorderGoals({ goalIds: ids });
+		await reorderGoals.mutateAsync({ goalIds: ids });
 	};
 
 	const handleMoveDown = async (goalId: string) => {
@@ -477,7 +484,7 @@ function GoalsPage() {
 		const idx = ids.indexOf(goalId);
 		if (idx < 0 || idx >= ids.length - 1) return;
 		[ids[idx], ids[idx + 1]] = [ids[idx + 1], ids[idx]];
-		await reorderGoals({ goalIds: ids });
+		await reorderGoals.mutateAsync({ goalIds: ids });
 	};
 
 	// Wait for initial data sync (triggered by SyncButton in header) before
@@ -635,7 +642,7 @@ function GoalsPage() {
 								<AlertDialogFooter>
 									<AlertDialogCancel>Cancel</AlertDialogCancel>
 									<AlertDialogAction
-										onClick={() => removeAllGoals({})}
+										onClick={() => removeAllGoals.mutate({})}
 										className="bg-destructive text-white hover:bg-destructive/90"
 									>
 										Delete All
