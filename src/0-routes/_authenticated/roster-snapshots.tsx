@@ -1,7 +1,6 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
 import { Camera, Loader2, RotateCcw, Trash2 } from "lucide-react";
 import { useId, useState } from "react";
 import { toast } from "sonner";
@@ -58,7 +57,9 @@ function parseState(data: string | null | undefined): RosterSnapshotsState {
 
 function RosterSnapshotsPage() {
 	const docQuery = useQuery(convexQuery(api.rosterSnapshots.get));
-	const save = useMutation(api.rosterSnapshots.save);
+	const save = useMutation({
+		mutationFn: useConvexMutation(api.rosterSnapshots.save),
+	});
 	const roster = usePlayerDataStore((s) => s.roster);
 	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
 
@@ -88,7 +89,7 @@ function RosterSnapshotsPage() {
 			`Snapshot ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
 		const newState = createSnapshot(state, roster, name);
 		try {
-			await save({ data: JSON.stringify(newState) });
+			await save.mutateAsync({ data: JSON.stringify(newState) });
 			setSnapshotName("");
 		} catch {
 			toast.error("Failed to save snapshot.");
@@ -98,7 +99,7 @@ function RosterSnapshotsPage() {
 	const handleDelete = async (index: number) => {
 		const newState = deleteSnapshot(state, index);
 		try {
-			await save({ data: JSON.stringify(newState) });
+			await save.mutateAsync({ data: JSON.stringify(newState) });
 		} catch {
 			toast.error("Failed to delete snapshot.");
 		}
@@ -107,7 +108,7 @@ function RosterSnapshotsPage() {
 	const handleRestore = async (deletedIndex: number) => {
 		const newState = restoreSnapshot(state, deletedIndex);
 		try {
-			await save({ data: JSON.stringify(newState) });
+			await save.mutateAsync({ data: JSON.stringify(newState) });
 		} catch {
 			toast.error("Failed to restore snapshot.");
 		}
