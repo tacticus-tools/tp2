@@ -1,5 +1,7 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { Loader2, Plus, Users2 } from "lucide-react";
 import { useState } from "react";
 import { TeamCard } from "@/1-components/teams/TeamCard.tsx";
@@ -28,7 +30,7 @@ export const Route = createFileRoute("/_authenticated/teams")({
 });
 
 function TeamsPage() {
-	const teams = useQuery(api.teams.list);
+	const teamsQuery = useQuery(convexQuery(api.teams.list));
 	const addTeam = useMutation(api.teams.add);
 	const updateTeam = useMutation(api.teams.update);
 	const removeTeam = useMutation(api.teams.remove);
@@ -49,8 +51,8 @@ function TeamsPage() {
 	const [deletingTeamId, setDeletingTeamId] = useState<string | null>(null);
 
 	const filtered = (() => {
-		if (!teams) return [];
-		let result = [...teams];
+		if (!teamsQuery.data) return [];
+		let result = [...teamsQuery.data];
 
 		if (modeFilter !== "all") {
 			result = result.filter((t) => t[modeFilter as keyof typeof t] === true);
@@ -66,7 +68,7 @@ function TeamsPage() {
 
 	const usedMowIds = (() => {
 		const set = new Set<string>();
-		for (const t of teams ?? []) {
+		for (const t of teamsQuery.data ?? []) {
 			if (t._id === editingTeam?.id) continue;
 			for (const id of t.mowIds ?? []) set.add(id);
 		}
@@ -122,7 +124,7 @@ function TeamsPage() {
 		setDeletingTeamId(null);
 	};
 
-	if (teams === undefined) {
+	if (teamsQuery.isPending) {
 		return (
 			<div className="flex items-center justify-center py-20">
 				<Loader2 className="size-8 animate-spin text-muted-foreground" />
@@ -137,8 +139,8 @@ function TeamsPage() {
 				<div>
 					<div className="flex items-center gap-2">
 						<h1 className="text-2xl font-bold tracking-tight">Teams</h1>
-						{teams.length > 0 && (
-							<Badge variant="secondary">{teams.length}</Badge>
+						{!!teamsQuery.data?.length && (
+							<Badge variant="secondary">{teamsQuery.data.length}</Badge>
 						)}
 					</div>
 					<p className="text-muted-foreground">
@@ -152,7 +154,7 @@ function TeamsPage() {
 			</div>
 
 			{/* Controls */}
-			{teams.length > 0 && (
+			{!!teamsQuery.data?.length && (
 				<div className="flex flex-col gap-3 sm:flex-row">
 					<Input
 						placeholder="Search teams..."
@@ -197,7 +199,7 @@ function TeamsPage() {
 						/>
 					))}
 				</div>
-			) : teams.length > 0 ? (
+			) : teamsQuery.data?.length ? (
 				<p className="py-8 text-center text-sm text-muted-foreground">
 					No teams match the current filters.
 				</p>
