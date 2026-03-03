@@ -1,5 +1,23 @@
 {
 	"hooks": {
+		"sessionStart": [
+			{
+				"type": "message",
+				"message": "📋 **Plan Mode**: Check for `.agent-plans/[task-name].md` for your task. If found, read and continue. If not, create it using `.agent-plans/_template.md`. **IMPORTANT: Do not commit the plan without human review.** Once the plan is complete, request human review before executing `git commit`. See `.agent-plans/README.md` for details."
+			}
+		],
+		"afterAgentThought": [
+			{
+				"type": "message",
+				"message": "💡 **Progress Check**: Have you updated `.agent-plans/[your-task-name].md` with your current progress? This helps ensure context rotations don't lose track of where you are, and other agents can pick up your work."
+			}
+		],
+		"afterAgentResponse": [
+			{
+				"type": "message",
+				"message": "✅ **Next Step**: Update `.agent-plans/[your-task-name].md` with your progress and update the checklist. **CRITICAL: Before committing the plan, request human review to verify the plan structure and success criteria are complete and correct.** Only commit after human approval.\n\nWait for human review before: `git add .agent-plans/[your-task-name].md && git commit -m 'plan: [task-name] [status]'`"
+			}
+		],
 		"PreToolUse": [
 			{
 				"matcher": "Bash",
