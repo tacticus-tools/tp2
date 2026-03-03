@@ -90,7 +90,7 @@ export function CampaignProgressSync() {
 				// Keep lastSavedRef unchanged so next state change retries
 			}
 		})();
-	}, [progress, saveMutation]);
+	}, [progress, saveMutation.mutateAsync]);
 
 	return null;
 }
