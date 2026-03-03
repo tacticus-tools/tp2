@@ -1,79 +1,36 @@
 {
+	"$schema": "https://json.schemastore.org/claude-code-settings.json",
+	"permissions": {
+		"deny": [
+			"Bash(npm *)",
+			"Bash(pnpm *)",
+			"Bash(yarn *)",
+			"Edit(src/routeTree.gen.ts)",
+			"Edit(convex/_generated/**)",
+			"Edit(**/*.generated.*)",
+			"Write(src/routeTree.gen.ts)",
+			"Write(convex/_generated/**)",
+			"Write(**/*.generated.*)",
+			"Edit(.git)",
+			"Edit(.git/**)",
+			"Edit(.env.local)",
+			"Edit(.gitignore)",
+			"Edit(.wrangler/**)",
+			"Write(.git)",
+			"Write(.git/**)",
+			"Write(.env.local)",
+			"Write(.gitignore)",
+			"Write(.wrangler/**)"
+		],
+		"allow": [
+			"Bash(bun fix)",
+			"Bash(bun run test *)",
+			"Bash(bun test *)",
+			"Bash(bun tsc)",
+			"Bash(bun build-ci)"
+		]
+	},
 	"hooks": {
-		"sessionStart": [
-			{
-				"type": "message",
-				"message": "📋 **Plan Mode**: Check for `.agent-plans/[task-name].md` for your task. If found, read and continue. If not, create it using `.agent-plans/_template.md`. **IMPORTANT: Do not commit the plan without human review.** Once the plan is complete, request human review before executing `git commit`. See `.agent-plans/README.md` for details."
-			}
-		],
-		"afterAgentThought": [
-			{
-				"type": "message",
-				"message": "💡 **Progress Check**: Have you updated `.agent-plans/[your-task-name].md` with your current progress? This helps ensure context rotations don't lose track of where you are, and other agents can pick up your work."
-			}
-		],
-		"afterAgentResponse": [
-			{
-				"type": "message",
-				"message": "✅ **Next Step**: Update `.agent-plans/[your-task-name].md` with your progress and update the checklist. **CRITICAL: Before committing the plan, request human review to verify the plan structure and success criteria are complete and correct.** Only commit after human approval.\n\nWait for human review before: `git add .agent-plans/[your-task-name].md && git commit -m 'plan: [task-name] [status]'`"
-			}
-		],
-		"PreToolUse": [
-			{
-				"matcher": "Bash",
-				"rules": [
-					{
-						"name": "forbid-npm",
-						"description": "Block npm/pnpm/yarn (use bun only)",
-						"pattern": "^(npm|pnpm|yarn)(\\s|$)",
-						"action": "deny",
-						"reason": "This project uses bun exclusively. Use 'bun' instead."
-					},
-					{
-						"name": "autoapprove-safe",
-						"description": "Auto-approve safe commands",
-						"patterns": [
-							"^bun fix$",
-							"^bun fix ",
-							"^bun run test",
-							"^bun tsc",
-							"^bun build-ci$"
-						],
-						"action": "allow",
-						"reason": "Auto-approved safe command"
-					}
-				]
-			},
-			{
-				"matcher": "Edit|Write",
-				"rules": [
-					{
-						"name": "forbid-generated",
-						"description": "Block edits to auto-generated files",
-						"patterns": [
-							"src/routeTree\\.gen\\.ts$",
-							"convex/_generated/",
-							"\\.generated\\."
-						],
-						"action": "deny",
-						"reason": "Auto-generated files should not be edited manually. Run 'bun run build-ci' to regenerate."
-					},
-					{
-						"name": "forbid-sensitive",
-						"description": "Block edits to sensitive files",
-						"patterns": [
-							"\\.git/",
-							"\\.git$",
-							"\\.env\\.local$",
-							"\\.gitignore$",
-							"\\.wrangler/"
-						],
-						"action": "deny",
-						"reason": "Sensitive files should not be edited by agents."
-					}
-				]
-			}
-		],
 		"PostToolUse": [
 			{
 				"matcher": "Edit|Write",
@@ -84,6 +41,26 @@
 						"async": true,
 						"timeout": 30,
 						"statusMessage": "Running format..."
+					}
+				]
+			}
+		],
+		"SessionStart": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '📋 **Plan Mode**: Check for `.agent-plans/[task-name].md` for your task. If found, read and continue. If not, create it using `.agent-plans/_template.md`. **IMPORTANT: Do not commit the plan without human review.** Once the plan is complete, request human review before executing `git commit`. See `.agent-plans/README.md` for details.'"
+					}
+				]
+			}
+		],
+		"Stop": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '💡 **Progress Check**: Have you updated `.agent-plans/[your-task-name].md` with your current progress? This helps ensure context rotations don't lose track of where you are, and other agents can pick up your work.'"
 					}
 				]
 			}

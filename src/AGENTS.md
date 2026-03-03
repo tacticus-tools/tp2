@@ -24,11 +24,11 @@ File-based routing in `0-routes/`:
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/path")({
-  component: () => <div>Page</div>,
+  component: RouteComponent,
   loader: async () => ({ data: "..." }),
 });
 
-export function Route() {
+function RouteComponent() {
   const data = Route.useLoaderData();
   return <div>{data}</div>;
 }
