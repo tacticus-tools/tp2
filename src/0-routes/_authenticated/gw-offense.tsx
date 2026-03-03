@@ -1,7 +1,6 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
 import { Loader2, Shield } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GwDeployDialog } from "@/1-components/gw-offense/GwDeployDialog.tsx";
@@ -31,7 +30,9 @@ export const Route = createFileRoute("/_authenticated/gw-offense")({
 
 function GwOffensePage() {
 	const docQuery = useQuery(convexQuery(api.gwOffense.get));
-	const saveGw = useMutation(api.gwOffense.save);
+	const saveGw = useMutation({
+		mutationFn: useConvexMutation(api.gwOffense.save),
+	});
 	const teamsQuery = useQuery(convexQuery(api.teams.list));
 
 	const selectedBfLevel = useGwOffenseStore((s) => s.selectedBfLevel);
@@ -84,7 +85,7 @@ function GwOffensePage() {
 			...plan.deployments.filter((d) => d.sectionIndex !== sectionIndex),
 			{ sectionIndex, teamId },
 		];
-		await saveGw({
+		await saveGw.mutateAsync({
 			bfLevel: selectedBfLevel,
 			deployments: JSON.stringify(newDeployments),
 			notes: plan.notes,
@@ -95,7 +96,7 @@ function GwOffensePage() {
 		const newDeployments = plan.deployments.filter(
 			(d) => d.sectionIndex !== sectionIndex,
 		);
-		await saveGw({
+		await saveGw.mutateAsync({
 			bfLevel: selectedBfLevel,
 			deployments: JSON.stringify(newDeployments),
 			notes: plan.notes,
@@ -105,7 +106,7 @@ function GwOffensePage() {
 	const handleBfLevelChange = async (level: string) => {
 		const bfLevel = Number(level);
 		setSelectedBfLevel(bfLevel);
-		await saveGw({
+		await saveGw.mutateAsync({
 			bfLevel,
 			deployments: JSON.stringify(plan.deployments),
 			notes: plan.notes,
