@@ -21,10 +21,12 @@
 			"Write(.env.local)",
 			"Write(.gitignore)",
 			"Write(.wrangler/**)",
+			"Bash(bun test)",
 			"Bash(bun test *)"
 		],
 		"allow": [
 			"Bash(bun fix)",
+			"Bash(bun run test)",
 			"Bash(bun run test *)",
 			"Bash(bun tsc)",
 			"Bash(bun build-ci)"
