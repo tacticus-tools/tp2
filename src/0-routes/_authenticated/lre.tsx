@@ -1,5 +1,7 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { useEffect, useRef } from "react";
 import { LreBattlesTab } from "@/1-components/lre/LreBattlesTab.tsx";
 import { LreEventSelector } from "@/1-components/lre/LreEventSelector.tsx";
@@ -141,10 +143,12 @@ function LrePage() {
 	const setActiveTab = useLreStore((s) => s.setActiveTab);
 
 	const event = LRE_EVENTS.find((e) => e.id === selectedEventId);
-	const teams = useQuery(api.lre.listTeams, { eventId: selectedEventId });
-	const savedProgress = useQuery(api.lre.getProgress, {
-		eventId: selectedEventId,
-	});
+	const teamsQuery = useQuery(
+		convexQuery(api.lre.listTeams, { eventId: selectedEventId }),
+	);
+	const savedProgressQuery = useQuery(
+		convexQuery(api.lre.getProgress, { eventId: selectedEventId }),
+	);
 	const saveProgressMutation = useMutation(api.lre.saveProgress);
 	const addTeamMutation = useMutation(api.lre.addTeam);
 	const updateTeamMutation = useMutation(api.lre.updateTeam);
@@ -178,9 +182,9 @@ function LrePage() {
 
 		// 2. Parse Convex-saved progress (user's manual edits)
 		let savedParsed: LreProgressData | null = null;
-		if (savedProgress?.data) {
+		if (savedProgressQuery.data?.data) {
 			try {
-				const parsed: unknown = JSON.parse(savedProgress.data);
+				const parsed: unknown = JSON.parse(savedProgressQuery.data.data);
 				if (
 					parsed != null &&
 					typeof parsed === "object" &&
@@ -361,7 +365,7 @@ function LrePage() {
 
 				<TabsContent value="teams">
 					<LreTeamsTab
-						teams={teams ?? []}
+						teams={teamsQuery.data ?? []}
 						event={event}
 						trackId={selectedTrackId}
 						onAddTeam={handleAddTeam}
@@ -374,7 +378,7 @@ function LrePage() {
 				<TabsContent value="tokenomics">
 					<LreTokenomicsTab
 						event={event}
-						teams={teams ?? []}
+						teams={teamsQuery.data ?? []}
 						progressData={progressData}
 						apiSummary={apiSummary}
 						roster={roster}
