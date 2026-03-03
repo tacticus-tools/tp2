@@ -1,4 +1,6 @@
-import { useMutation, useQuery } from "convex/react";
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "convex/react";
 import { useEffect, useRef } from "react";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
@@ -13,7 +15,7 @@ import { api } from "~/_generated/api";
  * Phase C: Save to Convex — on store changes, save to DB
  */
 export function CampaignProgressSync() {
-	const convexDoc = useQuery(api.campaignProgress.get);
+	const campaignProgressQuery = useQuery(convexQuery(api.campaignProgress.get));
 	const saveMutation = useMutation(api.campaignProgress.save);
 
 	const convexMergedRef = useRef(false);
@@ -25,16 +27,19 @@ export function CampaignProgressSync() {
 	// Phase A: Load from Convex (once per session)
 	useEffect(() => {
 		if (convexMergedRef.current) return;
-		// convexDoc is undefined while loading, null if no row exists
-		if (convexDoc === undefined) return;
+		if (!campaignProgressQuery.isSuccess) return;
 
 		convexMergedRef.current = true;
 
-		if (convexDoc === null) return;
+		// convexDoc is null if no row exists
+		if (campaignProgressQuery.data === null) return;
 
 		let convexProgress: Record<string, number>;
 		try {
-			convexProgress = JSON.parse(convexDoc.data) as Record<string, number>;
+			convexProgress = JSON.parse(campaignProgressQuery.data.data) as Record<
+				string,
+				number
+			>;
 		} catch {
 			return;
 		}
@@ -59,7 +64,7 @@ export function CampaignProgressSync() {
 		lastSavedRef.current = JSON.stringify(
 			useCampaignProgressStore.getState().progress,
 		);
-	}, [convexDoc]);
+	}, [campaignProgressQuery.data, campaignProgressQuery.isSuccess]);
 
 	// Phase B: Merge from API (replaces campaigns.tsx useEffect)
 	useEffect(() => {
