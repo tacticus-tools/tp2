@@ -1,5 +1,6 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, useSearch } from "@tanstack/react-router";
-import { useQuery } from "convex/react";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import z from "zod";
@@ -32,14 +33,19 @@ function deserializeRoster(json: string): Record<string, RosterUnit> {
 
 function SharedRosterPage() {
 	const { token } = useSearch({ from: "/shared/roster" });
-	const data = useQuery(api.roster.getShared, token ? { token } : "skip");
+	const dataQuery = useQuery({
+		...convexQuery(api.roster.getShared, { token }),
+		enabled: !!token,
+	});
 
 	const [search, setSearch] = useState("");
 	const [allianceFilter, setAllianceFilter] = useState<Alliance | "all">("all");
 	const [sortBy, setSortBy] = useState<RosterSortKey>("rank");
 	const [viewMode, setViewMode] = useState<"faction" | "all">("faction");
 
-	const roster = data?.roster ? deserializeRoster(data.roster) : {};
+	const roster = dataQuery.data?.roster
+		? deserializeRoster(dataQuery.data.roster)
+		: {};
 
 	const enriched = enrichRoster(roster, CHARACTERS, MOWS);
 
@@ -53,7 +59,7 @@ function SharedRosterPage() {
 		);
 	}
 
-	if (data === undefined) {
+	if (dataQuery.isPending) {
 		return (
 			<div className="flex items-center justify-center py-20">
 				<Loader2 className="size-8 animate-spin text-muted-foreground" />
@@ -61,7 +67,7 @@ function SharedRosterPage() {
 		);
 	}
 
-	if (data === null) {
+	if (dataQuery.data === null) {
 		return (
 			<div className="py-20 text-center text-muted-foreground">
 				Roster not found or link has expired.
@@ -75,7 +81,7 @@ function SharedRosterPage() {
 				<h1 className="text-2xl font-bold tracking-tight">Shared Roster</h1>
 				<p className="text-muted-foreground">
 					Last updated{" "}
-					{new Date(data.updatedAt).toLocaleDateString(undefined, {
+					{new Date(dataQuery.data!.updatedAt).toLocaleDateString(undefined, {
 						year: "numeric",
 						month: "short",
 						day: "numeric",
