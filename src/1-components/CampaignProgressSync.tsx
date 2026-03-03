@@ -1,6 +1,5 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
-import { useMutation } from "convex/react";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useRef } from "react";
 import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
 import { usePlayerDataStore } from "@/3-hooks/usePlayerDataStore.ts";
@@ -16,7 +15,9 @@ import { api } from "~/_generated/api";
  */
 export function CampaignProgressSync() {
 	const campaignProgressQuery = useQuery(convexQuery(api.campaignProgress.get));
-	const saveMutation = useMutation(api.campaignProgress.save);
+	const saveMutation = useMutation({
+		mutationFn: useConvexMutation(api.campaignProgress.save),
+	});
 
 	const convexMergedRef = useRef(false);
 	const lastSavedRef = useRef<string | null>(null);
@@ -83,7 +84,7 @@ export function CampaignProgressSync() {
 
 		void (async () => {
 			try {
-				await saveMutation({ data: serialized });
+				await saveMutation.mutateAsync({ data: serialized });
 				lastSavedRef.current = serialized;
 			} catch {
 				// Keep lastSavedRef unchanged so next state change retries
