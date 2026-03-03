@@ -1,5 +1,7 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { Loader2, Shield } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GwDeployDialog } from "@/1-components/gw-offense/GwDeployDialog.tsx";
@@ -28,9 +30,9 @@ export const Route = createFileRoute("/_authenticated/gw-offense")({
 });
 
 function GwOffensePage() {
-	const doc = useQuery(api.gwOffense.get);
+	const docQuery = useQuery(convexQuery(api.gwOffense.get));
 	const saveGw = useMutation(api.gwOffense.save);
-	const teams = useQuery(api.teams.list);
+	const teamsQuery = useQuery(convexQuery(api.teams.list));
 
 	const selectedBfLevel = useGwOffenseStore((s) => s.selectedBfLevel);
 	const setSelectedBfLevel = useGwOffenseStore((s) => s.setSelectedBfLevel);
@@ -41,24 +43,28 @@ function GwOffensePage() {
 
 	// Sync BF level from persisted data on load
 	useEffect(() => {
-		if (doc?.bfLevel != null) {
-			setSelectedBfLevel(doc.bfLevel);
+		if (docQuery.data?.bfLevel != null) {
+			setSelectedBfLevel(docQuery.data.bfLevel);
 		}
-	}, [doc?.bfLevel, setSelectedBfLevel]);
+	}, [docQuery.data?.bfLevel, setSelectedBfLevel]);
 
 	const [deployDialogSectionIndex, setDeployDialogSectionIndex] = useState<
 		number | null
 	>(null);
 
-	const plan = parsePlan(doc?.bfLevel, doc?.deployments, doc?.notes);
+	const plan = parsePlan(
+		docQuery.data?.bfLevel,
+		docQuery.data?.deployments,
+		docQuery.data?.notes,
+	);
 
 	const teamMap: Record<
 		string,
 		{ name: string; characterIds: string[]; mowIds: string[] }
 	> = (() => {
-		if (!teams) return {};
+		if (!teamsQuery.data) return {};
 		return Object.fromEntries(
-			teams.map((t) => [
+			teamsQuery.data.map((t) => [
 				t._id,
 				{
 					name: t.name,
@@ -106,7 +112,7 @@ function GwOffensePage() {
 		});
 	};
 
-	if (doc === undefined || teams === undefined) {
+	if (docQuery.isPending || teamsQuery.isPending) {
 		return (
 			<div className="flex items-center justify-center py-20">
 				<Loader2 className="size-8 animate-spin text-muted-foreground" />
@@ -219,7 +225,7 @@ function GwOffensePage() {
 						GUILD_WAR.sections[deployDialogSectionIndex]?.name ?? "Zone"
 					}
 					teams={
-						teams?.map((t) => ({
+						teamsQuery.data?.map((t) => ({
 							_id: t._id,
 							name: t.name,
 							characterIds: t.characterIds,
