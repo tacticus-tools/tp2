@@ -1,6 +1,6 @@
 # Claude Code Configuration
 
-This project uses native Claude Code rules (in `.claude/settings.json`) to enforce constraints deterministically.
+This project uses Claude Code project settings (in `.claude/settings.json`) to enforce constraints deterministically.
 
 ## Rules
 
@@ -10,17 +10,17 @@ This project uses native Claude Code rules (in `.claude/settings.json`) to enfor
 | `forbid-generated` | Deny | `src/routeTree.gen.ts`, `convex/_generated/`, `*.generated.*` |
 | `forbid-sensitive` | Deny | `.git/`, `.env.local`, `.gitignore`, `.wrangler/` |
 | `autoapprove-safe` | Allow | `bun fix`, `bun test`, `bun tsc`, `bun build-ci` |
-| `format-after-edit` | Auto-run | `bun run format` after code changes |
+| `formatting` | Auto-run | `bun run format` after code changes |
 
 ## Extending
 
 Edit `.claude/settings.json`:
-- Add patterns to `rules[].patterns` array to block/allow more files or commands
-- Add command patterns to `autoapprove-safe` to auto-approve more commands
+- Update `permissions.deny` and `permissions.allow` to block/allow additional commands or file patterns
+- Keep commit actions gated for human review before running `git commit`
 - Restart Claude Code for changes to take effect
 
 ## Docs
 
-- [Claude Code Configuration](https://code.claude.com/docs/en/configuration)
+- [Claude Code Settings](https://code.claude.com/docs/en/settings)
 - [Agent Configuration Philosophy](../docs/agent-configuration.md)
 - [Project Setup](../AGENTS.md)

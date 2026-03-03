@@ -20,12 +20,12 @@
 			"Write(.git/**)",
 			"Write(.env.local)",
 			"Write(.gitignore)",
-			"Write(.wrangler/**)"
+			"Write(.wrangler/**)",
+			"Bash(bun test *)"
 		],
 		"allow": [
 			"Bash(bun fix)",
 			"Bash(bun run test *)",
-			"Bash(bun test *)",
 			"Bash(bun tsc)",
 			"Bash(bun build-ci)"
 		]
@@ -60,7 +60,7 @@
 				"hooks": [
 					{
 						"type": "command",
-						"command": "echo '💡 **Progress Check**: Have you updated `.agent-plans/[your-task-name].md` with your current progress? This helps ensure context rotations don't lose track of where you are, and other agents can pick up your work.'"
+						"command": "echo \"💡 **Progress Check**: Have you updated '.agent-plans/[your-task-name].md' with your current progress? This helps ensure context rotations do not lose track of where you are, and other agents can pick up your work.\""
 					}
 				]
 			}
