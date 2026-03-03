@@ -1,7 +1,6 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
 import { Loader2, Plus, Users2 } from "lucide-react";
 import { useState } from "react";
 import { TeamCard } from "@/1-components/teams/TeamCard.tsx";
@@ -31,9 +30,15 @@ export const Route = createFileRoute("/_authenticated/teams")({
 
 function TeamsPage() {
 	const teamsQuery = useQuery(convexQuery(api.teams.list));
-	const addTeam = useMutation(api.teams.add);
-	const updateTeam = useMutation(api.teams.update);
-	const removeTeam = useMutation(api.teams.remove);
+	const addTeam = useMutation({
+		mutationFn: useConvexMutation(api.teams.add),
+	});
+	const updateTeam = useMutation({
+		mutationFn: useConvexMutation(api.teams.update),
+	});
+	const removeTeam = useMutation({
+		mutationFn: useConvexMutation(api.teams.remove),
+	});
 
 	const modeFilter = useTeamsStore((s) => s.modeFilter);
 	const searchQuery = useTeamsStore((s) => s.searchQuery);
@@ -82,7 +87,7 @@ function TeamsPage() {
 		modes: Record<GameMode, boolean>;
 		notes: string;
 	}) => {
-		await addTeam({
+		await addTeam.mutateAsync({
 			name: data.name,
 			characterIds: data.characterIds,
 			mowIds: data.mowIds.length > 0 ? data.mowIds : undefined,
@@ -102,7 +107,7 @@ function TeamsPage() {
 		notes: string;
 	}) => {
 		if (!editingTeam) return;
-		await updateTeam({
+		await updateTeam.mutateAsync({
 			teamId: editingTeam.id as Id<"teams">,
 			name: data.name,
 			characterIds: data.characterIds,
@@ -118,7 +123,7 @@ function TeamsPage() {
 
 	const handleDelete = async () => {
 		if (!deletingTeamId) return;
-		await removeTeam({
+		await removeTeam.mutateAsync({
 			teamId: deletingTeamId as Id<"teams">,
 		});
 		setDeletingTeamId(null);
