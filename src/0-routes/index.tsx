@@ -1,5 +1,7 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useAction, useConvexAuth, useQuery } from "convex/react";
+import { useAction, useConvexAuth } from "convex/react";
 import {
 	AlertCircle,
 	Key,
@@ -149,9 +151,9 @@ function computeTotalPower(units: TacticusUnit[]): number {
 }
 
 function Dashboard() {
-	const credentials = useQuery(api.tacticus.credentials.get);
+	const credentialsQuery = useQuery(convexQuery(api.tacticus.credentials.get));
 
-	if (credentials === undefined) {
+	if (credentialsQuery.isPending) {
 		return (
 			<div className="flex items-center justify-center py-20">
 				<Loader2 className="size-8 animate-spin text-muted-foreground" />
@@ -159,11 +161,13 @@ function Dashboard() {
 		);
 	}
 
-	if (!credentials) {
+	if (!credentialsQuery.data) {
 		return <SetupPrompt />;
 	}
 
-	return <DashboardContent hasGuildKey={credentials.hasGuildApiKey} />;
+	return (
+		<DashboardContent hasGuildKey={credentialsQuery.data.hasGuildApiKey} />
+	);
 }
 
 function SetupPrompt() {
