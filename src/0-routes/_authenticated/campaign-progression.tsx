@@ -1,5 +1,6 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useQuery } from "convex/react";
 import {
 	AlertTriangle,
 	ChevronDown,
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/_authenticated/campaign-progression")({
 });
 
 function CampaignProgressionPage() {
-	const goals = useQuery(api.goals.list);
+	const goalsQuery = useQuery(convexQuery(api.goals.list));
 
 	const campaignProgressApi = usePlayerDataStore((s) => s.campaignProgress);
 	const inventory = usePlayerDataStore((s) => s.inventory);
@@ -45,25 +46,27 @@ function CampaignProgressionPage() {
 
 	// Compute progression data
 	useEffect(() => {
-		if (!goals) return;
+		if (!goalsQuery.data) return;
 
 		let cancelled = false;
 		setComputing(true);
 
-		const typedGoals: CharacterRaidGoalSelect[] = goals.map((goal) => {
-			const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
-			return {
-				...parsed,
-				priority: goal.priority,
-				include: goal.include,
-				goalId: goal.goalId,
-				unitId: goal.unitId,
-				unitName: goal.unitName,
-				unitAlliance: "Imperial" as const,
-				notes: goal.notes ?? "",
-				type: goal.type,
-			} as CharacterRaidGoalSelect;
-		});
+		const typedGoals: CharacterRaidGoalSelect[] = goalsQuery.data.map(
+			(goal) => {
+				const parsed = GoalDataSchema.parse(JSON.parse(goal.data));
+				return {
+					...parsed,
+					priority: goal.priority,
+					include: goal.include,
+					goalId: goal.goalId,
+					unitId: goal.unitId,
+					unitName: goal.unitName,
+					unitAlliance: "Imperial" as const,
+					notes: goal.notes ?? "",
+					type: goal.type,
+				} as CharacterRaidGoalSelect;
+			},
+		);
 
 		const apiProgress = parseCampaignProgress(campaignProgressApi);
 		const progress: Record<string, number> = {};
@@ -85,11 +88,11 @@ function CampaignProgressionPage() {
 		return () => {
 			cancelled = true;
 		};
-	}, [goals, campaignProgressApi, persistedProgress, inventory]);
+	}, [goalsQuery.data, campaignProgressApi, persistedProgress, inventory]);
 
-	const isLoading = goals === undefined;
 	const upgradeRankCount =
-		goals?.filter((g) => g.type === PersonalGoalType.UpgradeRank).length ?? 0;
+		goalsQuery.data?.filter((g) => g.type === PersonalGoalType.UpgradeRank)
+			.length ?? 0;
 
 	return (
 		<div className="space-y-6">
@@ -102,7 +105,7 @@ function CampaignProgressionPage() {
 			</div>
 
 			{/* Content */}
-			{isLoading || computing ? (
+			{goalsQuery.isPending || computing ? (
 				<div className="flex items-center justify-center py-20">
 					<Loader2 className="size-8 animate-spin text-muted-foreground" />
 				</div>
