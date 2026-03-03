@@ -1,7 +1,6 @@
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation } from "convex/react";
 import {
 	AlertTriangle,
 	Check,
@@ -32,7 +31,9 @@ export const Route = createFileRoute("/_authenticated/settings")({
 function SettingsPage() {
 	const uid = useId();
 	const credentialsQuery = useQuery(convexQuery(api.tacticus.credentials.get));
-	const saveMutation = useMutation(api.tacticus.credentials.save);
+	const saveMutation = useMutation({
+		mutationFn: useConvexMutation(api.tacticus.credentials.save),
+	});
 
 	const [tacticusUserId, setTacticusUserId] = useState("");
 	const [playerApiKey, setPlayerApiKey] = useState("");
@@ -78,7 +79,7 @@ function SettingsPage() {
 
 		setSaving(true);
 		try {
-			await saveMutation({
+			await saveMutation.mutateAsync({
 				tacticusUserId: tacticusUserId.trim() || undefined,
 				playerApiKey: playerApiKey.trim() || undefined,
 				guildApiKey: guildApiKey.trim() || undefined,
