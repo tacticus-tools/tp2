@@ -1,5 +1,7 @@
+import { convexQuery } from "@convex-dev/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { Camera, Loader2, RotateCcw, Trash2 } from "lucide-react";
 import { useId, useState } from "react";
 import { toast } from "sonner";
@@ -55,7 +57,7 @@ function parseState(data: string | null | undefined): RosterSnapshotsState {
 }
 
 function RosterSnapshotsPage() {
-	const doc = useQuery(api.rosterSnapshots.get);
+	const docQuery = useQuery(convexQuery(api.rosterSnapshots.get));
 	const save = useMutation(api.rosterSnapshots.save);
 	const roster = usePlayerDataStore((s) => s.roster);
 	const lastSyncedAt = usePlayerDataStore((s) => s.lastSyncedAt);
@@ -77,7 +79,7 @@ function RosterSnapshotsPage() {
 	const [snapshotName, setSnapshotName] = useState("");
 	const [showDeleted, setShowDeleted] = useState(false);
 
-	const state = parseState(doc?.data);
+	const state = parseState(docQuery.data?.data);
 
 	const handleTakeSnapshot = async () => {
 		if (Object.keys(roster).length === 0) return;
@@ -111,7 +113,7 @@ function RosterSnapshotsPage() {
 		}
 	};
 
-	if (doc === undefined) {
+	if (docQuery.isPending) {
 		return (
 			<div className="flex items-center justify-center py-20">
 				<Loader2 className="size-8 animate-spin text-muted-foreground" />
