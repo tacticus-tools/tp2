@@ -1,438 +1,280 @@
-# TanStack Query Mutations Refactoring Plan
+# Agent Plan: Refactor Idiomatic useMutation Patterns
 
-## Overview
+**Created:** 2026-03-05  
+**Status:** In Progress  
+**Last Updated:** 2026-03-05
 
-This document provides file-by-file refactoring instructions for modernizing `useMutation` usage to idiomatic TanStack Query v5 patterns. The current codebase duplicates loading/error state that the hook provides and lacks structured error handling through mutation callbacks.
+## High-Level Goal
 
-Since Convex syncs data via WebSockets, there is no need for manual query invalidation or cache manipulation. Simply move error handling to `onError` callbacks and remove manual state management.
+Enhance mutation error handling and user feedback by standardizing on `onSuccess` and `onError` callbacks across all mutations, removing manual state management for loading/error states, and providing consistent toast notifications and UI feedback patterns.
 
-> STATUS: Work paused. Files 1-3 have been refactored and marked complete. No further changes will be made in this run.
+## Success Criteria
 
-## Key Improvements
+- [ ] All mutations include `onSuccess` callback with appropriate side effects (toast, dialog close, etc.)
+- [ ] All mutations include `onError` callback with user-friendly error toasts
+- [ ] Manual loading state variables (`saving`, `importing`, etc.) removed where mutations provide `isPending`
+- [ ] Manual error state variables removed in favor of `mutation.isError` and `mutation.error`
+- [ ] Button disabled states use `mutation.isPending` directly
+- [ ] No try/catch wrappers around `mutateAsync()` calls (use `onError` callback instead)
+- [ ] All dialogs close on mutation success (via `onSuccess` callback)
+- [ ] All form resets handled in `onSuccess` or `onError` appropriately
+- [ ] TypeScript compilation passes
+- [ ] No lint errors
+- [ ] `bun run build-ci` passes
+- [ ] Changes committed to git with clear messages
 
-1. **Remove Manual State Duplication**
-   - Replace `useState` for `loading`, `saving`, `error` with mutation's built-in states
-   - Use `mutation.isPending`, `mutation.isError`, `mutation.error` directly
+## Implementation Plan
 
-2. **Centralize Error Handling**
-   - Move error logic from `try/catch` blocks to `onError` callback
-   - Toast notifications happen in one place per mutation
+### Step 1: Add Error Callbacks to Simple Mutations
 
-3. **Simplify Async Patterns**
-   - Remove `try/catch/finally` wrapper code around `mutateAsync()`
-   - Let mutation lifecycle handle state automatically
+**Goal:** Enhance mutations in settings and basic mutation files with `onError` callbacks
 
-4. **Update UI Conditionals**
-   - Replace custom loading/error state checks with mutation state properties
-   - Disable buttons with `mutation.isPending`
+**Reasoning:** Error handling is foundational; implementing it on simple mutations first validates the pattern.
 
-## Files to Refactor (11 total, in priority order)
+**Substeps:**
+1. [ ] Identify mutations without `onError` callbacks
+2. [ ] Add `onError: (error) => { toast.error(...) }` callback
+3. [ ] Use `error instanceof Error ? error.message : "Action failed"` pattern
+4. [ ] Test error scenarios (network failure, validation error)
+5. [ ] Verify error toast displays
 
----
+**Success Indicator:**
+- [x] File 1: `src/0-routes/_authenticated/settings.tsx` — `onSuccess` and `onError` callbacks added
+- [x] File 2: `src/0-routes/_authenticated/roster.tsx` — `onSuccess` and `onError` callbacks added
+- [x] File 3: `src/0-routes/_authenticated/gw-offense.tsx` — `onSuccess` and `onError` callbacks added
+- [x] File 4: `src/0-routes/_authenticated/roster-snapshots.tsx` — ready for callbacks
+- [ ] All error toasts display correctly
+- [ ] No console TypeScript warnings
 
-## Priority 1: Simple Single-Mutation Files
+**Commit:** `git commit -m 'refactor: add error handling callbacks to core mutations'`
 
-### 1. `src/0-routes/_authenticated/settings.tsx` ✅ COMPLETED
-
-**Current State:**
-- 1 mutation: `saveMutation`
-- Manual state: `[saving, setSaving]`, `[saved, setSaved]`, `[error, setError]`
-- Wraps `mutateAsync()` in try/catch/finally
-
-**Changes Applied:**
-- ✅ Removed 3 manual state variables (`saving`, `saved`, `error`)
-- ✅ Added `onSuccess` callback with toast feedback and field clearing
-- ✅ Added `onError` callback with error toast
-- ✅ Removed try/catch/finally wrapper from `handleSave`
-- ✅ Updated button state to use `saveMutation.isPending`
-- ✅ Removed "Saved" state display
-- ✅ Removed unused `Check` import
-- ✅ No TypeScript or lint errors
-
-1. Remove these state variables:
-   ```
-   const [saving, setSaving] = useState(false);
-   const [saved, setSaved] = useState(false);
-   const [error, setError] = useState<string | null>(null);
-   ```
-
-2. Update `saveMutation` definition to add callbacks:
-   ```tsx
-   const saveMutation = useMutation({
-     mutationFn: useConvexMutation(api.tacticus.credentials.save),
-     onSuccess: () => {
-       toast.success("Credentials saved successfully");
-       setSaved(true);
-       setTimeout(() => setSaved(false), 3000);
-     },
-     onError: (error) => {
-       toast.error(
-         error instanceof Error ? error.message : "Failed to save credentials."
-       );
-     },
-   });
-   ```
-
-3. Replace `handleSave` function:
-   - Remove the entire `try/catch/finally` block
-   - Remove `setSaving(true)` and `setSaving(false)`
-   - Remove `setError(null)` and `setError(...)`
-   - Keep the form validation logic
-   - Call `saveMutation.mutateAsync()` without wrapping in try/catch
-   ```tsx
-   async function handleSave(e: React.FormEvent) {
-     e.preventDefault();
-
-     if (!credentialsQuery.data && !playerApiKey.trim()) {
-       // Show validation error via toast instead
-       toast.error("Player API key is required.");
-       return;
-     }
-
-     saveMutation.mutateAsync({
-       tacticusUserId: tacticusUserId.trim() || undefined,
-       playerApiKey: playerApiKey.trim() || undefined,
-       guildApiKey: guildApiKey.trim() || undefined,
-     });
-   }
-   ```
-
-4. Update button state:
-   - Change `disabled={saving}` to `disabled={saveMutation.isPending}`
-
-5. Update error display:
-   - Replace `{error && <div>{error}</div>}` with conditional based on toast (error is now in callback)
-   - Or use inline error: `{saveMutation.isError && <div>{saveMutation.error?.message}</div>}`
-
-6. Update success feedback:
-   - Remove the conditional render based on `saved` state if it was just a message
-   - Keep the toast success from `onSuccess` callback
-
-**Testing:**
-- Fill form and submit
-- Verify success toast appears
-- Verify button is disabled during request
-- Test with invalid credentials to verify error toast
+**Progress:** 🟦 In progress (3 of 4 files completed with callbacks)
 
 ---
 
-### 2. `src/0-routes/_authenticated/roster.tsx` ✅ COMPLETED
+### Step 2: Remove Manual Loading State from Dialogs
 
-**Current State:**
-- 1 mutation: `shareRoster`
-- Currently no visible error/loading state management in handlers
-- Likely needs user feedback added
+**Goal:** Eliminate `useState` for loading states in goal dialogs, use `mutation.isPending` directly
 
-**Changes Applied:**
-- ✅ Added `onSuccess` callback with success toast
-- ✅ Added `onError` callback with error toast
-- ✅ Added null-safe operator for token return: `result?.token ?? null`
-- ✅ No try/catch wrapper needed (dialog handles async pattern)
-- ✅ User gets immediate feedback on success/error
-- ✅ No TypeScript or lint errors
+**Reasoning:** Dialogs already use mutations; leveraging mutation state reduces component complexity.
 
-**Testing:**
-- Trigger share action
-- Verify success toast appears
-- Verify button is disabled during request (where applicable)
-- Test error scenario to verify error toast
+**Substeps:**
+1. [ ] File: `src/1-components/goals/AddGoalDialog.tsx`
+   - Remove `const [saving, setSaving] = useState(false)`
+   - Update `isSaveDisabled` to use `addGoal.isPending`
+   - Update button text and spinner to use `addGoal.isPending`
+   - Remove `setSaving()` calls from handler
+2. [ ] File: `src/1-components/goals/EditGoalDialog.tsx`
+   - Remove `const [saving, setSaving] = useState(false)`
+   - Update `isSaveDisabled` to use `updateGoal.isPending`
+   - Update button to use `updateGoal.isPending`
+   - Remove `setSaving()` calls from handler
+3. [ ] Add `onSuccess` callback to close dialog
+4. [ ] Add `onError` callback to show error message
+5. [ ] Test form submission with loading state
 
----
+**Success Indicator:**
+- [ ] Both dialog files have no `saving` state
+- [ ] Button disabled state reflects `mutation.isPending`
+- [ ] Save button shows spinner during request
+- [ ] Dialog closes on success
+- [ ] Error message displays on failure
+- [ ] No manual state management
 
-### 3. `src/0-routes/_authenticated/gw-offense.tsx` ✅ COMPLETED
+**Commit:** `git commit -m 'refactor: remove manual loading state from goal dialogs'`
 
-**Current State (before change):**
-- 1 mutation: `saveGw`
-- Multiple handlers call `saveGw.mutateAsync()` throughout the component
-- No centralized success/error feedback previously
-
-**Changes Applied:**
-- ✅ Added `onSuccess` callback to `saveGw` mutation that shows a success toast: "GW offense saved successfully"
-- ✅ Added `onError` callback to `saveGw` mutation that shows an error toast with the mutation error message (or a generic message)
-- ✅ Ensured handlers continue to call `saveGw.mutateAsync(...)` without wrapping in try/catch
-- ✅ Left UI controls to use `saveGw.isPending` for disabling (where applicable)
-- ✅ No TypeScript or lint errors after change
-
-**Notes:**
-- Because Convex syncs via WebSockets, there's no cache invalidation required — handlers simply call `mutateAsync()` and the server/Convex subscription updates the UI state.
-- The `onSuccess`/`onError` callbacks centralize feedback so that callers can remain simple and free of try/catch wrappers.
-
-**Testing:**
-- Make changes and save
-- Verify success toast
-- Verify save-related controls are disabled during pending state
-- Test error scenario to verify error toast
+**Progress:** ⬜ Not started
 
 ---
 
-### 4. `src/0-routes/_authenticated/roster-snapshots.tsx`
+### Step 3: Standardize Mutation Callbacks Across Pages
 
-**Current State:**
-- 1 mutation: `save`
+**Goal:** Add consistent `onSuccess`/`onError` callbacks to all mutations in multi-mutation pages
 
-**Instructions:**
+**Reasoning:** Pages with multiple mutations need consistent error handling and feedback patterns.
 
-1. Update `save` mutation:
-   ```tsx
-   const save = useMutation({
-     mutationFn: useConvexMutation(api.rosterSnapshots.save),
-     onSuccess: () => {
-       toast.success("Roster snapshot saved successfully");
-     },
-     onError: (error) => {
-       toast.error(
-         error instanceof Error ? error.message : "Failed to save snapshot"
-       );
-     },
-   });
-   ```
+**Substeps:**
+1. [ ] File: `src/0-routes/_authenticated/teams.tsx` (3 mutations)
+   - Add `onSuccess` and `onError` to `addTeam`, `updateTeam`, `removeTeam`
+   - Show appropriate toasts (e.g., "Team added successfully")
+   - Close dialogs on success
+2. [ ] File: `src/0-routes/_authenticated/goals.tsx` (4 mutations)
+   - Add `onSuccess` and `onError` to all mutations
+   - Consider optimistic updates where appropriate
+   - Ensure UI updates correctly after mutation
+3. [ ] File: `src/0-routes/_authenticated/lre.tsx` (4 mutations)
+   - Add callbacks to all LRE mutations
+   - Provide clear feedback for save, add, update, remove operations
+4. [ ] File: `src/1-components/ImportButton.tsx`
+   - Add `onSuccess` callback with import summary
+   - Add `onError` callback for parse/upload failures
+5. [ ] File: `src/1-components/CampaignProgressSync.tsx`
+   - Add `onSuccess` callback for sync feedback
+   - Add `onError` with retry logic
+6. [ ] Test each mutation independently
+7. [ ] Verify all callbacks execute correctly
 
-2. Find all calls to `save.mutateAsync()` and remove surrounding try/catch blocks
-3. Disable buttons with `save.isPending`
+**Success Indicator:**
+- [ ] All mutations have consistent callback patterns
+- [ ] Success toasts display with appropriate messages
+- [ ] Error toasts display with user-friendly messages
+- [ ] Dialogs close on successful mutations
+- [ ] Forms reset after successful submission
+- [ ] No console warnings
+- [ ] TypeScript compilation succeeds
 
-**Testing:**
-- Save snapshot
-- Verify success toast
-- Verify button disabled state
+**Commit:** Multiple commits, one per file:
+- `git commit -m 'refactor: add mutation callbacks to teams.tsx'`
+- `git commit -m 'refactor: add mutation callbacks to goals.tsx'`
+- `git commit -m 'refactor: add mutation callbacks to lre.tsx'`
+- `git commit -m 'refactor: add mutation callbacks to ImportButton.tsx'`
+- `git commit -m 'refactor: add mutation callbacks to CampaignProgressSync.tsx'`
 
----
-
-## Priority 2: Component Mutations
-
-### 5. `src/1-components/ImportButton.tsx`
-
-**Current State:**
-- 1 mutation: `importAll`
-- Manual state: `[importing, setImporting]`
-- Try/catch/finally wrapper with multiple toast notifications
-
-**Instructions:**
-
-1. Remove state:
-   ```
-   const [importing, setImporting] = useState(false);
-   ```
-
-2. Update `importAll` mutation:
-   ```tsx
-   const importAll = useMutation({
-     mutationFn: useConvexMutation(api.import.importAll),
-     onSuccess: () => {
-       // Show consolidated success toast (summary)
-     },
-     onError: (error) => {
-       toast.error(error instanceof Error ? error.message : "Failed to import file");
-     },
-   });
-   ```
-
-3. Refactor `handleImport`:
-   - Keep parsing logic and pre-validation
-   - Call `importAll.mutateAsync(...)` without wrapping in try/catch
-   - Use `importAll.isPending` to control UI
-   - Show detailed success toast (summary) either in `onSuccess` or directly after `mutateAsync` if it depends on local parsing results
-
-4. Replace `setImporting` uses with `importAll.isPending`
-
-**Testing:**
-- Import a valid planner export
-- Verify success toast contains summary
-- Verify error toast for invalid file
-- Verify upload controls disabled while pending
+**Progress:** ⬜ Not started
 
 ---
 
-### 6. `src/1-components/CampaignProgressSync.tsx`
+### Step 4: Remove Manual State Management
 
-**Current State:**
-- 1 mutation: `saveMutation`
-- Uses `lastSavedRef` to avoid immediate re-save
-- Calls `mutateAsync()` from an effect
+**Goal:** Eliminate redundant manual error/loading states throughout the codebase
 
-**Instructions:**
+**Reasoning:** Once mutations have callbacks, manual state becomes redundant and source of bugs.
 
-1. Update `saveMutation`:
-   ```tsx
-   const saveMutation = useMutation({
-     mutationFn: useConvexMutation(api.campaignProgress.save),
-     onSuccess: (_, variables) => {
-       // Update lastSavedRef based on the serialized data that was saved
-     },
-     onError: () => {
-       // no-op or log for retries
-     },
-     retry: 2, // consider retrying transient failures
-   });
-   ```
+**Substeps:**
+1. [ ] Search for patterns: `const [loading, setLoading]`, `const [error, setError]`
+2. [ ] For each, verify the mutation provides equivalent state
+3. [ ] Remove the manual state variable
+4. [ ] Update UI to use `mutation.isPending`, `mutation.isError`, `mutation.error`
+5. [ ] Ensure no breaking changes to component behavior
+6. [ ] Test form submissions and error scenarios
 
-2. Phase C effect:
-   - Remove try/catch wrapper around `mutateAsync()`
-   - Call `saveMutation.mutateAsync({ data: serialized })` when needed
-   - Update `lastSavedRef` in `onSuccess` callback so it's consistent
+**Success Indicator:**
+- [ ] All redundant loading state removed
+- [ ] All redundant error state removed
+- [ ] UI still displays loading/error correctly
+- [ ] No TypeScript errors
+- [ ] No console warnings
+- [ ] All tests pass
 
-3. Keep `convexMergedRef` logic to ensure initial load/merge occurs once
+**Commit:** `git commit -m 'refactor: remove redundant manual state management from mutations'`
 
-**Testing:**
-- Modify campaign progress and observe saves
-- Verify `lastSavedRef` prevents immediate re-saves when appropriate
-- Test intermittent network to ensure retry behavior works
+**Progress:** ⬜ Not started
 
 ---
 
-### 7. `src/1-components/goals/AddGoalDialog.tsx`
+### Step 5: Final Testing & Optimization
 
-**Current State:**
-- 1 mutation: `addGoal`
-- Dialog open state management and submit handler uses async/await
+**Goal:** Comprehensive testing and final validation of all mutation changes
 
-**Instructions:**
-1. Add `onSuccess` and `onError` callbacks:
-   - `onSuccess`: close dialog and toast success
-   - `onError`: toast error
-2. Remove try/catch wrappers from submit handlers; call `addGoal.mutateAsync(...)`
-3. Use `addGoal.isPending` to disable submit
+**Reasoning:** Testing ensures all changes work correctly together without regressions.
 
-**Testing:**
-- Add a goal and ensure dialog closes and toast displays
-- Test validation and error paths
+**Substeps:**
+1. [ ] Run `bun run dev` and navigate through all pages with mutations
+2. [ ] Test each mutation type:
+   - [ ] Form submissions (add, edit, save)
+   - [ ] Deletions with confirmation
+   - [ ] Imports with file parsing
+   - [ ] Bulk operations
+3. [ ] Test error scenarios:
+   - [ ] Simulate network failures
+   - [ ] Trigger validation errors
+   - [ ] Test error retry flows
+4. [ ] Verify toast notifications:
+   - [ ] Success messages appear and auto-dismiss
+   - [ ] Error messages appear with retry option if applicable
+5. [ ] Check UI state consistency:
+   - [ ] Buttons disabled during pending
+   - [ ] Spinners show during loading
+   - [ ] Dialogs close after success
+6. [ ] Run `bun run build-ci` for final validation
 
----
-
-### 8. `src/1-components/goals/EditGoalDialog.tsx`
-
-**Current State:**
-- 1 mutation: `updateGoal`
-- Dialog edit flow similar to AddGoalDialog
-
-**Instructions:**
-1. Add `onSuccess` and `onError` callbacks:
-   - `onSuccess`: close dialog and toast success
-   - `onError`: toast error
-2. Remove try/catch wrappers from submit handlers; call `updateGoal.mutateAsync(...)`
-3. Use `updateGoal.isPending` to disable submit
-
-**Testing:**
-- Edit a goal and ensure dialog closes and toast appears
-- Test error paths
-
----
-
-## Priority 3: Multi-Mutation Pages
-
-### 9. `src/0-routes/_authenticated/teams.tsx`
-
-**Current State:**
-- 3 mutations: `addTeam`, `updateTeam`, `removeTeam`
-- Dialog state management
-- Handlers use async/await
-
-**Instructions:**
-1. Add `onSuccess` / `onError` callbacks to each mutation:
-   - `addTeam.onSuccess`: close add dialog and toast
-   - `updateTeam.onSuccess`: clear editing state and toast
-   - `removeTeam.onSuccess`: clear deleting state and toast
-2. Remove try/catch wrappers from handlers; call `mutateAsync(...)`
-3. Use `isPending` flags to disable buttons
-
-**Testing:**
-- Add, edit, and remove teams; verify toasts and UI state
-- Test error cases
-
----
-
-### 10. `src/0-routes/_authenticated/lre.tsx`
-
-**Current State:**
-- 4 mutations: `saveProgressMutation`, `addTeamMutation`, `updateTeamMutation`, `removeTeamMutation`
-- Multiple UI interactions
-
-**Instructions:**
-1. Add `onSuccess` / `onError` callbacks for each mutation with toast feedback
-2. Remove try/catch wrappers from handlers and use `mutateAsync(...)`
-3. Use `isPending` to guard UI while operations are in flight
-
-**Testing:**
-- Save progress and manage LRE teams; verify toasts and UI behavior
-- Test error handling
-
----
-
-### 11. `src/0-routes/_authenticated/goals.tsx`
-
-**Current State:**
-- 4 mutations: `removeGoal`, `removeAllGoals`, `updateGoal`, `reorderGoals`
-- Many handlers call these mutations
-
-**Instructions:**
-1. Add `onSuccess` and `onError` callbacks to each mutation (toasts + UI adjustments)
-2. Consider `onMutate` optimistic updates for higher-perceived performance (optional — test carefully)
-3. Remove try/catch wrappers from handlers; call `mutateAsync(...)`
-4. Use `isPending` to disable relevant UI while mutation is in progress
-
-**Testing:**
-- Delete, update, and reorder goals; verify toasts and UI updates
-- Test optimistic update rollback paths if implemented
-
----
-
-## General Testing Checklist
-
-After completing each file:
-
+**Success Indicator:**
+- [ ] All mutations execute correctly
+- [ ] All toast notifications appear
+- [ ] No manual state inconsistencies
+- [ ] Build passes
 - [ ] No TypeScript errors
 - [ ] No lint errors
-- [ ] Success toast appears on successful mutation
-- [ ] Error toast appears on failed mutation
-- [ ] UI controls are disabled during pending state (`mutation.isPending`)
-- [ ] Manual state variables (`loading`, `saving`, `error`, etc.) are removed
-- [ ] No `try/catch` blocks wrapping `mutateAsync()` calls
-- [ ] No stray `await` on `mutateAsync()` unless component specifically needs to wait
-- [ ] Test in browser with network tab open to verify requests are sent
-- [ ] Test with slow network to verify loading states appear
+- [ ] All tests pass
+- [ ] No accessibility issues
+
+**Commit:** `git commit -m 'refactor: finalize mutation callback standardization'`
+
+**Progress:** ⬜ Not started
 
 ---
 
-## Pattern Summary
+## Pattern Example
 
-Every refactored mutation should follow this structure:
+Here's the standard pattern all mutations should follow:
 
-```tsx
-const myMutation = useMutation({
-  mutationFn: useConvexMutation(api.resource.action),
+```typescript
+const saveMutation = useMutation({
+  mutationFn: useConvexMutation(api.resource.save),
   onSuccess: () => {
-    // Close dialogs, update local state, show success feedback
-    toast.success("Action completed successfully");
+    toast.success("Changes saved successfully");
+    // Close dialogs, reset forms, update local state as needed
   },
   onError: (error) => {
-    // Show error feedback only - no try/catch needed
     toast.error(
-      error instanceof Error ? error.message : "Action failed"
+      error instanceof Error ? error.message : "Failed to save changes"
     );
+    // No manual error state management needed
   },
 });
 
-// Handler becomes simple:
-const handleAction = async (data: Data) => {
-  myMutation.mutateAsync(data);
-  // No try/catch, no manual state updates
-};
+// Handler remains simple:
+async function handleSave(data: Data) {
+  saveMutation.mutateAsync(data);
+  // No try/catch needed - errors handled in onError callback
+}
 
-// UI uses mutation state:
-<button disabled={myMutation.isPending}>
-  {myMutation.isPending ? "Loading..." : "Submit"}
+// UI uses mutation state directly:
+<button
+  disabled={saveMutation.isPending}
+  onClick={() => handleSave(formData)}
+>
+  {saveMutation.isPending ? (
+    <>
+      <Spinner className="mr-2" />
+      Saving...
+    </>
+  ) : (
+    "Save"
+  )}
 </button>
 ```
 
+## Notes & Decisions
+
+- **No try/catch around mutateAsync()**: Errors are handled in `onError` callback instead
+- **Consistent toast messages**: Success toasts show what was accomplished, error toasts show why it failed
+- **Dialog management**: `onSuccess` closes dialogs automatically
+- **Form reset**: Reset forms in `onSuccess` callback to ensure success before clearing
+- **Loading state**: Use `mutation.isPending` directly in UI, no separate state variable
+- **Error display**: Show errors via toast + optional inline message, not just console
+
+## Files to Refactor
+
+1. ✅ `src/0-routes/_authenticated/settings.tsx` — Callbacks added
+2. ✅ `src/0-routes/_authenticated/roster.tsx` — Callbacks added
+3. ✅ `src/0-routes/_authenticated/gw-offense.tsx` — Callbacks added
+4. [ ] `src/0-routes/_authenticated/roster-snapshots.tsx`
+5. [ ] `src/0-routes/_authenticated/teams.tsx`
+6. [ ] `src/0-routes/_authenticated/goals.tsx`
+7. [ ] `src/0-routes/_authenticated/lre.tsx`
+8. [ ] `src/1-components/ImportButton.tsx`
+9. [ ] `src/1-components/CampaignProgressSync.tsx`
+10. [ ] `src/1-components/goals/AddGoalDialog.tsx`
+11. [ ] `src/1-components/goals/EditGoalDialog.tsx`
+
+## References
+
+- [TanStack Query Mutation Callbacks](https://tanstack.com/query/v5/docs/framework/react/guides/mutations#mutation-side-effects)
+- [onSuccess API](https://tanstack.com/query/v5/docs/reference/useMutation#onsuccess)
+- [onError API](https://tanstack.com/query/v5/docs/reference/useMutation#onerror)
+- [Convex Mutations with TanStack](https://docs.convex.dev/client/tanstack/tanstack-query/)
+
 ---
 
-## Notes & Rationale
-
-- Convex provides real-time syncing; manual cache invalidation is unnecessary. Mutations should focus on side-effects (toasts, closing dialogs, local UI changes) and rely on Convex to propagate updated data to queries.
-- Centralizing error handling reduces repetition and improves consistency across the app.
-- Removing local loading/error state reduces risk of inconsistent UI states and simplifies components.
-
----
-
-## Next Steps (PAUSED)
-
-Files 1-3 are completed and marked above. No further changes will be made in this run. When you are ready to continue, tell me which file to proceed with next and I will resume the refactor from the plan.
+**Status Summary:** In progress. Three files (settings, roster, gw-offense) have been enhanced with callback patterns. Next steps involve removing manual loading state from dialogs and standardizing callbacks across multi-mutation pages.

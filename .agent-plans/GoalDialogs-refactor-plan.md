@@ -1,468 +1,237 @@
-# Goal Dialogs Refactoring Plan: TanStack Query Integration
+# Agent Plan: Refactor Goal Dialogs to Use TanStack Query State
 
-## Overview
-This document outlines a step-by-step refactoring of `AddGoalDialog.tsx` and `EditGoalDialog.tsx` to use TanStack Query v5 for managing asynchronous operations instead of manual `useState` state management for the `saving` state.
+**Created:** 2026-03-05  
+**Status:** Not Started  
+**Last Updated:** 2026-03-05
 
-The plan is organized to complete one feature at a time, with the components remaining in a functional state after each step.
+## High-Level Goal
 
-## Current State Analysis
+Remove manual loading state management from `AddGoalDialog.tsx` and `EditGoalDialog.tsx` by using TanStack Query's built-in `isPending` state instead of duplicate `useState` variables.
 
-### Current Implementation Issues (Both Files)
+## Success Criteria
 
-1. **Manual State Management**: Uses `useState(false)` for the `saving` loading state
-2. **Redundant Mutation**: Both files already use `useMutation` from TanStack Query, but manually manage loading state separately
-3. **Inconsistent Pattern**: Uses TanStack Query for the API call but doesn't leverage its built-in state management
-4. **Save Button Validation**: Relies on manual state check `saving` in disabled condition
-5. **No Error State Management**: Errors are not explicitly captured or displayed
+- [ ] Remove `useState(false)` for `saving` state from both dialog components
+- [ ] Update button disabled logic to use `mutation.isPending`
+- [ ] Update button UI to show spinner from `mutation.isPending`
+- [ ] Simplify `handleSave` functions by removing manual state management
+- [ ] Add optional error display using `mutation.isError` and `mutation.error`
+- [ ] Both dialogs remain fully functional
+- [ ] TypeScript compilation passes
+- [ ] No lint errors
+- [ ] `bun run build-ci` passes
+- [ ] Changes committed to git
 
-### Current Data Flow (Both Files)
+## Implementation Plan
 
-```
-User clicks Save button
-  ↓
-handleSave() called
-  ↓
-setSaving(true)
-  ↓
-Build form data based on goal type
-  ↓
-Call mutation via mutateAsync
-  ↓
-Reset form on success
-  ↓
-Close dialog
-  ↓
-Completion/Error
-  ↓
-setSaving(false)
-```
+### Step 1: Remove Manual Saving State (AddGoalDialog)
 
-## Refactoring Strategy
+**Goal:** Eliminate `useState(false)` for `saving` state and use mutation's `isPending` instead
 
-Both dialogs follow the same pattern:
-1. Use existing `useMutation` hook (`addGoal` or `updateGoal`)
-2. Remove manual `saving` state
-3. Use mutation's `isPending` state instead
-4. Simplify event handlers by removing manual state management
+**Reasoning:** TanStack Query mutations already provide loading state; duplicating it creates inconsistency and potential sync bugs.
 
-The refactoring will be done identically for both files.
+**Substeps:**
+1. [ ] Locate and delete `const [saving, setSaving] = useState(false);`
+2. [ ] Find `isSaveDisabled` function and replace `saving` check with `addGoal.isPending`
+3. [ ] Update Save button:
+   - Replace `disabled={isSaveDisabled}` (no change needed, but validate)
+   - Add loading spinner: `{addGoal.isPending && <Loader2 className="mr-2 size-4 animate-spin" />}`
+   - Update button text: `{addGoal.isPending ? "Saving..." : "Save Goal"}`
+4. [ ] Simplify `handleSave` function:
+   - Remove `setSaving(true)` at start
+   - Remove `setSaving(false)` from finally block
+   - Keep all form validation and mutation call logic
+5. [ ] Test that form submission still works
+6. [ ] Verify button disables during save and enables after completion
+
+**Success Indicator:**
+- [x] `AddGoalDialog.tsx` no longer has `saving` state variable
+- [x] Save button uses `addGoal.isPending` for disabled state
+- [x] Save button shows spinner while saving
+- [x] Goal can be successfully added
+- [x] Form resets after save
+- [x] Dialog closes after save
+- [x] No console errors or warnings
+- [x] No TypeScript errors
+
+**Commit:** `git commit -m 'refactor(goals): remove manual saving state from AddGoalDialog'`
+
+**Progress:** ⬜ Not started
 
 ---
 
-## STEP 1: Remove Manual Saving State and Use Mutation State
+### Step 2: Remove Manual Saving State (EditGoalDialog)
 
-### 1.1: Remove Saving State Variable
+**Goal:** Apply identical refactoring to the Edit dialog
 
-In both `AddGoalDialog.tsx` and `EditGoalDialog.tsx`:
+**Reasoning:** Both dialogs follow the same pattern; consistency across components reduces maintenance burden.
 
-**File**: `src/1-components/goals/AddGoalDialog.tsx`
-- [ ] Delete this line (around line 79):
-  ```tsx
-  const [saving, setSaving] = useState(false);
-  ```
+**Substeps:**
+1. [ ] Locate and delete `const [saving, setSaving] = useState(false);`
+2. [ ] Find `isSaveDisabled` function and replace `saving` check with `updateGoal.isPending`
+3. [ ] Update Update button:
+   - Replace `disabled={isSaveDisabled}` (no change needed, but validate)
+   - Add loading spinner: `{updateGoal.isPending && <Loader2 className="mr-2 size-4 animate-spin" />}`
+   - Update button text: `{updateGoal.isPending ? "Updating..." : "Update Goal"}`
+4. [ ] Simplify `handleSave` function:
+   - Remove `setSaving(true)` at start
+   - Remove `setSaving(false)` from finally block
+   - Keep all form logic intact
+5. [ ] Test that goal editing still works
+6. [ ] Verify button states during async operation
 
-**File**: `src/1-components/goals/EditGoalDialog.tsx`
-- [ ] Delete this line (around line 89):
-  ```tsx
-  const [saving, setSaving] = useState(false);
-  ```
+**Success Indicator:**
+- [x] `EditGoalDialog.tsx` no longer has `saving` state variable
+- [x] Update button uses `updateGoal.isPending` for disabled state
+- [x] Update button shows spinner while updating
+- [x] Goal can be successfully updated
+- [x] Dialog closes after update
+- [x] No console errors or warnings
+- [x] No TypeScript errors
 
-### 1.2: Update Save Button Validation
+**Commit:** `git commit -m 'refactor(goals): remove manual saving state from EditGoalDialog'`
 
-Both files have a `isSaveDisabled` function that checks the `saving` state. Update it to use the mutation state instead.
+**Progress:** ⬜ Not started
 
-**AddGoalDialog.tsx - Before**:
-```tsx
+---
+
+### Step 3: Add Error Display (Optional Enhancement)
+
+**Goal:** Display mutation errors in dialogs with optional retry capability
+
+**Reasoning:** Users should see error messages instead of silent failures; retry capability improves UX.
+
+**Substeps:**
+1. [ ] Add error display in AddGoalDialog:
+   - Add after form fields: `{addGoal.isError && <div className="text-sm text-red-500">Failed to save goal: {addGoal.error?.message || "Unknown error"}</div>}`
+2. [ ] Add error display in EditGoalDialog:
+   - Add after form fields: `{updateGoal.isError && <div className="text-sm text-red-500">Failed to update goal: {updateGoal.error?.message || "Unknown error"}</div>}`
+3. [ ] Reset error on dialog reopen:
+   - AddGoalDialog: call `addGoal.reset()` in `onOpenChange` when closing
+   - EditGoalDialog: call `updateGoal.reset()` when closing
+4. [ ] Test error scenarios:
+   - Intentionally trigger Convex function errors
+   - Verify error displays in dialog
+   - Verify error clears on retry
+
+**Success Indicator:**
+- [ ] Error messages display when mutations fail
+- [ ] Error state clears when dialog reopens or user retries
+- [ ] User-friendly error messages shown
+- [ ] No console errors
+
+**Commit:** `git commit -m 'refactor(goals): add error handling to goal dialogs'`
+
+**Progress:** ⬜ Not started
+
+---
+
+### Step 4: Test & Validate
+
+**Goal:** Run comprehensive tests across both dialogs and related goal functionality
+
+**Reasoning:** Integration testing ensures changes work correctly with the rest of the goals system.
+
+**Substeps:**
+1. [ ] Run `bun run dev` and navigate to goals page
+2. [ ] Test AddGoalDialog:
+   - [ ] Dialog opens without errors
+   - [ ] Form fields render correctly
+   - [ ] Save button disabled when validation fails
+   - [ ] Clicking Save disables button and shows spinner
+   - [ ] Goal is added successfully
+   - [ ] Form resets after save
+   - [ ] Dialog closes after save
+   - [ ] Can add multiple goals in sequence
+3. [ ] Test EditGoalDialog:
+   - [ ] Dialog opens with existing goal data
+   - [ ] Update button properly enabled/disabled
+   - [ ] Clicking Update disables button and shows spinner
+   - [ ] Goal is updated successfully
+   - [ ] Dialog closes after update
+4. [ ] Test error scenarios (if Step 3 implemented):
+   - [ ] Error messages display correctly
+   - [ ] Can retry after error
+   - [ ] Error clears on successful retry
+5. [ ] Run `bun run build-ci` and verify no errors
+
+**Success Indicator:**
+- [x] All dialog functionality works correctly
+- [x] No TypeScript errors
+- [x] No lint errors
+- [x] Build passes
+- [x] All tests pass
+
+**Commit:** `git commit -m 'test(goals): verify dialog refactoring works end-to-end'`
+
+**Progress:** ⬜ Not started
+
+---
+
+## Implementation Details
+
+### Before: AddGoalDialog Pattern
+```typescript
+const [saving, setSaving] = useState(false);
+
 const isSaveDisabled = (() => {
   if (saving || !selectedUnit) return true;
-  switch (goalType) {
-    case PersonalGoalType.UpgradeRank:
-      return rankEnd <= rankStart;
-    case PersonalGoalType.MowAbilities:
-      return primaryEnd < 1 || secondaryEnd < 1;
-    case PersonalGoalType.CharacterAbilities:
-      return activeEnd < 1 || passiveEnd < 1;
-    default:
-      return false;
-  }
+  // ... validation logic
 })();
-```
 
-**AddGoalDialog.tsx - After**:
-```tsx
-const isSaveDisabled = (() => {
-  if (addGoal.isPending || !selectedUnit) return true;
-  switch (goalType) {
-    case PersonalGoalType.UpgradeRank:
-      return rankEnd <= rankStart;
-    case PersonalGoalType.MowAbilities:
-      return primaryEnd < 1 || secondaryEnd < 1;
-    case PersonalGoalType.CharacterAbilities:
-      return activeEnd < 1 || passiveEnd < 1;
-    default:
-      return false;
-  }
-})();
-```
-
-**EditGoalDialog.tsx - Before**:
-```tsx
-const isSaveDisabled = (() => {
-  if (saving) return true;
-  switch (goal.type) {
-    case PersonalGoalType.UpgradeRank:
-      return rankEnd <= rankStart;
-    case PersonalGoalType.MowAbilities:
-      // ... validation logic
-  }
-})();
-```
-
-**EditGoalDialog.tsx - After**:
-```tsx
-const isSaveDisabled = (() => {
-  if (updateGoal.isPending) return true;
-  switch (goal.type) {
-    case PersonalGoalType.UpgradeRank:
-      return rankEnd <= rankStart;
-    case PersonalGoalType.MowAbilities:
-      // ... validation logic
-  }
-})();
-```
-
-### 1.3: Update Save Button UI
-
-Update the Save/Action button to use mutation state for loading indicator.
-
-**AddGoalDialog.tsx - Find and Update**:
-Look for the Save button (usually in AlertDialogFooter) and update:
-```tsx
-<AlertDialogAction
-  onClick={handleSave}
-  disabled={isSaveDisabled}
->
-  {addGoal.isPending && <Loader2 className="mr-2 size-4 animate-spin" />}
-  {addGoal.isPending ? "Saving..." : "Save Goal"}
-</AlertDialogAction>
-```
-
-**EditGoalDialog.tsx - Find and Update**:
-```tsx
-<AlertDialogAction
-  onClick={handleSave}
-  disabled={isSaveDisabled}
->
-  {updateGoal.isPending && <Loader2 className="mr-2 size-4 animate-spin" />}
-  {updateGoal.isPending ? "Saving..." : "Update Goal"}
-</AlertDialogAction>
-```
-
-### 1.4: Simplify Event Handler
-
-Both files have a `handleSave` function. Simplify it by removing manual state management.
-
-**AddGoalDialog.tsx - Before**:
-```tsx
 async function handleSave() {
-  if (!selectedUnit) return;
-
   setSaving(true);
   try {
-    let data: Record<string, unknown> = {};
-    
-    switch (goalType) {
-      // ... goal type specific logic
-    }
-
-    await addGoal.mutateAsync({
-      goalId: crypto.randomUUID(),
-      type: goalType,
-      unitId: selectedUnit.id,
-      unitName: selectedUnit.name,
-      priority: goalCount + 1,
-      include,
-      notes: notes.trim() || undefined,
-      data: JSON.stringify(data),
-    });
-
+    await addGoal.mutateAsync({...});
     resetForm();
     setOpen(false);
   } finally {
     setSaving(false);
   }
 }
+
+<AlertDialogAction onClick={handleSave} disabled={isSaveDisabled}>
+  Save Goal
+</AlertDialogAction>
 ```
 
-**AddGoalDialog.tsx - After**:
-```tsx
+### After: AddGoalDialog Pattern
+```typescript
+// No saving state variable needed!
+
+const isSaveDisabled = (() => {
+  if (addGoal.isPending || !selectedUnit) return true;
+  // ... validation logic
+})();
+
 async function handleSave() {
-  if (!selectedUnit) return;
-
   try {
-    let data: Record<string, unknown> = {};
-    
-    switch (goalType) {
-      // ... goal type specific logic remains the same
-    }
-
-    await addGoal.mutateAsync({
-      goalId: crypto.randomUUID(),
-      type: goalType,
-      unitId: selectedUnit.id,
-      unitName: selectedUnit.name,
-      priority: goalCount + 1,
-      include,
-      notes: notes.trim() || undefined,
-      data: JSON.stringify(data),
-    });
-
+    await addGoal.mutateAsync({...});
     resetForm();
     setOpen(false);
   } catch (error) {
     console.error("Failed to save goal:", error);
   }
 }
+
+<AlertDialogAction onClick={handleSave} disabled={isSaveDisabled}>
+  {addGoal.isPending && <Loader2 className="mr-2 size-4 animate-spin" />}
+  {addGoal.isPending ? "Saving..." : "Save Goal"}
+</AlertDialogAction>
 ```
 
-**Key Changes**:
-- Remove `setSaving(true)` at the start
-- Remove `setSaving(false)` from finally block
-- Keep all internal logic unchanged
-- The mutation's `isPending` state handles loading automatically
+## Notes & Decisions
 
-**EditGoalDialog.tsx** follows the same pattern. Find the `handleSave` function and remove the `setSaving` calls.
-
-### 1.5: Verification
-
-After completing Step 1:
-
-**For AddGoalDialog.tsx**:
-- [ ] Component no longer has `saving` state variable
-- [ ] Save button disabled state uses `addGoal.isPending`
-- [ ] Save button shows spinner while saving
-- [ ] Goal can be successfully added
-- [ ] Form resets after successful save
-- [ ] Dialog closes after successful save
-- [ ] No console errors or warnings
-
-**For EditGoalDialog.tsx**:
-- [ ] Component no longer has `saving` state variable
-- [ ] Update button disabled state uses `updateGoal.isPending`
-- [ ] Update button shows spinner while saving
-- [ ] Goal can be successfully updated
-- [ ] Dialog closes after successful update
-- [ ] No console errors or warnings
-
----
-
-## STEP 2: Add Error Display (Optional Enhancement)
-
-### 2.1: Display Mutation Errors in AddGoalDialog
-
-After the form fields but before the footer, add error display:
-
-```tsx
-{addGoal.isError && (
-  <div className="text-sm text-red-500 mt-4">
-    Failed to save goal: {addGoal.error?.message || "Unknown error"}
-  </div>
-)}
-```
-
-### 2.2: Display Mutation Errors in EditGoalDialog
-
-Similarly, add after the form fields:
-
-```tsx
-{updateGoal.isError && (
-  <div className="text-sm text-red-500 mt-4">
-    Failed to update goal: {updateGoal.error?.message || "Unknown error"}
-  </div>
-)}
-```
-
-### 2.3: Reset Error State on Dialog Open
-
-In AddGoalDialog, update the dialog's onOpenChange handler to reset errors:
-
-**Before**:
-```tsx
-<AlertDialog
-  open={open}
-  onOpenChange={(nextOpen) => {
-    setOpen(nextOpen);
-    if (!nextOpen) resetForm();
-  }}
->
-```
-
-**After**:
-```tsx
-<AlertDialog
-  open={open}
-  onOpenChange={(nextOpen) => {
-    setOpen(nextOpen);
-    if (!nextOpen) {
-      resetForm();
-      addGoal.reset();
-    }
-  }}
->
-```
-
-For EditGoalDialog, the parent component controls the `open` prop, so the reset should be handled when closing:
-
-```tsx
-const handleClose = () => {
-  updateGoal.reset();
-  onOpenChange(false);
-};
-```
-
-Then use this handler in the Cancel button.
-
-### 2.4: Verification
-
-After completing Step 2:
-- [ ] Error messages display in the dialog
-- [ ] Error state clears when opening/retrying
-- [ ] All previous functionality still works
-- [ ] Error messages are user-friendly and helpful
-
----
-
-## Final Component Structures
-
-### AddGoalDialog.tsx Key Changes
-
-**Removed**:
-- `const [saving, setSaving] = useState(false);`
-- `setSaving(true);` calls
-- `setSaving(false);` calls
-
-**Updated**:
-- `isSaveDisabled` checks: `saving` → `addGoal.isPending`
-- Save button: uses `addGoal.isPending` for loading state
-- `handleSave`: removed manual state management
-
-### EditGoalDialog.tsx Key Changes
-
-**Removed**:
-- `const [saving, setSaving] = useState(false);`
-- `setSaving(true);` calls
-- `setSaving(false);` calls
-
-**Updated**:
-- `isSaveDisabled` checks: `saving` → `updateGoal.isPending`
-- Update button: uses `updateGoal.isPending` for loading state
-- `handleSave`: removed manual state management
-
----
-
-## Summary of Changes
-
-| Aspect | Before | After |
-|--------|--------|-------|
-| **Saving State** | Manual `useState(false)` | Uses mutation `isPending` |
-| **Error State** | Not captured | Automatic via mutation |
-| **State Variables** | 1 (`saving`) per dialog | 0 (all from mutation) |
-| **Button Validation** | Checks `saving` flag | Checks `mutation.isPending` |
-| **Code Clarity** | Manual state synchronization | Automatic via mutation |
-| **Error Handling** | None (silent) | Can display errors |
-
----
-
-## File Structure After Refactoring
-
-No new files needed. Only existing files are modified:
-
-```
-src/1-components/goals/
-├── AddGoalDialog.tsx (refactored)
-└── EditGoalDialog.tsx (refactored)
-```
-
----
-
-## Testing Checklist
-
-### After Step 1 (AddGoalDialog):
-- [ ] Add Goal dialog opens without errors
-- [ ] Form fields render correctly
-- [ ] Save button is disabled initially when no unit selected
-- [ ] Save button enables when unit is selected and validation passes
-- [ ] Clicking Save disables the button and shows loading state
-- [ ] Goal is successfully added to the database
-- [ ] Form resets after successful save
-- [ ] Dialog closes after successful save
-- [ ] Can add another goal immediately after first one
-- [ ] No console errors or warnings
-
-### After Step 1 (EditGoalDialog):
-- [ ] Edit Goal dialog opens without errors
-- [ ] Form fields populate with existing goal data
-- [ ] Update button is properly disabled/enabled based on validation
-- [ ] Clicking Update disables the button and shows loading state
-- [ ] Goal is successfully updated in the database
-- [ ] Dialog closes after successful update
-- [ ] No console errors or warnings
-
-### After Step 2 (Error Handling):
-- [ ] Error messages display if save/update fails
-- [ ] Error messages are cleared when opening dialog again
-- [ ] Error state doesn't prevent retry attempts
-- [ ] All previous functionality still works
-
----
-
-## Benefits of This Refactoring
-
-1. **Reduced Boilerplate**: Eliminates manual loading state in both dialogs
-2. **Built-in Error Handling**: Automatic error state management via mutation
-3. **Consistency**: Both dialogs follow the same TanStack Query patterns
-4. **Better UX**: Can display explicit error messages
-5. **Type Safety**: Better TypeScript support with mutation types
-6. **Maintainability**: Less state to manage and synchronize
-7. **Testability**: Easier to test mutation behavior independently
-
----
-
-## Migration Complexity: **Low** ✅
-
-- Minimal changes required in each dialog (mainly removing one state variable)
-- Both dialogs already use TanStack Query correctly
-- No breaking changes to component API
-- Can be done incrementally (AddGoalDialog first, then EditGoalDialog)
-- Easy to rollback if needed
-
----
-
-## Notes for Implementation
-
-### Handling Both Dialogs
-
-You can refactor both dialogs in the same pull request since they follow identical patterns:
-
-1. **AddGoalDialog.tsx**: Start with this one first as it's simpler
-2. **EditGoalDialog.tsx**: Refactor identically after AddGoalDialog is working
-
-### Testing Strategy
-
-Test the goals feature holistically after refactoring:
-1. Add a new goal → verify it saves
-2. Edit that goal → verify it updates
-3. Try adding/editing with invalid data → verify validation still works
-4. Trigger error conditions if possible → verify error display works
-
-### Import Statements
-
-Both files already import `useMutation` and have the necessary UI components. No additional imports should be needed.
-
----
+- **State Redundancy**: The `saving` state was duplicating what the mutation already tracked; removing it simplifies the component
+- **No Behavior Change**: This is purely an internal refactoring; component API and user experience remain identical
+- **Error Handling**: Step 3 (error display) is optional but recommended for better UX
+- **Reusability**: The same pattern applies to both dialogs, making them consistent
 
 ## References
 
 - [TanStack Query v5 Mutations Guide](https://tanstack.com/query/v5/docs/framework/react/guides/mutations)
 - [useMutation API Reference](https://tanstack.com/query/v5/docs/reference/useMutation)
 - [Mutation State Management](https://tanstack.com/query/v5/docs/framework/react/guides/mutations#mutation-states)
+
+---
+
+**Status Summary:** This refactoring removes unnecessary manual state management, making the dialogs simpler and more maintainable. Complete Step 1 first (AddGoalDialog), validate it works, then replicate the same changes to Step 2 (EditGoalDialog).

@@ -1,309 +1,116 @@
-# Refactoring Plan: useMutation from convex/react → @convex-dev/react-query
+# Agent Plan: Refactor useMutation from convex/react → @convex-dev/react-query
 
-## Overview
-The codebase currently uses `useMutation` directly from `convex/react` in multiple places. According to the TanStack Query pattern (https://docs.convex.dev/client/tanstack/tanstack-query/), all mutations should use the TanStack `useMutation` hook with `useConvexMutation` from `@convex-dev/react-query` as the `mutationFn`.
+**Created:** 2026-03-05  
+**Status:** ✅ Complete  
+**Last Updated:** 2026-03-05
 
-The key pattern is:
-```typescript
-import { useMutation } from "@tanstack/react-query";
-import { useConvexMutation } from "@convex-dev/react-query";
-import { api } from "../convex/_generated/api";
+## High-Level Goal
 
-const saveProgressMutation = useMutation({
-  mutationFn: useConvexMutation(api.lre.saveProgress),
-});
-```
+Migrate all direct `useMutation` imports from `convex/react` to use TanStack Query v5 with `@convex-dev/react-query` as the standard mutation pattern across the codebase.
 
-**Current Setup**: The app has `@convex-dev/react-query` v0.1.0 already installed, and TanStack Query is properly configured with a `ConvexQueryClient` in the main entry point.
+## Success Criteria
 
----
+- [x] All 11 files refactored to use `useMutation({ mutationFn: useConvexMutation(...) })`
+- [x] Import statements updated (removed `convex/react`, added `@tanstack/react-query` and `@convex-dev/react-query`)
+- [x] All mutation invocations updated (`.mutate()` for fire-and-forget, `.mutateAsync()` for async/await)
+- [x] Mutation state accessed via full object (e.g., `mutation.isPending`), not destructured
+- [x] All 18 total mutations refactored across the codebase
+- [x] `bun run build-ci` passes
+- [x] Changes committed to git
 
-## Files Requiring Refactoring
+## Implementation Plan
 
-### 1. **src/0-routes/_authenticated/lre.tsx**
-**Status**: ✅ REFACTORED  
-**Mutations Found**: 4
-- `saveProgressMutation` → `api.lre.saveProgress`
-- `addTeamMutation` → `api.lre.addTeam`
-- `updateTeamMutation` → `api.lre.updateTeam`
-- `removeTeamMutation` → `api.lre.removeTeam`
+### Step 1: Refactor Core Authentication & Data Mutations
 
-**Current Pattern**:
-```typescript
-const saveProgressMutation = useMutation(api.lre.saveProgress);
-const addTeamMutation = useMutation(api.lre.addTeam);
-```
+**Goal:** Migrate mutations in settings and credentials-related files to establish the pattern
 
-**Required Changes**:
-- Change import from `import { useMutation } from "convex/react"` to `import { useMutation } from "@tanstack/react-query"`
-- Add `import { useConvexMutation } from "@convex-dev/react-query"`
-- Wrap each mutation with TanStack pattern:
-  ```typescript
-  const saveProgressMutation = useMutation({
-    mutationFn: useConvexMutation(api.lre.saveProgress),
-  });
-  ```
-- Update all invocations:
-  - `void saveProgressMutation({ eventId, data })` → `saveProgressMutation.mutate({ eventId, data })`
-  - `void addTeamMutation({ ... })` → `addTeamMutation.mutate({ ... })`
-  - `void updateTeamMutation({ ... })` → `updateTeamMutation.mutate({ ... })`
-  - `void removeTeamMutation({ ... })` → `removeTeamMutation.mutate({ ... })`
+**Reasoning:** These are foundational mutations with minimal dependencies; establishing the pattern here ensures consistency for more complex files.
+
+**Substeps:**
+1. Update `src/0-routes/_authenticated/settings.tsx` - convert `saveMutation`
+2. Update `src/0-routes/_authenticated/roster.tsx` - convert `shareRoster`
+3. Update `src/0-routes/_authenticated/roster-snapshots.tsx` - convert `save`
+4. Update `src/0-routes/_authenticated/gw-offense.tsx` - convert `saveGw`
+
+**Success Indicator:**
+- [x] Each file uses the new TanStack Query pattern
+- [x] `useMutation({ mutationFn: useConvexMutation(...) })` structure
+- [x] Mutation calls use `.mutateAsync()` for await patterns
+- [x] No remaining `convex/react` imports for mutations
+- [x] TypeScript compilation succeeds
+
+**Commit:** `git commit -m 'refactor: migrate core mutations to @convex-dev/react-query'`
+
+**Progress:** ✅ Complete
 
 ---
 
-### 2. **src/0-routes/_authenticated/goals.tsx**
-**Status**: ✅ REFACTORED  
-**Mutations Found**: 4
-- `removeGoal` → `api.goals.remove`
-- `removeAllGoals` → `api.goals.removeAll`
-- `updateGoal` → `api.goals.update`
-- `reorderGoals` → `api.goals.reorder`
+### Step 2: Refactor Component-Level Mutations
 
-**Current Pattern**:
-```typescript
-const removeGoal = useMutation(api.goals.remove);
-const removeAllGoals = useMutation(api.goals.removeAll);
-const updateGoal = useMutation(api.goals.update);
-const reorderGoals = useMutation(api.goals.reorder);
-```
+**Goal:** Update mutations in reusable components (dialogs, buttons, sync)
 
-**Required Changes**:
-- Change imports as noted above
-- Wrap each mutation: `const removeGoal = useMutation({ mutationFn: useConvexMutation(api.goals.remove) })`
-- Update all `void mutation(args)` calls to `mutation.mutate(args)`
-- Update all `await mutation(args)` calls to `await mutation.mutateAsync(args)`
+**Reasoning:** Components are used throughout the app; establishing the pattern here prevents cascade refactoring needs elsewhere.
 
----
+**Substeps:**
+1. Update `src/1-components/ImportButton.tsx` - convert `importAll`
+2. Update `src/1-components/CampaignProgressSync.tsx` - convert `saveMutation`
+3. Update `src/1-components/goals/AddGoalDialog.tsx` - convert `addGoal`
+4. Update `src/1-components/goals/EditGoalDialog.tsx` - convert `updateGoal`
 
-### 3. **src/0-routes/_authenticated/roster.tsx**
-**Status**: ✅ REFACTORED  
-**Mutations Found**: 1
-- `shareRoster` → `api.roster.share`
+**Success Indicator:**
+- [x] All component mutations follow the new pattern
+- [x] File input and dialog components work correctly
+- [x] Async operations properly await `mutateAsync()`
+- [x] No state access issues with mutation properties
+- [x] TypeScript compilation succeeds
 
-**Current Pattern**:
-```typescript
-const shareRoster = useMutation(api.roster.share);
-```
+**Commit:** `git commit -m 'refactor: migrate component mutations to @convex-dev/react-query'`
 
-**Usage Pattern Note**: This mutation is awaited:
-```typescript
-const result = await shareRoster({ roster: JSON.stringify(roster) });
-```
-
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const shareRoster = useMutation({ mutationFn: useConvexMutation(api.roster.share) })`
-- Update invocation to use `mutateAsync`: 
-  ```typescript
-  const result = await shareRoster.mutateAsync({ roster: JSON.stringify(roster) });
-  ```
+**Progress:** ✅ Complete
 
 ---
 
-### 4. **src/0-routes/_authenticated/roster-snapshots.tsx**
-**Status**: ✅ REFACTORED  
-**Mutations Found**: 1
-- `save` → `api.rosterSnapshots.save`
+### Step 3: Refactor Multi-Mutation Pages
 
-**Current Pattern**:
-```typescript
-const save = useMutation(api.rosterSnapshots.save);
-```
+**Goal:** Update pages with multiple mutations (teams, goals, LRE events)
 
-**Usage Pattern**: Awaited in async handlers
-```typescript
-await save({ data: JSON.stringify(newState) });
-```
+**Reasoning:** These files have more complex interaction patterns; completing them last ensures we've validated the pattern on simpler cases first.
 
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const save = useMutation({ mutationFn: useConvexMutation(api.rosterSnapshots.save) })`
-- Update all invocations: `await save.mutateAsync({ data: ... })`
+**Substeps:**
+1. Update `src/0-routes/_authenticated/teams.tsx` - convert 3 mutations
+2. Update `src/0-routes/_authenticated/goals.tsx` - convert 4 mutations
+3. Update `src/0-routes/_authenticated/lre.tsx` - convert 4 mutations
 
----
+**Success Indicator:**
+- [x] All mutations in each file follow the new pattern
+- [x] Multiple mutation interactions work correctly (add/update/remove)
+- [x] Dialog open/close flows unaffected
+- [x] State access via mutation object works for all cases
+- [x] TypeScript compilation succeeds
+- [x] `bun run build-ci` passes
 
-### 5. **src/0-routes/_authenticated/gw-offense.tsx**
-**Status**: ✅ REFACTORED  
-**Mutations Found**: 1
-- `saveGw` → `api.gwOffense.save`
+**Commit:** `git commit -m 'refactor: migrate multi-mutation pages to @convex-dev/react-query'`
 
-**Current Pattern**:
-```typescript
-const saveGw = useMutation(api.gwOffense.save);
-```
-
-**Usage Pattern**: Awaited in async handlers
-```typescript
-await saveGw({ bfLevel, deployments, notes });
-```
-
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const saveGw = useMutation({ mutationFn: useConvexMutation(api.gwOffense.save) })`
-- Update all invocations: `await saveGw.mutateAsync({ ... })`
+**Progress:** ✅ Complete
 
 ---
 
-### 6. **src/0-routes/_authenticated/teams.tsx**
-**Status**: ✅ REFACTORED
-**Mutations Found**: 3
-- `addTeam` → `api.teams.add`
-- `updateTeam` → `api.teams.update`
-- `removeTeam` → `api.teams.remove`
+## Notes & Decisions
 
-**Current Pattern**:
-```typescript
-const addTeam = useMutation(api.teams.add);
-const updateTeam = useMutation(api.teams.update);
-const removeTeam = useMutation(api.teams.remove);
-```
+- **Pattern Consistency**: All mutations now use the same wrapper pattern: `useMutation({ mutationFn: useConvexMutation(api.resource.action) })`
+- **State Access**: Never destructure mutation state. Always access via the mutation variable (e.g., `mutation.isPending`, `mutation.isError`, `mutation.error`)
+- **Async Handling**: Use `.mutateAsync()` when awaiting mutation results, `.mutate()` for fire-and-forget patterns
+- **No Destructuring**: Even though `useMutation` returns an object with multiple properties, don't destructure in component scopes to keep mutation identity clear
+- **Convex Syncing**: No manual query invalidation needed since Convex syncs via WebSockets; focus on side effects in callbacks
+- **18 Total Mutations Refactored**: Across 11 files covering authentication, goals, teams, LRE events, imports, and campaign progress
 
-**Usage Pattern**: Awaited in async handlers
-```typescript
-await addTeam({ name, characterIds, ... });
-```
+## References
 
-**Required Changes**:
-- Change imports
-- Wrap each mutation with TanStack pattern
-- Update all invocations: `await addTeam.mutateAsync({ ... })`, etc.
+- [Convex + TanStack Query Integration](https://docs.convex.dev/client/tanstack/tanstack-query/)
+- [TanStack Query v5 Mutations Guide](https://tanstack.com/query/v5/docs/framework/react/guides/mutations)
+- [useMutation API Reference](https://tanstack.com/query/v5/docs/reference/useMutation)
+- [@convex-dev/react-query Documentation](https://www.npmjs.com/package/@convex-dev/react-query)
 
 ---
 
-### 7. **src/0-routes/_authenticated/settings.tsx**
-**Status**: ✅ REFACTORED
-**Mutations Found**: 1
-- `saveMutation` → `api.tacticus.credentials.save`
-
-**Current Pattern**:
-```typescript
-const saveMutation = useMutation(api.tacticus.credentials.save);
-```
-
-**Usage Pattern**: Awaited with error handling
-```typescript
-await saveMutation({ tacticusUserId, playerApiKey, guildApiKey });
-```
-
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const saveMutation = useMutation({ mutationFn: useConvexMutation(api.tacticus.credentials.save) })`
-- Update invocation: `await saveMutation.mutateAsync({ ... })`
-
----
-
-### 8. **src/1-components/CampaignProgressSync.tsx**
-**Status**: ✅ REFACTORED
-**Mutations Found**: 1
-- `saveMutation` → `api.campaignProgress.save`
-
-**Current Pattern**:
-```typescript
-const saveMutation = useMutation(api.campaignProgress.save);
-```
-
-**Usage Pattern**: Awaited in async IIFE
-```typescript
-void (async () => {
-  try {
-    await saveMutation({ data: serialized });
-  } catch { /* ... */ }
-})();
-```
-
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const saveMutation = useMutation({ mutationFn: useConvexMutation(api.campaignProgress.save) })`
-- Update invocation: `await saveMutation.mutateAsync({ data: serialized })`
-- Note: This is a headless component with automatic syncing; ensure the mutation dependency in useEffect is correct
-
----
-
-### 9. **src/1-components/ImportButton.tsx**
-**Status**: ✅ REFACTORED
-**Mutations Found**: 1
-- `importAll` → `api.import.importAll`
-
-**Current Pattern**:
-```typescript
-const importAll = useMutation(api.import.importAll);
-```
-
-**Usage Pattern**: Awaited with error handling
-```typescript
-await importAll({ goals, campaignProgress, ... });
-```
-
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const importAll = useMutation({ mutationFn: useConvexMutation(api.import.importAll) })`
-- Update invocation: `await importAll.mutateAsync({ ... })`
-
----
-
-### 10. **src/1-components/goals/AddGoalDialog.tsx**
-**Status**: ✅ REFACTORED
-**Mutations Found**: 1
-- `addGoal` → `api.goals.add`
-
-**Current Pattern**:
-```typescript
-const addGoal = useMutation(api.goals.add);
-```
-
-**Usage Pattern**: Awaited in form submission
-```typescript
-await addGoal({ goalId, type, unitId, ... });
-```
-
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const addGoal = useMutation({ mutationFn: useConvexMutation(api.goals.add) })`
-- Update invocation: `await addGoal.mutateAsync({ ... })`
-
----
-
-### 11. **src/1-components/goals/EditGoalDialog.tsx**
-**Status**: ✅ REFACTORED
-**Mutations Found**: 1
-- `updateGoal` → `api.goals.update`
-
-**Current Pattern**:
-```typescript
-const updateGoal = useMutation(api.goals.update);
-```
-
-**Usage Pattern**: Awaited in form submission
-```typescript
-await updateGoal({ goalId, ... });
-```
-
-**Required Changes**:
-- Change imports
-- Wrap mutation: `const updateGoal = useMutation({ mutationFn: useConvexMutation(api.goals.update) })`
-- Update invocation: `await updateGoal.mutateAsync({ ... })`
-
----
-
-## Summary
-
-**Total Files**: 11  
-**Total Mutations Refactored**: 18  
-**Status**: ✅ ALL FILES REFACTORED
-**Pattern Change**: Direct `useMutation(api.fn)` → `useMutation({ mutationFn: useConvexMutation(api.fn) })`  
-
-### Key Points:
-1. All files need import changes (remove `convex/react`, add `@tanstack/react-query` and `@convex-dev/react-query`)
-2. Do NOT destructure the return value from `useMutation`. Access properties via the variable directly (e.g., `mutation.mutate()`, `mutation.mutateAsync()`, `mutation.isPending`)
-3. All mutation invocations need updating:
-   - `void mutation(args)` → `mutation.mutate(args)` (for fire-and-forget)
-   - `await mutation(args)` → `await mutation.mutateAsync(args)` (for async/await)
-4. State access pattern:
-   - `mutation.isPending` (use the full mutation object, don't destructure)
-   - Some files may access loading states that need verification
-
-### Testing Strategy:
-- Verify mutations trigger correctly after each refactor
-- Check that pending/loading states work as expected
-- Ensure error handling still functions
-- Test that query invalidation still works if any mutations revalidate queries
+**Status Summary:** This refactoring has been completed. All 18 mutations across 11 files have been migrated to the TanStack Query v5 pattern with `@convex-dev/react-query`. The codebase now uses a consistent, idiomatic pattern for all Convex mutations.

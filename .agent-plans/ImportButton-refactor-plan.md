@@ -1,465 +1,198 @@
-# ImportButton Refactoring Plan: Tanstack Query Integration
+# Agent Plan: Refactor ImportButton to Use TanStack Query State Management
 
-## Overview
-This document outlines a step-by-step refactoring of `ImportButton.tsx` to use TanStack Query (React Query v5) for managing the file import operation. The plan is organized to complete the feature in stages, with the component remaining in a functional state after each step.
+**Created:** 2026-03-05  
+**Status:** Not Started  
+**Last Updated:** 2026-03-05
 
-## Current State Analysis
+## High-Level Goal
 
-### Current Implementation Issues
-1. **Manual State Management**: Uses `useState(false)` for the `importing` loading state
-2. **Redundant Mutation**: Already uses `useMutation` from TanStack Query, but manually manages loading state separately
-3. **Inconsistent Pattern**: Uses TanStack Query for the API call but doesn't leverage its built-in state management
-4. **No Error State Management**: Errors are handled with try/catch and toast notifications, but no explicit error state
-5. **File Input Management**: Manual ref management for file input reset
+Eliminate manual loading state management in `ImportButton.tsx` by leveraging TanStack Query's built-in `isPending` state, centralizing error handling through mutation callbacks, and improving user feedback during file import operations.
 
-### Current Data Flow
-```
-User clicks Import button
-  ↓
-Dialog opens
-  ↓
-User selects file
-  ↓
-handleImport() called
-  ↓
-setImporting(true)
-  ↓
-Parse file
-  ↓
-Call Convex mutation via mutateAsync
-  ↓
-Completion/Error
-  ↓
-setImporting(false)
-  ↓
-Show toast (success or error)
-  ↓
-Reset file input
-```
+## Success Criteria
 
-## Refactoring Strategy
+- [ ] Remove `useState(false)` for manual `importing` state
+- [ ] Use `importAll.isPending` for button disabled state
+- [ ] Use `importAll.isPending` for button label and aria-label
+- [ ] Centralize error handling via mutation callbacks (`onSuccess`, `onError`)
+- [ ] Display error states in the dialog when applicable
+- [ ] File input resets correctly after import attempt
+- [ ] All file import operations complete successfully with toasts
+- [ ] TypeScript compilation passes
+- [ ] No lint errors
+- [ ] `bun run build-ci` passes
+- [ ] Changes committed to git
 
-This component is simpler than `ShareRosterDialog` because it already uses `useMutation`. The refactoring focuses on:
-1. Leveraging the existing mutation's `isPending` state instead of manual `importing` state
-2. Using mutation callbacks (`onSuccess`, `onError`) for side effects
-3. Removing the manual `importing` state entirely
+## Implementation Plan
+
+### Step 1: Remove Manual Loading State Variable
+
+**Goal:** Delete the `importing` state variable and rely on mutation state instead
+
+**Reasoning:** TanStack Query's `useMutation` hook provides `isPending` state automatically, eliminating the need for manual synchronization.
+
+**Substeps:**
+1. [ ] Locate `const [importing, setImporting] = useState(false);`
+2. [ ] Delete this line
+3. [ ] Verify no other component logic depends on this variable
+4. [ ] Search for all references to `importing` variable
+
+**Success Indicator:**
+- [ ] Variable is removed
+- [ ] No remaining references to `importing` in component code
+- [ ] Build succeeds with no errors
+
+**Commit:** Part of Step 2
+
+**Progress:** ⬜ Not started
 
 ---
 
-## STEP 1: Remove Manual Loading State and Use Mutation State
+### Step 2: Update Button Disabled & UI States
 
-### 1.1: Understand Current Mutation
-The component already has a `useMutation` that wraps the Convex mutation:
-```tsx
-const importAll = useMutation({
-  mutationFn: useConvexMutation(api.import.importAll),
-});
-```
+**Goal:** Replace all `importing` references with `importAll.isPending`
 
-This mutation already provides `isPending` state automatically.
+**Reasoning:** This exposes the mutation's built-in loading state to the UI without manual state management.
 
-### 1.2: Remove Manual State Variable
-- [ ] Delete this line:
-  ```tsx
-  const [importing, setImporting] = useState(false);
-  ```
+**Substeps:**
+1. [ ] Update button's `disabled` prop:
+   - From: `disabled={importing}`
+   - To: `disabled={importAll.isPending}`
+2. [ ] Update button's `title` attribute:
+   - From: `title={importing ? "Importing..." : "Import from Tacticus Planner"}`
+   - To: `title={importAll.isPending ? "Importing..." : "Import from Tacticus Planner"}`
+3. [ ] Update button's `aria-label`:
+   - From: `aria-label={importing ? "Importing..." : "Import from Tacticus Planner"}`
+   - To: `aria-label={importAll.isPending ? "Importing..." : "Import from Tacticus Planner"}`
+4. [ ] Test button is disabled while import is in progress
+5. [ ] Test button is enabled after import completes
 
-### 1.3: Update Button Disabled State
-Replace references to `importing` with `importAll.isPending`:
+**Success Indicator:**
+- [ ] Button correctly reflects pending state
+- [ ] Button disables during import
+- [ ] Button enables after completion
+- [ ] Accessibility labels are accurate
+- [ ] No TypeScript errors
 
-**Before**:
-```tsx
-<AlertDialogTrigger asChild>
-  <Button
-    variant="ghost"
-    size="icon"
-    disabled={importing}
-    title={importing ? "Importing..." : "Import from Tacticus Planner"}
-    aria-label={
-      importing ? "Importing..." : "Import from Tacticus Planner"
-    }
-  >
-    <Upload className="size-4" />
-  </Button>
-</AlertDialogTrigger>
-```
+**Commit:** `git commit -m 'refactor: use mutation.isPending for ImportButton loading state'`
 
-**After**:
-```tsx
-<AlertDialogTrigger asChild>
-  <Button
-    variant="ghost"
-    size="icon"
-    disabled={importAll.isPending}
-    title={importAll.isPending ? "Importing..." : "Import from Tacticus Planner"}
-    aria-label={
-      importAll.isPending ? "Importing..." : "Import from Tacticus Planner"
-    }
-  >
-    <Upload className="size-4" />
-  </Button>
-</AlertDialogTrigger>
-```
+**Progress:** ⬜ Not started
 
-### 1.4: Simplify Event Handler
-The `handleImport` function currently manages both the parsing logic and the loading state. Simplify it by removing the manual state management:
+---
 
-**Before**:
-```tsx
-const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
-  const file = e.target.files?.[0];
-  if (!file) return;
+### Step 3: Simplify Event Handler
 
-  setImporting(true);
-  try {
-    const text = await file.text();
-    // ... parsing logic
-    
-    await importAll.mutateAsync({
-      // ... mutation data
-    });
-    
-    // ... toast notifications
-  } catch {
-    toast.error(
-      "Failed to parse file. Make sure it's a valid Tacticus Planner export.",
-    );
-  } finally {
-    setImporting(false);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  }
-};
-```
+**Goal:** Remove `setImporting` calls from the `handleImport` function
 
-**After**:
-```tsx
-const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
-  const file = e.target.files?.[0];
-  if (!file) return;
+**Reasoning:** Mutation state is automatic; manual state updates are redundant.
 
-  try {
-    const text = await file.text();
-    // ... parsing logic remains the same
-    
-    await importAll.mutateAsync({
-      // ... mutation data remains the same
-    });
-    
-    // ... toast notifications remain the same
-  } catch {
-    toast.error(
-      "Failed to parse file. Make sure it's a valid Tacticus Planner export.",
-    );
-  } finally {
-    // Reset file input so the same file can be re-selected
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  }
-};
-```
+**Substeps:**
+1. [ ] Open `handleImport` function
+2. [ ] Remove `setImporting(true)` at the start
+3. [ ] Remove `setImporting(false)` from finally block
+4. [ ] Keep all file parsing logic unchanged
+5. [ ] Keep all toast notifications unchanged
+6. [ ] Keep `fileInputRef.current.value = ""` reset unchanged
+7. [ ] Test import still works without manual state management
 
-**Key Changes**:
-- Remove `setImporting(true)` at the start
-- Remove `setImporting(false)` from finally block
-- The mutation's `isPending` state handles loading automatically
-
-### 1.5: Update Imports (Optional Cleanup)
-- [ ] If `useState` is no longer used, you can remove it from imports:
-  ```tsx
-  // Remove: import { useState } from "react";
-  // Keep other imports as-is
-  ```
-  
-  Actually, keep this import for now since you may use state elsewhere or for consistency.
-
-### 1.6: Verification
-After completing Step 1:
-- [ ] Component no longer has `importing` state variable
-- [ ] Button disabled state uses `importAll.isPending`
-- [ ] Button title and aria-label use `importAll.isPending`
-- [ ] Clicking import button disables it during the operation
-- [ ] File can be imported successfully
-- [ ] Error toast still shows on failure
+**Success Indicator:**
+- [ ] Function has no `setImporting` calls
+- [ ] File parsing logic untouched
+- [ ] Toast notifications still work
 - [ ] File input resets after import attempt
-- [ ] No console errors or warnings
+- [ ] No TypeScript errors
+- [ ] Import operations complete successfully
+
+**Commit:** Part of Step 2 or separate commit if more substantial changes
+
+**Progress:** ⬜ Not started
 
 ---
 
-## STEP 2: Add Error State Display (Optional Enhancement)
+### Step 4: Add Error State Display (Optional Enhancement)
 
-### 2.1: Display Mutation Errors
-Currently, errors are only shown via toast notifications. Add visual feedback in the dialog:
+**Goal:** Display mutation errors in the dialog alongside toast notifications
 
-Add this after the file selection trigger, inside the `AlertDialogContent`:
-```tsx
-{importAll.isError && (
-  <div className="text-sm text-red-500 mb-4">
-    Failed to import: {importAll.error?.message || "Unknown error"}
-  </div>
-)}
-```
+**Reasoning:** Visual error feedback in the dialog improves UX and gives users confidence they can retry.
 
-### 2.2: Reset Error State on Retry
-Add a callback to reset the error state when the user tries again:
+**Substeps:**
+1. [ ] Add error display UI after file selection trigger:
+   ```tsx
+   {importAll.isError && (
+     <div className="text-sm text-red-500 mb-4">
+       Failed to import: {importAll.error?.message || "Unknown error"}
+     </div>
+   )}
+   ```
+2. [ ] Add `importAll.reset()` call at start of `handleImport` to clear previous errors
+3. [ ] Test error message displays when import fails
+4. [ ] Test error clears when user retries
+5. [ ] Verify error display doesn't block file selection flow
 
-```tsx
-const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
-  // Clear previous errors
-  importAll.reset();
-  
-  const file = e.target.files?.[0];
-  if (!file) return;
-
-  try {
-    // ... rest of the function
-  } catch {
-    toast.error(
-      "Failed to parse file. Make sure it's a valid Tacticus Planner export.",
-    );
-  } finally {
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  }
-};
-```
-
-### 2.3: Verification
-After completing Step 2:
-- [ ] Error messages display in the dialog
-- [ ] Error state clears when retrying import
+**Success Indicator:**
+- [ ] Error messages display in dialog when applicable
+- [ ] Error state clears on retry
 - [ ] All previous functionality still works
 - [ ] Error messages are user-friendly
 
----
+**Commit:** `git commit -m 'refactor: add error state display to ImportButton'`
 
-## Final Component Structure
-
-After all steps, your `ImportButton.tsx` should look like:
-
-```tsx
-import { useConvexMutation } from "@convex-dev/react-query";
-import { useMutation } from "@tanstack/react-query";
-import { Upload } from "lucide-react";
-import { useRef } from "react";
-import { toast } from "sonner";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/1-components/ui/alert-dialog.tsx";
-import { Button } from "@/1-components/ui/button.tsx";
-import { useCampaignProgressStore } from "@/3-hooks/useCampaignProgressStore.ts";
-import { parsePlannerExport } from "@/4-lib/general/import-planner.ts";
-// biome-ignore lint/correctness/useImportExtensions: Convex generated .js file
-import { api } from "~/_generated/api";
-
-export function ImportButton() {
-  const importAll = useMutation({
-    mutationFn: useConvexMutation(api.import.importAll),
-  });
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    importAll.reset();
-    
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    try {
-      const text = await file.text();
-      const result = parsePlannerExport(text);
-
-      const hasAnyData =
-        result.goals.length > 0 ||
-        result.campaignProgress !== null ||
-        result.rosterSnapshots !== null ||
-        (result.lreProgress !== null && result.lreProgress.length > 0) ||
-        (result.lreTeams !== null && result.lreTeams.length > 0);
-
-      if (!hasAnyData) {
-        toast.error("No data was imported.", {
-          description:
-            result.skipped.length > 0
-              ? `Skipped: ${result.skipped.join(", ")}`
-              : undefined,
-        });
-        return;
-      }
-
-      await importAll.mutateAsync({
-        goals: result.goals.length > 0 ? result.goals : undefined,
-        campaignProgress: result.campaignProgress
-          ? JSON.stringify(result.campaignProgress)
-          : undefined,
-        rosterSnapshots: result.rosterSnapshots ?? undefined,
-        lreProgress:
-          result.lreProgress && result.lreProgress.length > 0
-            ? result.lreProgress
-            : undefined,
-        lreTeams:
-          result.lreTeams && result.lreTeams.length > 0
-            ? result.lreTeams
-            : undefined,
-      });
-
-      if (result.campaignProgress) {
-        useCampaignProgressStore.setState({
-          progress: result.campaignProgress,
-        });
-      }
-
-      const summary = [
-        result.goals.length > 0 && `${result.goals.length} goals`,
-        result.campaignProgress &&
-          `${Object.keys(result.campaignProgress).length} campaigns`,
-        result.rosterSnapshots && "1 roster snapshot",
-        result.lreProgress &&
-          result.lreProgress.length > 0 &&
-          `${result.lreProgress.length} LRE events`,
-        result.lreTeams &&
-          result.lreTeams.length > 0 &&
-          `${result.lreTeams.length} LRE teams`,
-      ]
-        .filter(Boolean)
-        .join(", ");
-
-      toast.success(`Imported: ${summary}`, {
-        description:
-          result.skipped.length > 0
-            ? `Skipped: ${result.skipped.join(", ")}`
-            : undefined,
-      });
-    } catch {
-      toast.error(
-        "Failed to parse file. Make sure it's a valid Tacticus Planner export.",
-      );
-    } finally {
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
-    }
-  };
-
-  return (
-    <>
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept=".json"
-        onChange={handleImport}
-        className="hidden"
-      />
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            disabled={importAll.isPending}
-            title={importAll.isPending ? "Importing..." : "Import from Tacticus Planner"}
-            aria-label={
-              importAll.isPending ? "Importing..." : "Import from Tacticus Planner"
-            }
-          >
-            <Upload className="size-4" />
-          </Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Import from Tacticus Planner</AlertDialogTitle>
-            <AlertDialogDescription>
-              Import your data from a Tacticus Planner export file (.json). This
-              will import goals, campaign progress, roster snapshots, LRE
-              progress, and LRE teams. Existing data in imported sections will
-              be replaced.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-
-          {importAll.isError && (
-            <div className="text-sm text-red-500">
-              Failed to import: {importAll.error?.message || "Unknown error"}
-            </div>
-          )}
-
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={() => fileInputRef.current?.click()}>
-              Choose File
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </>
-  );
-}
-```
+**Progress:** ⬜ Not started
 
 ---
 
-## Summary of Changes
+### Step 5: Testing & Validation
 
-| Aspect | Before | After |
-|--------|--------|-------|
-| **Loading State** | Manual `useState(false)` | Uses `importAll.isPending` |
-| **Error State** | Toast only | Toast + optional dialog display |
-| **State Variables** | 1 (`importing`) | 0 (all from mutation) |
-| **Code Clarity** | Manual state synchronization | Automatic via mutation |
-| **Type Safety** | Basic | Full with mutation types |
+**Goal:** Verify all changes work correctly and component remains fully functional
 
----
+**Reasoning:** Comprehensive testing ensures the refactoring doesn't break existing behavior.
 
-## Testing Checklist
+**Substeps:**
+1. [ ] Run `bun run dev` and navigate to the import feature
+2. [ ] Test successful import:
+   - [ ] Select a valid Tacticus Planner export file
+   - [ ] Verify button disables during import
+   - [ ] Verify success toast appears
+   - [ ] Verify file input resets
+   - [ ] Verify data is imported correctly
+3. [ ] Test error scenarios:
+   - [ ] Select an invalid file
+   - [ ] Verify error toast appears
+   - [ ] Verify error message displays in dialog (if implemented)
+   - [ ] Verify file input resets
+4. [ ] Test accessibility:
+   - [ ] Verify aria-label updates during import
+   - [ ] Test with screen reader if available
+5. [ ] Run `bun run build-ci` and verify no TypeScript or lint errors
 
-### After Step 1:
-- [ ] Import button renders without errors
-- [ ] Button is disabled while import is in progress
-- [ ] Button enables after import completes
-- [ ] File can be successfully imported
-- [ ] Error toast shows on parse failure
-- [ ] File input resets after import attempt
+**Success Indicator:**
+- [ ] All import operations complete successfully
+- [ ] Button state reflects loading correctly
+- [ ] Error handling works as expected
+- [ ] File input behaves correctly
 - [ ] No console errors or warnings
+- [ ] Build passes
+- [ ] No TypeScript or lint errors
 
-### After Step 2:
-- [ ] Error messages display in the dialog
-- [ ] Error state clears when retrying
-- [ ] All previous functionality still works
-- [ ] Error display is user-friendly
+**Commit:** Part of Step 2 or separate: `git commit -m 'test: verify ImportButton refactoring'`
 
----
-
-## Benefits of This Refactoring
-
-1. **Reduced Boilerplate**: Eliminates manual loading state management
-2. **Built-in Error Handling**: Automatic error state available via mutation
-3. **Consistency**: Uses TanStack Query patterns consistently
-4. **Better UX**: Explicit error display in addition to toast
-5. **Type Safety**: Better TypeScript support with mutation types
-6. **Maintainability**: Less state to manage and synchronize
-7. **Testability**: Easier to test mutation behavior
+**Progress:** ⬜ Not started
 
 ---
 
-## Migration Complexity: **Very Low** ✅
+## Notes & Decisions
 
-- Minimal changes required (mainly removing one state variable)
-- Component already uses TanStack Query correctly
-- No breaking changes to component API
-- Can be completed in a single, simple step
-- Easy to rollback if needed
-
----
+- **No destructuring**: Access mutation state via the mutation object directly (e.g., `importAll.isPending`, `importAll.isError`)
+- **File parsing logic unchanged**: The import logic itself (parsing, validation, toasts) doesn't change—only the loading state management
+- **Error handling**: Existing toast notifications are preserved; optional dialog error display is an enhancement
+- **File input reset**: Critical for allowing the same file to be selected again after import attempt
 
 ## References
 
 - [TanStack Query v5 Mutations Guide](https://tanstack.com/query/v5/docs/framework/react/guides/mutations)
 - [useMutation API Reference](https://tanstack.com/query/v5/docs/reference/useMutation)
-- [Mutation State Management](https://tanstack.com/query/v5/docs/framework/react/guides/mutations#mutation-state)
+- [Mutation State Management](https://tanstack.com/query/v5/docs/framework/react/guides/mutations#mutation-states)
+- [Convex Import API Documentation](https://docs.convex.dev/)
+
+---
+
+**Status Summary:** Ready to start. This is a straightforward refactoring—remove one state variable and replace it with mutation state. Start with Step 1 (remove variable), then Step 2 (update UI), followed by optional enhancements in Step 4. Testing (Step 5) should be done after core changes are complete.
