@@ -35,6 +35,7 @@ export interface EnrichedRosterUnit {
 	abilities: [number, number];
 	level: number;
 	shards: number;
+	mythicShards: number;
 	power: number;
 	/** Equipment slot type prefixes for this character (undefined for MoWs) */
 	equipmentSlots: readonly [string, string, string] | undefined;
@@ -46,6 +47,10 @@ export interface EnrichedRosterUnit {
 export interface EnrichRosterOptions {
 	/** Include unowned characters as locked entries (default: false) */
 	includeUnowned?: boolean;
+	/** Shard counts from inventory, keyed by character ID */
+	inventoryShards?: Record<string, number>;
+	/** Mythic shard counts from inventory, keyed by character ID */
+	inventoryMythicShards?: Record<string, number>;
 }
 
 export function enrichRoster(
@@ -74,7 +79,8 @@ export function enrichRoster(
 					stars: RS.None,
 					abilities: [0, 0],
 					level: 0,
-					shards: 0,
+					shards: options?.inventoryShards?.[char.id] ?? 0,
+					mythicShards: options?.inventoryMythicShards?.[char.id] ?? 0,
 					power: 0,
 					equipmentSlots: char.equipmentSlots,
 					equipment: [],
@@ -98,7 +104,9 @@ export function enrichRoster(
 			stars: ru.stars,
 			abilities: ru.abilities,
 			level: ru.level,
-			shards: ru.shards,
+			shards: options?.inventoryShards?.[char.id] ?? ru.shards,
+			mythicShards:
+				options?.inventoryMythicShards?.[char.id] ?? ru.mythicShards,
 			power: calculateCharacterPower(
 				ru.rank,
 				ru.rarity,
@@ -131,7 +139,8 @@ export function enrichRoster(
 			stars: ru.stars,
 			abilities: ru.abilities,
 			level: ru.level,
-			shards: ru.shards,
+			shards: options?.inventoryShards?.[mow.id] ?? ru.shards,
+			mythicShards: options?.inventoryMythicShards?.[mow.id] ?? ru.mythicShards,
 			power: calculateMowPower(
 				ru.rarity,
 				ru.stars,

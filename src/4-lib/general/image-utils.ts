@@ -30,6 +30,8 @@ import LegendaryFrame from "@/5-assets/images/tacticus/rarity_frames/legendary.p
 import MythicFrame from "@/5-assets/images/tacticus/rarity_frames/mythic.png";
 import RareFrame from "@/5-assets/images/tacticus/rarity_frames/rare.png";
 import UncommonFrame from "@/5-assets/images/tacticus/rarity_frames/uncommon.png";
+import MythicShard from "@/5-assets/images/tacticus/shards/mythic.png";
+import StandardShard from "@/5-assets/images/tacticus/shards/standard.png";
 import { Rank } from "./constants.ts";
 
 export const FRAME_URLS = {
@@ -72,6 +74,11 @@ export const BOOK_URLS = {
 	Legendary: LegendaryBook,
 	Mythic: MythicBook,
 };
+
+export const SHARD_URLS = {
+	standard: StandardShard,
+	mythic: MythicShard,
+} as const;
 
 export const RARITY_ICON_URLS = {
 	Common: CommonIcon,

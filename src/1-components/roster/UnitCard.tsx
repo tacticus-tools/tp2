@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RankIcon } from "@/1-components/general/RankIcon.tsx";
 import { StarsIcon } from "@/1-components/general/StarsIcon.tsx";
-import { FRAME_URLS } from "@/4-lib/general/image-utils.ts";
+import { FRAME_URLS, SHARD_URLS } from "@/4-lib/general/image-utils.ts";
 import type { EnrichedRosterUnit } from "@/4-lib/general/roster-display.ts";
 import { cn } from "@/4-lib/utils.ts";
 import {
@@ -50,6 +50,11 @@ function buildEquipmentSlots(
 		);
 }
 
+function formatShards(n: number): string {
+	if (n >= 1000) return `${Math.floor(n / 1000)}k+`;
+	return String(n);
+}
+
 interface UnitCardProps {
 	unit: EnrichedRosterUnit;
 }
@@ -61,63 +66,97 @@ export function UnitCard({ unit }: UnitCardProps) {
 	const equipmentSlots = buildEquipmentSlots(unit);
 
 	return (
-		<div
-			className={cn(
-				"flex h-full flex-col items-center gap-1 rounded-lg border border-border/50 bg-card p-2 text-center md:gap-2 md:p-3",
-				unit.isLocked && "grayscale",
-			)}
-		>
+		<div className="flex h-full flex-col items-center gap-1 rounded-lg border border-border/50 bg-card p-2 text-center md:gap-2 md:p-3">
 			{/* Name — on top so bottom rows align across cards */}
 			<p className="w-full truncate text-xs/tight font-medium md:text-base/tight">
 				{unit.name}
 			</p>
 
-			{/* Portrait with stars overlay, rarity frame, and rank badge */}
-			{/* Mobile: 64×84, Desktop (md+): 96×126 */}
-			<div className="relative size-[64px] h-[84px] md:mt-1 md:size-[96px] md:h-[126px]">
-				{unit.portrait && !imgFailed ? (
-					// biome-ignore lint/a11y/noNoninteractiveElementInteractions: fallback handler, not interactive
-					<img
-						src={unit.portrait}
-						alt={unit.name}
-						width={60}
-						height={80}
-						loading="lazy"
-						className="absolute top-[2px] left-[2px] size-[60px] h-[80px] object-cover md:size-[92px] md:h-[122px]"
-						onError={() => setImgFailed(true)}
-					/>
-				) : (
-					<div className="absolute top-[2px] left-[2px] flex size-[60px] h-[80px] items-center justify-center bg-muted text-lg font-semibold text-muted-foreground md:size-[92px] md:h-[122px] md:text-2xl">
-						{(unit.name[0] ?? "?").toUpperCase()}
-					</div>
-				)}
-				{frameUrl && (
-					<img
-						src={frameUrl}
-						alt=""
-						width={64}
-						height={84}
-						className="pointer-events-none absolute inset-0 z-1 size-full"
-					/>
-				)}
-				{/* Stars centered on top edge of frame */}
-				{!unit.isLocked && (
-					<div className="absolute inset-x-0 -top-[8px] z-3 flex justify-center md:-top-[12px]">
-						<StarsIcon stars={unit.stars} size={14} className="md:hidden" />
-						<StarsIcon
-							stars={unit.stars}
-							size={20}
-							className="hidden md:flex"
+			{/* Portrait + optional shard column */}
+			<div className="flex items-center gap-1 md:gap-1.5">
+				{/* Portrait with stars overlay, rarity frame, and rank badge */}
+				{/* Mobile: 64×84, Desktop (md+): 96×126 */}
+				<div
+					className={cn(
+						"relative size-[64px] h-[84px] md:mt-1 md:size-[96px] md:h-[126px]",
+						unit.isLocked && "grayscale",
+					)}
+				>
+					{unit.portrait && !imgFailed ? (
+						// biome-ignore lint/a11y/noNoninteractiveElementInteractions: fallback handler, not interactive
+						<img
+							src={unit.portrait}
+							alt={unit.name}
+							width={60}
+							height={80}
+							loading="lazy"
+							className="absolute top-[2px] left-[2px] size-[60px] h-[80px] object-cover md:size-[92px] md:h-[122px]"
+							onError={() => setImgFailed(true)}
 						/>
+					) : (
+						<div className="absolute top-[2px] left-[2px] flex size-[60px] h-[80px] items-center justify-center bg-muted text-lg font-semibold text-muted-foreground md:size-[92px] md:h-[122px] md:text-2xl">
+							{(unit.name[0] ?? "?").toUpperCase()}
+						</div>
+					)}
+					{frameUrl && (
+						<img
+							src={frameUrl}
+							alt=""
+							width={64}
+							height={84}
+							className="pointer-events-none absolute inset-0 z-1 size-full"
+						/>
+					)}
+					{/* Stars centered on top edge of frame */}
+					{!unit.isLocked && (
+						<div className="absolute inset-x-0 -top-[8px] z-3 flex justify-center md:-top-[12px]">
+							<StarsIcon stars={unit.stars} size={14} className="md:hidden" />
+							<StarsIcon
+								stars={unit.stars}
+								size={20}
+								className="hidden md:flex"
+							/>
+						</div>
+					)}
+					{/* Rank badge — bottom-left */}
+					{!unit.isMow && !unit.isLocked && (
+						<div className="absolute -bottom-1 -left-1 z-2">
+							<RankIcon rank={unit.rank} size={22} className="md:hidden" />
+							<RankIcon
+								rank={unit.rank}
+								size={34}
+								className="hidden md:block"
+							/>
+						</div>
+					)}
+				</div>
+				{/* Shard icons with count inside */}
+				<div className="flex flex-col items-center gap-0.5 md:gap-1">
+					<div className="relative size-[26px] md:size-[34px]">
+						<img
+							src={SHARD_URLS.standard}
+							alt=""
+							width={26}
+							height={26}
+							className="absolute inset-0 size-full object-contain"
+						/>
+						<span className="absolute inset-0 flex items-center justify-center text-[8px] font-bold text-white tabular-nums drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] md:text-[11px]">
+							{formatShards(unit.shards)}
+						</span>
 					</div>
-				)}
-				{/* Rank badge — bottom-left */}
-				{!unit.isMow && !unit.isLocked && (
-					<div className="absolute -bottom-1 -left-1 z-2">
-						<RankIcon rank={unit.rank} size={22} className="md:hidden" />
-						<RankIcon rank={unit.rank} size={34} className="hidden md:block" />
+					<div className="relative size-[26px] md:size-[34px]">
+						<img
+							src={SHARD_URLS.mythic}
+							alt=""
+							width={26}
+							height={26}
+							className="absolute inset-0 size-full object-contain"
+						/>
+						<span className="absolute inset-0 flex items-center justify-center text-[8px] font-bold text-white tabular-nums drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] md:text-[11px]">
+							{formatShards(unit.mythicShards)}
+						</span>
 					</div>
-				)}
+				</div>
 			</div>
 
 			{/* Ability row: active level+icon | XP level | icon+passive level */}

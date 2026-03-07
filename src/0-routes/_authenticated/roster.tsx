@@ -25,6 +25,7 @@ function RosterPage() {
 	const shareRoster = useMutation(api.roster.share);
 
 	const roster = usePlayerDataStore((s) => s.roster);
+	const inventory = usePlayerDataStore((s) => s.inventory);
 
 	const [search, setSearch] = useState("");
 	const [allianceFilter, setAllianceFilter] = useState<Alliance | "all">("all");
@@ -33,8 +34,18 @@ function RosterPage() {
 
 	const gridRef = useRef<HTMLDivElement>(null);
 
+	const inventoryShards: Record<string, number> = {};
+	const inventoryMythicShards: Record<string, number> = {};
+	if (inventory) {
+		for (const s of inventory.shards) inventoryShards[s.id] = s.amount;
+		for (const s of inventory.mythicShards)
+			inventoryMythicShards[s.id] = s.amount;
+	}
+
 	const enriched = enrichRoster(roster, CHARACTERS, MOWS, {
 		includeUnowned: true,
+		inventoryShards,
+		inventoryMythicShards,
 	});
 
 	const filtered = filterRoster(enriched, search, allianceFilter);
