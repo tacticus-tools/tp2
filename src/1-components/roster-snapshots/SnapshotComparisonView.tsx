@@ -221,11 +221,11 @@ function UnitDiffCard({
 								width={44}
 								height={60}
 								loading="lazy"
-								className="absolute top-[2px] left-[2px] object-cover"
+								className="absolute top-0.5 left-0.5 object-cover"
 								onError={() => setImgFailed(true)}
 							/>
 						) : (
-							<div className="absolute top-[2px] left-[2px] flex h-[60px] w-11 items-center justify-center bg-muted text-sm font-semibold text-muted-foreground">
+							<div className="absolute top-0.5 left-0.5 flex h-15 w-11 items-center justify-center bg-muted text-sm font-semibold text-muted-foreground">
 								{(name[0] ?? "?").toUpperCase()}
 							</div>
 						)}

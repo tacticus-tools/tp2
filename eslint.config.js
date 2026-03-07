@@ -22,13 +22,6 @@ export default defineConfig([
   {
 		files: ["**/*.ts", "**/*.tsx"],
   },
-  {
-    settings: {
-      "better-tailwindcss": {
-        entryPoint: "src/styles.css"
-      }
-    },
-  },
   tsPlugin.configs.base, // dependency of convex plugin; we use Biome for our base linting so use minimal install
   ...convexPlugin.configs.recommended,
   ...queryPlugin.configs['flat/recommended'],
@@ -36,10 +29,18 @@ export default defineConfig([
   jestDomPlugin.configs["flat/recommended"],
   rtlPlugin.configs["flat/react"],
   {
+    files: ["**/*.ts", "**/*.tsx"],
     ...tailwindPlugin.configs.recommended,
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "src/styles.css",
+        rootFontSize: 16
+      }
+    },
     rules: {
       ...tailwindPlugin.configs.recommended.rules,
+      "better-tailwindcss/enforce-canonical-classes": "error",
       "better-tailwindcss/enforce-consistent-line-wrapping": "off",
     }
   }
-]);
+])

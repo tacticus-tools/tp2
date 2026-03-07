@@ -74,7 +74,7 @@ export function UnitCard({ unit }: UnitCardProps) {
 
 			{/* Portrait with stars overlay, rarity frame, and rank badge */}
 			{/* Mobile: 64×84, Desktop (md+): 96×126 */}
-			<div className="relative size-[64px] h-[84px] md:mt-1 md:size-[96px] md:h-[126px]">
+			<div className="relative size-16 h-21 md:mt-1 md:size-24 md:h-31.5">
 				{unit.portrait && !imgFailed ? (
 					// biome-ignore lint/a11y/noNoninteractiveElementInteractions: fallback handler, not interactive
 					<img
@@ -83,11 +83,11 @@ export function UnitCard({ unit }: UnitCardProps) {
 						width={60}
 						height={80}
 						loading="lazy"
-						className="absolute top-[2px] left-[2px] size-[60px] h-[80px] object-cover md:size-[92px] md:h-[122px]"
+						className="absolute top-0.5 left-0.5 size-15 h-20 object-cover md:size-23 md:h-30.5"
 						onError={() => setImgFailed(true)}
 					/>
 				) : (
-					<div className="absolute top-[2px] left-[2px] flex size-[60px] h-[80px] items-center justify-center bg-muted text-lg font-semibold text-muted-foreground md:size-[92px] md:h-[122px] md:text-2xl">
+					<div className="absolute top-0.5 left-0.5 flex size-15 h-20 items-center justify-center bg-muted text-lg font-semibold text-muted-foreground md:size-23 md:h-30.5 md:text-2xl">
 						{(unit.name[0] ?? "?").toUpperCase()}
 					</div>
 				)}
@@ -102,7 +102,7 @@ export function UnitCard({ unit }: UnitCardProps) {
 				)}
 				{/* Stars centered on top edge of frame */}
 				{!unit.isLocked && (
-					<div className="absolute inset-x-0 -top-[8px] z-3 flex justify-center md:-top-[12px]">
+					<div className="absolute inset-x-0 -top-2 z-3 flex justify-center md:-top-3">
 						<StarsIcon stars={unit.stars} size={14} className="md:hidden" />
 						<StarsIcon
 							stars={unit.stars}

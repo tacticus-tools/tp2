@@ -144,7 +144,7 @@ export function LreBattlesTab({
 							className="h-2 w-full cursor-pointer appearance-none rounded-full bg-muted/40 accent-emerald-500 [&::-webkit-slider-thumb]:size-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-emerald-500"
 						/>
 						{/* Tick marks */}
-						<div className="mt-1 flex justify-between px-[2px]">
+						<div className="mt-1 flex justify-between px-0.5">
 							{track.battlesPoints.map((_, i) => (
 								<button
 									key={`tick-${String(i)}`}

@@ -182,7 +182,7 @@ export function LreTeamsTab({
 															</div>
 														)}
 													</div>
-													<span className="max-w-[48px] truncate text-[9px] text-muted-foreground">
+													<span className="max-w-12 truncate text-[9px] text-muted-foreground">
 														{char?.name ?? charId}
 													</span>
 												</div>
