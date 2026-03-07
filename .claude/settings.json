@@ -1,0 +1,71 @@
+{
+	"$schema": "https://json.schemastore.org/claude-code-settings.json",
+	"permissions": {
+		"deny": [
+			"Bash(npm *)",
+			"Bash(pnpm *)",
+			"Bash(yarn *)",
+			"Edit(src/routeTree.gen.ts)",
+			"Edit(convex/_generated/**)",
+			"Edit(**/*.generated.*)",
+			"Write(src/routeTree.gen.ts)",
+			"Write(convex/_generated/**)",
+			"Write(**/*.generated.*)",
+			"Edit(.git)",
+			"Edit(.git/**)",
+			"Edit(.env.local)",
+			"Edit(.gitignore)",
+			"Edit(.wrangler/**)",
+			"Write(.git)",
+			"Write(.git/**)",
+			"Write(.env.local)",
+			"Write(.gitignore)",
+			"Write(.wrangler/**)",
+			"Bash(bun test)",
+			"Bash(bun test *)"
+		],
+		"allow": [
+			"Bash(bun fix)",
+			"Bash(bun run test)",
+			"Bash(bun run test *)",
+			"Bash(bun tsc)",
+			"Bash(bun build-ci)"
+		]
+	},
+	"hooks": {
+		"PostToolUse": [
+			{
+				"matcher": "Edit|Write",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "cd \"$CLAUDE_PROJECT_DIR\" && bun run format",
+						"async": true,
+						"timeout": 30,
+						"statusMessage": "Running format..."
+					}
+				]
+			}
+		],
+		"SessionStart": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '📋 **Plan Mode**: Check for `.agent-plans/[task-name].md` for your task. If found, read and continue. If not, create it using `.agent-plans/_template.md`. **IMPORTANT: Do not commit the plan without human review.** Once the plan is complete, request human review before executing `git commit`. See `.agent-plans/README.md` for details.'"
+					}
+				]
+			}
+		],
+		"Stop": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo \"💡 **Progress Check**: Have you updated '.agent-plans/[your-task-name].md' with your current progress? This helps ensure context rotations do not lose track of where you are, and other agents can pick up your work.\""
+					}
+				]
+			}
+		]
+	}
+}
