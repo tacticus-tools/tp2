@@ -24,7 +24,10 @@
 		"build-ci": "bun run fix && tsc --noEmit && bun run build",
 		"knip": "knip",
 		"normalize-images": "bun run scripts/normalize-images.ts",
-		"normalize-images:fix": "bun run scripts/normalize-images.ts --fix"
+		"normalize-images:fix": "bun run scripts/normalize-images.ts --fix",
+		"migrate": "bun run migrate:biome && bun run migrate:tailwind",
+		"migrate:biome": "bun run biome migrate --write",
+		"migrate:tailwind": "bunx @tailwindcss/upgrade"
 	},
 	"dependencies": {
 		"@auth/core": "0.41.1",
